@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            .box{ width: 50px; height: 50px; }
+            
+            /* CSS for ex-1 */
+            .ex-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-1 .child-div-1{ background: yellow; }
+            .ex-1 .child-div-2{ background: red; }
+            .ex-1 .child-div-3{ background: blue; }
+            .ex-1 .child-div-4{ background: gray; }
+            
+             /* CSS for ex-2 */
+            .ex-2 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; } 
+            .ex-2 .child-div-1{ background: yellow; }
+            .ex-2 .child-div-2{ background: red; }
+            .ex-2 .child-div-3{ background: blue; position: relative; top: 20px; left: 70px; }
+            .ex-2 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-3 */
+            .ex-3 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; } 
+            .ex-3 .child-div-1{ background: yellow; }
+            .ex-3 .child-div-2{ background: red; }
+            .ex-3 .child-div-3{ background: blue; position: absolute; top: 20px; right: 20px; }
+            .ex-3 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-4 */
+            .ex-4 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; position: relative; } 
+            .ex-4 .child-div-1{ background: yellow; }
+            .ex-4 .child-div-2{ background: red; }
+            .ex-4 .child-div-3{ background: blue; position: absolute; bottom: 20px; right: 20px; }
+            .ex-4 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-4-1 */
+            .ex-4-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; position: relative; }
+            .ex-4-1 .child-span-1{ background: yellow; }
+            .ex-4-1 .child-span-2{ background: red; }
+            .ex-4-1 .child-span-3{ background: blue; position: absolute; top: 10px; right: 10px; }
+            .ex-4-1 .child-span-4{ background: gray; }
+            
+            /* CSS for ex-4-2 */
+            .ex-4-2 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; height: 400px; position: relative; } 
+            .ex-4-2 .child-div-1{ background: yellow; position: absolute; top: 0px; left: 0px; width: 50%; height: 100%; }
+            .ex-4-2 .child-div-2{ background: red; position: absolute; top: 0px; right: 0px; width: 50%; height: 100%; }
+
+            /* CSS for ex-10 */
+            .ex-10 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-10 .child-div-1{ background: yellow; }
+            .ex-10 .child-div-2{ background: red; position: fixed; bottom: 50px; right: 50px;}
+            .ex-10 .child-div-3{ background: blue; }
+            .ex-10 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-10-1 */
+            .ex-10-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-10-1 .child-span-1{ background: yellow; }
+            .ex-10-1 .child-span-2{ background: red; position: fixed; bottom: 50px; right: 150px;}
+            .ex-10-1 .child-span-3{ background: blue; }
+            .ex-10-1 .child-span-4{ background: gray; }
+            
+             /* CSS for ex-5 */
+            .ex-5 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-5 .child-div-1{ background: yellow; }
+            .ex-5 .child-div-2{ background: red; float: left;}
+            .ex-5 .child-div-3{ background: blue; }
+            .ex-5 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-6 */
+            .ex-6 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-6 .child-div-1{ background: yellow; }
+            .ex-6 .child-div-2{ background: red; float: right;}
+            .ex-6 .child-div-3{ background: blue; }
+            .ex-6 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-6-1 */
+            .ex-6-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-6-1 .child-div-1{ background: yellow; }
+            .ex-6-1 .child-div-2{ background: red; float: right;}
+            .ex-6-1 .child-div-3{ background: blue; clear: right; }
+            .ex-6-1 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-7 */
+            .ex-7 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-7 .child-div-1{ background: yellow; float: left; }
+            .ex-7 .child-div-2{ background: red; float: left;}
+            .ex-7 .child-div-3{ background: blue; float: left; }
+            .ex-7 .child-div-4{ background: gray; float: left; }
+            
+            /* CSS for ex-8 */
+            .ex-8 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; overflow: auto; }
+            .ex-8 .child-div-1{ background: yellow; float: left; }
+            .ex-8 .child-div-2{ background: red; float: left;}
+            .ex-8 .child-div-3{ background: blue; float: left; }
+            .ex-8 .child-div-4{ background: gray; float: left; }
+            
+            /* CSS for ex-9 */
+            .ex-9 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-9 .child-div-1{ background: yellow; float: left; }
+            .ex-9 .child-div-2{ background: red; float: left;}
+            .ex-9 .child-div-3{ background: blue; float: left; }
+            .ex-9 .child-div-4{ background: gray; float: left; }
+            
+            
+            /* CSS for ex-11 */
+            .ex-11 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-11 .child-div-1{ background: yellow; }
+            .ex-11 .child-div-2{ background: red; float: right; position: relative; bottom: 50px; right: 50px;}
+            .ex-11 .child-div-3{ background: blue; }
+            .ex-11 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-12 */
+            .ex-12 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; position: relative;}
+            .ex-12 .child-div-1{ background: yellow; }
+            .ex-12 .child-div-2{ background: red; float: right; position: absolute; bottom: 50px; right: 50px;}
+            .ex-12 .child-div-3{ background: blue; }
+            .ex-12 .child-div-4{ background: gray; }
+            
+            /* CSS for ex-14 */
+            .ex-14 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-14 .child-span-1{ background: yellow; }
+            .ex-14 .child-span-2{ background: red; float: right; }
+            .ex-14 .child-span-3{ background: blue; }
+            .ex-14 .child-span-4{ background: gray; }
+            
+            /* CSS for ex-15 */
+            .ex-15 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; overflow: auto; }
+            .ex-15 .child-span-1{ background: yellow; }
+            .ex-15 .child-span-2{ background: red; float: right; }
+            .ex-15 .child-span-3{ background: blue; }
+            .ex-15 .child-span-4{ background: gray; }
+            
+             /* CSS for ex-16 */
+            .ex-16 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+            .ex-16 .child-span-1{ background: yellow; }
+            .ex-16 .child-span-2{ background: red; float: right; }
+            .ex-16 .child-span-3{ background: blue; }
+            .ex-16 .child-span-4{ background: gray; }
+            
+        </style>
+    </head>
+    <body>
+        <div class="ex-1">
+            <h4>position: static</h4>
+            <p>Normally, the position will be default as "static", which means the element is not positioned and stays where it normally would in the document flow.</p>
+            <p>With static, the top/right/bottom/left will not work</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-2">
+            <h4>position: relative</h4>
+            <p>When the position is set to relative, the element will still hold the original place in the document flow.</p>
+            <p>Then with top/right/bottom/left, the element can be moved to the relative place</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-3">
+            <h4>position: absolute</h4>
+            <p>When the position is set to absolute, the element is removed from the document flow.</p>
+            <p>This element will placed exactly with top/right/bottom/left based on the first positioned parent (if all the parents are not position, the absolute element will be placed based on body element).</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-4">
+            <h4>position:relative + position:absolute</h4>
+            <p>When the position is set to absolute, the element is removed from the document flow.</p>
+            <p>This element will placed exactly with top/right/bottom/left based on the first positioned parent (if all the parents are not position, the absolute element will be placed based on body element).</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-4-1">
+            <h4>position:absolute will affect display</h4>
+            <p>The absolute element will be removed from document flow, then the display of the element will be changed</p>
+            <div class="parent-div">
+                <span class="child-span-1 box">span-1</span>
+                <span class="child-span-2 box">span-2</span>
+                <span class="child-span-3 box">span-3</span>
+                <span class="child-span-4 box">span-4</span>
+            </div>
+        </div>
+        
+        <div class="ex-4-2">
+            <h4>layout with position:relative + position:absolute</h4>
+            <p>With position absolute/relative, we can easily achive some simple layout</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-10">
+            <h4>position: fixed</h4>
+            <p>When the position is set to absolute, the element is removed from the document flow.</p>
+            <p>This element will placed exactly with top/right/bottom/left based on browser window.</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-10-1">
+            <h4>position:fixed will affect display</h4>
+            <p>The fixed element will be removed from document flow, then the display of the element will be changed</p>
+            <div class="parent-div">
+                <span class="child-span-1 box">span-1</span>
+                <span class="child-span-2 box">span-2</span>
+                <span class="child-span-3 box">span-3</span>
+                <span class="child-span-4 box">span-4</span>
+            </div>
+        </div>
+        
+        <div class="ex-5">
+            <h4>float left</h4>
+            <p>We can "float" an element to push it as far as possible to the right or to the left, and allow text to wrap around it.</p>
+            <p>The float element will be removed from document flow.</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-6">
+            <h4>float right</h4>
+            <p>We can "float" an element to push it as far as possible to the right or to the left, and allow text to wrap around it.</p>
+            <p>The float element will be removed from document flow.</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-6-1">
+            <h4>float with clear</h4>
+            <p>Then after the floating elements we can "clear" the floats to push down the rest of the content.</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-7">
+            <h4>all float</h4>
+            <p></p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+               
+        <div class="ex-8">
+            <h4>all float with autoflow</h4>
+            <p></p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-9">
+            <h4>all float with clear</h4>
+            <p></p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        
+        
+        <div class="ex-11">
+            <h4>position: relative and float</h4>
+            <p>the element will float first, then relativly move to the correct place</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-12">
+            <h4>position: absolute and float</h4>
+            <p>when position is set to absolute, the float will not work</p>
+            <div class="parent-div">
+                <div class="child-div-1 box"></div>
+                <div class="child-div-2 box"></div>
+                <div class="child-div-3 box"></div>
+                <div class="child-div-4 box"></div>
+            </div>
+        </div>
+        
+        <div class="ex-14">
+            <h4>float will affect display</h4>
+            <p>The float element will be removed from document flow, then the display of the element will be changed</p>
+            <div class="parent-div">
+                <span class="child-span-1 box">span-1</span>
+                <span class="child-span-2 box">span-2</span>
+                <span class="child-span-3 box">span-3</span>
+                <span class="child-span-4 box">span-4</span>
+            </div>
+        </div>
+        
+        <div class="ex-15">
+            <h4>float with overflow</h4>
+            <p></p>
+            <div class="parent-div">
+                <span class="child-span-1 box">span-1</span>
+                <span class="child-span-2 box">span-2</span>
+                <span class="child-span-3 box">span-3</span>
+                <span class="child-span-4 box">span-4</span>
+            </div>
+        </div>
+        
+        <div class="ex-16">
+            <h4>float with clear</h4>
+            <p></p>
+            <div class="parent-div">
+                <span class="child-span-1 box">span-1</span>
+                <span class="child-span-2 box">span-2</span>
+                <div style="clear: both;"></div>
+                <span class="child-span-3 box">span-3</span>
+                <span class="child-span-4 box">span-4</span>
+            </div>
+        </div>
+        
+    </body>
+</html>
