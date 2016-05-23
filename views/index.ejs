@@ -2,15 +2,15 @@
 <html>
     <head>
         <title><%= title %></title>
-        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel='stylesheet' href='/stylesheets/reset.css' />
+        <link rel='stylesheet' href='/stylesheets/main.css' />
     </head>
     <body>
-        <h1>this is title</h1>
         <%for(var i=funList.length-1; i>=0; i--) {%>
-            <div>
-                <h2><%= funList[i].folder %></h2>
+            <div class='fun-group'>
+                <div class='fun-group-header'><%= funList[i].folder %></div>
                 <%for(var j=funList[i].itemList.length-1; j>=0; j--) {%>
-                    <li><a href='editor/<%= funList[i].itemList[j].path %>'><%= funList[i].itemList[j].name %></a></li>
+                    <span class='fun-group-item'><a href='editor/<%= funList[i].itemList[j].path %>'><%= funList[i].itemList[j].name %></a></span>
                 <%}%>
             </div>
     		    

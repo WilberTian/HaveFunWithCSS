@@ -32,7 +32,8 @@ function updateIt() {
 
     xmlhttp.open('POST', '/editor/update', true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var name = document.getElementsByTagName('title')[0].innerText;
+    var name = document.getElementById('funName').value;
+    var folder = document.getElementById('funFolder').value;
     var content = document.getElementById("editor").value;
-    xmlhttp.send('name=' + name + '&content=' + content);
+    xmlhttp.send('name=' + name + '&folder=' + folder + '&content=' + content);
 }

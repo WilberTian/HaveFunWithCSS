@@ -1,0 +1,19 @@
+.fun-group {
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	width: 30%;
+	background-color: #C4E8DB;
+}
+
+.fun-group-header {
+	border-bottom: 2px solid #827777;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.fun-group-item {
+	display: block;
+	margin: 3px;
+	font-size: 18px;
+}

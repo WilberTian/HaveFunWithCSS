@@ -69,12 +69,17 @@ module.exports = {
 		return deferred.promise;
 	},
 
-	addFunItem: function(name, content) {
+	addFunItem: function(folder, name, content) {
 
 	},
 
-	updateFunItem: function(name, content) {
-		var itemPath = path.join(funItemPath, name);
+	updateFunItem: function(folder, name, content) {
+		var pathName = path.join(folder, name);
+		if(folder === 'other') {
+			pathName = name;
+		}
+
+		var itemPath = path.join(funItemPath, pathName);
 
 		var deferred = Q.defer();
 		fs.writeFile(itemPath, content, function(err) {
@@ -88,7 +93,7 @@ module.exports = {
 		return deferred.promise;
 	},
 
-	removeFunItem: function(name) {
+	removeFunItem: function(folder, name) {
 		var itemPath = path.join(funItemPath, name);
 
 		var deferred = Q.defer();
@@ -99,7 +104,7 @@ module.exports = {
 		return deferred.promise;
 	},
 
-	isFunItemExist: function(name) {
+	isFunItemExist: function(folder, name) {
 		var itemPath = path.join(funItemPath, name);
 
 		var deferred = Q.defer();
