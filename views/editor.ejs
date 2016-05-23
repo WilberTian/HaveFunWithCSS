@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/editor.css" />
+    <title><%= funName %></title>
+  </head>
+  
+  <body>
+  	<textarea id="editor"><%= funContent %></textarea>
+
+    <div id='toolbar'>
+    	<button onclick='tryIt()'>Try it</button>
+    	<button onclick='updateIt()'>Update</button>
+    	<button><a href='/'>Back</a></button>
+    </div>
+
+    <iframe id="viewer"></iframe>
+  </body>
+  <script type="text/javascript" src='/javascripts/editor.js'></script>
+</html>

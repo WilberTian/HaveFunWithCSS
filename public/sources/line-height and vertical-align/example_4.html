@@ -1,0 +1,141 @@
+﻿<style>
+body,dl,dd,h2,h3,p{
+	margin: 0;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}	
+h2{
+	margin: 0;
+}
+.l{
+	float: left;
+}
+.r{
+	float: right;
+}
+.box{
+	overflow: hidden;
+	width: 600px;
+	height: 200px;
+	background-color: #ccc;
+	text-align: center;
+	line-height: 30px;
+}	
+.con{
+	width: 300px;
+	float: left;
+}
+.con dl{
+	margin-left: 5px;
+	float: left;
+}
+
+.con dt{
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+.con dd{
+	background-color: rgba(255,255,255,0.3);
+	margin-left: 2px;
+	margin-bottom: 4px;
+	cursor: pointer;
+	float: left;
+	width: 100%;
+
+}
+.show{
+	width: 280px;
+	float: right;
+	margin-right: 20px;
+}
+.show-tit{
+	font: 20px/50px "宋体";
+}
+.show-body{
+	display: table-cell;
+	width: 280px;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+.show-body div{
+	margin: 0 auto;
+	width: 100px;
+	height: 100px;
+	border: 1px solid yellow;
+	line-height: 100px;
+	font-size: 16px;
+}
+
+</style>
+</head>
+<body>
+<div class="box" id="box">
+	<div class="con">
+		<!-- 添加测试单元1 -->
+		<dl>
+			<dt>vertical-align</dt>	
+			<dd>baseline</dd>
+			<dd>text-bottom</dd>
+			<dd>-5px</dd>
+			<dd>0</dd>
+		</dl>
+		<!-- 添加测试单元1结束 -->
+	</div>
+	<div class="show">
+		<h2 class="show-tit">图标和文字对齐演示</h2>
+		<div class="show-body" id="sb">
+			<!-- 添加结构单元 -->
+			<div>
+				<img id="oShow" src="icon.jpg" alt="测试" width="20" height="20">
+				<span>文字</span>
+			</div>	
+			<!-- 添加结构单元结束 -->
+		</div>
+		<div id="show-img"></div>
+	</div>
+</div>	
+
+<script>
+function getCSS(obj,style){
+    if(window.getComputedStyle){
+        return getComputedStyle(obj)[style];
+    }
+    return obj.currentStyle[style];
+};
+
+(function con(){
+	var oBox = document.getElementById('box');
+	var aDl = oBox.getElementsByTagName('dl');
+	var oSb = document.getElementById('sb');
+	var oShow = document.getElementById('oShow');
+	var oImg = document.getElementById('show-img');
+	var oH = oV = oBlur = oSpread=0;
+	var oColor = oInset = '';
+
+	for(var i = 0, leni = aDl.length; i < leni; i++){
+		var oDt = aDl[i].getElementsByTagName('dt')[0];
+		var aDd = aDl[i].getElementsByTagName('dd');
+		aDl[i].last = 0;
+
+		for(var j = 0,lenj = aDd.length; j < lenj; j++){
+			aDd[j].index = j;
+			aDd[j].onclick = function(){
+				var oDl = this.parentNode;
+				var oDt = oDl.getElementsByTagName('dt')[0];
+				var aDd = oDl.getElementsByTagName('dd');
+				aDd[oDl.last].style.cssText = 'color: black; background-color: rgba(255,255,255,0.3);';	
+				this.style.cssText = 'color: white; background-color: black;';
+				oShow.style.verticalAlign = this.innerHTML;
+				oImg.innerHTML = '实测vertical-align是：' + getCSS(oShow,'vertical-align');	
+				oDl.last = this.index;
+			}
+		}
+	}	
+})();
+</script>

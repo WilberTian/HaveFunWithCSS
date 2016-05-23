@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CSS Horizontal Centering</title>
+  <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/css/bootstrap-theme.min.css" rel="stylesheet">
+  <style>
+    
+    #div-1 {
+      margin-left: auto;
+      margin-right: auto;
+      
+      /*
+      margin:0 auto;
+      */
+      
+      border: 3px solid #0AA;
+      width: 600px;
+    }
+    
+    
+    #div-2 {
+      border: 3px solid #0AA;
+    }
+    
+    #div-2 ul {
+      text-align: center;
+    }
+    
+    #div-2 li {
+      display: inline;
+      padding: 5px;
+      background-color: #AAA;
+    }
+
+    
+    #div-3 {
+      border: 3px solid #0AA;
+      overflow: auto;
+    }
+    
+    #div-3 ul {
+      position: relative;
+      float: left;
+      clear: both;
+      left: 50%;
+    }
+    
+    #div-3 li {
+      list-style: none;
+      padding: 5px;
+      background-color: #AAA;
+      position: relative;
+      float: left;
+      left: -50%;
+      margin-right: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="pill" href="#itme1">Auto Margins For Centering</a></li>
+      <li><a data-toggle="pill" href="#item2">Centering block element without width</a></li>
+      <li><a data-toggle="pill" href="#item3">Centering block element without width</a></li>
+     
+    </ul>
+    
+    <div class="tab-content">
+      <div id="itme1" class="tab-pane fade in active">
+        <div id="div-1">Text here for div-1</div>
+        
+        <br/>
+        <pre>
+          #div-1 {
+            margin-left: auto;
+            margin-right: auto;
+            
+            /*
+            margin:0 auto;
+            */
+            
+            border: 3px solid #0AA;
+            width: 600px;
+          }
+        </pre>
+      </div>
+      
+      <div id="item2" class="tab-pane fade">
+        <div id="div-2">
+          <ul>
+            <li>1</li>
+          </ul>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
+        
+        <br/>
+        <pre>
+          #div-2 {
+            border: 3px solid #0AA;
+          }
+          
+          #div-2 ul {
+            text-align: center;
+          }
+          
+          #div-2 li {
+            display: inline;
+            padding: 5px;
+            background-color: #AAA;
+          }
+        </pre>
+      </div>
+      
+      <div id="item3" class="tab-pane fade">
+        <div id="div-3">
+          <ul>
+            <li>1</li>
+          </ul>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
+        
+        <br/>
+        <pre>
+          #div-3 {
+            border: 3px solid #0AA;
+            overflow: auto;
+          }
+          
+          #div-3 ul {
+            position: relative;
+            float: left;
+            clear: both;
+            left: 50%;
+          }
+          
+          #div-3 li {
+            list-style: none;
+            padding: 5px;
+            background-color: #AAA;
+            position: relative;
+            float: left;
+            left: -50%;
+            margin-right: 5px;
+          }
+        </pre>
+      </div>
+      
+    </div>
+  </div>
+  
+  <script src="vendor/js/jquery.min.js"></script>
+  <script src="vendor/js/bootstrap.min.js"></script>
+</body>
+</html>
+

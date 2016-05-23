@@ -1,0 +1,77 @@
+﻿<style>
+#parent-div {
+    border: 4px solid grey;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+    left: 200px;
+}
+
+#child-div {
+    border: 4px solid grey;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+</style>
+
+<pre>
+getBoundingClientRect()最先是IE的私有属性，现在已经是一个W3C标准。
+不过有区别：IE只返回top,lef,right,bottom四个值，可以通过以下方法来获取width, height的值。
+
+getBoundingClientRect的兼容写法：
+
+var ro = object.getBoundingClientRect();
+var Top = ro.top;
+var Bottom = ro.bottom;
+var Left = ro.left;
+var Right = ro.right;
+var Width = ro.width||Right - Left;
+var Height = ro.height||Bottom - Top;
+</pre>
+
+<hr/>
+<div>
+    <div id="parent-div" style="float: left;">
+        parent
+        <div id="child-div">
+            child
+        </div>
+    </div>
+    
+    <div style="float: right;">
+    <input type="button" value="Get Info" onClick="getInfo()"></input>
+    <div id="result"></div>
+    </div>
+</div>
+
+<script>
+var result = document.getElementById("result");
+var parentRo = document.getElementById("parent-div").getBoundingClientRect(); 
+var childRo = document.getElementById("child-div").getBoundingClientRect(); 
+
+function getInfo(){
+    result.innerHTML = ("parent div info:" + "<br/>");
+    result.innerHTML += ("Top: " + parentRo.top + "<br/>");
+    result.innerHTML += ("Bottom: " + parentRo.bottom + "<br/>");
+    result.innerHTML += ("Left: " + parentRo.left + "<br/>");
+    result.innerHTML += ("Right: " + parentRo.right + "<br/>");
+    result.innerHTML += ("Width: " + parentRo.width + "<br/>");
+    result.innerHTML += ("Height: " + parentRo.height + "<br/>");
+    
+    result.innerHTML += ("<br/>");
+    
+    
+    result.innerHTML += ("child div info:" + "<br/>");
+    result.innerHTML += ("Top: " + childRo.top + "<br/>");
+    result.innerHTML += ("Bottom: " + childRo.bottom + "<br/>");
+    result.innerHTML += ("Left: " + childRo.left + "<br/>");
+    result.innerHTML += ("Right: " + childRo.right + "<br/>");
+    result.innerHTML += ("Width: " + childRo.width + "<br/>");
+    result.innerHTML += ("Height: " + childRo.height + "<br/>");
+}
+
+</script>

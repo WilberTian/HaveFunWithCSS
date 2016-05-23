@@ -1,0 +1,229 @@
+﻿<style>
+body,dl,dd,h2,h3,p{
+	margin: 0;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}	
+h2{
+	margin: 0;
+}
+.l{
+	float: left;
+}
+.r{
+	float: right;
+}
+.box{
+	overflow: hidden;
+	width: 600px;
+	height: 360px;
+	background-color: #ccc;
+	text-align: center;
+	line-height: 30px;
+}	
+.con{
+	width: 300px;
+	float: left;
+}
+.con dl{
+	margin-left: 5px;
+	float: left;
+}
+
+.con dt{
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+.con dd{
+	background-color: rgba(255,255,255,0.3);
+	margin-left: 2px;
+	margin-bottom: 4px;
+	cursor: pointer;
+	float: left;
+	width: 140px;
+
+}
+.con-ul{
+	display:inline-block;
+	vertical-align: top;
+	width: 260px;
+	border: 2px solid black;
+	overflow: hidden;
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+.con-ul li{
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	background-color: rgba(0,0,0,0.5);
+	text-align: left;
+	color: white;
+	cursor: pointer;
+	margin: 4px;
+		overflow: hidden;
+}
+.con-ul li input{
+	width: 100px;
+}
+.show{
+	width: 280px;
+	float: right;
+	margin-right: 20px;
+}
+.show-tit{
+	font: 20px/50px "宋体";
+}
+.show-body{
+	display: table-cell;
+	width: 280px;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+.show-body div{
+	margin: 0 auto;
+	width: 100px;
+	height: 100px;
+	border: 1px solid yellow;
+	line-height: 100px;
+	font-size: 40px;
+}
+.show-body .all{
+	border: 1px solid blue;
+}
+#oShow{
+	line-height: 20px;
+	font-size: 16px;
+	border: 1px solid red;
+}
+</style>
+</head>
+<body>
+<div>
+<p>vertical-align用来设置垂直对齐方式，所有垂直对齐的元素都会影响行高</p>
+<p>值: baseline | sub | super | top | text-top | middle | bottom | text-bottom | <length> | <percentage> | inherit</p>
+<p>初始值: baseline</p>
+<p>应用于: 行内元素、替换元素、表单元格</p>
+<p>继承性: 无</p>
+<p>百分数: 相对于元素的行高line-height</p>
+<p>[注意]IE7-浏览器中vertical-align的百分比值不支持小数行高，且取baseline、middle、text-bottom等值时与标准浏览器在展示效果不一样，常用的解决办法是将行内元素设置display:inline-block </p>
+  <pre>
+  vertical-align:baseline(元素的基线与父元素的基线对齐)
+  vertical-align:sub(降低元素的基线到父元素合适的下标位置)
+  vertical-align:super(升高元素的基线到父元素合适的上标位置)
+  vertical-align:bottom(把对齐的子元素的底端与行框底端对齐)
+  vertical-align:text-bottom(把元素的底端与父元素内容区域的底端对齐)
+  vertical-align:top(把对齐的子元素的顶端与行框顶端对齐)
+  vertical-align:text-top(把元素的顶端与父元素内容区域的顶端对齐)
+  vertical-align:middle(元素的中垂点与父元素的基线加1/2父元素中字母X的高度对齐)
+  vertical-align:(+-n)px(元素相对于基线上下偏移npx)
+  vertical-align:x%(相对于元素的line-height值)
+  vertical-align:inherit(从父元素继承vertical-align属性的值)
+  </pre>
+</div>
+<div class="box" id="box">
+	<div class="con">
+		<!-- 添加测试单元1 -->
+		<dl>
+			<dt>vertical-align</dt>	
+			<dd>baseline</dd>
+			<dd>top</dd>
+			<dd>middle</dd>
+			<dd>bottom</dd>	
+			<dd>sub</dd>
+			<dd>super</dd>
+			<dd>text-top</dd>
+			<dd>text-bottom</dd>
+			<dd>inherit</dd>
+			<dd>0</dd>
+		</dl>
+		<ul class="con-ul" id="conUl">
+			<li><span class="l">像素值:<b></b></span><input class="r" type="range" min="-50" max="100" step="1" value="0"></li>
+			<li><span class="l">百分比:<b></b></span><input class="r" type="range" min="-200" max="200" step="1" value="0"></li>
+			<li><span class="l">行高:<b></b></span><input class="r" type="range" min="0" max="50" step="1" value="0"></li>
+		</ul>
+		<!-- 添加测试单元1结束 -->
+	</div>
+	<div class="show">
+		<h2 class="show-tit">垂直对齐演示</h2>
+		<div class="show-body" id="sb">
+			<!-- 添加结构单元 -->
+			<div><span class="all"><span id="oShow">W</span>XXX</span></div>	
+			<!-- 添加结构单元结束 -->
+		</div>
+		<div id="show-img"></div>
+	</div>
+</div>	
+
+<script>
+function getCSS(obj,style){
+    if(window.getComputedStyle){
+        return getComputedStyle(obj)[style];
+    }
+    return obj.currentStyle[style];
+};
+
+(function con(){
+	var oBox = document.getElementById('box');
+	var aDl = oBox.getElementsByTagName('dl');
+	var oSb = document.getElementById('sb');
+	var oShow = document.getElementById('oShow');
+	var oImg = document.getElementById('show-img');
+	var oH = oV = oBlur = oSpread=0;
+	var oColor = oInset = '';
+	var conChildren = conUl.children;
+	for(var i = 0; i < conChildren.length; i++){
+		conChildren[i].index = i;
+		var oFocus = conChildren[i].getElementsByTagName('input')[0];
+		oFocus.onpropertychange = oFocus.oninput = oFocus.onchange = function(){
+			if(this.parentNode.index == '0'){
+				this.parentNode.getElementsByTagName('b')[0].innerHTML = this.value + 'px';
+				oShow.style.verticalAlign =this.parentNode.getElementsByTagName('b')[0].innerHTML;
+			}else if(this.parentNode.index == '1'){
+				this.parentNode.getElementsByTagName('b')[0].innerHTML = this.value + '%';
+				oShow.style.verticalAlign =this.parentNode.getElementsByTagName('b')[0].innerHTML;
+			}else{
+				this.parentNode.getElementsByTagName('b')[0].innerHTML = this.value + 'px';
+				oShow.style.lineHeight =this.parentNode.getElementsByTagName('b')[0].innerHTML;
+			}
+			
+			
+			oImg.innerHTML = '实测vertical-align是：' + getCSS(oShow,'vertical-align');	
+
+		}
+		conChildren[i].onmouseover = function(){
+			this.style.color = "rgb(39,184,231)";
+		}
+		conChildren[i].onmouseout = function(){
+			this.style.color = "white";
+		}	
+	}
+
+	for(var i = 0, leni = aDl.length; i < leni; i++){
+		var oDt = aDl[i].getElementsByTagName('dt')[0];
+		var aDd = aDl[i].getElementsByTagName('dd');
+		aDl[i].last = 0;
+
+		for(var j = 0,lenj = aDd.length; j < lenj; j++){
+			aDd[j].index = j;
+			aDd[j].onclick = function(){
+				var oDl = this.parentNode;
+				var oDt = oDl.getElementsByTagName('dt')[0];
+				var aDd = oDl.getElementsByTagName('dd');
+				aDd[oDl.last].style.cssText = 'color: black; background-color: rgba(255,255,255,0.3);';	
+				this.style.cssText = 'color: white; background-color: black;';
+				oShow.style.verticalAlign = this.innerHTML;
+				oImg.innerHTML = '实测vertical-align是：' + getCSS(oShow,'vertical-align');	
+				oDl.last = this.index;
+			}
+		}
+	}	
+})();
+</script>
