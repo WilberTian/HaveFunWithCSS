@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= title %></title>
+        <title>FunWithCSS</title>
         <link rel='stylesheet' href='/stylesheets/reset.css' />
         <link rel='stylesheet' href='/stylesheets/main.css' />
     </head>
     <body>
-        <%for(var i=funList.length-1; i>=0; i--) {%>
-            <div class='fun-group'>
-                <div class='fun-group-header'><%= funList[i].folder %></div>
-                <%for(var j=funList[i].itemList.length-1; j>=0; j--) {%>
-                    <span class='fun-group-item'><a href='editor/<%= funList[i].itemList[j].path %>'><%= funList[i].itemList[j].name %></a></span>
+        <div class='container'>
+          <input id='funName' type='hidden' value=''/>
+          <input id='funFolder' type='hidden' value=''/>
+
+          <div class='side-bar'>
+              <div class='tool-bar'>
+                  <button onclick='tryIt()'>Try it</button>
+                  <button onclick='onFunItemAddClick()'>Add</button>
+                  <button onclick='onFunItemUpdateClick()'>Update</button>
+                  <button onclick='onFunItemRemoveClick()'>Remove</button>
+
+              </div>
+
+              <div class='fun-group-list'>
+                <%for(var i=funList.length-1; i>=0; i--) {%>
+                  <div class='fun-group'>
+                    <div class='fun-group-header'><%= funList[i].folder %></div>
+                    <%for(var j=funList[i].itemList.length-1; j>=0; j--) {%>
+                        <span class='fun-group-item'>
+                          <input type='radio' name='funItem' value='<%= funList[i].itemList[j].path %>' onclick='onFunItemClick(this)' ><%= funList[i].itemList[j].name %></input>
+                        </span>
+                    <%}%>
+                  </div>
                 <%}%>
-            </div>
-    		    
-    	  <%}%>
+              </div>
+          </div>
+          <div class='main-space'>
+              <textarea id='editor'>empty</textarea>
+        
+              <iframe id='viewer'></iframe>
+          </div>
+        </div>
+
+        <div id='fun-item-modal'>
+          <div>
+            <form action=''>
+              <fieldset>
+                <legend>Personal information:</legend>
+                Folder:<br>
+                <input type='text' name='funFolder' value=''></input><br/>
+                Item:<br>
+                <input type='text' name='funItem' value=''></input><br/><br/>
+                <input type='submit' value='Submit'></input>
+                <input type='button' value='Cancel' onclick='closeFunItemAddModal()'></input>
+              </fieldset>
+            </form>
+          </div>
+        </div>
     </body>
+    <script type='text/javascript' src='/javascripts/editor.js'></script>
 </html>

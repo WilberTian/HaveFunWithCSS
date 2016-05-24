@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   
 	funOperator.getFunList()
 		.then(function(data){
-			res.render('index', { title: 'Express', funList: data });
+			res.render('index', { funList: data });
 		}, function(err){
 			console.log(err)
 			res.render('error', { error: err })

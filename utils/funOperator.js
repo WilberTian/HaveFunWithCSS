@@ -60,7 +60,7 @@ module.exports = {
 		var deferred = Q.defer();
 		fs.readFile(itemPath, function(err, itemContent) {
 			if(!err) {
-				deferred.resolve(itemContent);
+				deferred.resolve(itemContent.toString());
 			} else {
 				deferred.reject(err);
 			}
@@ -70,7 +70,25 @@ module.exports = {
 	},
 
 	addFunItem: function(folder, name, content) {
+		var folderPath = path.join(funItemPath, folder);
 
+		var deferred = Q.defer();
+		fs.access(folderPath, function(err){
+			if(err) {
+				fs.mkdirSync(folderPath)
+			}
+			
+			name && fs.writeFile(path.join(folderPath, name), content, function(err){
+				if(!err) {
+					deferred.resolve(name + '@' + folder + ' was created')
+				} else {
+					deferred.reject(err);
+				}
+			})
+		
+		})
+
+		return deferred.promise;
 	},
 
 	updateFunItem: function(folder, name, content) {
@@ -98,7 +116,11 @@ module.exports = {
 
 		var deferred = Q.defer();
 		fs.unlink(itemPath, function(err) {
-			
+			if(!err) {
+				deferred.resolve(name + '@' + folder + ' was deleted');
+			} else {
+				deferred.reject(err);
+			}
 		})
 
 		return deferred.promise;
