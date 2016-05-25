@@ -2,19 +2,15 @@ var fs = require('fs');
 var Q = require('q');
 var path = require('path');
 
-var funItemPath = './public/sources'
+var funItemPath = './public/sources/'
 
 module.exports = {
 	getFunList: function() {
 		var deferred = Q.defer();
 	  	fs.readdir(funItemPath, function(err, itemList) {
-	  	
 		  	if(!err) {
 		  		var funList = [];
-		  		var other = {};
-		  		other['folder'] = 'other';
-		  		other['itemList'] = [];
-
+		  		
 		  		itemList.forEach(function(item) {
 		  			var itemPath = path.join(funItemPath, item);
 		  			if(fs.statSync(itemPath).isDirectory()) {
@@ -29,18 +25,10 @@ module.exports = {
 		  						'name': files[f]
 		  					})
 		  				}
-
 		  				funList.push(temp)
-
-		  			} else {
-		  				other['itemList'].push({
-		  					'path': path.join('other', item),
-		  					'name': item
-		  				});
-		  			}
+		  			} 
 		  		})
 
-		  		funList.push(other)
 		  		deferred.resolve(funList);
 		  	} else {
 		  		deferred.reject(err);
@@ -51,11 +39,7 @@ module.exports = {
 	},
 
 	getFunItem: function(folder, name) {
-		var pathName = path.join(folder, name);
-		if(folder === 'other') {
-			pathName = name;
-		}
-		var itemPath = path.join(funItemPath, pathName);
+		var itemPath = path.join(funItemPath, folder, name);
 
 		var deferred = Q.defer();
 		fs.readFile(itemPath, function(err, itemContent) {
@@ -69,40 +53,49 @@ module.exports = {
 		return deferred.promise;
 	},
 
-	addFunItem: function(folder, name, content) {
+	addFunItem: function(folder, name) {
 		var folderPath = path.join(funItemPath, folder);
+		var itemPath = path.join(funItemPath, folder, name);
 
 		var deferred = Q.defer();
+
+		if(!folder || (path.normalize(funItemPath) === folderPath)){
+			deferred.reject('invalid folder name');
+		}
+
+		if(!name || (folderPath === itemPath)){
+			deferred.reject('invalid file name');
+		}
+		
 		fs.access(folderPath, function(err){
 			if(err) {
-				fs.mkdirSync(folderPath)
-			}
-			
-			if(name) {
-				fs.writeFile(path.join(folderPath, name), content, function(err){
-					if(!err) {
-						deferred.resolve(name + '@' + folder + ' was created')
-					} else {
+				fs.mkdir(folderPath, function(err) {
+					if(err) {
 						deferred.reject(err);
 					}
 				})
-
-			} else {
-				deferred.resolve(folder + ' was created')
 			}
-		
+			
+			fs.access(itemPath, function(err) {
+				if(err) {
+					fs.writeFile(path.join(folderPath, name), '', function(err){
+						if(!err) {
+							deferred.resolve(name + '@' + folder + ' was created')
+						} else {
+							deferred.reject(err);
+						}
+					})
+				} else {
+					deferred.reject(name + '@' + folder + ' already exists')
+				}
+			})		
 		})
 
 		return deferred.promise;
 	},
 
 	updateFunItem: function(folder, name, content) {
-		var pathName = path.join(folder, name);
-		if(folder === 'other') {
-			pathName = name;
-		}
-
-		var itemPath = path.join(funItemPath, pathName);
+		var itemPath = path.join(funItemPath, folder, name);
 
 		var deferred = Q.defer();
 		fs.writeFile(itemPath, content, function(err) {
@@ -117,12 +110,7 @@ module.exports = {
 	},
 
 	removeFunItem: function(folder, name) {
-		var pathName = path.join(folder, name);
-		if(folder === 'other') {
-			pathName = name;
-		}
-
-		var itemPath = path.join(funItemPath, pathName);
+		var itemPath = path.join(funItemPath, folder, name);
 
 		var deferred = Q.defer();
 		fs.unlink(itemPath, function(err) {
@@ -146,17 +134,6 @@ module.exports = {
 			} else {
 				deferred.reject(err);
 			}
-		})
-
-		return deferred.promise;
-	},
-
-	isFunItemExist: function(folder, name) {
-		var itemPath = path.join(funItemPath, name);
-
-		var deferred = Q.defer();
-		fs.exists(itemPath, function(err) {
-			
 		})
 
 		return deferred.promise;
