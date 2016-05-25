@@ -78,13 +78,18 @@ module.exports = {
 				fs.mkdirSync(folderPath)
 			}
 			
-			name && fs.writeFile(path.join(folderPath, name), content, function(err){
-				if(!err) {
-					deferred.resolve(name + '@' + folder + ' was created')
-				} else {
-					deferred.reject(err);
-				}
-			})
+			if(name) {
+				fs.writeFile(path.join(folderPath, name), content, function(err){
+					if(!err) {
+						deferred.resolve(name + '@' + folder + ' was created')
+					} else {
+						deferred.reject(err);
+					}
+				})
+
+			} else {
+				deferred.resolve(folder + ' was created')
+			}
 		
 		})
 
@@ -112,12 +117,32 @@ module.exports = {
 	},
 
 	removeFunItem: function(folder, name) {
-		var itemPath = path.join(funItemPath, name);
+		var pathName = path.join(folder, name);
+		if(folder === 'other') {
+			pathName = name;
+		}
+
+		var itemPath = path.join(funItemPath, pathName);
 
 		var deferred = Q.defer();
 		fs.unlink(itemPath, function(err) {
 			if(!err) {
 				deferred.resolve(name + '@' + folder + ' was deleted');
+			} else {
+				deferred.reject(err);
+			}
+		})
+
+		return deferred.promise;
+	},
+
+	removeFunFolder: function(folder) {
+		var folderPath = path.join(funItemPath, folder);
+
+		var deferred = Q.defer();
+		fs.rmdir(folderPath, function(err) {
+			if(!err) {
+				deferred.resolve(folder + ' folder was deleted');
 			} else {
 				deferred.reject(err);
 			}

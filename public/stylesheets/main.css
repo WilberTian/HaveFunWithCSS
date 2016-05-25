@@ -7,37 +7,38 @@ body {
 }
 
 .side-bar {
-  position: fixed !important;
-  top: 0px !important;
-  left: 0px !important;
-  bottom: 0px !important;
-  right: 0px !important;
-  height: 96% !important;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  height: 96%;
   width: 24%;
   margin: 1% 0px 1% 1%;
 }
 
 .main-space {
-    position: fixed !important;
-    top: 0px !important;
-    left: 25% !important;
-    bottom: 0px !important;
-    right: 0px !important;
-    height: 96% !important;
-    width: 73%;
-    margin: 1%;
+  position: fixed;
+  top: 0px;
+  left: 25%;
+  bottom: 0px;
+  right: 0px;
+  height: 96%;
+  width: 73%;
+  margin: 1%;
 }
 
 #editor {
     width: 98%;
     resize: none;
-    height: 47%;
+    height: 47.5%;
     border: 0px;
     background: #383737;
     color: white;
     font-size: 16px;
     overflow: auto;
     padding: 1%;
+    float: left;
 }
 
 #viewer {
@@ -46,11 +47,11 @@ body {
     border: 0px;
     background: white;
     overflow: auto;
+    float: left;
 }
 
 .tool-bar {
   padding: 1%;
-  background: gray;
   height: 5%;
 }
 
@@ -72,14 +73,12 @@ body {
 
 .fun-group-header {
 	border-bottom: 2px solid #827777;
-	font-size: 24px;
 	font-weight: bold;
 }
 
 .fun-group-item {
 	display: block;
 	margin: 3px;
-	font-size: 18px;
 }
 
 
@@ -88,6 +87,9 @@ body {
 
 #fun-item-modal {
   visibility: hidden;
+}
+
+#fun-item-modal .overlay {
   position: fixed;
   left: 0;
   top: 0;
@@ -99,9 +101,11 @@ body {
   opacity:0.7;
 }
 
-#fun-item-modal div {
+#fun-item-modal .fun-item-modal-dialog {
+  position: relative;
+  z-index: 210;
   width:600px;
-  margin: 100px auto;
+  margin: 200px auto;
   background-color: white;
   border:1px solid #000;
   padding:15px;
@@ -111,36 +115,11 @@ body {
 
 
 fieldset {
-    display: block;
-    -webkit-margin-start: 2px;
-    -webkit-margin-end: 2px;
-    -webkit-padding-before: 0.35em;
-    -webkit-padding-start: 0.75em;
-    -webkit-padding-end: 0.75em;
-    -webkit-padding-after: 0.625em;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    min-width: -webkit-min-content;
-    border-width: 2px;
-    border-style: groove;
-    border-color: threedface;
-    text-align: left;
-}
-
-
-legend {
-    display: block;
-    -webkit-padding-start: 2px;
-    -webkit-padding-end: 2px;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
+  display: block;
+  padding: 10px;
+  border-width: 2px;
+  border-style: groove;
+  border-color: threedface;
+  text-align: left;
+  line-height: 1.6;
 }

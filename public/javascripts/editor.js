@@ -13,8 +13,8 @@ function tryIt() {
 tryIt();
 
 function onFunItemAddClick() {
-    openFunItemAddModal()
-    /*
+    
+    
     var xmlhttp;
     if(window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -28,16 +28,17 @@ function onFunItemAddClick() {
             var json = JSON.parse(xmlhttp.responseText);
             document.getElementById("editor").value = json.funContent;
             tryIt();
+
+            closeFunItemAddModal();
         }
     }
 
     xmlhttp.open('POST', '/apis/add', true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var name = document.getElementById('funName').value;
-    var folder = document.getElementById('funFolder').value;
-    var content = document.getElementById("editor").value;
-    xmlhttp.send('name=' + name + '&folder=' + folder + '&content=' + content);
-    */
+    var name = document.getElementById('funItemInModal').value;
+    var folder = document.getElementById('funFolderInModal').value;
+    xmlhttp.send('name=' + name + '&folder=' + folder);
+    
 }
 
 function onFunItemUpdateClick() {
