@@ -31,7 +31,7 @@ module.exports = {
 
 		  		deferred.resolve(funList);
 		  	} else {
-		  		deferred.reject(err);
+		  		deferred.reject(new Error('Fail to get fun list'));
 		  	}
 	  	})
 
@@ -46,7 +46,7 @@ module.exports = {
 			if(!err) {
 				deferred.resolve(itemContent.toString());
 			} else {
-				deferred.reject(err);
+				deferred.reject(new Error('Fail to read fun item'));
 			}
 		})
 
@@ -59,37 +59,50 @@ module.exports = {
 
 		var deferred = Q.defer();
 
-		if(!folder || (path.normalize(funItemPath) === folderPath)){
-			deferred.reject('invalid folder name');
-		}
-
-		if(!name || (folderPath === itemPath)){
-			deferred.reject('invalid file name');
-		}
-		
 		fs.access(folderPath, function(err){
+			if(!folder || (path.normalize(funItemPath) === path.normalize(folderPath))){
+				deferred.reject(new Error('Invalid folder name'));
+				return;
+			}
+
+			if(!name){
+				deferred.reject(new Error('Invalid file name'));
+				return;
+			}
+
 			if(err) {
 				fs.mkdir(folderPath, function(err) {
 					if(err) {
-						deferred.reject(err);
+						deferred.reject(new Error('Fail to create folder'));
+					} else {
+						fs.writeFile(path.join(folderPath, name), '', function(err){
+							if(!err) {
+								deferred.resolve(name + '@' + folder + ' was created')
+							} else {
+								//fs.rmdirSync(folderPath);
+								deferred.reject(new Error('Fail to create fun item'));
+							}
+						})
 					}
 				})
+
+			} else {
+				fs.access(itemPath, function(err) {
+					if(err) {
+						fs.writeFile(path.join(folderPath, name), '', function(err){
+							if(!err) {
+								deferred.resolve(name + '@' + folder + ' was created')
+							} else {
+								deferred.reject(new Error('Fail to create fun item'));
+							}
+						})
+					} else {
+						deferred.reject(name + '@' + folder + ' already exists')
+					}
+				})		
 			}
-			
-			fs.access(itemPath, function(err) {
-				if(err) {
-					fs.writeFile(path.join(folderPath, name), '', function(err){
-						if(!err) {
-							deferred.resolve(name + '@' + folder + ' was created')
-						} else {
-							deferred.reject(err);
-						}
-					})
-				} else {
-					deferred.reject(name + '@' + folder + ' already exists')
-				}
-			})		
 		})
+		
 
 		return deferred.promise;
 	},
@@ -102,7 +115,7 @@ module.exports = {
 			if(!err) {
 				deferred.resolve(content);
 			} else {
-				deferred.reject(err);
+				deferred.reject(new Error('Fail to update fun item'));
 			}
 		})
 
@@ -117,7 +130,7 @@ module.exports = {
 			if(!err) {
 				deferred.resolve(name + '@' + folder + ' was deleted');
 			} else {
-				deferred.reject(err);
+				deferred.reject(new Error('Fail to delete fun item'));
 			}
 		})
 
@@ -132,7 +145,7 @@ module.exports = {
 			if(!err) {
 				deferred.resolve(folder + ' folder was deleted');
 			} else {
-				deferred.reject(err);
+				deferred.reject(new Error('Fail to remove folder'));
 			}
 		})
 

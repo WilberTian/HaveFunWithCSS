@@ -112,7 +112,9 @@ body {
 }
 
 
-
+#error-msg {
+  color: red;
+}
 
 fieldset {
   display: block;

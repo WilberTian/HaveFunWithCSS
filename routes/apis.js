@@ -9,7 +9,7 @@ router.get('/list', function(req, res, next) {
 			res.send({ status: 0, funList: data });
 		}, function(err){
 			console.log(err)
-			res.send({ status: 1, error: err })
+			res.send({ status: 1, error: err.message })
 		})
 });
 
@@ -18,7 +18,7 @@ router.get('/:funFolder/:funName', function(req, res, next) {
 		.then(function(data){
 			res.send({ status: 0, funName: req.params.funName, funFolder: req.params.funFolder, funContent: data });
 		}, function(err){
-			res.send({ status: 1, error: err })
+			res.send({ status: 1, error: err.message })
 		})
 });
 
@@ -28,7 +28,7 @@ router.post('/update', function(req, res, next) {
 		.then(function(data){
 			res.send({ status: 0, funName: req.params.funName, funContent: data });
 		}, function(err) {
-			res.send({ status: 1, error: err })
+			res.send({ status: 1, error: err.message })
 		})
 })
 
@@ -37,7 +37,7 @@ router.post('/add', function(req, res, next) {
 		.then(function(data){
 			res.send({ status: 0, message: data });
 		}, function(err){
-			res.send({ status: 1, error: err })
+			res.send({ status: 1, error: err.message })
 		})
 })
 
@@ -46,7 +46,7 @@ router.get('/remove', function(req, res, next) {
 		.then(function(data){
 			res.send({ status: 0, message: data });
 		}, function(err){
-			res.send({ status: 1, error: err })
+			res.send({ status: 1, error: err.message })
 		})
 })
 

@@ -1,10 +1,6 @@
 function tryIt() {
-    var editor = document.getElementById("editor");
-    if (editor.value == "") {
-        alert("Please input some content");
-        return false;
-    }
-    var viewer = document.getElementById("viewer");
+    var editor = document.getElementById('editor');
+    var viewer = document.getElementById('viewer');
     var iframeDocument = viewer.contentDocument || viewer.contentWindow.document;
     iframeDocument.writeln(editor.value);
     iframeDocument.close();
@@ -26,15 +22,16 @@ function onFunItemAddClick() {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             //do some thing here
             var json = JSON.parse(xmlhttp.responseText);
-            document.getElementById("editor").value = json.funContent;
-            tryIt();
-
-            closeFunItemAddModal();
+            if(json.status === 0) {
+                closeFunItemAddModal();
+            } else if(json.status === 1) {
+                 document.getElementById('error-msg').innerHTML = json.error;
+            }
         }
     }
 
     xmlhttp.open('POST', '/apis/add', true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     var name = document.getElementById('funItemInModal').value;
     var folder = document.getElementById('funFolderInModal').value;
     xmlhttp.send('name=' + name + '&folder=' + folder);
@@ -54,16 +51,16 @@ function onFunItemUpdateClick() {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             //do some thing here
             var json = JSON.parse(xmlhttp.responseText);
-            document.getElementById("editor").value = json.funContent;
+            document.getElementById('editor').value = json.funContent;
             tryIt();
         }
     }
 
     xmlhttp.open('POST', '/editor/update', true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     var name = document.getElementById('funName').value;
     var folder = document.getElementById('funFolder').value;
-    var content = document.getElementById("editor").value;
+    var content = document.getElementById('editor').value;
     xmlhttp.send('name=' + name + '&folder=' + folder + '&content=' + content);
 }
 
@@ -81,7 +78,7 @@ function onFunItemRemoveClick() {
     xmlhttp.onreadystatechange = function() {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             //do some thing here
-            document.getElementById("editor").value = 'empty';
+            document.getElementById('editor').value = 'empty';
             document.getElementById('funName').value = '';
             document.getElementById('funFolder').value = '';
             tryIt();
@@ -106,7 +103,7 @@ function onFunItemClick(ele) {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             //do some thing here
             var json = JSON.parse(xmlhttp.responseText);
-            document.getElementById("editor").value = json.funContent;
+            document.getElementById('editor').value = json.funContent;
             document.getElementById('funName').value = json.funName;
             document.getElementById('funFolder').value = json.funFolder;
             tryIt();
@@ -119,9 +116,12 @@ function onFunItemClick(ele) {
 
 
 function openFunItemAddModal() {
-    document.getElementById("fun-item-modal").style.visibility = 'visible';
+    document.getElementById('fun-item-modal').style.visibility = 'visible';
 }
 
 function closeFunItemAddModal() {
-    document.getElementById("fun-item-modal").style.visibility = 'hidden';
+    document.getElementById('fun-item-modal').style.visibility = 'hidden';
+    document.getElementById('error-msg').innerHTML = '';
+    document.getElementById('funItemInModal').value = '';
+    document.getElementById('funFolderInModal').value = '';
 }
