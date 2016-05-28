@@ -11,7 +11,7 @@ module.exports = {
 		  	if(!err) {
 		  		var funList = [];
 		  		
-		  		itemList.forEach(function(item) {
+		  		itemList.sort(function(a, b) { return a < b; }).forEach(function(item) {
 		  			var itemPath = path.join(funItemPath, item);
 		  			if(fs.statSync(itemPath).isDirectory()) {
 		  				var temp = {};
@@ -79,7 +79,7 @@ module.exports = {
 							if(!err) {
 								deferred.resolve(name + '@' + folder + ' was created')
 							} else {
-								//fs.rmdirSync(folderPath);
+								fs.rmdirSync(folderPath);
 								deferred.reject(new Error('Fail to create fun item'));
 							}
 						})
@@ -123,11 +123,17 @@ module.exports = {
 	},
 
 	removeFunItem: function(folder, name) {
+		var folderPath = path.join(funItemPath, folder);
 		var itemPath = path.join(funItemPath, folder, name);
 
 		var deferred = Q.defer();
 		fs.unlink(itemPath, function(err) {
 			if(!err) {
+				var files = fs.readdirSync(folderPath);
+				if(files.length === 0) {
+					fs.rmdirSync(folderPath)
+				}
+
 				deferred.resolve(name + '@' + folder + ' was deleted');
 			} else {
 				deferred.reject(new Error('Fail to delete fun item'));

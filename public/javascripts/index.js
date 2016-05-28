@@ -30,7 +30,7 @@ function onFunItemAddClick() {
         }
     }
 
-    xmlhttp.open('POST', '/apis/add', true);
+    xmlhttp.open('POST', '/apis/funlist', true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     var name = document.getElementById('funItemInModal').value;
     var folder = document.getElementById('funFolderInModal').value;
@@ -56,12 +56,15 @@ function onFunItemUpdateClick() {
         }
     }
 
-    xmlhttp.open('POST', '/editor/update', true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
     var name = document.getElementById('funName').value;
     var folder = document.getElementById('funFolder').value;
     var content = document.getElementById('editor').value;
-    xmlhttp.send('name=' + name + '&folder=' + folder + '&content=' + content);
+
+    xmlhttp.open('PUT', '/apis/' + folder + '/' + name, true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+    xmlhttp.send('content=' + content);
 }
 
 function onFunItemRemoveClick() {
@@ -85,7 +88,7 @@ function onFunItemRemoveClick() {
         }
     }
 
-    xmlhttp.open('GET', '/apis/remove' + '?funFolder=' + funFolder + '&funName=' + funName, true);
+    xmlhttp.open('DELETE', '/apis/' + funFolder + '/' + funName, true);
     xmlhttp.send();
 }
 

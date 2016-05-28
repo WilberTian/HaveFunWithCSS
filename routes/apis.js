@@ -3,7 +3,7 @@ var router = express.Router();
 
 var funOperator = require('../utils/funOperator');
 
-router.get('/list', function(req, res, next) {
+router.get('/funlist', function(req, res, next) {
 	funOperator.getFunList()
 		.then(function(data){
 			res.send({ status: 0, funList: data });
@@ -12,6 +12,15 @@ router.get('/list', function(req, res, next) {
 			res.send({ status: 1, error: err.message })
 		})
 });
+
+router.post('/funlist', function(req, res, next) {
+	funOperator.addFunItem(req.body.folder, req.body.name)
+		.then(function(data){
+			res.send({ status: 0, message: data });
+		}, function(err){
+			res.send({ status: 1, error: err.message })
+		})
+})
 
 router.get('/:funFolder/:funName', function(req, res, next) {
 	funOperator.getFunItem(req.params.funFolder, req.params.funName)
@@ -23,8 +32,8 @@ router.get('/:funFolder/:funName', function(req, res, next) {
 });
 
 
-router.post('/update', function(req, res, next) {
-	funOperator.updateFunItem(req.body.folder, req.body.name, req.body.content)
+router.put('/:funFolder/:funName', function(req, res, next) {
+	funOperator.updateFunItem(req.params.funFolder, req.params.funName, req.body.content)
 		.then(function(data){
 			res.send({ status: 0, funName: req.params.funName, funContent: data });
 		}, function(err) {
@@ -32,17 +41,9 @@ router.post('/update', function(req, res, next) {
 		})
 })
 
-router.post('/add', function(req, res, next) {
-	funOperator.addFunItem(req.body.folder, req.body.name)
-		.then(function(data){
-			res.send({ status: 0, message: data });
-		}, function(err){
-			res.send({ status: 1, error: err.message })
-		})
-})
 
-router.get('/remove', function(req, res, next) {
-	funOperator.removeFunItem(req.query.funFolder, req.query.funName)
+router.delete('/:funFolder/:funName', function(req, res, next) {
+	funOperator.removeFunItem(req.params.funFolder, req.params.funName)
 		.then(function(data){
 			res.send({ status: 0, message: data });
 		}, function(err){
