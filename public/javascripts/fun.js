@@ -59,7 +59,7 @@ $(function(){
 	    	Backbone.trigger('selectFunItemEvent', this.$el)
     		this.model.fetch().then(function(data){
     			Backbone.trigger('funContentLoadedEvent', data.funContent)
-    			console.log(data.funContent)
+    			//console.log(data.funContent)
 	    	}.bind(this))
 	 		
 	    	
@@ -87,7 +87,7 @@ $(function(){
 			  		if(funGroupElement.find('.fun-group-item').length === 0) {
 			  			funGroupElement.remove();
 			  		}
-			        console.log(response)
+			        //console.log(response)
 			    },
 			    error: function (error) {
 			    	console.log(error)
@@ -162,11 +162,7 @@ $(function(){
 				url: '/apis/funlist',
 				wait: true,
 			    success: function (model, response) {
-			        if(response.status === 1) {
-			        	$('#error-msg').html(response.error);
-			        } else {
-			        	self.closeFunItemModal();
-			        }
+			        self.closeFunItemModal();
 			    },
 			    error: function (model, error) {
 			    	console.log(error)
