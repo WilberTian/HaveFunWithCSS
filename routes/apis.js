@@ -18,7 +18,7 @@ router.post('/funlist', function(req, res, next) {
 		.then(function(data){
 			res.send({ status: 0, message: data });
 		}, function(err){
-			res.send({ status: 1, error: err.message })
+			res.status(500).send({ status: 1, error: err.message });
 		})
 })
 
@@ -33,7 +33,7 @@ router.get('/:funFolder/:funName', function(req, res, next) {
 
 
 router.put('/:funFolder/:funName', function(req, res, next) {
-	funOperator.updateFunItem(req.params.funFolder, req.params.funName, req.body.content)
+	funOperator.updateFunItem(req.params.funFolder, req.params.funName, req.body.funContent)
 		.then(function(data){
 			res.send({ status: 0, funName: req.params.funName, funContent: data });
 		}, function(err) {

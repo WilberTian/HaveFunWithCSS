@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FunWithCSS</title>
+        <link rel='stylesheet' href='/stylesheets/base.css' />
+        <link rel='stylesheet' href='/stylesheets/main.css' />
+    </head>
+    <body>
+        <div id='app-container'>
+          <input id='funName' type='hidden' value=''/>
+          <input id='funFolder' type='hidden' value=''/>
+
+          <div class='side-bar'>
+              <div class='tool-bar'>
+                  <button id='try-it'>Try it</button>
+                  <button id='open-fun-item-modal'>Add</button>
+              </div>
+
+             
+              <div id='fun-group-list'>
+
+              </div>
+             
+          </div>
+          <div class='main-space'>
+              <textarea id='editor'></textarea>
+        
+              <iframe id='viewer'></iframe>
+          </div>
+
+
+           <div id='fun-item-modal'>
+         
+           </div>
+
+        </div>
+
+       
+
+
+
+        
+
+
+
+
+
+    </body>
+    
+    <script type='text/javascript' src='/vendor/jquery.js'></script>
+    <script type='text/javascript' src='/vendor/json2.js'></script>
+    <script type='text/javascript' src='/vendor/underscore.js'></script>
+    <script type='text/javascript' src='/vendor/backbone-min.js'></script>
+    <script type='text/javascript' src='/javascripts/fun.js'></script>
+
+
+    <script type="text/template" id="fun-item-template">
+      <div class="fun-group-item">
+        <span><%- name %></span>
+        <a class='edit'>edit</a>
+        <a class='update'>update</a>
+        <a class='delete'>delete</a>
+      </div>
+    </script>
+
+    <script type="text/template" id="fun-group-template">
+      <div class='fun-group' id='<%- folderId %>'>
+        <div class="fun-group-header">
+          <%- folder %>
+        </div>
+      </div>
+    </script>
+
+     <script type="text/template" id='fun-item-modal-template'>
+
+          <div class='overlay'>
+          </div>
+          <div class='fun-item-modal-dialog'>
+            <form action=''>
+              <fieldset>
+                <div id='error-msg' class='tc f20 fb'></div>
+                <legend>Fun item information:</legend>
+                Folder:<br>
+                <input id='funFolderInModal' type='text' name='funFolder'></input><br/>
+                Item:<br>
+                <input id='funItemInModal' type='text' name='funItem'></input><br/><br/>
+                <input id="createFunItem" type='button' value='Submit'></input>
+                <input id="closeFunItemModel" type='button' value='Cancel'></input>
+              </fieldset>
+            </form>
+
+          </div>
+
+    </script>
+</html>

@@ -11,21 +11,20 @@ module.exports = {
 		  	if(!err) {
 		  		var funList = [];
 		  		
-		  		itemList.sort(function(a, b) { return a < b; }).forEach(function(item) {
+		  		itemList.forEach(function(item) {
 		  			var itemPath = path.join(funItemPath, item);
 		  			if(fs.statSync(itemPath).isDirectory()) {
-		  				var temp = {};
-		  				temp['folder'] = item;
-		  				temp['itemList'] = [];
+		  				
 		  				var files = fs.readdirSync(itemPath);
 
 		  				for(var f in files) {
-		  					temp['itemList'].push({
+		  					funList.push({
 		  						'path': path.join(item, files[f]),
-		  						'name': files[f]
+		  						'name': files[f],
+		  						'folder': item
 		  					})
 		  				}
-		  				funList.push(temp)
+		  				
 		  			} 
 		  		})
 
@@ -97,7 +96,7 @@ module.exports = {
 							}
 						})
 					} else {
-						deferred.reject(name + '@' + folder + ' already exists')
+						deferred.reject(new Error(name + '@' + folder + ' already exists'))
 					}
 				})		
 			}

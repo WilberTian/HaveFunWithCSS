@@ -55,7 +55,7 @@ body {
   height: 5%;
 }
 
-.fun-group-list {
+#fun-group-list {
 	padding: 1%;
   overflow: auto;
   height: 93%;
@@ -86,7 +86,7 @@ body {
 
 
 #fun-item-modal {
-  visibility: hidden;
+  
 }
 
 #fun-item-modal .overlay {
@@ -124,4 +124,9 @@ fieldset {
   border-color: threedface;
   text-align: left;
   line-height: 1.6;
+}
+
+
+.active-fun-item {
+  border-left: 5px solid black;
 }
