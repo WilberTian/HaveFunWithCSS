@@ -16,7 +16,7 @@ router.get('/funlist', function(req, res, next) {
 router.post('/funlist', function(req, res, next) {
 	funOperator.addFunItem(req.body.folder, req.body.name)
 		.then(function(data){
-			res.send({ message: data });
+			res.send({ message: data, path: req.body.folder + '/' + req.body.name });
 		}, function(err){
 			res.status(400).send(err.message);
 		})

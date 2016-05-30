@@ -37,9 +37,8 @@ $(function(){
 		template: _.template($('#fun-item-template').html()),
 
 		initialize: function() {
-			this.listenTo(this.model, 'change', this.render);
+			this.listenTo(this.model, 'add', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
-			
 		},
 
 		render: function() {
@@ -81,8 +80,10 @@ $(function(){
 	    },
 
 	    deleteFunItem: function(){
+	    	console.log('delete was called')
 	    	var funGroupElement = this.$el.parent();
 	    	this.model.destroy({
+	    		wait: true,
 			    success: function (model, response) {
 			  		if(funGroupElement.find('.fun-group-item').length === 0) {
 			  			funGroupElement.remove();
@@ -157,8 +158,10 @@ $(function(){
 
 		createFunItem: function() {	
 			var self = this;
+			var folder = $('#funFolderInModal').val();
+			var name = $('#funItemInModal').val();
 
-			funItemList.create({folder: $('#funFolderInModal').val(), name: $('#funItemInModal').val()}, {
+			funItemList.create({folder: folder, name: name }, {
 				url: '/apis/funlist',
 				wait: true,
 			    success: function (model, response) {
