@@ -123,11 +123,14 @@ $(function(){
 			Backbone.on('selectFunItemEvent', function(ele) {
 				if(this.selectedFunItem !== null) {
 					$(this.selectedFunItem).removeClass('active-fun-item')
+					$(this.selectedFunItem).find('.fun-group-item-operations').hide();
 					this.selectedFunItem = ele;
 					$(this.selectedFunItem).addClass('active-fun-item')
+					$(this.selectedFunItem).find('.fun-group-item-operations').show();
 				} else {
 					this.selectedFunItem = ele;
 					$(this.selectedFunItem).addClass('active-fun-item')
+					$(this.selectedFunItem).find('.fun-group-item-operations').show();
 				}
 			}.bind(this))
 

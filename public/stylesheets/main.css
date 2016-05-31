@@ -82,13 +82,17 @@ body {
   margin: 1px;
 }
 
-.fun-group-item span{
+.fun-group-item span {
   line-height: 20px;
+}
+
+.fun-group-item .fun-group-item-operations {
+  display: none;
 }
 
 .fun-group-item img {
   height: 16px;
-  padding-left: 8px;
+  padding-left: 2px;
 }
 
 
