@@ -29,25 +29,25 @@ body {
 }
 
 #editor {
-    width: 98%;
-    resize: none;
-    height: 47.5%;
-    border: 0px;
-    background: #383737;
-    color: white;
-    font-size: 16px;
-    overflow: auto;
-    padding: 1%;
-    float: left;
+  width: 98%;
+  resize: none;
+  height: 47.5%;
+  border: 0px;
+  background: #383737;
+  color: white;
+  font-size: 16px;
+  overflow: auto;
+  padding: 1%;
+  float: left;
 }
 
 #viewer {
-	  width: 100%;
-    height: 50%;
-    border: 0px;
-    background: white;
-    overflow: auto;
-    float: left;
+  width: 100%;
+  height: 50%;
+  border: 0px;
+  background: white;
+  overflow: auto;
+  float: left;
 }
 
 .tool-bar {
@@ -64,11 +64,11 @@ body {
 }
 
 .fun-group {
-    margin-bottom: 25px;
-    padding-left: 10px;
-    border-left: 4px solid #1b809e;
-    background: #fff;
-    color: #383737;
+  margin-bottom: 25px;
+  padding-left: 10px;
+  border-left: 4px solid #1b809e;
+  background: #fff;
+  color: #383737;
 }
 
 .fun-group-header {
@@ -78,16 +78,19 @@ body {
 
 .fun-group-item {
 	display: block;
-	margin: 3px;
+	height: 20px;
+  margin: 1px;
 }
 
-
-
-
-
-#fun-item-modal {
-  
+.fun-group-item span{
+  line-height: 20px;
 }
+
+.fun-group-item img {
+  height: 16px;
+  padding-left: 8px;
+}
+
 
 #fun-item-modal .overlay {
   position: fixed;

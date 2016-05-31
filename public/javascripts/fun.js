@@ -4,7 +4,6 @@ $(function(){
 	*/
 	var FunItem = Backbone.Model.extend({
 		urlRoot: '/apis',
-
 		url: function(){
 			return this.urlRoot + '/' + this.get('folder') + '/' + this.get('name')
 		},
@@ -14,18 +13,22 @@ $(function(){
 
 	var FunItemList = Backbone.Collection.extend({
 		url: '/apis/funlist/',
+		
 		model: FunItem,
 
-		parse: function(response) {
-			return response.funList;
-		},
-
 		initialize: function(){
-		    this.fetch();
+		    this.fetch({
+		    	success: function (model, response) {
+			        // Fun list fetched successfully
+			    },
+			    error: function (error) {
+			    }
+		    });
 		}
 	});
 
 	var funItemList = new FunItemList();
+
 
 
 
@@ -48,7 +51,7 @@ $(function(){
 	    },
 
 	    events: {
-	      	'click .fun-group-item span'   : 'selectFunItem',
+	      	'click .fun-group-item span': 'selectFunItem',
 	      	'click .fun-group-item .edit': 'editFunItem',
 	      	'click .fun-group-item .update': 'updateFunItem',
 	      	'click .fun-group-item .delete': 'deleteFunItem'
@@ -56,12 +59,15 @@ $(function(){
 
 	    selectFunItem: function() {
 	    	Backbone.trigger('selectFunItemEvent', this.$el)
-    		this.model.fetch().then(function(data){
-    			Backbone.trigger('funContentLoadedEvent', data.funContent)
-    			//console.log(data.funContent)
-	    	}.bind(this))
-	 		
-	    	
+    		this.model.fetch({
+		    	success: function (model, response) {
+		    		// Fun content fetched successfully
+			        Backbone.trigger('funContentLoadedEvent', response.funContent)
+			    },
+			    error: function (error) {
+			    }
+		    })
+	 	
 	    },
 
 	    editFunItem: function(){
@@ -72,7 +78,7 @@ $(function(){
 	    	this.model.set({'funContent': $('#editor').val() })
 	    	this.model.save(null, {
 			    success: function (model, response) {
-			        
+			        // Fun item updated successfully
 			    },
 			    error: function (error) {
 			    }
@@ -89,6 +95,7 @@ $(function(){
 			  			funGroupElement.remove();
 			  		}
 			        //console.log(response)
+			        // Fun item deleted successfully
 			    },
 			    error: function (error) {
 			    	console.log(error)
@@ -133,9 +140,9 @@ $(function(){
 
 		events: {
 			'click #try-it': 'tryIt',
-			'click #open-fun-item-modal': 'openFunItemModal',
-			'click #createFunItem': 'createFunItem',
-			'click #closeFunItemModel': 'closeFunItemModal',
+			'click #open-modal-btn': 'openFunItemModal',
+			'click #create-fun-item-btn': 'createFunItem',
+			'click #close-modal-btn': 'closeFunItemModal',
 		},
 
 		insertFunItem: function(funItem) {
@@ -158,14 +165,15 @@ $(function(){
 
 		createFunItem: function() {	
 			var self = this;
-			var folder = $('#funFolderInModal').val();
-			var name = $('#funItemInModal').val();
+			var folder = $('#fun-folder-in-modal').val();
+			var name = $('#fun-name-in-modal').val();
 
 			funItemList.create({folder: folder, name: name }, {
 				url: '/apis/funlist',
 				wait: true,
 			    success: function (model, response) {
 			        self.closeFunItemModal();
+			        // Fun item created successfully
 			    },
 			    error: function (model, error) {
 			    	console.log(error)

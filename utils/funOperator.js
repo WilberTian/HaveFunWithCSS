@@ -37,21 +37,6 @@ module.exports = {
 	  	return deferred.promise
 	},
 
-	getFunItem: function(folder, name) {
-		var itemPath = path.join(funItemPath, folder, name);
-
-		var deferred = Q.defer();
-		fs.readFile(itemPath, function(err, itemContent) {
-			if(!err) {
-				deferred.resolve(itemContent.toString());
-			} else {
-				deferred.reject(new Error('Fail to read fun item'));
-			}
-		})
-
-		return deferred.promise;
-	},
-
 	addFunItem: function(folder, name) {
 		var folderPath = path.join(funItemPath, folder);
 		var itemPath = path.join(funItemPath, folder, name);
@@ -76,7 +61,11 @@ module.exports = {
 					} else {
 						fs.writeFile(path.join(folderPath, name), '', function(err){
 							if(!err) {
-								deferred.resolve(name + '@' + folder + ' was created')
+								deferred.resolve({
+									name: name,
+									folder: folder,
+									path: path.join(itemPath, folder, name)
+								})
 							} else {
 								fs.rmdirSync(folderPath);
 								deferred.reject(new Error('Fail to create fun item'));
@@ -90,7 +79,11 @@ module.exports = {
 					if(err) {
 						fs.writeFile(path.join(folderPath, name), '', function(err){
 							if(!err) {
-								deferred.resolve(name + '@' + folder + ' was created')
+								deferred.resolve({
+									name: name,
+									folder: folder,
+									path: path.join(itemPath, folder, name)
+								})
 							} else {
 								deferred.reject(new Error('Fail to create fun item'));
 							}
@@ -106,13 +99,39 @@ module.exports = {
 		return deferred.promise;
 	},
 
+	getFunItem: function(folder, name) {
+		var itemPath = path.join(funItemPath, folder, name);
+
+		var deferred = Q.defer();
+		fs.readFile(itemPath, function(err, itemContent) {
+			if(!err) {
+				deferred.resolve({
+					'path': itemPath,
+					'name': name,
+					'folder': folder,
+					'funContent': itemContent.toString()
+				})
+				deferred.resolve();
+			} else {
+				deferred.reject(new Error('Fail to read fun item'));
+			}
+		})
+
+		return deferred.promise;
+	},
+
 	updateFunItem: function(folder, name, content) {
 		var itemPath = path.join(funItemPath, folder, name);
 
 		var deferred = Q.defer();
 		fs.writeFile(itemPath, content, function(err) {
 			if(!err) {
-				deferred.resolve(content);
+				deferred.resolve({
+					'path': itemPath,
+					'name': name,
+					'folder': folder,
+					'funContent': content
+				});
 			} else {
 				deferred.reject(new Error('Fail to update fun item'));
 			}
@@ -133,7 +152,11 @@ module.exports = {
 					fs.rmdirSync(folderPath)
 				}
 
-				deferred.resolve(name + '@' + folder + ' was deleted');
+				deferred.resolve({
+					'path': itemPath,
+					'name': name,
+					'folder': folder
+				});
 			} else {
 				deferred.reject(new Error('Fail to delete fun item'));
 			}
