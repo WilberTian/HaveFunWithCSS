@@ -142,3 +142,21 @@ fieldset {
 .active-fun-item {
   border-left: 5px solid black;
 }
+
+
+#notification-area {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+}
+
+.notification {
+  background: #B2F0B2;
+  width: 280px;
+  height: 40px;
+  line-height: 40px;
+  z-index: 220;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}

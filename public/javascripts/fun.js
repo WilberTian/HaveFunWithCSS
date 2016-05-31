@@ -19,7 +19,7 @@ $(function(){
 		initialize: function(){
 		    this.fetch({
 		    	success: function (model, response) {
-			        // Fun list fetched successfully
+			        Backbone.trigger('notificationEvent', 'Fun list fetched successfully');
 			    },
 			    error: function (error) {
 			    }
@@ -61,7 +61,7 @@ $(function(){
 	    	Backbone.trigger('selectFunItemEvent', this.$el)
     		this.model.fetch({
 		    	success: function (model, response) {
-		    		// Fun content fetched successfully
+		    		Backbone.trigger('notificationEvent', 'Fun content fetched successfully')
 			        Backbone.trigger('funContentLoadedEvent', response.funContent)
 			    },
 			    error: function (error) {
@@ -79,7 +79,7 @@ $(function(){
 	    	this.model.set({'funContent': $('#editor').val() })
 	    	this.model.save(null, {
 			    success: function (model, response) {
-			        // Fun item updated successfully
+			        Backbone.trigger('notificationEvent', 'Fun item updated successfully');
 			        $('#editor').prop('disabled', true);
 	    			$('#editor').removeClass('edit-mode');
 			    },
@@ -97,8 +97,8 @@ $(function(){
 			  		if(funGroupElement.find('.fun-group-item').length === 0) {
 			  			funGroupElement.remove();
 			  		}
-			        //console.log(response)
-			        // Fun item deleted successfully
+
+			        Backbone.trigger('notificationEvent', 'Fun item deleted successfully');
 			    },
 			    error: function (error) {
 			    	console.log(error)
@@ -115,6 +115,7 @@ $(function(){
 
 		funModalTemplate: _.template($('#fun-item-modal-template').html()),
 		funGroupTemplate: _.template($('#fun-group-template').html()),
+		notificationTemplate: _.template($('#notification-template').html()),
 
 		initialize: function() {
 			this.funGroups = {}
@@ -135,6 +136,15 @@ $(function(){
 					$(this.selectedFunItem).addClass('active-fun-item')
 					$(this.selectedFunItem).find('.fun-group-item-operations').show();
 				}
+			}.bind(this))
+
+			Backbone.on('notificationEvent', function(message) {
+				var notificationDiv = this.notificationTemplate({ message: message });
+				$('#notification-area').append(notificationDiv);
+				setTimeout(function(){
+					$('#notification-area').children(':first-child').remove();
+				}, 3000)
+
 			}.bind(this))
 
 			Backbone.on('funContentLoadedEvent', function(funContent) {
@@ -179,7 +189,7 @@ $(function(){
 				wait: true,
 			    success: function (model, response) {
 			        self.closeFunItemModal();
-			        // Fun item created successfully
+			        Backbone.trigger('notificationEvent', 'Fun item created successfully');
 			    },
 			    error: function (model, error) {
 			    	console.log(error)

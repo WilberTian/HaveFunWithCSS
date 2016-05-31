@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>FunWithCSS</title>
-        <link rel='stylesheet' href='/stylesheets/base.css' />
-        <link rel='stylesheet' href='/stylesheets/main.css' />
+      <title>FunWithCSS</title>
+      <link rel='stylesheet' href='/stylesheets/base.css' />
+      <link rel='stylesheet' href='/stylesheets/main.css' />
     </head>
 
     <body>
@@ -25,6 +25,9 @@
         </div>
 
         <div id='fun-item-modal'>
+        </div>
+
+        <div id='notification-area'>
         </div>
       </div>
 
@@ -73,6 +76,12 @@
             <input id='close-modal-btn' type='button' value='Cancel'></input>
           </fieldset>
         </form>
+      </div>
+    </script>
+
+    <script type='text/template' id='notification-template'>
+      <div class='notification'>
+        <%- message %>
       </div>
     </script>
 </html>
