@@ -33,12 +33,17 @@ body {
   resize: none;
   height: 47.5%;
   border: 0px;
-  background: #383737;
-  color: white;
+  background: #8A7878;
+  color: black;
   font-size: 16px;
   overflow: auto;
   padding: 1%;
   float: left;
+}
+
+.edit-mode {
+  background: #383737 !important;
+  color: white !important;
 }
 
 #viewer {

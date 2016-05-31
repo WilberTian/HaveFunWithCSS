@@ -71,7 +71,8 @@ $(function(){
 	    },
 
 	    editFunItem: function(){
-
+	    	$('#editor').prop('disabled', false);
+	    	$('#editor').addClass('edit-mode');
 	    },
 
 	    updateFunItem: function() {
@@ -79,6 +80,8 @@ $(function(){
 	    	this.model.save(null, {
 			    success: function (model, response) {
 			        // Fun item updated successfully
+			        $('#editor').prop('disabled', true);
+	    			$('#editor').removeClass('edit-mode');
 			    },
 			    error: function (error) {
 			    }
