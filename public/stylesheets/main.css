@@ -17,7 +17,7 @@ body {
   margin: 1% 0px 1% 1%;
 }
 
-.main-space {
+#main-space {
   position: fixed;
   top: 0px;
   left: 25%;
@@ -33,7 +33,7 @@ body {
   resize: none;
   height: 47.5%;
   border: 0px;
-  background: #8A7878;
+  background: #CDC7C7;
   color: black;
   font-size: 16px;
   overflow: auto;
@@ -159,4 +159,21 @@ fieldset {
   margin: 10px;
   padding: 10px;
   border-radius: 8px;
+}
+
+#dragbar {
+  position: absolute;
+  z-index: 190;
+  background-color: #36BED1;
+  padding: 1px 0px 1px 0px;
+}
+
+#shield {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 190;
 }

@@ -19,7 +19,10 @@
           </div>
         </div>
 
-        <div class='main-space'>
+        <div id='shield' style='display: none;'></div>
+        <a id='dragbar'></a>
+
+        <div id='main-space'>
           <textarea id='editor' disabled></textarea>
           <iframe id='viewer'></iframe>
         </div>
@@ -38,6 +41,7 @@
     <script type='text/javascript' src='/vendor/underscore.js'></script>
     <script type='text/javascript' src='/vendor/backbone-min.js'></script>
     <script type='text/javascript' src='/javascripts/fun.js'></script>
+    <script type='text/javascript' src='/javascripts/resize.js'></script>
 
 
     <script type='text/template' id='fun-item-template'>
