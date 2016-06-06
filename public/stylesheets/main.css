@@ -147,8 +147,11 @@ fieldset {
 #dragbar {
   position: absolute;
   z-index: 190;
-  background-color: #36BED1;
-  padding: 1px 0px 1px 0px;
+}
+
+#dragbar img {
+  width: 20px;
+  height: 20px;
 }
 
 #shield {

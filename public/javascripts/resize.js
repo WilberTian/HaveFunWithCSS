@@ -20,14 +20,14 @@ $(function(){
 	    editorWidth = Number(editorWidth.replace('px', ''));
 	    editorHeight = Number(editorHeight.replace('px', ''));
 
-	    dragTop = editorHeight + containerMargin;
+	    dragTop = editorHeight + containerMargin - 10;
 	    drapLeft = sidebarWidth + containerMargin;
 
 	    dragWidth = editorWidth;
 
 	    document.getElementById('dragbar').style.top = dragTop + 'px';
 	    document.getElementById('dragbar').style.left = drapLeft + 'px';
-	    document.getElementById('dragbar').style.width = dragWidth + 'px';
+	    document.getElementById('dragbar').style.width = '1%';
 	    document.getElementById('dragbar').style.cursor = 'row-resize';        
 	}
 
