@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+  .imgbox {width: 730px; margin: 100px; height: 454px;}
+  .imgbox ul { list-style-type: none; margin: 0px; padding: 0px;}
+
+  .img-container ul li {display:none;}
+  .img-container img {width: 730px; height: 454px;}
+
+  .pager{ z-index:3; overflow: hidden; }
+  .pager ul li{
+  float:left;
+  color:#FFF;
+  font-size:15px;
+  display:block;
+  border:2px solid #e5eaff;
+  width:25px;
+  height:25px;
+  margin-right:4px;
+  margin-top:5px;
+  text-align:center;
+  line-height:25px;
+  background-color:#6f4f67;
+  cursor:pointer;
+  }
+  .pager ul .active-pager {
+  color:#6f4f67;
+  background-color:#FFF;
+  }
+</style>
+</head>
+<body>
+  <!--整体容器-->
+  <div class="imgbox">
+  <!--图片列表，除第一张显示外，其余隐藏-->
+  <div class="img-container">
+    <ul>
+    <li style="display:block;" title="秒杀">
+      <img src="sources/image-slider/static/images/1.jpg" />
+    </li>
+    <li title="清洁护理">
+      <img src="sources/image-slider/static/images/2.jpg" />
+    </li>
+    <li title="美的">
+      <img src="sources/image-slider/static/images/3.jpg" />
+    </li>
+    <li title="三星">
+      <img src="sources/image-slider/static/images/4.jpg" />
+    </li>
+    </ul>
+  </div>
+  <!--图片显示标题-->
+  <div class="title"></div>
+  <!--图片序号-->
+  <div class="pager">
+    <ul>
+      <li class="active-pager">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </div>
+  </div>
+</body>
+
+<script src="sources/image-slider/static/vendor/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(function(){
+    var imageSlider = (function (options){
+    var imgList = $(".img-container ul li"),
+      pagerList = $(".pager ul li"),
+      imgLen = imgList.length,
+      index = 0,
+      delay = options.delay || 2000,
+      timer = null;
+      
+    function init(){
+      $(".pager ul").delegate("li", "click", function(){
+        clearInterval(timer);
+        var self = this;
+        
+        $(imgList[index]).fadeOut(0, "linear", function(){
+          $(pagerList[index]).removeClass("active-pager");
+          
+          index = pagerList.index(self);
+  
+          $(imgList[index]).fadeIn(0, "linear", function(){
+          $(pagerList[index]).addClass("active-pager");
+          });
+        });
+        
+        play();
+      });
+    }
+      
+    function play(){
+      timer = setInterval(function(){
+        $(imgList[index]).fadeOut(300, "linear", function(){
+          $(pagerList[index]).removeClass("active-pager");
+          index = index >= (imgLen-1)? (index%(imgLen-1)): (index+1);
+          
+          $(imgList[index]).fadeIn(300, "linear", function(){
+          $(pagerList[index]).addClass("active-pager");
+          });
+        });
+      }, delay);
+    }
+    
+    return {
+      init: init,
+      play: play
+    };
+    
+    })({});
+
+    imageSlider.init();
+    imageSlider.play();
+
+  });
+</script>
+</html>

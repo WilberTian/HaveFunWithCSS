@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+  .slider{
+    width:730px;
+    height:454px;
+    margin:50px auto;
+    overflow: hidden;
+    box-shadow:0 0 5px rgba(0,0,0,1);
+    background-position: center;
+    animation: loops 20s infinite ease-in-out;
+  }
+
+  @keyframes loops {
+    0% {
+      background: url(sources/image-slider/static/images/1.jpg) no-repeat;  
+    }
+    33% {
+      background: url(sources/image-slider/static/images/2.jpg) no-repeat;
+    }
+    66% {
+      background: url(sources/image-slider/static/images/3.jpg) no-repeat;
+    }
+    100% {
+      background: url(sources/image-slider/static/images/4.jpg) no-repeat;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="slider"/>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+  .img-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .img-container {
+    width: 730px;
+    height: 454px;
+    overflow: hidden;
+  }
+
+  .img-container ul {
+    position: relative;
+    animation: loops 20s infinite ease-in-out alternate;
+  }
+
+  @keyframes loops {
+    0%{
+      top:0;
+    }
+    33%{
+      top: -454px;
+    }
+    66%{
+      top: -908px;
+    }
+    100%{
+      top: -1363px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="img-container">
+    <ul>
+      <li title="秒杀">
+        <a href="#">
+          <img src="sources/image-slider/static/images/1.jpg" />
+        </a>
+      </li>
+      <li title="清洁护理">
+        <a href="#">
+          <img src="sources/image-slider/static/images/2.jpg" />
+        </a>
+      </li>
+      <li title="美的">
+        <a href="#">
+          <img src="sources/image-slider/static/images/3.jpg" />
+        </a>
+      </li>
+      <li title="三星">
+        <a href="#">
+          <img src="sources/image-slider/static/images/4.jpg" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
+
+
+
+
