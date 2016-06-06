@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .ex-1 #parent {
+      border: 1px solid black;
+    }
+
+    .ex-1 #child {
+      line-height: 200px;
+    }
+
+    .ex-2 #parent {
+      border: 1px solid black;
+      line-height: 200px;
+    }
+
+    .ex-2 #parent img {
+      vertical-align: middle;
+    }
+
+    .ex-3 img {
+      vertical-align: middle;
+    }
+        
+    </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1: Centering text with Line-Height</h4>
+    
+    <p>This method will work when you want to vertically center a single line of text. All we need to do is set a line-height on the element containing the text larger than its font-size.</p>
+    <p>By default equal space will be given above and below the text and so the text will sit in the vertical center.</p>
+    
+    <div id="parent">
+      <div id="child">Text here</div>
+    </div>
+  </div>
+
+  <div class="ex-2">
+    <h4>ex-2: Centering an Image with Line-Height</h4>
+
+    <div id="parent">
+      <img src="sources/vertical-centering/static/images/icon.png" alt="" />
+    </div>
+  </div>
+
+  <div class="ex-3">
+    <h4>ex-3: icon and text</h4>
+
+    <img src="sources/vertical-centering/static/images/icon.png" alt="" />
+    <span>attachment</span>
+    
+  </div>
+
+</body>
+</html>

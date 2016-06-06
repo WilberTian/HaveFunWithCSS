@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .ex-1 #parent {
+      height: 250px;
+      border: 1px solid black;
+    }
+
+    .ex-1 #floater {
+      float: left;
+      height: 50%;
+      width: 100%;
+      margin-bottom: -50px;
+    }
+    
+    .ex-1 #child {
+      clear: both;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+
+    <div id="parent">
+      <div id="floater"></div>
+      <div id="child">Content here</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .ex-1 #parent { 
+      position: relative;
+      border: 1px solid black;
+      height: 400px;
+      width: 600px;
+    }
+
+    .ex-1 #child {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 50%;
+      height: 30%;
+      margin: auto;
+      border: 1px solid black;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+
+    <div id="parent">
+      <div id="child">Content here</div>
+    </div>
+  </div>
+
+</body>
+</html>

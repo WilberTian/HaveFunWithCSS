@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .ex-1 #parent { 
+      padding: 5% 0;
+      border: 1px solid black;
+    }
+
+    .ex-1 #child {
+      padding: 10% 0;
+      border: 1px solid black;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+
+    <div id="parent">
+      <div id="child">Content here</div>
+    </div>
+  </div>
+
+</body>
+</html>

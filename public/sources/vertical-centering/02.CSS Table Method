@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .ex-1 #parent { 
+      display: table; 
+      border: 1px solid black;
+      height: 100px;
+    }
+
+    .ex-1 #child {
+      display: table-cell;
+      vertical-align: middle;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <p>display the elements as table and table cell and then use the vertical-align property to center the content.</p>
+
+    <div id="parent">
+      <div id="child">Content here</div>
+    </div>
+  </div>
+
+</body>
+</html>
