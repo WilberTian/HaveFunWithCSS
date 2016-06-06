@@ -6,7 +6,7 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.side-bar {
+#side-bar {
   position: fixed;
   top: 0px;
   left: 0px;
