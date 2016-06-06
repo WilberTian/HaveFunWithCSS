@@ -199,7 +199,12 @@ $(function(){
 		},
 
 		tryIt: function() {
-		    $('#viewer').contents().find('html').html($('#editor').val());
+		    //$('#viewer').contents().find('html').html($('#editor').val());
+		    var iframe = document.getElementById('viewer');
+		    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+		    iframeDocument.open();
+		    iframeDocument.write($('#editor').val());
+		    iframeDocument.close();
 		},
 
 		openFunItemModal: function() {
