@@ -28,24 +28,6 @@ body {
   margin: 1%;
 }
 
-#editor {
-  width: 98%;
-  resize: none;
-  height: 47.5%;
-  border: 0px;
-  background: #CDC7C7;
-  color: black;
-  font-size: 16px;
-  overflow: auto;
-  padding: 1%;
-  float: left;
-}
-
-.edit-mode {
-  background: #383737 !important;
-  color: white !important;
-}
-
 #viewer {
   width: 100%;
   height: 50%;

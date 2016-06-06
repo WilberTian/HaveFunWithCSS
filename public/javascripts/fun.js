@@ -71,17 +71,15 @@ $(function(){
 	    },
 
 	    editFunItem: function(){
-	    	$('#editor').prop('disabled', false);
-	    	$('#editor').addClass('edit-mode');
+	    	editor.readOnly = false;
 	    },
 
 	    updateFunItem: function() {
-	    	this.model.set({'funContent': $('#editor').val() })
+	    	this.model.set({'funContent': editor.getValue() })
 	    	this.model.save(null, {
 			    success: function (model, response) {
 			        Backbone.trigger('notificationEvent', 'Fun item updated successfully');
-			        $('#editor').prop('disabled', true);
-	    			$('#editor').removeClass('edit-mode');
+			        editor.readOnly = 'nocursor';
 			    },
 			    error: function (error) {
 			    }
@@ -148,7 +146,7 @@ $(function(){
 			}.bind(this))
 
 			Backbone.on('funContentLoadedEvent', function(funContent) {
-				$('#editor').val(funContent);
+				editor.setValue(funContent);
 				this.tryIt();
 			}.bind(this))
 
@@ -203,7 +201,7 @@ $(function(){
 		    var iframe = document.getElementById('viewer');
 		    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 		    iframeDocument.open();
-		    iframeDocument.write($('#editor').val());
+		    iframeDocument.write(editor.getValue());
 		    iframeDocument.close();
 		},
 

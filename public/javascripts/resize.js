@@ -7,24 +7,22 @@ $(function(){
 	  	var containerLeft = Number(getStyleValue(document.getElementById("main-space"), "left").replace("px", ""));
 
 	  	var containerMargin = Number(getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
-	 
+	
 	    document.getElementById('dragbar').style.height = '5px';
 	    if (window.getComputedStyle) {
-	        editorWidth = window.getComputedStyle(document.getElementById('editor'),null).getPropertyValue('width');
-	        editorHeight = window.getComputedStyle(document.getElementById('editor'),null).getPropertyValue('height');
+	        editorWidth = window.getComputedStyle($('.CodeMirror')[0],null).getPropertyValue('width');
+	        editorHeight = window.getComputedStyle($('.CodeMirror')[0],null).getPropertyValue('height');
 	        
-	        editorPadding = window.getComputedStyle(document.getElementById("editor"),null).getPropertyValue("padding-top");
 	    } else {
-	        dragTop = document.getElementById('editor').currentStyle['width'];
+	        dragTop = $('.CodeMirror')[0].currentStyle['width'];
 	    }
 
 	    editorWidth = Number(editorWidth.replace('px', ''));
 	    editorHeight = Number(editorHeight.replace('px', ''));
-	    editorPadding = Number(editorPadding .replace('px', ''));
 
-	    dragTop = editorHeight + editorPadding*2 + containerMargin;
+	    dragTop = editorHeight + containerMargin;
 	    drapLeft = containerLeft + containerMargin;
-	    dragWidth = editorWidth + editorPadding*2;
+	    dragWidth = editorWidth;
 
 	    document.getElementById('dragbar').style.top = dragTop + 'px';
 	    document.getElementById('dragbar').style.left = drapLeft + 'px';
@@ -51,11 +49,11 @@ $(function(){
 			
 			var containerMargin = Number(getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 
-			var percentage = ((e.pageY - containerMargin*2) / window.innerHeight) * 100;
+			var percentage = (e.pageY / window.innerHeight) * 100;
 			if (percentage > 5 && percentage < 90) {
-				var mainPercentage = 97.5 - percentage;
+				var mainPercentage = 100 - percentage;
 
-				document.getElementById("editor").style.height = percentage + "%";
+				editor.setSize('100%', percentage + "%") ;
 				document.getElementById("viewer").style.height = mainPercentage + "%";
 				fixDragBtn();
 			}
