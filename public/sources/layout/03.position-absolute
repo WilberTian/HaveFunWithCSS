@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .box{ width: 50px; height: 50px; }
+    
+    .ex-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; } 
+    .ex-1 .child-div-1{ background: yellow; }
+    .ex-1 .child-div-2{ background: red; }
+    .ex-1 .child-div-3{ background: blue; position: absolute; top: 20px; right: 20px; }
+    .ex-1 .child-div-4{ background: gray; }
+
+
+    .ex-2 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; position: relative; } 
+    .ex-2 .child-div-1{ background: yellow; }
+    .ex-2 .child-div-2{ background: red; }
+    .ex-2 .child-div-3{ background: blue; position: absolute; bottom: 20px; right: 20px; }
+    .ex-2 .child-div-4{ background: gray; }
+
+    .ex-3 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; position: relative; }
+    .ex-3 .child-span-1{ background: yellow; }
+    .ex-3 .child-span-2{ background: red; }
+    .ex-3 .child-span-3{ background: blue; position: absolute; top: 10px; right: 10px; }
+    .ex-3 .child-span-4{ background: gray; }
+        
+    </style>
+</head>
+<body>
+  <p>When the position is set to absolute, the element is removed from the document flow.</p>
+  <p>position:absolute will affect display</p>
+  <p>This element will placed exactly with top/right/bottom/left based on the first positioned parent (if all the parents are not positioned, the absolute element will be placed based on body element).</p>
+
+  <div class="ex-1">
+    <h4>ex-1: parent div is using static postion</h4>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+
+  <div class="ex-2">
+    <h4>ex-2: parent div is using relative postion</h4>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+  <div class="ex-3">
+    <h4>ex-3: The absolute element will be removed from document flow, then the display of the element will be changed</h4>
+    <div class="parent-div">
+      <span class="child-span-1 box">span-1</span>
+      <span class="child-span-2 box">span-2</span>
+      <span class="child-span-3 box">span-3</span>
+      <span class="child-span-4 box">span-4</span>
+    </div>
+  </div>
+
+</body>
+</html>

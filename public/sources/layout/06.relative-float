@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .box{ width: 50px; height: 50px; }
+    
+    .ex-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-1 .child-div-1{ background: yellow; }
+    .ex-1 .child-div-2{ background: red; float: right; position: relative; bottom: 50px; right: 50px;}
+    .ex-1 .child-div-3{ background: blue; }
+    .ex-1 .child-div-4{ background: gray; }
+        
+    </style>
+</head>
+<body>
+
+  <div class="ex-1">
+    <h4>ex-1: relative and float</h4>
+    <p>the element will float first, then relativly move to the correct place</p>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .box{ width: 50px; height: 50px; }
+    
+    .ex-1 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-1 .child-div-1{ background: yellow; }
+    .ex-1 .child-div-2{ background: red; float: left;}
+    .ex-1 .child-div-3{ background: blue; }
+    .ex-1 .child-div-4{ background: gray; }
+
+    .ex-2 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-2 .child-div-1{ background: yellow; }
+    .ex-2 .child-div-2{ background: red; float: right;}
+    .ex-2 .child-div-3{ background: blue; }
+    .ex-2 .child-div-4{ background: gray; }
+    
+    .ex-3 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-3 .child-div-1{ background: yellow; }
+    .ex-3 .child-div-2{ background: red; float: right;}
+    .ex-3 .child-div-3{ background: blue; clear: right; }
+    .ex-3 .child-div-4{ background: gray; }
+    
+    .ex-4 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-4 .child-div-1{ background: yellow; float: left; }
+    .ex-4 .child-div-2{ background: red; float: left;}
+    .ex-4 .child-div-3{ background: blue; float: left; }
+    .ex-4 .child-div-4{ background: gray; float: left; }
+    
+    .ex-5 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; overflow: auto; }
+    .ex-5 .child-div-1{ background: yellow; float: left; }
+    .ex-5 .child-div-2{ background: red; float: left;}
+    .ex-5 .child-div-3{ background: blue; float: left; }
+    .ex-5 .child-div-4{ background: gray; float: left; }
+    
+    .ex-6 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-6 .child-div-1{ background: yellow; float: left; }
+    .ex-6 .child-div-2{ background: red; float: left;}
+    .ex-6 .child-div-3{ background: blue; float: left; }
+    .ex-6 .child-div-4{ background: gray; float: left; }
+
+    .ex-7 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-7 .child-span-1{ background: yellow; }
+    .ex-7 .child-span-2{ background: red; float: right; }
+    .ex-7 .child-span-3{ background: blue; }
+    .ex-7 .child-span-4{ background: gray; }
+
+    .ex-8 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; overflow: auto; }
+    .ex-8 .child-span-1{ background: yellow; }
+    .ex-8 .child-span-2{ background: red; float: right; }
+    .ex-8 .child-span-3{ background: blue; }
+    .ex-8 .child-span-4{ background: gray; }
+    
+    .ex-9 .parent-div{ background: #bbb; border: 2px solid black; width: 400px; }
+    .ex-9 .child-span-1{ background: yellow; }
+    .ex-9 .child-span-2{ background: red; float: right; }
+    .ex-9 .child-span-3{ background: blue; }
+    .ex-9 .child-span-4{ background: gray; }
+    
+        
+    </style>
+</head>
+<body>
+  <p>We can "float" an element to push it as far as possible to the right or to the left, and allow text to wrap around it.</p>
+  <p>The float element will be removed from document flow.</p>
+  
+  <div class="ex-1">
+    <h4>ex-1: float left</h4>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+  <div class="ex-2">
+    <h4>ex-2: float right</h4>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+  <div class="ex-3">
+    <h4>ex-3: float with clear</h4>
+    <p>Then after the floating elements we can "clear" the floats to push down the rest of the content.</p>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+  <div class="ex-4">
+    <h4>ex-4: all float</h4>
+    <p></p>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+  <div class="ex-5">
+    <h4>ex-5: all float with autoflow</h4>
+    <p></p>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+    </div>
+  </div>
+
+  <div class="ex-6">
+    <h4>ex-6: all float with clear</h4>
+    <p></p>
+    <div class="parent-div">
+      <div class="child-div-1 box"></div>
+      <div class="child-div-2 box"></div>
+      <div class="child-div-3 box"></div>
+      <div class="child-div-4 box"></div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+  <div class="ex-7">
+    <h4>ex-7: float will affect display</h4>
+    <p>The float element will be removed from document flow, then the display of the element will be changed</p>
+    <div class="parent-div">
+      <span class="child-span-1 box">span-1</span>
+      <span class="child-span-2 box">span-2</span>
+      <span class="child-span-3 box">span-3</span>
+      <span class="child-span-4 box">span-4</span>
+    </div>
+  </div>
+
+  <div class="ex-8">
+    <h4>ex-8: float with overflow</h4>
+    <p></p>
+    <div class="parent-div">
+      <span class="child-span-1 box">span-1</span>
+      <span class="child-span-2 box">span-2</span>
+      <span class="child-span-3 box">span-3</span>
+      <span class="child-span-4 box">span-4</span>
+    </div>
+  </div>
+
+  <div class="ex-9">
+    <h4>ex-9: float with clear</h4>
+    <p></p>
+    <div class="parent-div">
+      <span class="child-span-1 box">span-1</span>
+      <span class="child-span-2 box">span-2</span>
+      <div style="clear: both;"></div>
+      <span class="child-span-3 box">span-3</span>
+      <span class="child-span-4 box">span-4</span>
+    </div>
+  </div>
+
+</body>
+</html>
