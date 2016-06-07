@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    body {
+      background: #f06d06;
+    }
+
+    .ex-1 .inline-block-center {
+      text-align: center;
+    }
+
+    .ex-1 .inline-block-center div {
+      display: inline-block;
+      width: 200px;
+      padding: 20px;
+      border: 1px solid black;
+    }
+
+    
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div class="inline-block-center">
+      <div>
+        I'm an element that is block-like with my siblings and we're centered in a row.
+      </div>
+      <div>
+        I'm an element that is block-like with my siblings and we're centered in a row. I have more content in me than my siblings do.
+      </div>
+      <div>
+        I'm an element that is block-like with my siblings and we're centered in a row.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
