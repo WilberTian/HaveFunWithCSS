@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    .ex-1 #parent {
+      border: 4px solid black;
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 20px;
+      left: 60px;
+      overflow: auto;
+      float: left;
+    }
+
+    .ex-1 #child {
+      border: 4px solid black;
+      width: 60px;
+      height: 60px;
+      margin: 20px;
+    }
+    
+    .ex-1 #result {
+      border: 1px solid black;
+      display: inline-block;
+      padding: 10px;
+      float: left;
+      margin: 20px 0px 0px 100px;
+
+    }
+    </style>
+</head>
+<body>
+
+  <p>获取页面元素的位置：</p>
+  <pre>
+    var X = this.getBoundingClientRect().left + document.documentElement.scrollLeft;
+    var Y =this.getBoundingClientRect().top + document.documentElement.scrollTop;
+  </pre>
+
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div id="parent">
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        <div id="child">
+            child
+        </div>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+</body>
+<script type='text/javascript'>
+  var resultEle = document.getElementById("result");
+  var parentDiv = document.getElementById("parent"); 
+
+  document.getElementById("parent").onscroll = function(){
+    
+  };
+
+  document.onscroll = getResult;
+
+  function getResult(){
+    var resultStr = "parent div info:" + "<br/>";
+    
+    var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+    resultStr += ("scrollLeft: " + (scrollLeft) + "<br/>");
+    resultStr += ("scrollTop: " + (scrollTop) + "<br/>");  
+    resultStr += ("x: " + (parentDiv.getBoundingClientRect().left + scrollLeft) + "<br/>");
+    resultStr += ("y: " + (parentDiv.getBoundingClientRect().top + scrollTop) + "<br/>");
+
+    resultEle.innerHTML = resultStr;       
+  }
+
+  getResult();
+
+</script>
+</html>

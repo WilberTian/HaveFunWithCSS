@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    .ex-1 #parent {
+      border: 4px solid black;
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 20px;
+      left: 60px;
+      overflow: auto;
+      float: left;
+    }
+
+    .ex-1 #child {
+      border: 4px solid black;
+      width: 60px;
+      height: 60px;
+      margin: 20px;
+    }
+    
+    .ex-1 #result {
+      border: 1px solid black;
+      display: inline-block;
+      padding: 10px;
+      float: left;
+      margin-left: 100px;
+    }
+    </style>
+</head>
+<body>
+
+  clientHeight
+  <ul>
+    <li>
+      大部分浏览器对clientHeight都认为是内容可视区域的高度，也就是说页面浏览器中可以看到内容的这个区域的高度，既然是指可看到内容的区域，滚动条不算在内
+    </li>
+    <li>
+      计算方式：clientHeight = topPadding + bottomPadding+ height - scrollbar.height
+    </li>
+  </ul>
+
+  offsetHeight
+  <ul>
+    <li>
+      在IE6，IE7，IE8以及最新的的FF, Chrome中，在元素上都是offsetHeight = clientHeight + 滚动条 + 边框
+    </li>
+  </ul>
+
+  scrollHeight
+  <ul>
+    <li>
+      scrollHeight是元素的padding加元素内容的高度，这个高度与滚动条无关，是内容的实际高度
+    </li>
+    <li>
+      计算方式：scrollHeight = topPadding + bottomPadding + 内容的实际高度
+    </li>
+  </ul>
+
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div id="parent">
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        parent<br/>
+        <div id="child">
+            child
+        </div>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+</body>
+<script type='text/javascript'>
+  var result = document.getElementById("result");
+  var parentDiv = document.getElementById("parent"); 
+  var childDiv = document.getElementById("child"); 
+  var resizeTimer = null;
+
+  window.addEventListener("resize", function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(getResult, 500);
+  });
+
+  function getResult(){
+    var resultStr = "parent div info:" + "<br/>";
+    resultStr += ("clientHeight: " + parentDiv.clientHeight + "<br/>");
+    resultStr += ("offsetHeight: " + parentDiv.offsetHeight + "<br/>");
+    resultStr += ("scrollHeight: " + parentDiv.scrollHeight + "<br/>");
+    
+    
+    resultStr += ("<br/>");
+    
+    
+    resultStr += ("child div info:" + "<br/>");
+    resultStr += ("clientHeight: " + childDiv.clientHeight + "<br/>");
+    resultStr += ("offsetHeight: " + childDiv.offsetHeight + "<br/>");
+    resultStr += ("scrollHeight: " + childDiv.scrollHeight + "<br/>");
+    
+
+    resultStr += ("<br/>");
+    
+
+    resultStr += ("document.body info:" + "<br/>");
+    resultStr += ("clientHeight: " + document.body.clientHeight + "<br/>");
+    resultStr += ("offsetHeight: " + document.body.offsetHeight + "<br/>");
+    resultStr += ("scrollHeight: " + document.body.scrollHeight + "<br/>");
+    
+
+    resultStr += ("<br/>");
+    
+
+    resultStr += ("document.documentElement info:" + "<br/>");
+    resultStr += ("clientHeight: " + document.documentElement.clientHeight + "<br/>");
+    resultStr += ("offsetHeight: " + document.documentElement.offsetHeight + "<br/>");
+    resultStr += ("scrollHeight: " + document.documentElement.scrollHeight + "<br/>");
+
+    result.innerHTML = resultStr;
+  }
+
+  getResult();
+  
+</script>
+</html>
