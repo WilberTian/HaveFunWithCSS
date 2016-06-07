@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    body {
+      background: #f06d06;
+    }
+
+    .ex-1 .parent {
+      background: white;
+      height: 300px;
+      margin: 20px;
+      width: 300px;
+      position: relative;
+    }
+
+    .ex-1 .parent .child {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      background: black;
+      color: white;
+      padding: 20px;
+      transform: translateY(-50%);
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div class="parent">
+      <div class="child">
+        I'm a block-level element with an unknown height, centered vertically within my parent.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
