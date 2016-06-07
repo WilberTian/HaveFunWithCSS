@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    .ex-1 #parent {
+      border: 4px solid black;
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 20px;
+      left: 60px;
+      overflow: auto;
+      float: left;
+    }
+
+    .ex-1 #child {
+      border: 4px solid black;
+      width: 60px;
+      height: 60px;
+      margin: 20px;
+    }
+    
+    .ex-1 #result {
+      border: 1px solid black;
+      display: inline-block;
+      padding: 10px;
+      float: left;
+      margin: 20px 0px 0px 100px;
+
+    }
+    </style>
+</head>
+<body>
+
+  <p>获取页面元素的位置：</p>
+  <pre>
+    var X = this.getBoundingClientRect().left + document.documentElement.scrollLeft;
+    var Y =this.getBoundingClientRect().top + document.documentElement.scrollTop;
+  </pre>
+
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div id="parent">
+        parent
+        <div id="child">
+            child
+        </div>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+</body>
+<script type='text/javascript'>
+  var resultEle = document.getElementById("result");
+  var parentDiv = document.getElementById("parent"); 
+
+  function getResult(){
+    var parentStyle = window.getComputedStyle(parentDiv, null);
+    var resultStr = "parent div info:" + "<br/>";
+
+    resultStr += ("position: " + parentStyle.getPropertyValue("position") + "<br/>");
+    resultStr += ("height: " + parentStyle.getPropertyValue("height") + "<br/>");
+    resultStr += ("width: " + parentStyle.getPropertyValue("width") + "<br/>");  
+    resultStr += ("left: " +  parentStyle.getPropertyValue("left") + "<br/>");
+    resultStr += ("top: " + parentStyle.getPropertyValue("top") + "<br/>");
+
+    resultEle.innerHTML = resultStr;       
+  }
+
+  getResult();
+
+</script>
+</html>
