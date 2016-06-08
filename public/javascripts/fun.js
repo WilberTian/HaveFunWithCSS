@@ -8,7 +8,7 @@ $(function(){
 			return this.urlRoot + '/' + this.get('folder') + '/' + this.get('name')
 		},
 
-		idAttribute: 'path',
+		idAttribute: 'path'
 	});
 
 	var FunItemList = Backbone.Collection.extend({
@@ -102,7 +102,7 @@ $(function(){
 			    	console.log(error)
 			    }
 			})
-	    },
+	    }
 
 
 	});
@@ -116,39 +116,41 @@ $(function(){
 		notificationTemplate: _.template($('#notification-template').html()),
 
 		initialize: function() {
-			this.funGroups = {}
-			this.selectedFunItem = null;
+			var self = this;
+
+			self.funGroups = {}
+			self.selectedFunItem = null;
 			
-			this.listenTo(funItemList, 'add', this.insertFunItem);
-			this.listenTo(funItemList, 'all', this.render);
+			self.listenTo(funItemList, 'add', self.insertFunItem);
+			self.listenTo(funItemList, 'all', self.render);
 
 			Backbone.on('selectFunItemEvent', function(ele) {
-				if(this.selectedFunItem !== null) {
-					$(this.selectedFunItem).removeClass('active-fun-item')
-					$(this.selectedFunItem).find('.fun-group-item-operations').hide();
-					this.selectedFunItem = ele;
-					$(this.selectedFunItem).addClass('active-fun-item')
-					$(this.selectedFunItem).find('.fun-group-item-operations').show();
+				if(self.selectedFunItem !== null) {
+					$(self.selectedFunItem).removeClass('active-fun-item')
+					$(self.selectedFunItem).find('.fun-group-item-operations').hide();
+					self.selectedFunItem = ele;
+					$(self.selectedFunItem).addClass('active-fun-item')
+					$(self.selectedFunItem).find('.fun-group-item-operations').show();
 				} else {
-					this.selectedFunItem = ele;
-					$(this.selectedFunItem).addClass('active-fun-item')
-					$(this.selectedFunItem).find('.fun-group-item-operations').show();
+					self.selectedFunItem = ele;
+					$(self.selectedFunItem).addClass('active-fun-item')
+					$(self.selectedFunItem).find('.fun-group-item-operations').show();
 				}
-			}.bind(this))
+			})
 
 			Backbone.on('notificationEvent', function(message) {
-				var notificationDiv = this.notificationTemplate({ message: message });
+				var notificationDiv = self.notificationTemplate({ message: message });
 				$('#notification-area').append(notificationDiv);
 				setTimeout(function(){
 					$('#notification-area').children(':first-child').remove();
 				}, 3000)
 
-			}.bind(this))
+			})
 
 			Backbone.on('funContentLoadedEvent', function(funContent) {
 				editor.setValue(funContent);
-				this.tryIt();
-			}.bind(this))
+				self.tryIt();
+			})
 
 		},
 
@@ -156,7 +158,7 @@ $(function(){
 			'click #try-it': 'tryIt',
 			'click #open-modal-btn': 'openFunItemModal',
 			'click #create-fun-item-btn': 'createFunItem',
-			'click #close-modal-btn': 'closeFunItemModal',
+			'click #close-modal-btn': 'closeFunItemModal'
 		},
 
 		insertFunItem: function(funItem) {

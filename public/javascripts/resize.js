@@ -67,11 +67,14 @@ $(function(){
 	}
 
 	var dragging = false;
-
-	document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
-	window.addEventListener("mousemove", function(e) {dragmove(e);});
-	window.addEventListener("mouseup", dragend);
-	window.addEventListener('load', fixDragBtn);
-	window.addEventListener('resize', fixDragBtn);
-
+	if(window.getComputedStyle) {
+		// disable dragbar for IE <= 8
+		$('#dragbar').mousedown(function(e) {dragstart(e);});
+		$(window).mousemove(function(e){dragmove(e);});
+		$(window).mouseup(dragend);
+		$(window).load(fixDragBtn);
+		$(window).resize(fixDragBtn);
+	} else {
+		$('#dragbar').hide();
+	}
 })
