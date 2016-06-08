@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .ex-1 div { 
+      border: 1px solid black;
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+    }
+  </style>
+
+  <!--[if !IE]>-->
+  <style>
+    .ex-1 div { 
+      background: green;
+    }
+  </style>
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]> 
+  <style>
+    .ex-1 div { 
+      background: black;
+    }
+  </style>
+  <![endif]-->
+
+  <!--[if gt IE 8]> 
+  <style>
+    .ex-1 div { 
+      background: blue;
+    }
+  </style>
+  <![endif]-->
+</head>
+<body>
+
+  <p>条件选择hack的方法比较常用，一般syntax如下：</p>
+  <pre>
+    &lt;!--[if condition]> HTML &lt;![endif]-->
+    &lt;!--[if !condition]>&lt;![IGNORE[-->&lt;![IGNORE[]]> HTML <!--<![endif]-->
+  </pre>
+
+  <p>常用的condition如下：</p>
+  <ul>
+    <li>IE: Any version of IE</li>
+    <li>lt IE version: Versions less than version</li>
+    <li>lte IE version: Versions less than or equal to version</li>
+    <li>IE version: Only version version</li>
+    <li>gte IE version: Versions greater than or equal to version</li>
+    <li>gt IE version: Versions greater than version</li>
+  </ul>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div>
+      !IE: background: green; <br/>
+      lte IE 8: background: black; <br/>
+      gt IE 8: background: blue;
+    </div>
+  </div>
+
+</body>
+</html>

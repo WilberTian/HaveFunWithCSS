@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .box { 
+      border: 1px solid black;
+      width: 200px;
+      padding: 20px;
+    }
+
+    .ex-1 div {
+      _background:orange;
+    }
+
+    .ex-2 div {
+      background /**/:orange;
+    }
+
+    .ex-3 div {
+      background:orange !important;
+    }
+
+    .ex-4 div {
+      +background:orange;
+    }
+
+    .ex-5 div {
+      *background:orange;
+    }
+
+    .ex-6 div {
+      background:orange!ie;
+    }
+
+    .ex-7 div {
+      background:orange\9;
+    }
+
+    .ex-8 div {
+      background:orange\0;
+    }
+
+    .ex-9 div {
+      background:orange\9\0;
+    }
+
+    </style>
+</head>
+<body>
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <p>IE6及以下的被广泛使用的下划线hack</p>
+
+    <div class="box">
+      _background:orange;
+    </div>
+  </div>
+
+  <div class="ex-2">
+    <h4>ex-2</h4>
+    <p>除了IE6以外，所有浏览器都能正确识别注释</p>
+    <p>需要注意的是，这里的 property 与 /**/之间的空格是必须的；如果没有空格，IE6也能正确识别。</p>
+
+    <div class="box">
+      background /**/:orange;
+    </div>
+  </div>
+
+  <div class="ex-3">
+    <h4>ex-3</h4>
+    <p>除了IE6以外，所有浏览器都能正确识别注释</p>
+
+    <div class="box">
+      background:orange !important;
+    </div>
+  </div>
+
+  <div class="ex-4">
+    <h4>ex-4</h4>
+    <p>只对IE7生效，是IE7的hack</p>
+
+    <div class="box">
+      +background:orange;
+    </div>
+  </div>
+
+  <div class="ex-5">
+    <h4>ex-5</h4>
+    <p>著名的“Star Hack”，IE7及以下识别在之前加星号的属性，所以这条经常被用来Hack轻微的IE7及以下的渲染不一致</p>
+
+    <div class="box">
+      *background:orange;
+    </div>
+  </div>
+
+  <div class="ex-6">
+    <h4>ex-6</h4>
+    <p>属性之后的叹号后面可以出现任何字符串，在IE7及以下产生作用，IE8以上则会忽略</p>
+
+    <div class="box">
+      background:orange!ie;
+    </div>
+  </div>
+
+  <div class="ex-7">
+    <h4>ex-7</h4>
+    <p>最为常见的IE hack之一，IE直到IE9都仍然识别这种属性值</p>
+
+    <div class="box">
+      background:orange\9;
+    </div>
+  </div>
+
+  <div class="ex-8">
+    <h4>ex-8</h4>
+    <p>IE8/IE9/IE10/IE11都生效，是IE8/9/10/11的hack</p>
+
+    <div class="box">
+      background:orange\0;
+    </div>
+  </div>
+
+  <div class="ex-9">
+    <h4>ex-9</h4>
+    <p>只对IE8/IE9/IE10生效，是IE8/IE9/IE10的hack</p>
+
+    <div class="box">
+      background:orange\9\0;
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
