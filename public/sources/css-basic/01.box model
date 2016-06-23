@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .ex-1 .box { 
+      width: 50px; 
+      height: 50px; 
+      border: 6px solid black;
+      margin: 40px;
+      padding: 20px;
+      float: left;
+    }
+    
+    .ex-1 #result {
+      border: 1px solid black;
+      display: inline-block;
+      padding: 10px;
+      float: left;
+      margin: 20px 0px 0px 100px;
+
+    }
+    
+    </style>
+</head>
+<body>
+
+  <p>CSS box model</p>
+  <pre>
+    Total element width = width + left padding + right padding + left border + right border + left margin + right margin
+    Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin
+  </pre>
+  <p><b>Internet Explorer 8 and earlier versions, include padding and border in the width property. To fix this problem, add a &lt;!DOCTYPE html> to the HTML page.</b></p>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+    <div id="box-div" class="box">
+    </div>
+    <div id="result"></div>
+  </div>
+  
+  <script>
+    var resultEle = document.getElementById("result");
+    var box = document.getElementById("box-div")
+    
+    var boxStyle = window.getComputedStyle(box, null)
+    var resultStr = '';
+    resultStr += ("height: " + boxStyle.getPropertyValue("height") + "<br/>");
+    resultStr += ("width: " + boxStyle.getPropertyValue("width") + "<br/>");  
+	resultStr += ("padding: " + boxStyle.getPropertyValue("padding") + "<br/>");  
+    resultStr += ("margin: " + boxStyle.getPropertyValue("margin") + "<br/>");  
+	resultStr += ("border: " + boxStyle.getPropertyValue("border") + "<br/>");  
+    
+    resultEle.innerHTML = resultStr;       
+    
+  </script>
+</body>
+</html>
