@@ -33,10 +33,23 @@
 </head>
 <body>
 
-  <p>获取页面元素的位置：</p>
+  <p>获取页面元素的style：</p>
   <pre>
-    var X = this.getBoundingClientRect().left + document.documentElement.scrollLeft;
-    var Y =this.getBoundingClientRect().top + document.documentElement.scrollTop;
+    var resultEle = document.getElementById("result");
+    var parentDiv = document.getElementById("parent"); 
+  
+    function getResult(){
+      var parentStyle = window.getComputedStyle(parentDiv, null);
+      var resultStr = "parent div info:" + "&lt;br/>";
+
+      resultStr += ("position: " + parentStyle.getPropertyValue("position") + "&lt;br/>");
+      resultStr += ("height: " + parentStyle.getPropertyValue("height") + "&lt;br/>");
+      resultStr += ("width: " + parentStyle.getPropertyValue("width") + "&lt;br/>");  
+      resultStr += ("left: " +  parentStyle.getPropertyValue("left") + "&lt;br/>");
+      resultStr += ("top: " + parentStyle.getPropertyValue("top") + "&lt;br/>");
+  
+      resultEle.innerHTML = resultStr;       
+    }
   </pre>
 
   
