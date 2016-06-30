@@ -1,6 +1,7 @@
-## layout
-This page shows the layout related attribute: **position**, **float** and **display**.  
+## HavaFunWithCSS
 
-Also have some basic examples about how these three attribute affect each other.   
+Use backbone.js to build this simple tool to collect CSS snippets
 
-![layout](https://cloud.githubusercontent.com/assets/5880320/13251094/0bbd3658-da69-11e5-84c1-61a455354531.PNG)
+
+
+![HavaFunWithCSS](https://cloud.githubusercontent.com/assets/5880320/16490903/235fd662-3f0e-11e6-9a4f-1e42bf90c44c.png)
