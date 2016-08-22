@@ -18,3 +18,5 @@ node_modules/
 ##    npm debug file
 ##########################################################
 npm-debug.log
+
+.DS_Store
