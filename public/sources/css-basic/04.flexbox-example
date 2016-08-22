@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .ex-1 {
+    	display: flex;
+  		height: 200px; 
+      	width: 200px;
+      	border: 1px solid black;
+    }
+    .box { 
+      	width: 100px; 
+      	height: 100px; 
+      	border: 1px solid black;
+	 	margin: auto;
+    }
+    
+    
+  	/* Large */
+    .navigation {
+      	list-style: none;
+      	display: flex;
+      	flex-flow: row wrap;
+      	/* This aligns items to the end line on main-axis */
+      	justify-content: flex-end;
+      	background: deepskyblue;
+    }
+    
+    .navigation a {
+      	text-decoration: none;
+      	display: block;
+      	padding: 1em;
+      	color: white;
+    }
+
+    /* Medium screens */
+    @media all and (max-width: 800px) {
+      	.navigation {
+        	/* When on medium sized screens, we center it by evenly distributing empty space around items */
+        	justify-content: space-around;
+      	}
+    }
+
+    /* Small screens */
+    @media all and (max-width: 500px) {
+      	.navigation {
+            /* On small screens, we are no longer using row direction but column */
+        	flex-direction: column;
+      	}
+    }
+    </style>
+</head>
+<body>
+
+  <p>flexbox - item</p>
+  
+  
+  <div class="ex-1">
+    <div class="box">
+    </div>
+  </div>
+  
+
+  <div class="ex-2">
+    <ul class="navigation">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  
+</body>
+</html>
