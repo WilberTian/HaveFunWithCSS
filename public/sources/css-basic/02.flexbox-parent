@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .ex-1 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+    }
+    
+    .ex-1 .box { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    
+    .ex-2 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+      	flex-direction: column;
+    }
+    
+    .ex-2 .box { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    
+    .ex-3 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+      	width: 250px;
+    }
+    
+    .ex-3 .box { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    
+    .ex-4 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+      	width: 250px;
+      	flex-wrap: wrap; /* nowrap | wrap | wrap-reverse; */
+    }
+    
+    .ex-4 .box { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    
+    .ex-5 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+      	justify-content: space-between; /* flex-start | flex-end | center | space-between | space-around; */
+    }
+    
+    .ex-5 .box { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+   
+    .ex-6 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+    }
+    
+    .ex-6 .box1 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-6 .box2 { 
+      width: 100px; 
+      height: 40px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-6 .box3 { 
+      width: 100px; 
+      height: 70px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-6 .box4 { 
+      width: 100px; 
+      height: 30px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-6 .box5 { 
+      width: 100px; 
+      height: 50px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    
+    .ex-7 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+      	align-items: center; /* flex-start | flex-end | center | baseline | stretch; */
+    }
+    
+    .ex-7 .box1 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-7 .box2 { 
+      width: 100px; 
+      height: 40px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-7 .box3 { 
+      width: 100px; 
+      height: 70px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-7 .box4 { 
+      width: 100px; 
+      height: 30px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-7 .box5 { 
+      width: 100px; 
+      height: 50px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    </style>
+</head>
+<body>
+
+  <p>flexbox - parent</p>
+  
+  
+  <div class="ex-1">
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+  </div>
+  
+  <div class="ex-2">
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+  </div>
+  
+  <div class="ex-3">
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+  </div>
+  
+  <div class="ex-4">
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+  </div>
+  
+  <div class="ex-5">
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+  </div>
+  
+  <div class="ex-6">
+    <div class="box1">
+    </div>
+    <div class="box2">
+    </div>
+    <div class="box3">
+    </div>
+    <div class="box4">
+    </div>
+    <div class="box5">
+    </div>
+  </div>
+  
+  <div class="ex-7">
+    <div class="box1">
+    </div>
+    <div class="box2">
+    </div>
+    <div class="box3">
+    </div>
+    <div class="box4">
+    </div>
+    <div class="box5">
+    </div>
+  </div>
+  
+</body>
+</html>

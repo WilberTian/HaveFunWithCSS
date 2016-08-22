@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .ex-1 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+    }
+    
+    .ex-1 .box1 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+      order: 2;
+    }
+    .ex-1 .box2 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+      order: 1;
+    }
+    .ex-1 .box3 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+      order: 3;
+    }
+    .ex-1 .box4 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+      order: 5;
+    }
+    .ex-1 .box5 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+      order: 4;
+    }
+    
+    .ex-2 {
+    	display: flex;
+      	border: 1px solid black;
+      	padding: 5px;
+      	margin: 10px;
+      	width: 250px;
+    }
+    
+    .ex-2 .box { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+    }
+    .ex-2 .box1 { 
+      width: 100px; 
+      height: 20px; 
+      border: 1px solid black;
+      margin: 5px;
+      flex-shrink: 0.5;
+    }
+    </style>
+</head>
+<body>
+
+  <p>flexbox - item</p>
+  
+  
+  <div class="ex-1">
+    <div class="box1">2
+    </div>
+    <div class="box2">1
+    </div>
+    <div class="box3">3
+    </div>
+    <div class="box4">5
+    </div>
+    <div class="box5">4
+    </div>
+  </div>
+  
+  <div class="ex-2">
+    <div class="box1">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+    <div class="box">
+    </div>
+  </div>
+  
+  
+</body>
+</html>
