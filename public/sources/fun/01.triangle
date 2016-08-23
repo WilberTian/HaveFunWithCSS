@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    
+    #triangle-up-1 { 
+        width: 50px; 
+        height: 50px;
+        border: 100px solid red; 
+        border-bottom: 100px solid black;
+    }
+    
+	#triangle-up-2 { 
+        width: 0px; 
+        height: 0px;
+        border: 100px solid red; 
+        border-bottom: 100px solid black;
+    }
+    
+    #triangle-up {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+    }
+    
+    #triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 100px solid red;
+    }
+    
+    #triangle-left {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-right: 100px solid red;
+        border-bottom: 50px solid transparent;
+    }
+    
+    #triangle-topleft {
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-right: 100px solid transparent;
+    }
+    
+    #triangle-topright {
+        width: 0;
+        height: 0;
+        border-top: 100px solid red;
+        border-left: 100px solid transparent;
+
+    }
+    </style>
+</head>
+<body>
+  <p>利用CSS的border以及它的属性值transparent来实现三角形,其中最主要的是要明白由于div的高度跟宽度都为0，margin，padding也为0，所以元素框的大小就是他的border的叠加，由于相邻boder会重叠，故存在内容宽高时其实任意一边存在的border都是梯形的，当div内容宽高为0时，border就表现为三角形，将四个border的颜色设置为transparent表示边框透明，而将右边框颜色再设置为红色就发现三角形出现了，其实这个三角形是右边框。</p>
+  <div id="triangle-up-1">
+  </div>
+  
+  <div id="triangle-up-2">
+  </div>
+  
+  <div id="triangle-up">
+  </div>
+  
+  <div id="triangle-down">
+  </div>
+  
+  <div id="triangle-left">
+  </div>
+  
+  <div id="triangle-topleft">
+  </div>
+  
+  <div id="triangle-topright">
+  </div>
+
+</body>
+
+</html>
