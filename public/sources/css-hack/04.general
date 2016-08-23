@@ -57,6 +57,26 @@
     #veinticinco,  x:-moz-any-link, x:default  { color: red  }
 
 
+
+    /***** Attribute Hacks ******/
+
+    /* IE6 */
+    #once { _color: blue }
+
+    /* IE6, IE7 */
+    #doce { *color: blue; /* or #color: blue */ }
+
+    /* Everything but IE6 */
+    #diecisiete { color/**/: blue }
+
+    /* IE6, IE7, IE8 */
+    #diecinueve { color: blue\9; }
+
+    /* IE7, IE8 */
+    #veinte { color/*\**/: blue\9; }
+
+    /* IE6, IE7 -- acts as an !important */
+    #veintesiete { color: blue !ie; } /* string after ! can be anything */
   </style>
 </head>
   <body>
