@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	li {
+        width: 200px;
+        min-height: 250px;
+        border: 1px solid #000;
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        margin: 5px;
+        zoom: 1;
+        *display: inline;
+        _height: 250px;
+	}
+        
+    </style>
+</head>
+<body>
+  
+  <ul>
+    <li>first</li>
+    <li>second</li>
+  </ul>
+ 
+</body>
+</html>

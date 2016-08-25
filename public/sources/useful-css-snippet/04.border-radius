@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.round{
+       -moz-border-radius: 10px;
+       -webkit-border-radius: 10px;
+       border-radius: 10px; /* future proofing */
+       -khtml-border-radius: 10px; /* for old Konqueror browsers */
+    }
+      
+    .box {
+		width: 200px;
+      	height: 200px;
+      	border: 1px solid black;
+    }
+    </style>
+</head>
+<body>
+  
+  <div class="box round">
+  </div>
+
+</body>
+</html>

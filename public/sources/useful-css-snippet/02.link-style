@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    /* external links */
+    a[href^="http://"]{
+        padding-right: 20px;
+        background: url(http://findicons.com/files/icons/2232/wireframe_mono/16/link.png) no-repeat center right;
+    }
+
+    /* emails */
+    a[href^="mailto:"]{
+        padding-right: 20px;
+        background: url(http://findicons.com/files/icons/1233/somatic_rebirth_apps/16/mail_alt.png) no-repeat center right;
+    }
+
+    /* pdfs */
+    a[href$=".pdf"]{
+        padding-right: 20px;
+      	background: url(pdf.png) no-repeat center right;
+    }
+    
+        
+    </style>
+</head>
+<body>
+  
+  <a href="http://www.bing.com">Bing</a>
+  <a href="mailto: tianli917@hotmail.com">Mail</a>
+</body>
+</html>
