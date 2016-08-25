@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .ex-1 {width:210px;border: 1px solid #000;float: left;}
+    .ex-1 .img {width: 100px;height: 100px;background: #696;float: left;}
+    .ex-1 .info {background: #ccc;color: #fff;}
+    
+    .ex-2 {width:210px;border: 1px solid #000;float: left;}
+    .ex-2 .img {width: 100px;height: 100px;background: #696;float: left;}
+    .ex-2 .info {background: #ccc;color: #fff; overflow: hidden;}
+    
+    .ex-3 {margin:30px;width: 450px;border:1px solid red; overflow: hidden;}
+    .small-box {width: 50px;height: 50px;margin: 10px;background: #9cc;}
+    .middle-box {width: 100px;height: 100px;margin: 20px;background: #99c;}
+    .big-box {width: 120px;height: 120px;margin: 20px;background: #33e;}
+    .floatL {float: left;}
+    .floatR {float: right;}
+    .clear {clear: both;}
+    .posA {position: absolute;}
+    .overHid{overflow: hidden;}
+    .red {background: #f00;}
+    .green {background: #0f0;}
+    .blue {background: #00f;}
+    
+    .ex-4 {margin:30px;width: 450px;border:1px solid red; overflow: hidden;}
+    
+    .ex-5 {margin:30px;width: 450px;border:1px solid red; overflow: hidden;}
+    </style>
+</head>
+<body>
+
+  <p>BFC (Block formatting contexts)</p>
+  <pre>
+  w3c规范中的BFC定义：
+  浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。
+  在BFC中，盒子从顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。在一个BFC中，两个相邻的块级盒子的垂直外边距会产生折叠。
+  在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）。
+  </pre>
+  <pre>
+  BFC的通俗理解：
+  首先BFC是一个名词，是一个独立的布局环境，我们可以理解为一个箱子（实际上是看不见摸不着的），箱子里面物品的摆放是不受外界的影响的。
+  转换为BFC的理解则是：BFC中的元素的布局是不受外界的影响（我们往往利用这个特性来消除浮动元素对其非浮动的兄弟元素和其子元素带来的影响。）并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。
+  </pre>
+  
+  <pre>
+  Reference: http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html
+  </pre>
+  
+  <div class="ex-1">
+    <div class="img"></div>
+    <p class="info">信息信息信息信息信息信息信息信息信息信息信息信信息信息信息信息信息信息信息信息信息信息信息信</p>
+  </div>
+  
+  <div class="ex-2">
+    <div class="img"></div>
+    <p class="info">信息信息信息信息信息信息信息信息信息信息信息信信息信息信息信息信息信息信息信息信息信息信息信</p>
+  </div>
+  
+  
+  <div class="ex-3">
+    <div class="big-box blue">non-float</div>
+    <div class="middle-box green floatL">
+        <div class="small-box red"></div>
+        float left
+    </div>
+  </div>
+  
+  <div class="ex-4">
+    <div class="big-box">non-float</div>
+    <div class="middle-box green floatL">float left</div>
+    <div class="middle-box red">non-clear</div>
+  </div>
+  
+  <div class="ex-5">
+    <div class="big-box" style="box-shadow:0 20px 0 rgba(0,0,255,0.2);">non-float</div>
+    <div class="middle-box green floatL" style="opacity:0.6">float left</div>
+    <div class="middle-box red clear" style="margin-top:40px;box-shadow:0 -40px 0 rgba(255,0,0,0.2);">clear</div>
+  </div>
+</body>
+</html>
