@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <style>
+ 
+      html, body {
+        min-height: 100%;
+      }
+
+      body {
+        position: relative; /* 如果给伪元素设置绝对定位，需要先设置相对定位 */
+      }
+
+      body:after {
+        content: "";
+        display: block;
+        position: fixed; /*也可以设置绝对定位*/
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+        background-color: rgba(0,0,0,0.2);
+      }
+      
+      .modal {
+          width: 300px;
+          height: 200px;
+          line-height: 200px;
+          position: fixed;
+          top: 50%; 
+          left: 50%;
+          margin-top: -100px;
+          margin-left: -150px;
+          background-color: #f1c40f;
+          border-radius: 5px;
+          text-align: center;
+          z-index: 11; /* 1px higher than the overlay layer */
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="modal">I'm the modal window!</div>
+    <pre>
+    为了在我们的标记中避免增加空元素，我们可以使用伪元素来创建浮层。
+    
+    在这种技术上样式和注意事项和以前基本上一样，我们将在body上使用:before或:after伪元素上写样式来代替给.overlay空元素。
+    
+    有一点非常重要，伪元素的过渡效果到现在在Safari和移动端的Safari也无法支持，所以这是一个巨大的缺点，如果你要使用一个伪元素来创建浮层，你要考虑这个方法不能给用户提供光滑的动画浮层效果。
+    </pre>
+  </body>
+</html>

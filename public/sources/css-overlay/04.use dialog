@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <style>
+ 
+      .modal{
+        /* 任意样式 */
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+        height:200px;
+        width:300px;
+
+        /* 设置弹出窗固定在页面，并且居中显示 */
+        position:fixed;
+        top:50%;
+        left:50%;
+        margin-left: -150px;
+        margin-top:-100px;
+      }
+      
+      .modal::backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.8);
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    
+    <dialog class="modal">
+      I'm the modal window!
+      <button id="close">Close</button>
+    </dialog>
+    
+    <pre>
+    HTML中的dialog元素有四个主要特征，而这些特征中就有三个用于制作浮层的特性让我们最感兴趣(第四个特征在写这篇文章时还没有实现)：
+
+    默认情u情况下，当打开一个对话框时，他是垂直居中的。它仍然是绝对定位的，所以它也可以滚动。 DOM中的dialog定位始终会是在视窗的中间位置。
+    dialog是一种模式。当一个dialog打开，它会锁定文档其他部分。
+    dialog是全屏的，并且也放置在最顶层。dialog模式在最顶层。所以你不需要担心需要使用z-index来保持弹出层放置在页面其他元素之上。
+    相当不错，对吗？默认情况下，弹出层在页中处于居中位置，但如前面第一点所述，它使用绝对定位，所以它可以滚动。你可以在你的样式中覆盖默认的绝对定位。如果你决定改变固定的位置，你也可以通过top和left值来改变。
+
+    dialog元素可以放在DOM中的任何地方。
+    
+    
+    
+    现在你使用了dialog元素创建了一个浮层。
+
+    为了使用工作变得更简单，dialog提供了一个API，可以通过show()和hide()这样的函数让对话框显示和隐藏。
+
+    你可以通过Eiji Kitamura的示例可以了解更多关于dialog元素及其API。当你在浏览器中查看它时，示例运行在一个polfill模式中。
+    
+    More demo examples: http://demo.agektmr.com/dialog/
+    </pre>
+    <button id="show">Open Dialog!</button>
+    
+    <script>
+      var dialog = document.querySelector('dialog');
+      document.querySelector('#show').onclick = function() {
+        dialog.showModal();
+      };
+      document.querySelector('#close').onclick = function() {
+        dialog.close();
+      };
+    </script>
+  </body>
+</html>

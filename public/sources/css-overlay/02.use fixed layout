@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <style>
+ 
+      .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: 10;
+          background-color: rgba(0,0,0,0.5);
+      }
+      .modal {
+          width: 300px;
+          height: 200px;
+          line-height: 200px;
+          position: fixed;
+          top: 50%; 
+          left: 50%;
+          margin-top: -100px;
+          margin-left: -150px;
+          background-color: #f1c40f;
+          border-radius: 5px;
+          text-align: center;
+          z-index: 11; /* 1px higher than the overlay layer */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="modal">I'm the modal window!</div>
+    <pre>
+    通常，当使用固定定位，你不必担心浮层的div在结构中放置在哪里。
+    无论你把它放在哪里，都会得到一个相对于视窗的固定位置，除非你改变浮动的祖先元素，在这种情况下，转换元素包含了为所有后代元素定位的包含块，即使是那些得到一个固定定位的元素。
+    这个事实坑了很多开发人员，包括我自己。所以，如果你发现自己修复一个元素和结果并不像你所预期的那样，你要检查固定的元素的后代元素是否已经被改变。
+    </pre>
+  </body>
+</html>
