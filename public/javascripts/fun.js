@@ -38,6 +38,7 @@ $(function(){
 	var FunItemView = Backbone.View.extend({
 	
 		template: _.template($('#fun-item-template').html()),
+		confirmModalTemplate: _.template($('#confirm-modal-template').html()),
 
 		initialize: function() {
 			this.listenTo(this.model, 'add', this.render);
@@ -54,11 +55,11 @@ $(function(){
 	      	'click .fun-group-item span': 'selectFunItem',
 	      	'click .fun-group-item .edit': 'editFunItem',
 	      	'click .fun-group-item .update': 'updateFunItem',
-	      	'click .fun-group-item .delete': 'deleteFunItem'
+	      	'click .fun-group-item .delete': 'openConfirmModal'
 	    },
 
 	    selectFunItem: function() {
-	    	Backbone.trigger('selectFunItemEvent', this.$el)
+	    	Backbone.trigger('selectFunItemEvent', this)
     		this.model.fetch({
 		    	success: function (model, response) {
 		    		Backbone.trigger('notificationEvent', 'Fun content fetched successfully')
@@ -86,24 +87,12 @@ $(function(){
 			});
 	    },
 
-	    deleteFunItem: function(){
-	    	console.log('delete was called')
-	    	var funGroupElement = this.$el.parent();
-	    	this.model.destroy({
-	    		wait: true,
-			    success: function (model, response) {
-			  		if(funGroupElement.find('.fun-group-item').length === 0) {
-			  			funGroupElement.remove();
-			  		}
+		openConfirmModal: function() {
+			var selectedFunItem = this.model.toJSON();
 
-			        Backbone.trigger('notificationEvent', 'Fun item deleted successfully');
-			    },
-			    error: function (error) {
-			    	console.log(error)
-			    }
-			})
-	    }
-
+			$('#confirm-modal').html(this.confirmModalTemplate({ name: selectedFunItem.name + '@' + selectedFunItem.folder }));
+			$('#confirm-modal').show();
+		}
 
 	});
 
@@ -122,19 +111,20 @@ $(function(){
 			self.selectedFunItem = null;
 			
 			self.listenTo(funItemList, 'add', self.insertFunItem);
+			self.listenTo(funItemList, 'remove', self.removeFunItem);
 			self.listenTo(funItemList, 'all', self.render);
 
 			Backbone.on('selectFunItemEvent', function(ele) {
 				if(self.selectedFunItem !== null) {
-					$(self.selectedFunItem).removeClass('active-fun-item')
-					$(self.selectedFunItem).find('.fun-group-item-operations').hide();
+					$(self.selectedFunItem.$el).removeClass('active-fun-item')
+					$(self.selectedFunItem.$el).find('.fun-group-item-operations').hide();
 					self.selectedFunItem = ele;
-					$(self.selectedFunItem).addClass('active-fun-item')
-					$(self.selectedFunItem).find('.fun-group-item-operations').show();
+					$(self.selectedFunItem.$el).addClass('active-fun-item')
+					$(self.selectedFunItem.$el).find('.fun-group-item-operations').show();
 				} else {
 					self.selectedFunItem = ele;
-					$(self.selectedFunItem).addClass('active-fun-item')
-					$(self.selectedFunItem).find('.fun-group-item-operations').show();
+					$(self.selectedFunItem.$el).addClass('active-fun-item')
+					$(self.selectedFunItem.$el).find('.fun-group-item-operations').show();
 				}
 			})
 
@@ -158,7 +148,9 @@ $(function(){
 			'click #try-it': 'tryIt',
 			'click #open-modal-btn': 'openFunItemModal',
 			'click #create-fun-item-btn': 'createFunItem',
-			'click #close-modal-btn': 'closeFunItemModal'
+			'click #close-modal-btn': 'closeFunItemModal',
+			'click #delete-fun-item-btn': 'clickDeleteFunItem',
+			'click #close-confirm-modal-btn': 'closeConfirmModal'
 		},
 
 		insertFunItem: function(funItem) {
@@ -173,6 +165,21 @@ $(function(){
 			}
 				
 			this.$('#fun-group-list').children('#' + this.funGroups[folder]).append(view.render().el);
+		},
+
+		removeFunItem: function(funItem) {
+			var self = this;
+
+	    	funItem.destroy({
+	    		wait: true,
+			    success: function (model, response) {
+					self.closeConfirmModal();
+			        Backbone.trigger('notificationEvent', 'Fun item deleted successfully');
+			    },
+			    error: function (error) {
+			    	console.log(error)
+			    }
+			})
 		},
 
 		render: function() {
@@ -198,6 +205,10 @@ $(function(){
 			})
 		},
 
+		clickDeleteFunItem: function() {
+			funItemList.remove(this.selectedFunItem.model);
+		},
+
 		tryIt: function() {
 		    //$('#viewer').contents().find('html').html($('#editor').val());
 		    var iframe = document.getElementById('viewer');
@@ -215,6 +226,11 @@ $(function(){
 		closeFunItemModal: function() {
 			$('#fun-item-modal').html();
 			$('#fun-item-modal').hide();
+		},
+
+		closeConfirmModal: function() {
+			$('#confirm-modal').html();
+			$('#confirm-modal').hide();
 		}
 
 

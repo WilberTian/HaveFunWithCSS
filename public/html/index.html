@@ -34,6 +34,9 @@
         <div id='fun-item-modal'>
         </div>
 
+        <div id='confirm-modal'>
+        </div>
+
         <div id='notification-area'>
         </div>
       </div>
@@ -100,6 +103,21 @@
             <input id='create-fun-item-btn' type='button' value='Submit'></input>
             <input id='close-modal-btn' type='button' value='Cancel'></input>
           </fieldset>
+        </form>
+      </div>
+    </script>
+
+    <script type='text/template' id='confirm-modal-template'>
+      <div class='overlay'>
+      </div>
+
+      <div class='confirm-modal-dialog'>
+        <form action=''>
+           Delete <strong><%- name %></strong> ?
+           <br/>
+           <br/>
+          <input id='delete-fun-item-btn' type='button' value='Delete'></input>
+          <input id='close-confirm-modal-btn' type='button' value='Cancel'></input>
         </form>
       </div>
     </script>
