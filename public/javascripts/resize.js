@@ -21,7 +21,7 @@ $(function(){
 	    editorHeight = Number(editorHeight.replace('px', ''));
 
 	    dragTop = editorHeight + containerMargin - 10;
-	    drapLeft = sidebarWidth + containerMargin;
+	    drapLeft = sidebarWidth + containerMargin - 20;
 
 	    dragWidth = editorWidth;
 

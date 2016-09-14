@@ -8,6 +8,8 @@ body {
 
 #app-container {
   position: absolute;
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 100%;
   min-width: 1000px;
@@ -15,42 +17,33 @@ body {
 }
 
 #side-bar {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 96%;
-  width: 24%;
-  margin: 1% 0px 1% 1%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 25%;
 }
 
 #main-space {
-  position: absolute;
-  top: 0px;
-  left: 25%;
-  height: 96%;
-  width: 73%;
-  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 10px 0px;
+  width: 75%;
 }
 
 #viewer {
-  width: 100%;
   height: 50%;
   border: 0px;
   background: white;
-  overflow: auto;
-  float: left;
 }
 
 .tool-bar {
-  padding: 1%;
-  height: 5%;
+  margin: 10px;
 }
 
 #fun-group-list {
-	padding: 1%;
+	margin: 10px;
+  padding: 6px;
   overflow: auto;
-  height: 93%;
-  margin: 1% 0px 1px 0px;
   background: white;
 }
 
@@ -137,7 +130,8 @@ fieldset {
 
 
 .active-fun-item {
-  border-left: 5px solid black;
+  color: orange;
+  font-weight: bold;
 }
 
 
