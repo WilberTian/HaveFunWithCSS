@@ -38,7 +38,7 @@ $(function(){
 	var FunItemView = Backbone.View.extend({
 	
 		template: _.template($('#fun-item-template').html()),
-		confirmModalTemplate: _.template($('#confirm-modal-template').html()),
+		
 
 		initialize: function() {
 			this.listenTo(this.model, 'add', this.render);
@@ -46,16 +46,12 @@ $(function(){
 		},
 
 		render: function() {
-			//console.log(this.model.toJSON())
 	      	this.$el.html(this.template(this.model.toJSON()));
 	      	return this;
 	    },
 
 	    events: {
-	      	'click .fun-group-item span': 'selectFunItem',
-	      	'click .fun-group-item .edit': 'editFunItem',
-	      	'click .fun-group-item .update': 'updateFunItem',
-	      	'click .fun-group-item .delete': 'openConfirmModal'
+	      	'click .fun-group-item span': 'selectFunItem'
 	    },
 
 	    selectFunItem: function() {
@@ -69,30 +65,7 @@ $(function(){
 			    }
 		    })
 	 	
-	    },
-
-	    editFunItem: function(){
-	    	editor.readOnly = false;
-	    },
-
-	    updateFunItem: function() {
-	    	this.model.set({'funContent': editor.getValue() })
-	    	this.model.save(null, {
-			    success: function (model, response) {
-			        Backbone.trigger('notificationEvent', 'Fun item updated successfully');
-			        editor.readOnly = 'nocursor';
-			    },
-			    error: function (error) {
-			    }
-			});
-	    },
-
-		openConfirmModal: function() {
-			var selectedFunItem = this.model.toJSON();
-
-			$('#confirm-modal').html(this.confirmModalTemplate({ name: selectedFunItem.name + '@' + selectedFunItem.folder }));
-			$('#confirm-modal').show();
-		}
+	    }
 
 	});
 
@@ -103,6 +76,8 @@ $(function(){
 		funModalTemplate: _.template($('#fun-item-modal-template').html()),
 		funGroupTemplate: _.template($('#fun-group-template').html()),
 		notificationTemplate: _.template($('#notification-template').html()),
+		funItemOperationsTemplate: _.template($('#fun-item-operations-template').html()),
+		confirmModalTemplate: _.template($('#confirm-modal-template').html()),
 
 		initialize: function() {
 			var self = this;
@@ -117,14 +92,20 @@ $(function(){
 			Backbone.on('selectFunItemEvent', function(ele) {
 				if(self.selectedFunItem !== null) {
 					$(self.selectedFunItem.$el).removeClass('active-fun-item')
-					$(self.selectedFunItem.$el).find('.fun-group-item-operations').hide();
 					self.selectedFunItem = ele;
 					$(self.selectedFunItem.$el).addClass('active-fun-item')
-					$(self.selectedFunItem.$el).find('.fun-group-item-operations').show();
+
+					var selectedFunItemModel = self.selectedFunItem.model.toJSON();
+					var funItemOperationsDiv = self.funItemOperationsTemplate({folder: selectedFunItemModel.folder, name: selectedFunItemModel.name});
+					$('#fun-item-operations').html(funItemOperationsDiv);
+
 				} else {
 					self.selectedFunItem = ele;
 					$(self.selectedFunItem.$el).addClass('active-fun-item')
-					$(self.selectedFunItem.$el).find('.fun-group-item-operations').show();
+
+					var selectedFunItemModel = self.selectedFunItem.model.toJSON();
+					var funItemOperationsDiv = self.funItemOperationsTemplate({folder: selectedFunItemModel.folder, name: selectedFunItemModel.name});
+					$('#fun-item-operations').html(funItemOperationsDiv);
 				}
 			})
 
@@ -145,12 +126,17 @@ $(function(){
 		},
 
 		events: {
-			'click #try-it': 'tryIt',
+			
 			'click #open-modal-btn': 'openFunItemModal',
 			'click #create-fun-item-btn': 'createFunItem',
 			'click #close-modal-btn': 'closeFunItemModal',
 			'click #delete-fun-item-btn': 'clickDeleteFunItem',
-			'click #close-confirm-modal-btn': 'closeConfirmModal'
+			'click #close-confirm-modal-btn': 'closeConfirmModal',
+
+			'click #fun-item-operations .try-it': 'tryIt',
+			'click #fun-item-operations .delete': 'openConfirmModal',
+			'click #fun-item-operations .edit': 'editFunItem',
+	      	'click #fun-item-operations .update': 'updateFunItem'
 		},
 
 		insertFunItem: function(funItem) {
@@ -231,7 +217,29 @@ $(function(){
 		closeConfirmModal: function() {
 			$('#confirm-modal').html();
 			$('#confirm-modal').hide();
-		}
+		},
+
+		openConfirmModal: function() {
+			var selectedFunItem = this.selectedFunItem.model.toJSON();
+			$('#confirm-modal').html(this.confirmModalTemplate({ name: selectedFunItem.name + '@' + selectedFunItem.folder }));
+			$('#confirm-modal').show();
+		},
+
+	    editFunItem: function(){
+	    	editor.readOnly = false;
+	    },
+
+	    updateFunItem: function() {
+	    	this.selectedFunItem.model.set({'funContent': editor.getValue() })
+	    	this.selectedFunItem.model.save(null, {
+			    success: function (model, response) {
+			        Backbone.trigger('notificationEvent', 'Fun item updated successfully');
+			        editor.readOnly = 'nocursor';
+			    },
+			    error: function (error) {
+			    }
+			});
+	    }
 
 
 	});

@@ -10,25 +10,28 @@
 
     <body>
       <div id='app-container'>
+        <div id='app-content'>
+          <div id='side-bar'>
+            <div class='tool-bar'>
+              <button id='open-modal-btn'>Add</button>
 
-        <div id='side-bar'>
-          <div class='tool-bar'>
-            <button id='try-it'>Try it</button>
-            <button id='open-modal-btn'>Add</button>
+              <div id='fun-item-operations'>
+              </div>
+            </div>
+
+            <div id='fun-group-list'>
+            </div>
           </div>
 
-          <div id='fun-group-list'>
+          <div id='shield' style='display: none;'></div>
+          <a id='dragbar'>
+            <img src='/images/resize.png'></img>
+          </a>
+
+          <div id='main-space'>
+            <textarea id='editor' disabled></textarea>
+            <iframe id='viewer'></iframe>
           </div>
-        </div>
-
-        <div id='shield' style='display: none;'></div>
-        <a id='dragbar'>
-          <img src='/images/resize.png'></img>
-        </a>
-
-        <div id='main-space'>
-          <textarea id='editor' disabled></textarea>
-          <iframe id='viewer'></iframe>
         </div>
 
         <div id='fun-item-modal'>
@@ -71,12 +74,16 @@
     <script type='text/template' id='fun-item-template'>
       <div class='fun-group-item'>
         <span><%- name %></span>
-        <div class='fr fun-group-item-operations'>
-          <a class='open' href='apis/external/<%- folder %>/<%- name %>' target='_blank'><img src='/images/external.png'></img></a>
-          <a class='edit'><img src='/images/edit.png'></img></a>
-          <a class='update'><img src='/images/update.png'></img></a>
-          <a class='delete'><img src='/images/remove.png'></img></a>
-        </div>
+      </div>
+    </script>
+
+    <script type='text/template' id='fun-item-operations-template'>
+      <div>
+        <a class='try-it'><img src='/images/try-it.png'></img></a>
+        <a class='open' href='apis/external/<%- folder %>/<%- name %>' target='_blank'><img src='/images/external.png'></img></a>
+        <a class='edit'><img src='/images/edit.png'></img></a>
+        <a class='update'><img src='/images/update.png'></img></a>
+        <a class='delete'><img src='/images/remove.png'></img></a>
       </div>
     </script>
 
