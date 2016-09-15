@@ -226,7 +226,7 @@ $(function(){
 		},
 
 	    editFunItem: function(){
-	    	editor.readOnly = false;
+	    	editor.setOption('readOnly', false);
 	    },
 
 	    updateFunItem: function() {
@@ -234,7 +234,7 @@ $(function(){
 	    	this.selectedFunItem.model.save(null, {
 			    success: function (model, response) {
 			        Backbone.trigger('notificationEvent', 'Fun item updated successfully');
-			        editor.readOnly = 'nocursor';
+					editor.setOption('readOnly', 'nocursor');
 			    },
 			    error: function (error) {
 			    }

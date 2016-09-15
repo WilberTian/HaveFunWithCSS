@@ -13,8 +13,7 @@
         <div id='app-content'>
           <div id='side-bar'>
             <div class='tool-bar'>
-              <button id='open-modal-btn'>Add</button>
-
+              <a id='open-modal-btn' title='Add item'><img src='/images/add.png'></img></a>
               <div id='fun-item-operations'>
               </div>
             </div>
@@ -64,8 +63,8 @@
       var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
         lineNumbers: true,
         mode: 'htmlmixed',
-        theme: 'twilight'
-        //readOnly: 'nocursor'
+        theme: 'twilight',
+        readOnly: 'nocursor'
       });
 
       editor.setSize('100%', '50%')
@@ -79,11 +78,11 @@
 
     <script type='text/template' id='fun-item-operations-template'>
       <div>
-        <a class='try-it'><img src='/images/try-it.png'></img></a>
-        <a class='open' href='apis/external/<%- folder %>/<%- name %>' target='_blank'><img src='/images/external.png'></img></a>
-        <a class='edit'><img src='/images/edit.png'></img></a>
-        <a class='update'><img src='/images/update.png'></img></a>
-        <a class='delete'><img src='/images/remove.png'></img></a>
+        <a class='try-it' title='Run item'><img src='/images/try-it.png'></img></a>
+        <a class='open' title='Open in new tab' href='apis/external/<%- folder %>/<%- name %>' target='_blank'><img src='/images/external.png'></img></a>
+        <a class='edit' title='Edit item'><img src='/images/edit.png'></img></a>
+        <a class='update' title='Save updates'><img src='/images/update.png'></img></a>
+        <a class='delete' title='Delete item'><img src='/images/remove.png'></img></a>
       </div>
     </script>
 

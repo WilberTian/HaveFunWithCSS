@@ -24,23 +24,30 @@ body {
 }
 
 #main-space {
+ 
   display: flex;
   flex-direction: column;
-  margin: 10px 10px 10px 0px;
   width: 75%;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.CodeMirror {
+  margin-top: 10px;
 }
 
 #viewer {
   height: 50%;
   border: 0px;
   background: white;
+  margin: 0px 0px 10px 0px;
 }
 
 .tool-bar {
   margin: 10px 10px 0px 10px;
   padding: 6px;
   background: white;
-  height: 300px;
+  height: 48px;
 }
 
 #fun-group-list {
@@ -64,15 +71,18 @@ body {
 }
 
 .fun-group-item {
-	display: block;
-  margin: 1px;
+  word-break: break-all;
 }
 
-#fun-item-operations a img {
+.tool-bar a img {
   height: 16px;
   padding: 2px;
   cursor: pointer;
   border: 1px solid gray;
+}
+
+#fun-item-operations {
+  display: inline-block;
 }
 
 #fun-item-modal .overlay, #confirm-modal .overlay {
