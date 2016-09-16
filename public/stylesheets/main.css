@@ -72,6 +72,7 @@ body {
 
 .fun-group-item {
   word-break: break-all;
+  cursor: pointer;
 }
 
 .tool-bar a img {
