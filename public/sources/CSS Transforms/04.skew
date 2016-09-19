@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+div#myDiv1 {
+    -ms-transform: skewX(20deg); /* IE 9 */
+    -webkit-transform: skewX(20deg); /* Safari */
+    transform: skewX(20deg); /* Standard syntax */
+}
+  
+div#myDiv2 {
+    -ms-transform: skewY(20deg); /* IE 9 */
+    -webkit-transform: skewY(20deg); /* Safari */
+    transform: skewY(20deg); /* Standard syntax */
+}
+  
+div#myDiv3 {
+    -ms-transform: skew(20deg,10deg); /* IE 9 */
+    -webkit-transform: skew(20deg,10deg); /* Safari */
+    transform: skew(20deg,10deg); /* Standard syntax */
+}  
+</style>
+</head>
+<body>
+
+<p>The skewX() method skews an element along the X-axis by the given angle.</p>
+
+<div>
+This a normal div element.
+</div>
+
+<div id="myDiv1">
+This div element is skewed 20 degrees along the X-axis.
+</div>
+  
+<p>The skewY() method skews an element along the Y-axis by the given angle.</p>
+  
+<div id="myDiv2">
+This div element is skewed 20 degrees along the X-axis.
+</div>  
+  
+<p>The skew() method skews an element into a given angle.</p>
+
+<div id="myDiv3">
+This div element is skewed 20 degrees along the X-axis, and 10 degrees along the Y-axis.
+</div>  
+
+</body>
+</html>
+
