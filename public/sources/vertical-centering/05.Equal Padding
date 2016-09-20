@@ -4,12 +4,13 @@
   <style>
 
     .ex-1 #parent { 
-      padding: 5% 0;
+      padding: 15% 0;
       border: 1px solid black;
     }
 
     .ex-1 #child {
-      padding: 10% 0;
+      height: 200px;
+      width: 300px;
       border: 1px solid black;
     }
         

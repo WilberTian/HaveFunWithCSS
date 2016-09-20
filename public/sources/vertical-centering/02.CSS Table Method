@@ -21,9 +21,13 @@
   <div class="ex-1">
     <h4>ex-1</h4>
     <p>display the elements as table and table cell and then use the vertical-align property to center the content.</p>
+    <p>this can support multi-line text.</p>
 
     <div id="parent">
-      <div id="child">Content here</div>
+      <div id="child">
+        Content here <br/>
+        Content here
+      </div>
     </div>
   </div>
 
