@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .container{
+      	border:3px solid #00C;
+    	overflow:hidden; /*这个超出隐藏的声明在IE6里不写也是可以的*/
+	}
+    
+    #box-1 {
+    	background: orange;
+      	width: 200px;
+      	float: left;
+      	padding-bottom:2000px;
+    	margin-bottom:-2000px;	
+    }
+    
+    #box-2 {
+    	background: gray;
+      	width: 200px;
+      	float: left;
+      	padding-bottom:2000px;
+    	margin-bottom:-2000px;
+    }
+    
+    </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="box-1">
+      	this is box-1<br/>
+      	this is box-1<br/>
+      	this is box-1<br/>
+    </div>
+    <div id="box-2">
+      	this is box-2<br/>
+      	this is box-2<br/>
+      	this is box-2<br/>
+      	this is box-2<br/>
+      	this is box-2<br/>
+    </div>
+  </div>
+  
+
+</body>
+</html>
