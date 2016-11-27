@@ -4,7 +4,7 @@ $(function(){
 	function fixDragBtn() {
 	  	var editorWidth, editorHeight, editorLeft, editorPadding, dragTop;
 
-	  	var sidebarWidth = Number(getStyleValue(document.getElementById("side-bar"), "width").replace("px", ""));
+	  	//var sidebarWidth = Number(getStyleValue(document.getElementById("side-bar"), "width").replace("px", ""));
 
 	  	var containerMargin = Number(getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 	
@@ -20,8 +20,8 @@ $(function(){
 	    editorWidth = Number(editorWidth.replace('px', ''));
 	    editorHeight = Number(editorHeight.replace('px', ''));
 
-	    dragTop = editorHeight + containerMargin;
-	    drapLeft = sidebarWidth + containerMargin - 10;
+	    dragTop = editorHeight + containerMargin - 5;
+	    drapLeft = containerMargin;
 
 	    dragWidth = editorWidth;
 

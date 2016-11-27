@@ -150,7 +150,7 @@ $(function(){
 				this.$('#fun-group-list').append(funGroupDiv);
 			}
 				
-			this.$('#fun-group-list').children('#' + this.funGroups[folder]).append(view.render().el);
+			this.$('#fun-group-list').find('#' + this.funGroups[folder] + ' .description').append(view.render().el);
 		},
 
 		removeFunItem: function(funItem) {
@@ -245,5 +245,25 @@ $(function(){
 	});
 
 	var App = new AppView();
+
+
+
+	var AppRouter = Backbone.Router.extend({  
+		routes : {  
+			'' : 'index',  
+			'detail' : 'showDetail'
+		},  
+		index : function() {  
+			$('#fun-group-list').show();
+			$('#main-space').hide();
+		},  
+		showDetail : function() {  
+			$('#fun-group-list').hide();
+			$('#main-space').show();
+		}
+	});  
+	
+	var router = new AppRouter();  
+	Backbone.history.start();  
 
 });

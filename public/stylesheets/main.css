@@ -1,20 +1,25 @@
-html {
+.ui.top.attached.menu {
+  height: 5%;
+}
+
+#app-container {
+  height: 95%;
+  margin: 0px;
+  padding: 0px;
+  min-width: 1000px;
+  min-height: 600px;
   background: #CC6464;
 }
 
-body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-#app-content {
-  position: absolute;
+#fun-group-list, #app-content {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 100%;
-  min-width: 1000px;
-  min-height: 600px;
+  margin: 0px;
+  overflow: auto;
 }
+
 
 #side-bar {
   display: flex;
@@ -24,23 +29,18 @@ body {
 }
 
 #main-space {
- 
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 100%;
   height: 100%;
-  margin-right: 10px;
-}
-
-.CodeMirror {
-  margin-top: 10px;
+  padding: 5px;
 }
 
 #viewer {
   height: 50%;
+  width: 100%;
   border: 0px;
   background: white;
-  margin: 0px 0px 10px 0px;
 }
 
 .tool-bar {
@@ -48,13 +48,6 @@ body {
   padding: 6px;
   background: white;
   height: 48px;
-}
-
-#fun-group-list {
-	margin: 10px;
-  padding: 6px;
-  overflow: auto;
-  background: white;
 }
 
 .fun-group {
@@ -65,15 +58,6 @@ body {
   color: #383737;
 }
 
-.fun-group-header {
-	border-bottom: 2px solid #827777;
-	font-weight: bold;
-}
-
-.fun-group-item {
-  word-break: break-all;
-  cursor: pointer;
-}
 
 .tool-bar a img {
   height: 16px;

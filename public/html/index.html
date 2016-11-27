@@ -2,135 +2,165 @@
 <html>
     <head>
       <title>FunWithCSS</title>
-      <link rel='stylesheet' href='/stylesheets/base.css' />
-      <link rel='stylesheet' href='/stylesheets/main.css' />
-      <link rel='stylesheet' href='/stylesheets/codemirror.min.css' rel='stylesheet' />
-      <link rel='stylesheet' href='/stylesheets/twilight.min.css' rel='stylesheet' />
+      <link rel="stylesheet" href="/vendor/semantic.min.css">
+     
+      <link rel="stylesheet" href="/stylesheets/main.css" />
+      <link rel="stylesheet" href="/stylesheets/codemirror.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="/stylesheets/twilight.min.css" rel="stylesheet" />
     </head>
 
     <body>
-      <div id='app-container'>
-        <div id='app-content'>
-          <div id='side-bar'>
-            <div class='tool-bar'>
-              <a id='open-modal-btn' title='Add item'><img src='/images/add.png'></img></a>
-              <div id='fun-item-operations'>
+      <div class="ui top attached menu">
+          <li class="item menu-item"/>Add</li>
+      </div>
+
+      <div class="ui bottom attached segment" id="app-container">
+        
+        <div class="ui cards" id="fun-group-list">
+        </div>
+        
+
+        <div id="shield" style="display: none;"></div>
+        
+        <div id="main-space">
+          <a id="dragbar">
+            <img src="/images/resize.png"></img>
+          </a>
+          <textarea id="editor" disabled></textarea>
+          <iframe id="viewer"></iframe>
+        </div>
+
+
+<!--        
+        <div id="app-content">
+          <div id="side-bar">
+            <div class="tool-bar">
+              <a id="open-modal-btn" title="Add item"><img src="/images/add.png"></img></a>
+              <div id="fun-item-operations">
               </div>
             </div>
 
-            <div id='fun-group-list'>
+            <div id="fun-group-list">
             </div>
           </div>
 
-          <div id='shield' style='display: none;'></div>
-          <a id='dragbar'>
-            <img src='/images/resize.png'></img>
+          <div id="shield" style="display: none;"></div>
+          <a id="dragbar">
+            <img src="/images/resize.png"></img>
           </a>
 
-          <div id='main-space'>
-            <textarea id='editor' disabled></textarea>
-            <iframe id='viewer'></iframe>
+          <div id="main-space">
+            <textarea id="editor" disabled></textarea>
+            <iframe id="viewer"></iframe>
           </div>
         </div>
-
-        <div id='fun-item-modal'>
+-->
+        <div id="fun-item-modal">
         </div>
 
-        <div id='confirm-modal'>
+        <div id="confirm-modal">
         </div>
 
-        <div id='notification-area'>
+        <div id="notification-area">
         </div>
       </div>
 
     </body>
     
-    <script type='text/javascript' src='/vendor/jquery.js'></script>
-    <script type='text/javascript' src='/vendor/json2.js'></script>
-    <script type='text/javascript' src='/vendor/underscore.js'></script>
-    <script type='text/javascript' src='/vendor/backbone-min.js'></script>
-    <script type='text/javascript' src='/vendor/codemirror.min.js'></script>
+    <script type="text/javascript" src="/vendor/jquery.js"></script>
+    <script type="text/javascript" src="/vendor/json2.js"></script>
+    <script type="text/javascript" src="/vendor/underscore.js"></script>
+    <script type="text/javascript" src="/vendor/backbone-min.js"></script>
+    <script type="text/javascript" src="/vendor/codemirror.min.js"></script>
     <script src="/vendor/htmlmixed.min.js"></script>
     <script src="/vendor/css.min.js"></script>
     <script src="/vendor/javascript.min.js"></script>
     <script src="/vendor/xml.min.js"></script>
+    <script src="/vendor/semantic.min.js"></script>
 
-    <script type='text/javascript' src='/javascripts/fun.js'></script>
-    <script type='text/javascript' src='/javascripts/resize.js'></script>
+    <script type="text/javascript" src="/javascripts/fun.js"></script>
+    <script type="text/javascript" src="/javascripts/resize.js"></script>
     
     
-    <script type='text/javascript'>
-      var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+    <script type="text/javascript">
+      var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
         lineNumbers: true,
-        mode: 'htmlmixed',
-        theme: 'twilight',
-        readOnly: 'nocursor'
+        mode: "htmlmixed",
+        theme: "twilight",
+        readOnly: "nocursor"
       });
 
-      editor.setSize('100%', '50%')
+      editor.setSize("100%", "50%")
     </script>
 
-    <script type='text/template' id='fun-item-template'>
-      <div class='fun-group-item'>
-        <span><%- name %></span>
-      </div>
-    </script>
-
-    <script type='text/template' id='fun-item-operations-template'>
+    <script type="text/template" id="fun-item-operations-template">
       <div>
-        <a class='try-it' title='Run item'><img src='/images/try-it.png'></img></a>
-        <a class='open' title='Open in new tab' href='apis/external/<%- folder %>/<%- name %>' target='_blank'><img src='/images/external.png'></img></a>
-        <a class='edit' title='Edit item'><img src='/images/edit.png'></img></a>
-        <a class='update' title='Save updates'><img src='/images/update.png'></img></a>
-        <a class='delete' title='Delete item'><img src='/images/remove.png'></img></a>
+        <a class="try-it" title="Run item"><img src="/images/try-it.png"></img></a>
+        <a class="open" title="Open in new tab" href="apis/external/<%- folder %>/<%- name %>" target="_blank"><img src="/images/external.png"></img></a>
+        <a class="edit" title="Edit item"><img src="/images/edit.png"></img></a>
+        <a class="update" title="Save updates"><img src="/images/update.png"></img></a>
+        <a class="delete" title="Delete item"><img src="/images/remove.png"></img></a>
       </div>
     </script>
 
-    <script type='text/template' id='fun-group-template'>
-      <div class='fun-group' id='<%- folderId %>'>
-        <div class='fun-group-header'>
-          <%- folder %>
+    <script type="text/template" id="fun-item-template">
+      <div class="fun-group-item">
+          <span><%- name %></span>
+      </div>
+    </script>
+
+    <script type="text/template" id="fun-group-template">
+      <div class="card" id="<%- folderId %>">
+        <div class="content">
+          <div class="header"><%- folder %></div>
+          <div class="description">
+            
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add
         </div>
       </div>
     </script>
 
-    <script type='text/template' id='fun-item-modal-template'>
-      <div class='overlay'>
+    <script type="text/template" id="fun-item-modal-template">
+      <div class="overlay">
       </div>
 
-      <div class='fun-item-modal-dialog'>
-        <form action=''>
+      <div class="fun-item-modal-dialog">
+        <form action="">
           <fieldset>
-            <div id='error-msg' class='tc f20 fb'></div>
+            <div id="error-msg" class="tc f20 fb"></div>
             <legend>Fun item information:</legend>
             Folder:<br>
-            <input id='fun-folder-in-modal' type='text' name='funFolder'></input><br/>
+            <input id="fun-folder-in-modal" type="text" name="funFolder"></input><br/>
             Name:<br>
-            <input id='fun-name-in-modal' type='text' name='funItem'></input><br/><br/>
-            <input id='create-fun-item-btn' type='button' value='Submit'></input>
-            <input id='close-modal-btn' type='button' value='Cancel'></input>
+            <input id="fun-name-in-modal" type="text" name="funItem"></input><br/><br/>
+            <input id="create-fun-item-btn" type="button" value="Submit"></input>
+            <input id="close-modal-btn" type="button" value="Cancel"></input>
           </fieldset>
         </form>
       </div>
     </script>
 
-    <script type='text/template' id='confirm-modal-template'>
-      <div class='overlay'>
+    <script type="text/template" id="confirm-modal-template">
+      <div class="overlay">
       </div>
 
-      <div class='confirm-modal-dialog'>
-        <form action=''>
+      <div class="confirm-modal-dialog">
+        <form action="">
            Delete <strong><%- name %></strong> ?
            <br/>
            <br/>
-          <input id='delete-fun-item-btn' type='button' value='Delete'></input>
-          <input id='close-confirm-modal-btn' type='button' value='Cancel'></input>
+          <input id="delete-fun-item-btn" type="button" value="Delete"></input>
+          <input id="close-confirm-modal-btn" type="button" value="Cancel"></input>
         </form>
       </div>
     </script>
 
-    <script type='text/template' id='notification-template'>
-      <div class='notification'>
+    <script type="text/template" id="notification-template">
+      <div class="notification">
         <%- message %>
       </div>
     </script>
