@@ -1,12 +1,36 @@
 $(function(){
+	window.resizer = {
+		dragging: false,
+		initResizer: _initResizer,
+		fixDragBtn: _fixDragBtn,
+		getStyleValue: _getStyleValue,
+		dragstart: _dragstart,
+		dragmove: _dragmove,
+		dragend: _dragend
+	}
 
+	window.resizer.initResizer();
 
-	function fixDragBtn() {
+	function _initResizer() {
+		if(window.getComputedStyle) {
+			var self = this;
+
+			// disable dragbar for IE <= 8
+			$('#dragbar').mousedown(function(e){self.dragstart(e);});
+			$(window).mousemove(function(e){self.dragmove(e);});
+			$(window).mouseup(function(){self.dragend();});
+		} else {
+			$('#dragbar').hide();
+			console.log('your browser did not support resize');
+		}
+	}
+
+	function _fixDragBtn() {
 	  	var editorWidth, editorHeight, editorLeft, editorPadding, dragTop;
 
 	  	//var sidebarWidth = Number(getStyleValue(document.getElementById("side-bar"), "width").replace("px", ""));
 
-	  	var containerMargin = Number(getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
+	  	var containerMargin = Number(this.getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 	
 	    document.getElementById('dragbar').style.height = '5px';
 	    if (window.getComputedStyle) {
@@ -31,7 +55,7 @@ $(function(){
 	    document.getElementById('dragbar').style.cursor = 'row-resize';        
 	}
 
-	function getStyleValue(elmnt, style) {
+	function _getStyleValue(elmnt, style) {
 		if (window.getComputedStyle) {
 	        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
 	    } else {
@@ -39,16 +63,16 @@ $(function(){
 	    }
 	}
 
-	function dragstart(e) {
+	function _dragstart(e) {
 		e.preventDefault();
-		dragging = true;
+		this.dragging = true;
 	}
 
-	function dragmove(e) {
-		if (dragging) {
+	function _dragmove(e) {
+		if (this.dragging) {
 			document.getElementById("shield").style.display = "block";        
 			
-			var containerMargin = Number(getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
+			var containerMargin = Number(this.getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 
 			var percentage = (e.pageY / window.innerHeight) * 100;
 			if (percentage > 5 && percentage < 90) {
@@ -56,25 +80,14 @@ $(function(){
 
 				editor.setSize('100%', percentage + "%") ;
 				document.getElementById("viewer").style.height = mainPercentage + "%";
-				fixDragBtn();
+				this.fixDragBtn();
 			}
 		}
 	}
 
-	function dragend() {
-	    document.getElementById("shield").style.display = "none";
-	    dragging = false;
+	function _dragend() {
+	    $('#shield').hide();
+	    this.dragging = false;
 	}
 
-	var dragging = false;
-	if(window.getComputedStyle) {
-		// disable dragbar for IE <= 8
-		$('#dragbar').mousedown(function(e) {dragstart(e);});
-		$(window).mousemove(function(e){dragmove(e);});
-		$(window).mouseup(dragend);
-		$(window).load(fixDragBtn);
-		$(window).resize(fixDragBtn);
-	} else {
-		$('#dragbar').hide();
-	}
 })

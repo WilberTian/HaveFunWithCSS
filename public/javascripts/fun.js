@@ -58,6 +58,11 @@ $(function(){
 	    	Backbone.trigger('selectFunItemEvent', this)
     		this.model.fetch({
 		    	success: function (model, response) {
+
+					router.navigate('detail', {  
+						trigger: true  
+					});  
+
 		    		Backbone.trigger('notificationEvent', 'Fun content fetched successfully')
 			        Backbone.trigger('funContentLoadedEvent', response.funContent)
 			    },
@@ -260,6 +265,7 @@ $(function(){
 		showDetail : function() {  
 			$('#fun-group-list').hide();
 			$('#main-space').show();
+			resizer.fixDragBtn();
 		}
 	});  
 	
