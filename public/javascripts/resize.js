@@ -19,6 +19,7 @@ $(function(){
 			$('#dragbar').mousedown(function(e){self.dragstart(e);});
 			$(window).mousemove(function(e){self.dragmove(e);});
 			$(window).mouseup(function(){self.dragend();});
+			$(window).resize(self.fixDragBtn);
 		} else {
 			$('#dragbar').hide();
 			console.log('your browser did not support resize');

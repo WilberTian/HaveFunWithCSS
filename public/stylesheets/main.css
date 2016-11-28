@@ -29,6 +29,9 @@
     margin: 16px;
 }
 
+.fun-group-item {
+  cursor: pointer;
+}
 
 #side-bar {
   display: flex;
@@ -135,7 +138,6 @@
   background: #B2F0B2;
   width: 280px;
   height: 40px;
-  line-height: 40px;
   z-index: 220;
   margin: 10px;
   padding: 10px;
