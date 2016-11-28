@@ -151,7 +151,7 @@ $(function(){
 
 			if(!(folder in this.funGroups)) {
 				this.funGroups[folder] = _.uniqueId('funGroup_')
-				var funGroupDiv = this.funGroupTemplate({folder: folder, folderId: this.funGroups[folder] })
+				var funGroupDiv = this.funGroupTemplate({folder: folder, funItemNum: 111, folderId: this.funGroups[folder] })
 				this.$('#fun-group-list').append(funGroupDiv);
 			}
 				
@@ -191,7 +191,8 @@ $(function(){
 			    },
 			    error: function (model, error) {
 			    	console.log(error)
-			    	$('#error-msg').html(error.responseText);
+			    	$('#error-msg p').html(error.responseText);
+					$('#error-msg').show();
 			    }
 			})
 		},
@@ -209,14 +210,18 @@ $(function(){
 		    iframeDocument.close();
 		},
 
-		openFunItemModal: function() {
-			$('#fun-item-modal').html(this.funModalTemplate());
-			$('#fun-item-modal').show();
+		openFunItemModal: function(e) {
+			var funFolder = $(e.currentTarget).data('funfolder');
+			$('#fun-item-modal').html(this.funModalTemplate({funFolder: funFolder}));
+			$('#fun-item-modal')
+				.modal({ detachable: false })
+				.modal('setting', 'closable', false)
+				.modal('show');
 		}, 
 
 		closeFunItemModal: function() {
-			$('#fun-item-modal').html();
-			$('#fun-item-modal').hide();
+			$('#fun-item-modal')
+				.modal('hide');
 		},
 
 		closeConfirmModal: function() {

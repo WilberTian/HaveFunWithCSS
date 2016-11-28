@@ -10,61 +10,72 @@
     </head>
 
     <body>
-      <div class="ui top attached menu">
-          <li class="item menu-item"/>Add</li>
-      </div>
-
-      <div class="ui bottom attached segment" id="app-container">
-        
-        <div class="ui cards" id="fun-group-list">
-        </div>
-        
-
-        <div id="shield" style="display: none;"></div>
-        
-        <div id="main-space">
-          <a id="dragbar">
-            <img src="/images/resize.png"></img>
-          </a>
-          <textarea id="editor" disabled></textarea>
-          <iframe id="viewer"></iframe>
-        </div>
-
-
-<!--        
-        <div id="app-content">
-          <div id="side-bar">
-            <div class="tool-bar">
-              <a id="open-modal-btn" title="Add item"><img src="/images/add.png"></img></a>
-              <div id="fun-item-operations">
+      <div id="app-container">
+        <div class="ui top attached menu">
+            <a class="item menu-item" href="/"/><i class="grid layout icon"></i></a>
+            <div class="item">
+              <div class="ui icon input">
+                <input type="text" placeholder="Search...">
+                <i class="search icon"></i>
               </div>
             </div>
+            <a id="open-modal-btn" class="item menu-item"/><i class="plus icon"></i>Add</a>
 
-            <div id="fun-group-list">
-            </div>
+
+        </div>
+
+        <div class="ui bottom attached segment" id="app-content">
+          
+          <div class="ui cards" id="fun-group-list">
           </div>
+          
 
           <div id="shield" style="display: none;"></div>
-          <a id="dragbar">
-            <img src="/images/resize.png"></img>
-          </a>
-
+          
           <div id="main-space">
+            <a id="dragbar">
+              <img src="/images/resize.png"></img>
+            </a>
             <textarea id="editor" disabled></textarea>
             <iframe id="viewer"></iframe>
           </div>
-        </div>
--->
-        <div id="fun-item-modal">
-        </div>
 
-        <div id="confirm-modal">
-        </div>
 
-        <div id="notification-area">
+  <!--        
+          <div id="app-content">
+            <div id="side-bar">
+              <div class="tool-bar">
+                <a id="open-modal-btn" title="Add item"><img src="/images/add.png"></img></a>
+                <div id="fun-item-operations">
+                </div>
+              </div>
+
+              <div id="fun-group-list">
+              </div>
+            </div>
+
+            <div id="shield" style="display: none;"></div>
+            <a id="dragbar">
+              <img src="/images/resize.png"></img>
+            </a>
+
+            <div id="main-space">
+              <textarea id="editor" disabled></textarea>
+              <iframe id="viewer"></iframe>
+            </div>
+          </div>
+  -->
+
+          <div id="fun-item-modal" class="ui modal">
+          </div>
+
+          <div id="confirm-modal">
+          </div>
+
+          <div id="notification-area">
+          </div>
         </div>
       </div>
-
     </body>
     
     <script type="text/javascript" src="/vendor/jquery.js"></script>
@@ -112,12 +123,15 @@
     <script type="text/template" id="fun-group-template">
       <div class="card" id="<%- folderId %>">
         <div class="content">
-          <div class="header"><%- folder %></div>
+          <div class="header">
+            <%- folder %>
+            <div class="floating ui blue circular label"><%- funItemNum %></div> 
+          </div>
           <div class="description">
             
           </div>
         </div>
-        <div class="ui bottom attached button">
+        <div id="open-modal-btn" class="ui teal bottom attached button" data-funfolder="<%- folder %>">
           <i class="add icon"></i>
           Add
         </div>
@@ -125,22 +139,33 @@
     </script>
 
     <script type="text/template" id="fun-item-modal-template">
-      <div class="overlay">
+      <div class="header">
+          Add fun item:       
       </div>
-
-      <div class="fun-item-modal-dialog">
-        <form action="">
-          <fieldset>
-            <div id="error-msg" class="tc f20 fb"></div>
-            <legend>Fun item information:</legend>
-            Folder:<br>
-            <input id="fun-folder-in-modal" type="text" name="funFolder"></input><br/>
-            Name:<br>
-            <input id="fun-name-in-modal" type="text" name="funItem"></input><br/><br/>
-            <input id="create-fun-item-btn" type="button" value="Submit"></input>
-            <input id="close-modal-btn" type="button" value="Cancel"></input>
-          </fieldset>
-        </form>
+      <div class="content">
+          <form class="ui form error">
+            <div class="field">
+              <label>Folder</label>
+              <input id="fun-folder-in-modal" type="text" name="funFolder" placeholder="FunItem folder" value="<%- funFolder %>"></input>
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input id="fun-name-in-modal" type="text" name="funItem" placeholder="FunItem name"></input>
+            </div>
+            <div id="error-msg" class="ui error message">
+              <div class="header">Action Forbidden</div>
+              <p></P>
+            </div>
+          </form>
+      </div>
+      <div class="actions">
+          <div id="create-fun-item-btn" class="ui blue right labeled icon button">
+              Save
+              <i class="checkmark icon"></i>
+          </div>
+          <div id="close-modal-btn" class="ui red button" >
+              Cancel
+          </div>
       </div>
     </script>
 
