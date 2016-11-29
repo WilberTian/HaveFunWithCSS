@@ -72,10 +72,10 @@ $(function(){
 	function _dragmove(e) {
 		if (this.dragging) {
 			document.getElementById("shield").style.display = "block";        
-			
-			var containerMargin = Number(this.getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
+			var detailMenuHeight = $('#detail-menu').height();
 
-			var percentage = (e.pageY / window.innerHeight) * 100;
+			var percentage = ((e.pageY - detailMenuHeight) / (window.innerHeight - detailMenuHeight)) * 100;
+
 			if (percentage > 5 && percentage < 90) {
 				var mainPercentage = 100 - percentage;
 

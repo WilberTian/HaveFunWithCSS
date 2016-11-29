@@ -266,11 +266,19 @@ $(function(){
 		index : function() {  
 			$('#fun-group-list').show();
 			$('#main-space').hide();
+
+			$('#index-menu').show();
+			$('#detail-menu').hide();
 		},  
 		showDetail : function() {  
 			$('#fun-group-list').hide();
 			$('#main-space').show();
+
+			$('#index-menu').hide();
+			$('#detail-menu').show();
+
 			resizer.fixDragBtn();
+			$('.ui.selection.dropdown').dropdown();
 		}
 	});  
 	

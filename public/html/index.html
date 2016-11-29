@@ -12,16 +12,35 @@
     <body>
       <div id="app-container">
         <div class="ui top attached menu">
-            <a class="item menu-item" href="/"/><i class="grid layout icon"></i></a>
-            <div class="item">
-              <div class="ui icon input">
-                <input type="text" placeholder="Search...">
-                <i class="search icon"></i>
+            <a class="item" href="/"/><i class="grid layout icon"></i></a>
+            
+            <div id="index-menu" class="right menu">
+              <div class="item">
+                <div class="ui icon input">
+                  <input type="text" placeholder="Search...">
+                  <i class="search icon"></i>
+                </div>
               </div>
+              <a id="open-modal-btn" class="item"/><i class="plus icon"></i>Add</a>
             </div>
-            <a id="open-modal-btn" class="item menu-item"/><i class="plus icon"></i>Add</a>
 
-
+            <div id="detail-menu" class="right menu">
+              <li class="item">
+                <div class="ui green label">folder</div>
+              </li>
+              <li class="item">
+                <div class="ui selection dropdown">
+                  <input name="gender" type="hidden" value="default">
+                  <i class="dropdown icon"></i>
+                  <div class="text">Default Value</div>
+                  <div class="menu">
+                      <div class="item" data-value="0">Value</div>
+                      <div class="item" data-value="1">Another Value</div>
+                      <div class="item" data-value="default">Default Value</div>
+                  </div>
+                </div>
+              </li>
+            </div>
         </div>
 
         <div class="ui bottom attached segment" id="app-content">
