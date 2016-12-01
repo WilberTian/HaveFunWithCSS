@@ -12,20 +12,29 @@ module.exports = {
 		  		var funList = [];
 		  		
 		  		itemList.forEach(function(item) {
+					var funGroup = {
+						'folder': item,
+						'count': 0,
+						'funItems': []
+					}
+					
 		  			var itemPath = path.join(funItemPath, item);
 		  			if(fs.statSync(itemPath).isDirectory()) {
 		  				
 		  				var files = fs.readdirSync(itemPath);
 
 		  				for(var f in files) {
-		  					funList.push({
+
+							funGroup['count'] += 1;  
+							funGroup['funItems'].push({
 		  						'path': path.join(item, files[f]),
-		  						'name': files[f],
-		  						'folder': item
-		  					})
+		  						'name': files[f]
+		  					});
 		  				}
 		  				
 		  			} 
+
+					funList.push(funGroup);
 		  		})
 
 		  		deferred.resolve(funList);
