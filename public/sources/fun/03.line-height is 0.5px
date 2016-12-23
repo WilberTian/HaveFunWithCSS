@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    
+    #box { 
+        width: 240px; 
+        height: 1px;
+        background-color: black;
+        margin: 20px;
+    }
+
+    .half-width {
+      transform: scaleY(0.5);
+    }
+    
+  
+    </style>
+</head>
+<body>
+  <div id="box" class="half-width"></div>
+  <div id="box"></div>
+</body>
+
+</html>
