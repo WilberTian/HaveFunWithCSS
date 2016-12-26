@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .ui.top.attached.menu {
   height: 5%;
 }

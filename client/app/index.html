@@ -2,11 +2,11 @@
 <html>
     <head>
       <title>FunWithCSS</title>
-      <link rel="stylesheet" href="/vendor/semantic.min.css">
+      <link rel="stylesheet" href="/vendor/semantic-ui/semantic.min.css">
      
-      <link rel="stylesheet" href="/stylesheets/main.css" />
-      <link rel="stylesheet" href="/stylesheets/codemirror.min.css" rel="stylesheet" />
-      <link rel="stylesheet" href="/stylesheets/twilight.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="/css/main.css" />
+      <link rel="stylesheet" href="/vendor/codemirror/css/codemirror.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="/vendor/codemirror/css/twilight.min.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -50,13 +50,10 @@
         </div>
 
         <div class="ui bottom attached segment" id="app-content">
-          
           <div class="ui cards" id="fun-group-list">
           </div>
-          
 
           <div id="shield" style="display: none;"></div>
-          
           <div id="main-space">
             <a id="dragbar">
               <img src="/images/resize.png"></img>
@@ -64,29 +61,28 @@
             <textarea id="editor" disabled></textarea>
             <iframe id="viewer"></iframe>
           </div>
+          
+        </div>
 
-          <div id="fun-item-modal" class="ui modal">
-          </div>
-
-          <div id="confirm-modal" class="ui basic modal">
-          </div>
-
-          <div id="notification-area">
-          </div>
+        <div id="fun-item-modal" class="ui modal">
+        </div>
+        <div id="confirm-modal" class="ui basic modal">
+        </div>
+        <div id="notification-area">
         </div>
       </div>
     </body>
     
-    <script type="text/javascript" src="/vendor/jquery.js"></script>
-    <script type="text/javascript" src="/vendor/json2.js"></script>
-    <script type="text/javascript" src="/vendor/underscore.js"></script>
-    <script type="text/javascript" src="/vendor/backbone-min.js"></script>
-    <script type="text/javascript" src="/vendor/codemirror.min.js"></script>
-    <script src="/vendor/htmlmixed.min.js"></script>
-    <script src="/vendor/css.min.js"></script>
-    <script src="/vendor/javascript.min.js"></script>
-    <script src="/vendor/xml.min.js"></script>
-    <script src="/vendor/semantic.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/json2/json2.min.js"></script>
+    <script type="text/javascript" src="/vendor/underscore/underscore.min.js"></script>
+    <script type="text/javascript" src="/vendor/backbone/backbone-min.js"></script>
+    <script type="text/javascript" src="/vendor/codemirror/js/codemirror.min.js"></script>
+    <script src="/vendor/codemirror/js/htmlmixed.min.js"></script>
+    <script src="/vendor/codemirror/js/css.min.js"></script>
+    <script src="/vendor/codemirror/js/javascript.min.js"></script>
+    <script src="/vendor/codemirror/js/xml.min.js"></script>
+    <script src="/vendor/semantic-ui/semantic.min.js"></script>
 
     <script type="text/javascript" src="/javascripts/resize.js"></script>
     <script type="text/javascript" src="/javascripts/fun.js"></script>

@@ -2,7 +2,7 @@ var fs = require('fs');
 var Q = require('q');
 var path = require('path');
 
-var funItemPath = './public/sources/'
+var funItemPath = './sources/'
 
 module.exports = {
 	getFunList: function() {
