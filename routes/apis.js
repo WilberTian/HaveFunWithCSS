@@ -21,6 +21,15 @@ router.post('/funlist', function(req, res, next) {
 		})
 })
 
+router.get('/:funFolder', function(req, res, next) {
+	funOperator.getFunItemsByFolder(req.params.funFolder)
+		.then(function(data){
+			res.send(data);
+		}, function(err){
+			res.status(400).send(err.message);
+		})
+});
+
 router.get('/:funFolder/:funName', function(req, res, next) {
 	funOperator.getFunItem(req.params.funFolder, req.params.funName)
 		.then(function(data){
