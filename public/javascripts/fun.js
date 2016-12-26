@@ -5,7 +5,7 @@ $(function(){
 	var FunItem = Backbone.Model.extend({
 		urlRoot: '/apis',
 		url: function(){
-			return this.urlRoot + '/' + this.get('path').replace('\\', '/')
+			return this.urlRoot + '/' + this.get('path').replace('\\', '/');
 		},
 
 		idAttribute: 'path'
@@ -37,7 +37,7 @@ $(function(){
 		}
 	});
 
-	var funGroups = new FunGroups();
+	funGroups = new FunGroups();
 
 
 
@@ -64,22 +64,10 @@ $(function(){
 	    },
 
 	    selectFunItem: function() {
-	    	
-    		this.model.fetch({
-		    	success: function (model, response) {
-					var url = window.encodeURI('detail/' + response.folder + '/' + response.name)
-					router.navigate(url, {  
-						trigger: true  
-					});  
-
-					Backbone.trigger('selectFunItemEvent', response)
-		    		Backbone.trigger('notificationEvent', 'Fun content fetched successfully')
-			        Backbone.trigger('funContentLoadedEvent', response.funContent)
-			    },
-			    error: function (error) {
-			    }
-		    })
-	 	
+	    	var url = window.encodeURI('detail/' + this.model.toJSON()['path'].replace('\\', '/'));
+			router.navigate(url, {  
+				trigger: true  
+			});	 	
 	    }
 
 	});
@@ -130,6 +118,15 @@ $(function(){
 
 	});
 
+	var FunItemSelectorView = Backbone.View.extend({
+		template: _.template($('#fun-item-selector-template').html()),
+
+		render: function() {
+			this.$el.html(this.template(this.model));
+	      	return this;
+		}
+
+	});
 
 	var AppView = Backbone.View.extend({
 		el: $('#app-container'),
@@ -137,54 +134,56 @@ $(function(){
 		funModalTemplate: _.template($('#fun-item-modal-template').html()),
 		funGroupTemplate: _.template($('#fun-group-template').html()),
 		notificationTemplate: _.template($('#notification-template').html()),
-		funItemOperationsTemplate: _.template($('#fun-item-operations-template').html()),
 		confirmModalTemplate: _.template($('#confirm-modal-template').html()),
-		detailMenuTemplate: _.template($('#detail-menu-template').html()),
 
 		initialize: function() {
 			var self = this;
 
 			self.selectedFunItem = null;
+			self.selectedFunItmeFolder = '';
 			
 			self.listenTo(funGroups, 'add', self.insertFunGroup);
-			self.listenTo(funGroups, 'remove', self.removeFunItem);
 			self.listenTo(funGroups, 'all', self.render);
 
-			Backbone.on('selectFunItemEvent', function(selectedFunItem) {
-				/*
-				if(self.selectedFunItem !== null) {
-					$(self.selectedFunItem.$el).removeClass('active-fun-item')
-					self.selectedFunItem = ele;
-					$(self.selectedFunItem.$el).addClass('active-fun-item')
+			self.init = false;
 
-					var selectedFunItemModel = self.selectedFunItem.model.toJSON();
-					var funItemOperationsDiv = self.funItemOperationsTemplate({folder: selectedFunItemModel.folder, name: selectedFunItemModel.name});
-					$('#fun-item-operations').html(funItemOperationsDiv);
-				} else {
-					self.selectedFunItem = ele;
-					$(self.selectedFunItem.$el).addClass('active-fun-item')
+			Backbone.on('selectFunItemEvent', function(selectedFunItemInfo) {
 
-					var selectedFunItemModel = self.selectedFunItem.model.toJSON();
-					var funItemOperationsDiv = self.funItemOperationsTemplate({folder: selectedFunItemModel.folder, name: selectedFunItemModel.name});
-					$('#fun-item-operations').html(funItemOperationsDiv);
+				var selectedFunGroup = funGroups.where({folder: selectedFunItemInfo.folder})[0];
+				var funItemNames = [];
+				
+				if(!self.init) {
+					self.init = true;
+					selectedFunGroup.funItems.models.forEach(function(model){
+						funItemNames.push({
+							path: model.get('path'),
+							name: model.get('name')
+						});
+					});
+
+					var funItemSelectorView = new FunItemSelectorView({model:{name: selectedFunItemInfo.name, folder: selectedFunItemInfo.folder, funItems: funItemNames}})					
+					$('#fun-item-selector').html(funItemSelectorView.render().$el.children());
+					$('.ui.selection.dropdown').dropdown();
+
+					
 				}
-				*/
-
 				
 
-				var selectedFunGroup = funGroups.where({folder: selectedFunItem.folder})[0];
-				var funItemNames = [];
-				selectedFunGroup.funItems.models.forEach(function(model){
-					funItemNames.push(model.get('name'));
-				});
+				self.selectedFunItmeFolder = selectedFunItemInfo.folder;
+				self.selectedFunItem = selectedFunGroup.funItems.where({name: selectedFunItemInfo.name})[0];
+				
+				Backbone.trigger('fetchFunItemDataEvent', self.selectedFunItem);
+			})
 
-				var detailMenuEle = self.detailMenuTemplate({name: selectedFunItem.name, folder: selectedFunItem.folder, funItems: funItemNames});
-				$('#detail-menu').html(detailMenuEle);
-				$('.ui.selection.dropdown').dropdown({
-					onChange: function(value, text, $selectedItem) {
-						console.log(value)
+			Backbone.on('fetchFunItemDataEvent', function(funItemModel){
+				funItemModel.fetch({
+					success: function (model, response) {
+						Backbone.trigger('notificationEvent', 'Fun content fetched successfully')
+						Backbone.trigger('funContentLoadedEvent', response.funContent)
+					},
+					error: function (error) {
 					}
-				});
+				})
 			})
 
 			Backbone.on('notificationEvent', function(message) {
@@ -204,7 +203,6 @@ $(function(){
 		},
 
 		events: {
-			
 			'click #open-modal-btn': 'openFunItemModal',
 			'click #create-fun-item-btn': 'createFunItem',
 			'click #close-modal-btn': 'closeFunItemModal',
@@ -215,29 +213,15 @@ $(function(){
 			'click #fun-item-operations .delete': 'openConfirmModal',
 			'click #fun-item-operations .edit': 'editFunItem',
 	      	'click #fun-item-operations .update': 'updateFunItem',
-			'keyup #fun-filter': 'searchFunItem'
+			'keyup #fun-filter': 'searchFunItem',
+			'change #selectedFunItemName': 'changeFunItem'
 		},
-
+		
 		insertFunGroup: function(funGroup) {
 
 			var funGroupView = new FunGroupView({model: funGroup});
 			this.$('#fun-group-list').append(funGroupView.render().el);
 
-		},
-
-		removeFunItem: function(funItem) {
-			var self = this;
-
-	    	funItem.destroy({
-	    		wait: true,
-			    success: function (model, response) {
-					self.closeConfirmModal();
-			        Backbone.trigger('notificationEvent', 'Fun item deleted successfully');
-			    },
-			    error: function (error) {
-			    	console.log(error)
-			    }
-			})
 		},
 
 		render: function() {
@@ -272,7 +256,14 @@ $(function(){
 		},
 
 		clickDeleteFunItem: function() {
-			funGroups.remove(this.selectedFunItem.model);
+			this.selectedFunItem.destroy({success: function(model, response) {
+				router.navigate('/', {  
+					trigger: true  
+				}); 
+
+				Backbone.trigger('notificationEvent', 'Fun item deleted successfully');
+			}});
+			
 		},
 
 		tryIt: function() {
@@ -299,14 +290,17 @@ $(function(){
 		},
 
 		closeConfirmModal: function() {
-			$('#confirm-modal').html();
-			$('#confirm-modal').hide();
+			$('#confirm-modal')
+				.modal('hide');
 		},
 
 		openConfirmModal: function() {
-			var selectedFunItem = this.selectedFunItem.model.toJSON();
+			var selectedFunItem = this.selectedFunItem.toJSON();
 			$('#confirm-modal').html(this.confirmModalTemplate({ name: selectedFunItem.name + '@' + selectedFunItem.folder }));
-			$('#confirm-modal').show();
+			$('#confirm-modal')
+				.modal({ detachable: false })
+				.modal('setting', 'closable', false)
+				.modal('show');
 		},
 
 	    editFunItem: function(){
@@ -314,8 +308,8 @@ $(function(){
 	    },
 
 	    updateFunItem: function() {
-	    	this.selectedFunItem.model.set({'funContent': editor.getValue() })
-	    	this.selectedFunItem.model.save(null, {
+	    	this.selectedFunItem.set({'funContent': editor.getValue() })
+	    	this.selectedFunItem.save(null, {
 			    success: function (model, response) {
 			        Backbone.trigger('notificationEvent', 'Fun item updated successfully');
 					editor.setOption('readOnly', 'nocursor');
@@ -327,14 +321,17 @@ $(function(){
 
 		searchFunItem: function(e) {
 			Backbone.trigger('searchFunItemEvent', e.target.value);
+		},
+
+		changeFunItem: function(e) {
+			var url = window.encodeURI('detail/' + e.target.value.replace('\\', '/'));
+			router.navigate(url, {  
+				trigger: true  
+			});
 		}
 
 
 	});
-
-	var App = new AppView();
-
-
 
 	var AppRouter = Backbone.Router.extend({  
 		routes : {  
@@ -342,22 +339,25 @@ $(function(){
 			'detail/:folder/:name' : 'showDetail'
 		},  
 		index : function() {  
+			var App = new AppView();
 			$('#fun-group-list').show();
 			$('#main-space').hide();
 
 			$('#index-menu').show();
-			$('#detail-menu').hide();
+			$('#fun-item-selector').hide();
+			$('#fun-item-operations').hide();
 		},  
 		showDetail : function(folder, name) {
-			console.log(folder, name);  
 			$('#fun-group-list').hide();
 			$('#main-space').show();
 
 			$('#index-menu').hide();
-			$('#detail-menu').show();
+			$('#fun-item-selector').show();
+			$('#fun-item-operations').show();
 
 			resizer.fixDragBtn();
-			
+
+			Backbone.trigger('selectFunItemEvent', {folder: folder, name: name});
 		}
 	});  
 	

@@ -73,7 +73,7 @@ module.exports = {
 								deferred.resolve({
 									name: name,
 									folder: folder,
-									path: path.join(itemPath, folder, name)
+									path: path.join(folder, name)
 								})
 							} else {
 								fs.rmdirSync(folderPath);
@@ -91,7 +91,7 @@ module.exports = {
 								deferred.resolve({
 									name: name,
 									folder: folder,
-									path: path.join(itemPath, folder, name)
+									path: path.join(folder, name)
 								})
 							} else {
 								deferred.reject(new Error('Fail to create fun item'));
@@ -115,7 +115,7 @@ module.exports = {
 		fs.readFile(itemPath, function(err, itemContent) {
 			if(!err) {
 				deferred.resolve({
-					'path': itemPath,
+					'path': path.join(folder, name),
 					'name': name,
 					'folder': folder,
 					'funContent': itemContent.toString()
@@ -136,7 +136,7 @@ module.exports = {
 		fs.writeFile(itemPath, content, function(err) {
 			if(!err) {
 				deferred.resolve({
-					'path': itemPath,
+					'path': path.join(folder, name),
 					'name': name,
 					'folder': folder,
 					'funContent': content
@@ -162,7 +162,7 @@ module.exports = {
 				}
 
 				deferred.resolve({
-					'path': itemPath,
+					'path': path.join(folder, name),
 					'name': name,
 					'folder': folder
 				});

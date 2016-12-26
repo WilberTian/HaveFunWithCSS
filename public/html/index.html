@@ -12,8 +12,6 @@
     <body>
       <div id="app-container">
         <div class="ui top attached menu">
-            <a class="item" href="/"/><i class="grid layout icon"></i></a>
-
             <div id="index-menu" class="right menu">
               <div class="item">
                 <div class="ui icon input">
@@ -24,8 +22,30 @@
               <a id="open-modal-btn" class="item"/><i class="plus icon"></i>Add</a>
             </div>
 
-            <div id="detail-menu" class="menu">
-              
+            <div id="fun-item-selector" class="menu">
+            </div>
+
+            <div id="fun-item-operations" class="right menu">
+              <li class="item">
+                <div id="fun-item-operations" class="ui mini buttons">
+                  <button class="ui basic blue button try-it">
+                    <i class="play icon"></i>
+                    Run
+                  </button>
+                  <button class="ui basic green button update">
+                    <i class="save icon"></i>
+                    Save
+                  </button>
+                  <button class="ui basic red button delete">
+                    <i class="remove icon"></i>
+                    Delete
+                  </button>
+                  <a class="ui basic teal button" href="apis/external/<%- folder %>/<%- name %>" target="_blank">
+                      <i class="external icon"></i>
+                      External
+                  </a>
+                </div>
+              </li>
             </div>
         </div>
 
@@ -45,36 +65,10 @@
             <iframe id="viewer"></iframe>
           </div>
 
-
-  <!--        
-          <div id="app-content">
-            <div id="side-bar">
-              <div class="tool-bar">
-                <a id="open-modal-btn" title="Add item"><img src="/images/add.png"></img></a>
-                <div id="fun-item-operations">
-                </div>
-              </div>
-
-              <div id="fun-group-list">
-              </div>
-            </div>
-
-            <div id="shield" style="display: none;"></div>
-            <a id="dragbar">
-              <img src="/images/resize.png"></img>
-            </a>
-
-            <div id="main-space">
-              <textarea id="editor" disabled></textarea>
-              <iframe id="viewer"></iframe>
-            </div>
-          </div>
-  -->
-
           <div id="fun-item-modal" class="ui modal">
           </div>
 
-          <div id="confirm-modal">
+          <div id="confirm-modal" class="ui basic modal">
           </div>
 
           <div id="notification-area">
@@ -94,50 +88,42 @@
     <script src="/vendor/xml.min.js"></script>
     <script src="/vendor/semantic.min.js"></script>
 
-    <script type="text/javascript" src="/javascripts/fun.js"></script>
     <script type="text/javascript" src="/javascripts/resize.js"></script>
+    <script type="text/javascript" src="/javascripts/fun.js"></script>
     
     
     <script type="text/javascript">
       var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
         lineNumbers: true,
         mode: "htmlmixed",
-        theme: "twilight",
-        readOnly: "nocursor"
+        theme: "twilight"
+        // readOnly: "nocursor"
       });
 
       editor.setSize("100%", "50%")
     </script>
 
-    <script type="text/template" id="detail-menu-template">
+    <script type="text/template" id="fun-item-selector-template">
+      <li class="item">
+        <a href="/"><i class="grid layout icon"></i></a>
+      </li> 
       <li class="item">
         <div class="ui green label"><%- folder %></div>
       </li>
       <li class="item">
         <div class="ui selection dropdown">
-          <input name="funItemName" type="hidden" value="<%- name %>">
+          <input id="selectedFunItemName" name="funItemName" type="hidden" value="<%- name %>">
           <i class="dropdown icon"></i>
           <div class="text"><%- name %></div>
           <div class="menu">
               <% _.each(funItems, function(funItem) { %> 
-                  <div class="item" data-value="<%= funItem %>"><%= funItem %></div>
+                  <div class="item" data-value="<%= funItem.path %>"><%= funItem.name %></div>
               <% }); %>
-             
           </div>
         </div>
       </li>
     </script>
     
-    <script type="text/template" id="fun-item-operations-template">
-      <div>
-        <a class="try-it" title="Run item"><img src="/images/try-it.png"></img></a>
-        <a class="open" title="Open in new tab" href="apis/external/<%- folder %>/<%- name %>" target="_blank"><img src="/images/external.png"></img></a>
-        <a class="edit" title="Edit item"><img src="/images/edit.png"></img></a>
-        <a class="update" title="Save updates"><img src="/images/update.png"></img></a>
-        <a class="delete" title="Delete item"><img src="/images/remove.png"></img></a>
-      </div>
-    </script>
-
     <script type="text/template" id="fun-item-template">
       <div class="fun-group-item">
           <span><%- name %></span>
@@ -194,17 +180,22 @@
     </script>
 
     <script type="text/template" id="confirm-modal-template">
-      <div class="overlay">
+      <div class="ui icon header">
+        <i class="archive icon"></i>
+        Delete fun item!
       </div>
-
-      <div class="confirm-modal-dialog">
-        <form action="">
-           Delete <strong><%- name %></strong> ?
-           <br/>
-           <br/>
-          <input id="delete-fun-item-btn" type="button" value="Delete"></input>
-          <input id="close-confirm-modal-btn" type="button" value="Cancel"></input>
-        </form>
+      <div class="content">
+        <p>Sure you want to delete <%- name %>?</p>
+      </div>
+      <div class="actions">
+        <div class="ui red basic cancel inverted button" id="close-confirm-modal-btn">
+          <i class="remove icon"></i>
+          No
+        </div>
+        <div class="ui green ok inverted button" id="delete-fun-item-btn">
+          <i class="checkmark icon"></i>
+          Yes
+        </div>
       </div>
     </script>
 
