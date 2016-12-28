@@ -1,0 +1,21 @@
+<li class="item">
+    <div class="ui green label">
+        <%- folder %>
+    </div>
+</li>
+<li class="item">
+    <div class="ui selection dropdown">
+        <input id="selectedFunItemName" name="funItemName" type="hidden" value="<%- name %>">
+        <i class="dropdown icon"></i>
+        <div class="text">
+            <%- name %>
+        </div>
+        <div class="menu">
+            <% _.each(funItems, function(funItem) { %>
+                <div class="item" data-value="<%= funItem.path %>">
+                    <%= funItem.name %>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</li>
