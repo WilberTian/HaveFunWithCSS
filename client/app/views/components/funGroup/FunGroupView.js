@@ -12,8 +12,12 @@ define([
 
 			self.listenTo(self.model.funItems, 'add', self.createFunItem);
 
-            Backbone.on('filterFunGroupEvent', function(key) {
-                if(self.model.get('folder').indexOf(key) > -1) {
+            Backbone.on('filterFunItemEvent', function(key) {
+                var hasFunItemInGroup = _.some(self.model.funItems.models, function(funItemModel) {
+                    return funItemModel.toJSON().name.indexOf(key) > -1
+                });
+
+                if(hasFunItemInGroup) {
 					self.$el.show();
 				} else {
 					self.$el.hide();

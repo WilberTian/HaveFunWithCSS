@@ -6,15 +6,15 @@ define([
         el: $('#app-menu'),
 
         events: {
-            'keyup #fun-filter': 'filterFunGroup',
+            'keyup #fun-item-filter': 'filterFunItem',
         },
 
         render: function () {
             $(this.el).html(indexMenuTemplate);
         },
 
-        filterFunGroup: function(e) {
-            Backbone.trigger('filterFunGroupEvent', e.target.value);
+        filterFunItem: function(e) {
+            Backbone.trigger('filterFunItemEvent', e.target.value);
         }
     });
 

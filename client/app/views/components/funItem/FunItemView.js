@@ -7,7 +7,15 @@ define([
         template: _.template(funItemTemplate),
 
         initialize: function() {
-			//this.listenTo(this.model, 'destroy', this.remove);
+            var self = this;
+
+            Backbone.on('filterFunItemEvent', function(key) {
+                if(self.model.get('name').indexOf(key) > -1) {
+					self.$el.show();
+				} else {
+					self.$el.hide();
+				}
+            });
 		},
 
         events: {
