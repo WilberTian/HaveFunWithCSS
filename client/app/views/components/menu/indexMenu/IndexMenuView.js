@@ -10,7 +10,7 @@ define([
         },
 
         render: function () {
-            $(this.el).append(indexMenuTemplate);
+            $(this.el).html(indexMenuTemplate);
         },
 
         filterFunGroup: function(e) {

@@ -3,10 +3,10 @@ define([
     'text!views/components/menu/brand/brand.html'
 ], function(Backbone, brandTemplate){
     var MenuBrandView =  Backbone.View.extend({
-        el: $('#app-menu'),
+        el: $('#menu-brand'),
 
         render: function () {
-            $(this.el).prepend(brandTemplate);
+            $(this.el).html(brandTemplate);
         }
     });
 

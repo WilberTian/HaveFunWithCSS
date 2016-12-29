@@ -1,34 +1,30 @@
 define([
     'backbone',
+    'jquery',
     'underscore',
     'text!views/components/menu/funItemSelector/funItemSelector.html'
-], function(Backbone, _, funItemSelectorTemplate){
-    var FunItemSelectorView =  Backbone.View.extend({
-        el: $('#app-menu'),
-
+], function(Backbone, $, _, funItemSelectorTemplate){
+    var FunItemSelectorView =  Backbone.View.extend({        
         template: _.template(funItemSelectorTemplate),
 
         initialize: function() {
-            Backbone.on('selectFunItemEvent', function(folder, name) {
-
-            })
+            this.listenTo(this.model, 'sync', this.render);
+            this.model.fetch();
         },
 
         events: {
-            
+            'change #selectedFunItemName': 'changeFunItem'
         },
 
         render: function () {
-            var selectorEle = this.template({
-                folder:'asd',
-                name: 'adf',
-                funItems: ['adf', 'asdf']
-            
-            });
-
-            $(selectorEle).insertAfter($(this.el).children());
-            $('.ui.selection.dropdown').dropdown();
+            var selectorEle = this.template(this.model.toJSON());
+            $(this.el).html(selectorEle);
+            $(this.el).find('.ui.selection.dropdown').dropdown();
         },
+
+        changeFunItem: function(e) {
+            Backbone.trigger('selectFunItemEvent', e.target.value);
+        }
 
     });
 

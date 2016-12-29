@@ -28,26 +28,34 @@ define([
         });
 
         router.on('route:detail', function(folder, name) {
-            require(['views/components/menu/funItemSelector/FunItemSelectorView'], function (FunItemSelectorView) {
-                var funItemSelectorView = new FunItemSelectorView;
-                funItemSelectorView.render();
+            require(['views/components/menu/detailMenu/DetailMenuView'], function (DetailMenuView) {
+                var detailMenuView = new DetailMenuView({model: {folder: folder, name: name}});
+                detailMenuView.render();
             });
 
-            require(['views/components/menu/funItemOperations/FunItemOperationsView'], function (FunItemOperationsView) {
-                var funItemOperationsView = new FunItemOperationsView;
-                funItemOperationsView.render();
-            });
+            require(['views/pages/funItemDetail/FunItemDetailView', 'models/FunItemModel'], function (FunItemDetailView, FunItemModel) {
 
-            require(['views/pages/funItemDetail/FunItemDetailView'], function (FunItemDetailView) {
-                var funGroupListView = new FunItemDetailView;
+                var funItemModel = new FunItemModel({path: folder + '/' + name, funContent: ''});
+                var funGroupListView = new FunItemDetailView({model: funItemModel});
                 funGroupListView.render();
             });
-
-            Backbone.trigger('selectFunItemEvent', folder, name);
             
         });
 
         Backbone.history.start();
+
+        Backbone.on('selectFunItemEvent', function(funItemPath) {
+            var url = window.encodeURI('detail/' + funItemPath.replace('\\', '/'));
+            router.navigate(url, {  
+                trigger: true  
+            });	 	
+        });
+
+        Backbone.on('navigateEvent', function(url) {
+            router.navigate(url, {  
+                trigger: true  
+            });	 
+        });
     };
 
 

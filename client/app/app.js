@@ -11,9 +11,6 @@ define([
         
         funItemModalTemplate: _.template(funItemModalTemplate),
 
-        initialize: function() {
-        },
-
         render: function() {
             var self = this;
             $(self.el).html(layoutTemplate);

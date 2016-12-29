@@ -6,13 +6,25 @@ define([
     var FunItemView =  Backbone.View.extend({
         template: _.template(funItemTemplate),
 
+        initialize: function() {
+			//this.listenTo(this.model, 'destroy', this.remove);
+		},
+
+        events: {
+	      	'click .fun-group-item': 'selectFunItem'
+	    },
+
         render: function () {
-            this.setElement(this.template({
+            $(this.el).html(this.template({
 				name: this.model.toJSON().name
             }));
 
             return this;
-        }
+        },
+
+        selectFunItem: function() {
+	    	Backbone.trigger('selectFunItemEvent', this.model.toJSON().path);
+	    }
     });
 
     return FunItemView;

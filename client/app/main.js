@@ -4,9 +4,13 @@ require.config({
         underscore: '/vendor/underscore/underscore.min',
         backbone: '/vendor/backbone/backbone.min',
         semantic: '/vendor/semantic-ui/semantic.min',
-        codemirror: '/vendor/codemirror/js/codemirror.min',
+        codemirror: '/vendor/codemirror/js',
 
         text: '/vendor/require/text'
+    },
+
+    shim: {
+        'semantic': ['jquery']
     }
 });
 

@@ -56,9 +56,7 @@ define([
                 $(self.el).find('#fun-group-list').append(funGroupView.render().el);
             });
 
-        },
-
-        
+        }
 
     });
 
