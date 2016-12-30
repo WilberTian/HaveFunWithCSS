@@ -2,9 +2,10 @@ define([
     'backbone',
     'underscore',
     'text!views/pages/funItemDetail/funItemDetail.html',
+    'utils/resizer',
     'codemirror/lib/codemirror',
     'codemirror/mode/htmlmixed/htmlmixed'
-], function (Backbone, _, funItemDetailTemplate, CodeMirror) {
+], function (Backbone, _, funItemDetailTemplate, Resizer, CodeMirror) {
     var FunItemDetailView = Backbone.View.extend({
         el: $('#app-content'),
 
@@ -14,7 +15,14 @@ define([
             var self = this;
 
             self.listenTo(self.model, 'sync', self.render);
-            self.model.fetch();
+            self.model.fetch({
+                success: function(model, response) {
+                    Backbone.trigger('notificationEvent', 'Fun item loaded successfully');
+                },
+                error: function(error) {
+
+                }
+            });
 
             Backbone.on('runFunItemEvent', function () {
                 //$('#viewer').contents().find('html').html($('#editor').val());
@@ -67,6 +75,8 @@ define([
             });
             self.editor.setSize("100%", "50%");
             self.editor.setValue(self.model.toJSON().funContent);
+
+            Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'));
 
             Backbone.trigger('runFunItemEvent');
         }
