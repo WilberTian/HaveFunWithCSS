@@ -1,6 +1,7 @@
 define([
-    'backbone'
-], function(Backbone) {
+    'backbone',
+    'vm'
+], function(Backbone, Vm) {
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'index',
@@ -36,7 +37,7 @@ define([
             require(['views/pages/funItemDetail/FunItemDetailView', 'models/FunItemModel'], function (FunItemDetailView, FunItemModel) {
 
                 var funItemModel = new FunItemModel({path: folder + '/' + name, funContent: ''});
-                var funGroupListView = new FunItemDetailView({model: funItemModel});
+                var funGroupListView = Vm.create('funGroupListView', FunItemDetailView, {model: funItemModel}, true);
                 funGroupListView.render();
             });
             
