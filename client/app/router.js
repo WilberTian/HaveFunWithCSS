@@ -37,8 +37,8 @@ define([
             require(['views/pages/funItemDetail/FunItemDetailView', 'models/FunItemModel'], function (FunItemDetailView, FunItemModel) {
 
                 var funItemModel = new FunItemModel({path: folder + '/' + name, funContent: ''});
-                var funGroupListView = Vm.create('funGroupListView', FunItemDetailView, {model: funItemModel}, true);
-                funGroupListView.render();
+                var funItemDetailView = new FunItemDetailView({model: funItemModel});
+                funItemDetailView.render();
             });
             
         });
