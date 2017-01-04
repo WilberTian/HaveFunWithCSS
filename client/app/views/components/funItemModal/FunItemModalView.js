@@ -4,11 +4,12 @@ define([
     'text!views/components/funItemModal/funItemModal.html'
 ], function(Backbone, _, funItemModalTemplate){
     var FunItemModalView =  Backbone.View.extend({
-        el: $('#fun-item-modal'),
 
         template: _.template(funItemModalTemplate),
 
         render: function () {
+            $(this.el).html(this.template(this.model));
+            return this;
         },
 
         events: {
@@ -16,16 +17,15 @@ define([
             'click #close-modal-btn': 'close'
         },
 
-        open: function(funFolder) {
-			$(this.el).html(this.template({funFolder: funFolder}));
-			$(this.el)
+        open: function() {
+			$(this.el).find('.ui.modal')
 				.modal({ detachable: false })
 				.modal('setting', 'closable', false)
 				.modal('show');
 		}, 
 
 		close: function() {
-			$(this.el).modal('hide');
+			$(this.el).find('.ui.modal').modal('hide');
 		},
 
         showErrMsg: function(error) {
@@ -34,11 +34,15 @@ define([
         },
 
         createFunItem: function() {	
-			var folder = $('#fun-folder-in-modal').val();
-			var name = $('#fun-name-in-modal').val();
+			var folder = $(this.el).find('#fun-folder-in-modal').val();
+			var name = $(this.el).find('#fun-name-in-modal').val();
 
             Backbone.trigger('createFunItemEvent', folder, name, this);
-		}
+		},
+
+        dispose: function() {
+            this._dispose();
+        }
     });
 
     return FunItemModalView;

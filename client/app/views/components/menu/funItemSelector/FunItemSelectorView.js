@@ -9,14 +9,14 @@ define([
 
         initialize: function() {
             this.listenTo(this.model, 'sync', this.render);
-            this.model.fetch();
         },
 
         events: {
             'change #selectedFunItemName': 'changeFunItem'
         },
 
-        render: function () {
+        render: function () {  
+console.log('----------render')    
             var selectorEle = this.template(this.model.toJSON());
             $(this.el).html(selectorEle);
             $(this.el).find('.ui.selection.dropdown').dropdown();
@@ -24,6 +24,10 @@ define([
 
         changeFunItem: function(e) {
             Backbone.trigger('selectFunItemEvent', e.target.value);
+        },
+
+        dispose: function() {
+            this._dispose();
         }
 
     });

@@ -16,9 +16,22 @@ require.config({
 
 require([
     'app',
-    'router'
-], function (AppView, Router) {
-    var appView = new AppView;
-    appView.render();
+    'router',
+    'vm'
+], function (AppView, Router, Vm) {
+
+    _.extend(Backbone.View.prototype, {
+        _dispose: function() {
+            this.undelegateEvents();
+            this.stopListening()
+            $(this.el).children().remove();
+
+            return this;
+        }
+    });
+
+    var appView = Vm.create('appView', AppView, {}, true);
+    appView.setElement($('#app-container')).render();
+    
     Router.initialize({ appView: appView });  // The router now has a copy of all main appview
 });

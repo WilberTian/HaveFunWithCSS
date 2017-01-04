@@ -4,7 +4,7 @@ define([
 ], function(Backbone, Vm) {
     var AppRouter = Backbone.Router.extend({
         routes: {
-            '': 'index',
+            'index': 'index',
             'detail/:folder/:name': 'detail',
 
             // Default - catch all
@@ -18,27 +18,40 @@ define([
 
         router.on('route:index', function() {
             require(['views/components/menu/indexMenu/IndexMenuView'], function (IndexMenuView) {
-                var indexMenuView = new IndexMenuView;
-                indexMenuView.render();
+                var indexMenuView = Vm.create('indexMenuView', IndexMenuView, {}, true);
+                indexMenuView.setElement($('#app-menu')).render();
             });
 
-            require(['views/pages/funGroupList/FunGroupListView'], function (FunGroupListView) {
-                var funGroupListView = new FunGroupListView;
-                funGroupListView.render();
+            require(['views/pages/funGroupList/FunGroupListView', 'models/FunGroupCollection'], function (FunGroupListView, FunGroupCollection) {
+                var funGroupListView = Vm.create('funGroupListView', FunGroupListView, {model: new FunGroupCollection}, true).setElement($('#app-content'));
+                funGroupListView.model.fetch({
+                    success: function (model, response) {
+                        Backbone.trigger('notificationEvent', 'Fun list fetched successfully');
+                    },
+                    error: function (error) {
+                    }
+                });
+
             });
         });
 
         router.on('route:detail', function(folder, name) {
-            require(['views/components/menu/detailMenu/DetailMenuView'], function (DetailMenuView) {
-                var detailMenuView = new DetailMenuView({model: {folder: folder, name: name}});
-                detailMenuView.render();
+            require(['views/components/menu/detailMenu/DetailMenuView', 'views/components/menu/detailMenu/DetailMenuModel'], function (DetailMenuView, DetailMenuModel) {
+                var detailMenuView = Vm.create('detailMenuView', DetailMenuView, {model: new DetailMenuModel}, true).setElement($('#app-menu'));
+                detailMenuView.model.set({folder: folder, name: name});
             });
 
             require(['views/pages/funItemDetail/FunItemDetailView', 'models/FunItemModel'], function (FunItemDetailView, FunItemModel) {
+                var funItemDetailView = Vm.create('funItemDetailView', FunItemDetailView, {model: new FunItemModel}, true).setElement($('#app-content'));
+                funItemDetailView.model.set({path: folder + '/' + name, funContent: ''}).fetch({
+                    success: function(model, response) {
+                        Backbone.trigger('notificationEvent', 'Fun item loaded successfully');
+                    },
+                    error: function(error) {
 
-                var funItemModel = new FunItemModel({path: folder + '/' + name, funContent: ''});
-                var funItemDetailView = new FunItemDetailView({model: funItemModel});
-                funItemDetailView.render();
+                    }
+                });
+                
             });
             
         });

@@ -1,33 +1,29 @@
 define([
     'backbone',
     'underscore',
+    'vm',
     'text!views/pages/funGroupList/funGroupList.html',
-    'models/FunGroupCollection',
     'views/components/funGroup/FunGroupView',
     'views/components/notification/NotificationView'
-], function(Backbone, _, funGroupListTemplate, FunGroupCollection, FunGroupView, NotificationView){
+], function(Backbone, _, Vm, funGroupListTemplate, FunGroupView, NotificationView){
     var FunGroupListView =  Backbone.View.extend({
-        el: $('#app-content'),
 
         initialize: function() {
             new NotificationView;
 
             var self = this;
 
-            self.funGroupCollection = new FunGroupCollection;
-
-            self.listenTo(self.funGroupCollection, 'add', self.render);
-			self.listenTo(self.funGroupCollection, 'sync', self.render);
+			self.listenTo(self.model, 'sync', self.render);
 
             Backbone.on('createFunItemEvent', function(folder, name, modal) {
                 
-                var funGroupModel = self.funGroupCollection.where({folder: folder})[0];
+                var funGroupModel = self.model.where({folder: folder})[0];
 
                 // create fun group if not exist
                 if(funGroupModel === undefined) {
                     require(['models/FunGroupModel'], function(FunGroupModel) {
                         funGroupModel = new FunGroupModel({count: 1, folder: folder, funItems:[]});
-                        self.funGroupCollection.add(funGroupModel);
+                        self.model.add(funGroupModel);
                     });
                 }
 
@@ -50,8 +46,8 @@ define([
             var self = this;
             
             $(self.el).html(funGroupListTemplate);
-            
-            self.funGroupCollection.models.forEach(function(funGroupModel) {
+
+            self.model.models.forEach(function(funGroupModel) {
                 var funGroupView = new FunGroupView({model: funGroupModel});
                 $(self.el).find('#fun-group-list').append(funGroupView.render().el);
             });

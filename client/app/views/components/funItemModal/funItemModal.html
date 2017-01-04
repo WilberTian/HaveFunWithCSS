@@ -1,29 +1,31 @@
-<div class="header">
-    Add fun item:
-</div>
-<div class="content">
-    <form class="ui form error">
-        <div class="field">
-            <label>Folder</label>
-            <input id="fun-folder-in-modal" type="text" name="funFolder" placeholder="FunItem folder" value="<%- funFolder %>"></input>
-        </div>
-        <div class="field">
-            <label>Name</label>
-            <input id="fun-name-in-modal" type="text" name="funItem" placeholder="FunItem name"></input>
-        </div>
-        <div id="error-msg" class="ui error message">
-            <div class="header">Action Forbidden</div>
-            <p>
-            </P>
-        </div>
-    </form>
-</div>
-<div class="actions">
-    <div id="create-fun-item-btn" class="ui blue right labeled icon button">
-        Save
-        <i class="checkmark icon"></i>
+<div class="ui modal">
+    <div class="header">
+        Add fun item:
     </div>
-    <div id="close-modal-btn" class="ui red button">
-        Cancel
+    <div class="content">
+        <form class="ui form error">
+            <div class="field">
+                <label>Folder</label>
+                <input id="fun-folder-in-modal" type="text" name="funFolder" placeholder="FunItem folder" value="<%- funFolder %>"></input>
+            </div>
+            <div class="field">
+                <label>Name</label>
+                <input id="fun-name-in-modal" type="text" name="funItem" placeholder="FunItem name"></input>
+            </div>
+            <div id="error-msg" class="ui error message">
+                <div class="header">Action Forbidden</div>
+                <p>
+                </P>
+            </div>
+        </form>
+    </div>
+    <div class="actions">
+        <div id="create-fun-item-btn" class="ui blue right labeled icon button">
+            Save
+            <i class="checkmark icon"></i>
+        </div>
+        <div id="close-modal-btn" class="ui red button">
+            Cancel
+        </div>
     </div>
 </div>

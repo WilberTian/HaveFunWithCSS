@@ -7,7 +7,6 @@ define([
     'codemirror/mode/htmlmixed/htmlmixed'
 ], function (Backbone, _, funItemDetailTemplate, Resizer, CodeMirror) {
     var FunItemDetailView = Backbone.View.extend({
-        el: $('#app-content'),
 
         template: _.template(funItemDetailTemplate),
 
@@ -15,15 +14,7 @@ define([
             var self = this;
 
             self.listenTo(self.model, 'sync', self.render);
-            self.model.fetch({
-                success: function(model, response) {
-                    Backbone.trigger('notificationEvent', 'Fun item loaded successfully');
-                },
-                error: function(error) {
-
-                }
-            });
-
+            
             Backbone.on('runFunItemEvent', function () {
                 //$('#viewer').contents().find('html').html($('#editor').val());
                 var iframe = document.getElementById('viewer');

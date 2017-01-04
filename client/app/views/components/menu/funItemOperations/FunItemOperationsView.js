@@ -23,7 +23,11 @@ define([
 
 		openConfirmModal: function() {
             Backbone.trigger('openConfirmModalEvent');
-		}
+		},
+
+        dispose: function() {
+            this._dispose();
+        }
 
     });
 
