@@ -27,13 +27,9 @@ define([
         },
 
         openFunItemModal: function(e) {
-            var funFolder = $(e.currentTarget).data('funfolder');
-
-            require(['views/components/funItemModal/FunItemModalView'], function(FunItemModalView) {
-                var funItemModalView = Vm.create('funItemModalView', FunItemModalView, {model: {funFolder: funFolder}}, true);
-                funItemModalView.model = {funFolder: funFolder};
-                funItemModalView.setElement($('#fun-item-modal')).render();
-                funItemModalView.open()
+            require(['views/components/funItemModal/FunItemModalView', 'views/components/funItemModal/FunItemModalModel'], function(FunItemModalView, FunItemModalModel) {
+                var funItemModalView = Vm.create('funItemModalView', FunItemModalView, {model: new FunItemModalModel}, true).setElement($('#fun-item-modal'));
+                funItemModalView.model.set({funFolder: $(e.currentTarget).data('funfolder')});
             });
 		}
 

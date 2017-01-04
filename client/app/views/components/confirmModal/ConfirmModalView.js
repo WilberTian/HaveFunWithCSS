@@ -4,11 +4,18 @@ define([
     'text!views/components/confirmModal/confirmModal.html'
 ], function(Backbone, _, confirmModalTemplate){
     var ConfirmModalView =  Backbone.View.extend({
-        el: $('#confirm-modal'),
 
         template: _.template(confirmModalTemplate),
 
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
+        },
+
         render: function () {
+            $(this.el).html(this.template(this.model.toJSON()));
+
+            this.open();
+            return this;
         },
 
         events: {
@@ -17,7 +24,6 @@ define([
         },
 
         open: function(selectedFunItem) {
-			$(this.el).html(this.template({ name: selectedFunItem.name + '@' + selectedFunItem.folder }));
 			$(this.el)
 				.modal({ detachable: false })
 				.modal('setting', 'closable', false)

@@ -1,9 +1,10 @@
 define([
     'backbone',
     'underscore',
+    'vm',
     'text!views/components/funGroup/funGroup.html',
     'views/components/funItem/FunItemView'
-], function(Backbone, _, funGroupTemplate, FunItemView){
+], function(Backbone, _, Vm, funGroupTemplate, FunItemView){
     var FunGroupView =  Backbone.View.extend({
         template: _.template(funGroupTemplate),
 
@@ -34,7 +35,7 @@ define([
 			}));
 
             self.model.funItems.forEach(function(funItem) {
-				var funItemView = new FunItemView({model: funItem});
+				var funItemView = Vm.create('funItemView' + funItem.cid, FunItemView, {model: funItem}, true);
 				$(self.el).find('.description').append(funItemView.render().el);
 			});
 

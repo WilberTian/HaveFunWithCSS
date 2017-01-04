@@ -15,8 +15,7 @@ define([
             'change #selectedFunItemName': 'changeFunItem'
         },
 
-        render: function () {  
-console.log('----------render')    
+        render: function () {   
             var selectorEle = this.template(this.model.toJSON());
             $(this.el).html(selectorEle);
             $(this.el).find('.ui.selection.dropdown').dropdown();

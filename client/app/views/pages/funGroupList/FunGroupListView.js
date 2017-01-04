@@ -48,7 +48,7 @@ define([
             $(self.el).html(funGroupListTemplate);
 
             self.model.models.forEach(function(funGroupModel) {
-                var funGroupView = new FunGroupView({model: funGroupModel});
+                var funGroupView = Vm.create('funGroupView' + funGroupModel.cid, FunGroupView, {model: funGroupModel}, true);
                 $(self.el).find('#fun-group-list').append(funGroupView.render().el);
             });
 

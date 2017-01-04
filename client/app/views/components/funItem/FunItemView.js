@@ -9,6 +9,8 @@ define([
         initialize: function() {
             var self = this;
 
+            self.listenTo(self.model, 'destroy', self.remove);
+
             Backbone.on('filterFunItemEvent', function(key) {
                 if(self.model.get('name').indexOf(key) > -1) {
 					self.$el.show();

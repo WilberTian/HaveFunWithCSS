@@ -1,11 +1,12 @@
 define([
     'backbone',
     'underscore',
+    'vm',
     'text!views/pages/funItemDetail/funItemDetail.html',
     'utils/resizer',
     'codemirror/lib/codemirror',
     'codemirror/mode/htmlmixed/htmlmixed'
-], function (Backbone, _, funItemDetailTemplate, Resizer, CodeMirror) {
+], function (Backbone, _, Vm, funItemDetailTemplate, Resizer, CodeMirror) {
     var FunItemDetailView = Backbone.View.extend({
 
         template: _.template(funItemDetailTemplate),
@@ -36,9 +37,10 @@ define([
             });
 
             Backbone.on('openConfirmModalEvent', function() {
-                require(['views/components/confirmModal/ConfirmModalView'], function(ConfirmModalView) {
-                    var confirmModalView = new ConfirmModalView;
-                    confirmModalView.open(self.model.toJSON());
+                require(['views/components/confirmModal/ConfirmModalView', 'views/components/confirmModal/ConfirmModalModel'], function(ConfirmModalView, ConfirmModalModel) {
+                    var confirmModalView = Vm.create('confirmModalView', ConfirmModalView, {model: new ConfirmModalModel}, true).setElement($('#confirm-modal'));
+                    confirmModalView.model.set({name: self.model.toJSON().name, folder: self.model.toJSON().folder});
+
                 });
             });
 
