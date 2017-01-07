@@ -23,7 +23,7 @@ define([
             });
 
             require(['views/pages/funGroupList/FunGroupListView', 'models/FunGroupCollection'], function (FunGroupListView, FunGroupCollection) {
-                var funGroupListView = Vm.create('funGroupListView', FunGroupListView, {model: new FunGroupCollection}, true).setElement($('#app-content'));
+             funGroupListView = Vm.create('funGroupListView', FunGroupListView, {model: new FunGroupCollection}, true).setElement($('#app-content'));
                 funGroupListView.model.fetch({
                     success: function (model, response) {
                         Backbone.trigger('notificationEvent', 'Fun list fetched successfully');
@@ -36,6 +36,9 @@ define([
         });
 
         router.on('route:detail', function(folder, name) {
+            Backbone.off('createFunItemEvent');
+            Backbone.off('filterFunItemEvent');
+
             require(['views/components/menu/detailMenu/DetailMenuView', 'views/components/menu/detailMenu/DetailMenuModel'], function (DetailMenuView, DetailMenuModel) {
                 var detailMenuView = Vm.create('detailMenuView', DetailMenuView, {model: new DetailMenuModel}, true).setElement($('#app-menu'));
                 detailMenuView.model.set({folder: folder, name: name});
