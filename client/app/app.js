@@ -5,14 +5,18 @@ define([
     'vm',
     'text!views/layout/layout.html',
     'text!views/components/funItemModal/funItemModal.html',
+    'views/components/notification/NotificationView',
     'semantic'
-], function($, _, Backbone, Vm, layoutTemplate, funItemModalTemplate){
+], function($, _, Backbone, Vm, layoutTemplate, funItemModalTemplate, NotificationView){
     var AppView = Backbone.View.extend({
         
         funItemModalTemplate: _.template(funItemModalTemplate),
 
         render: function() {
             $(this.el).html(layoutTemplate);
+
+            var notificationView = new NotificationView;
+            notificationView.setElement($('#notification-area'));
 
             require(['views/components/menu/brand/MenuBrandView'], function (MenuBrandView) {
                 var menuBrandView = Vm.create('menuBrandView', MenuBrandView, {}, true);

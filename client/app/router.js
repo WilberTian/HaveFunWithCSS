@@ -17,13 +17,18 @@ define([
         var router = new AppRouter(options);
 
         router.on('route:index', function() {
+            Backbone.off('runFunItemEvent');
+            Backbone.off('updateFunItemEvent');
+            Backbone.off('deleteFunItemEvent');
+            Backbone.off('openConfirmModalEvent');
+
             require(['views/components/menu/indexMenu/IndexMenuView'], function (IndexMenuView) {
                 var indexMenuView = Vm.create('indexMenuView', IndexMenuView, {}, true);
                 indexMenuView.setElement($('#app-menu')).render();
             });
 
             require(['views/pages/funGroupList/FunGroupListView', 'models/FunGroupCollection'], function (FunGroupListView, FunGroupCollection) {
-             funGroupListView = Vm.create('funGroupListView', FunGroupListView, {model: new FunGroupCollection}, true).setElement($('#app-content'));
+             var funGroupListView = Vm.create('funGroupListView', FunGroupListView, {model: new FunGroupCollection}, true).setElement($('#app-content'));
                 funGroupListView.model.fetch({
                     success: function (model, response) {
                         Backbone.trigger('notificationEvent', 'Fun list fetched successfully');
@@ -32,6 +37,10 @@ define([
                     }
                 });
 
+            });
+
+            require(['utils/resizer'], function(Resizer) {
+                Resizer.cleanUpResizer();
             });
         });
 

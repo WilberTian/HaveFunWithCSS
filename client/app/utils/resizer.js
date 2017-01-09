@@ -3,7 +3,9 @@ define([
 ], function($) {
     var resizer = {
 		dragging: false,
+		initialized: false,
 		initResizer: _initResizer,
+		cleanUpResizer: _cleanUpResizer,
 		fixDragBtn: _fixDragBtn,
 		getStyleValue: _getStyleValue,
 		dragstart: _dragstart,
@@ -12,9 +14,11 @@ define([
 	};
 
     function _initResizer($dragBarEle, $eleA, $eleB) {
-		if(window.getComputedStyle) {
-			var self = this;
+		var self = this;
 
+		if(self.initialized) return;
+
+		if(window.getComputedStyle) {
             self.$dragBarEle = $dragBarEle;
             self.$eleA = $eleA;
             self.$eleB = $eleB;
@@ -30,6 +34,24 @@ define([
 		}
 
         self.fixDragBtn();
+		self.initialized = true;
+	}
+
+	function _cleanUpResizer() {
+		if(this.initialized) {
+			console.log('clean up listeners of resizer');
+
+			this.$dragBarEle.off('mousedown');
+			$(window).off('mousemove');
+			$(window).off('mouseup');
+			$(window).off('resize');
+
+			this.$dragBarEle = null;
+            this.$eleA = null;
+            this.$eleB = null;
+
+			this.initialized = false;
+		}
 	}
 
 	function _fixDragBtn() {

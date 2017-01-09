@@ -3,14 +3,11 @@ define([
     'underscore',
     'vm',
     'text!views/pages/funGroupList/funGroupList.html',
-    'views/components/funGroup/FunGroupView',
-    'views/components/notification/NotificationView'
+    'views/components/funGroup/FunGroupView'
 ], function(Backbone, _, Vm, funGroupListTemplate, FunGroupView, NotificationView){
     var FunGroupListView =  Backbone.View.extend({
 
         initialize: function() {
-            new NotificationView;
-
             var self = this;
 
 			self.listenTo(self.model, 'sync', self.render);

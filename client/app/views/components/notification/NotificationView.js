@@ -4,8 +4,6 @@ define([
     'text!views/components/notification/notification.html'
 ], function(Backbone, _, notificationTemplate){
     var NotificationView =  Backbone.View.extend({
-        el: $('#notification-area'),
-
         template: _.template(notificationTemplate),
 
         initialize: function () {
@@ -16,8 +14,9 @@ define([
                 
                 $(self.el).append(notificationDiv);
 
-				setTimeout(function(){
+				var timer = setTimeout(function(){
 					$(self.el).children(':first-child').remove();
+                    clearTimeout(timer);
 				}, 3000)
             })
         }
