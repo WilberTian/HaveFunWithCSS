@@ -48,6 +48,10 @@ define([
             Backbone.off('createFunItemEvent');
             Backbone.off('filterFunItemEvent');
 
+            require(['utils/resizer'], function(Resizer) {
+                Resizer.cleanUpResizer();
+            });
+
             require(['views/components/menu/detailMenu/DetailMenuView', 'views/components/menu/detailMenu/DetailMenuModel'], function (DetailMenuView, DetailMenuModel) {
                 var detailMenuView = Vm.create('detailMenuView', DetailMenuView, {model: new DetailMenuModel}, true).setElement($('#app-menu'));
                 detailMenuView.model.set({folder: folder, name: name});
