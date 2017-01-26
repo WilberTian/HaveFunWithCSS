@@ -5,11 +5,7 @@ var funOperator = require('../utils/funOperator');
 
 router.get('/funlist', function(req, res, next) {
 	funOperator.getFunList()
-		.then(function(data){
-			res.send(data);
-		}, function(err){
-			res.status(400).send(err.message);
-		})
+					.subscribe(data => res.send(data), e => res.status(400).send(e.message));
 });
 
 router.post('/funlist', function(req, res, next) {

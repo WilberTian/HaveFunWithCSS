@@ -1,49 +1,21 @@
 var fs = require('fs');
 var Q = require('q');
 var path = require('path');
+var rxfs = require('./rxjs-nodefs');
+var Rx = require('rxjs/Rx');
+var _ = require('underscore');
 
-var funItemPath = './sources/'
+var funItemPath = './sources';
 
 module.exports = {
 	getFunList: function() {
-		var deferred = Q.defer();
-	  	fs.readdir(funItemPath, function(err, itemList) {
-		  	if(!err) {
-		  		var funList = [];
-		  		
-		  		itemList.forEach(function(item) {
-					var funGroup = {
-						'folder': item,
-						'count': 0,
-						'funItems': []
-					}
-					
-		  			var itemPath = path.join(funItemPath, item);
-		  			if(fs.statSync(itemPath).isDirectory()) {
-		  				
-		  				var files = fs.readdirSync(itemPath);
-
-		  				for(var f in files) {
-
-							funGroup['count'] += 1;  
-							funGroup['funItems'].push({
-		  						'path': path.join(item, files[f]),
-		  						'name': files[f]
-		  					});
-		  				}
-		  				
-		  			} 
-
-					funList.push(funGroup);
-		  		})
-
-		  		deferred.resolve(funList);
-		  	} else {
-		  		deferred.reject(new Error('Fail to get fun list'));
-		  	}
-	  	})
-
-	  	return deferred.promise
+	  	return rxfs.walkDirAsObservable(funItemPath, 1)
+				.filter(fsObj => fsObj.location !== funItemPath)
+				.map(fsObj => ({name: path.basename(fsObj.name), folder: path.basename(fsObj.location)}))
+				.map(fsObj => _.extend(fsObj, { path: fsObj.folder + '/' + fsObj.name }))
+				.reduce((fsObjs, fsObj) => fsObjs.concat(fsObj), [])
+				.map(fsObjs => _.pairs(_.groupBy(fsObjs, 'folder')))
+				.map((fsObjPairs) => _.map(fsObjPairs, fsObjPair => ({folder: fsObjPair[0], funItems: fsObjPair[1], count: fsObjPair[1].length})));
 	},
 
 	addFunItem: function(folder, name) {
