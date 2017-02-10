@@ -16,7 +16,7 @@ define([
     function _initResizer($dragBarEle, $eleA, $eleB) {
 		var self = this;
 
-		if(self.initialized) return;
+		// if(self.initialized) return;
 
 		if(window.getComputedStyle) {
             self.$dragBarEle = $dragBarEle;
