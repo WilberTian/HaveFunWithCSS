@@ -33,11 +33,14 @@ body {
 
 #fun-group-list .card {
     background: aliceblue;
-    margin: 12x;
+    margin: 12px;
 }
 
 .fun-group-item {
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #side-bar {
