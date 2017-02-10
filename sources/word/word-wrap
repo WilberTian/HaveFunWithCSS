@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .box {
+		width: 200px;
+      	background: #999;
+      	margin: 20px;
+    }
+    
+    .normal {
+    }
+    
+    .word-wrap {
+		word-wrap: break-word;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <p>word-wrap</p>
+  <pre>
+   word-wrap语法：
+
+　　word-wrap ： normal | break-word
+
+　　　　normal ： 默认值，单词如果单词超长，会冲出边界（单个单词超长，在当前行显示）
+
+　　　　break-word ： 将内容在边界内换行，当单词在当前行放不下时，会自动切换到下一行（单个单词超长，在下一行显示）
+  </pre>
+  
+  <div class="box normal">
+   this is a block element with a long text
+  </div>
+  
+  <div class="box word-wrap">
+   this is a block element with a long text
+  </div>
+  
+</body>
+</html>

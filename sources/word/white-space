@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .box {
+		width: 170px;
+      	background: #999;
+      	margin: 20px;
+    }
+    
+    .normal {
+    }
+    
+    .no-wrap {
+		white-space: nowrap;
+    }
+    
+    .no-wrap-overflow {
+		white-space: nowrap;
+      	overflow: hidden;
+    }
+    
+    .one-line {
+		white-space: nowrap;
+      	overflow: hidden;
+      	text-overflow:ellipsis;
+    }
+
+  </style>
+</head>
+<body>
+
+  <p>white-space</p>
+  <pre>
+  white-space语法：（浏览器处理折行时的空白符）
+
+　　white-space：normal | nowrap | pre-wrap | pre-line | inherit
+
+　　　　normal：默认，浏览器忽略空白符
+
+　　　　nowrap：文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+
+　　　　pre-wrap：保留空白符，但是正常地进行换行。
+
+　　　　pre-line：合并空白符，但是保留换行符。
+
+　　　　inherit：继承父元素的设置
+  </pre>
+  
+  <div class="box normal">
+   this is a block element with a long text
+  </div>
+  
+  <div class="box no-wrap">
+   this is a block element with a long text
+  </div>
+  
+  <div class="box no-wrap-overflow">
+   this is a block element with a long text
+  </div>
+  
+  <div class="box one-line">
+   this is a block element with a long text
+  </div>
+  
+</body>
+</html>
