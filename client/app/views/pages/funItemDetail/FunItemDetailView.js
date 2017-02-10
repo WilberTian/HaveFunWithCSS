@@ -55,6 +55,22 @@ define([
                 });
             });
 
+            Backbone.on('changeViewModeEvent', function() {
+                if($('#main-space').css('flex-direction') === 'column') {
+                    $('#main-space').css('flex-direction', 'row');
+                    $('#viewer').css('height', '100%').css('width', '50%');
+                    self.editor.setSize("50%", "100%");
+
+                } else {
+                    $('#main-space').css('flex-direction', 'column');
+                    $('#viewer').css('height', '50%').css('width', '100%');
+                    self.editor.setSize("100%", "50%");
+
+                }
+
+                Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'), $('#main-space').css('flex-direction'));
+            });
+
         },
 
         render: function () {
@@ -69,7 +85,7 @@ define([
             self.editor.setSize("100%", "50%");
             self.editor.setValue(self.model.toJSON().funContent);
 
-            Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'));
+            Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'), $('#main-space').css('flex-direction'));
 
             Backbone.trigger('runFunItemEvent');
         }

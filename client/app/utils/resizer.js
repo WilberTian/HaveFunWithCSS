@@ -4,6 +4,7 @@ define([
     var resizer = {
 		dragging: false,
 		initialized: false,
+		viewMode: 'column',
 		initResizer: _initResizer,
 		cleanUpResizer: _cleanUpResizer,
 		fixDragBtn: _fixDragBtn,
@@ -13,9 +14,10 @@ define([
 		dragend: _dragend
 	};
 
-    function _initResizer($dragBarEle, $eleA, $eleB) {
+    function _initResizer($dragBarEle, $eleA, $eleB, viewMode) {
 		var self = this;
 
+		self.viewMode = viewMode;
 		// if(self.initialized) return;
 
 		if(window.getComputedStyle) {
@@ -55,38 +57,65 @@ define([
 	}
 
 	function _fixDragBtn() {
-	  	var editorWidth, editorHeight, editorLeft, editorPadding, dragTop;
+		if(this.viewMode === 'row') {
+			_horizontalFixDrapBtn.bind(this)();
+		} else {
+			_verticalFixDragBtn.bind(this)();
+		}
+	}
 
-	  	//var sidebarWidth = Number(getStyleValue(document.getElementById("side-bar"), "width").replace("px", ""));
+	function _verticalFixDragBtn() {
+        var editorHeight, dragTop, dragLeft;
 
-	  	var containerMargin = Number(this.getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
-	
-	    this.$dragBarEle.height('5px');
-	    if (window.getComputedStyle) {
-	        editorWidth = window.getComputedStyle($('.CodeMirror')[0],null).getPropertyValue('width');
-	        editorHeight = window.getComputedStyle($('.CodeMirror')[0],null).getPropertyValue('height');
-	        
-	    } else {
-	        dragTop = $('.CodeMirror')[0].currentStyle['width'];
-	    }
+        var containerPadding = Number(_getStyleValue(document.getElementById("main-space"), "padding-top").replace("px", ""));
 
-	    editorWidth = Number(editorWidth.replace('px', ''));
-	    editorHeight = Number(editorHeight.replace('px', ''));
+        var dragIconHeight = 20;
 
-	    dragTop = editorHeight + containerMargin - 5;
-	    drapLeft = containerMargin;
+        this.$dragBarEle.width(dragIconHeight + 'px');
+        if (window.getComputedStyle) {
+            editorHeight = window.getComputedStyle($('.CodeMirror')[0],null).getPropertyValue('height');
 
-	    dragWidth = editorWidth;
+        } else {
+            dragTop = $('.CodeMirror')[0].currentStyle['width'];
+        }
 
-        this.$dragBarEle.css('top', dragTop + 'px');     
-        this.$dragBarEle.css('left', drapLeft + 'px');     
-	    this.$dragBarEle.width('1%');
-	    this.$dragBarEle.css('cursor', 'row-resize');        
+        editorHeight = Number(editorHeight.replace('px', ''));
+
+        dragTop = editorHeight + containerPadding - dragIconHeight/2;
+        dragLeft = containerPadding - dragIconHeight/2;
+
+        this.$dragBarEle.css('top', dragTop + 'px');
+        this.$dragBarEle.css('left', dragLeft + 'px');
+        this.$dragBarEle.css('cursor', 'row-resize');
+	}
+
+	function _horizontalFixDrapBtn() {
+        var editorWidth, dragTop, dragLeft;
+
+        var containerPadding = Number(_getStyleValue(document.getElementById("main-space"), "padding-left").replace("px", ""));
+
+        var dragIconHeight = 20;
+
+        this.$dragBarEle.width(dragIconHeight + 'px');
+        if (window.getComputedStyle) {
+            editorWidth = window.getComputedStyle($('.CodeMirror')[0],null).getPropertyValue('width');
+        } else {
+            dragTop = $('.CodeMirror')[0].currentStyle['width'];
+        }
+
+        editorWidth = Number(editorWidth.replace('px', ''));
+
+        dragTop = containerPadding - dragIconHeight/2;
+        dragLeft = editorWidth + containerPadding - dragIconHeight/2;
+
+        this.$dragBarEle.css('top', dragTop + 'px');
+        this.$dragBarEle.css('left', dragLeft + 'px');
+        this.$dragBarEle.css('cursor', 'col-resize');
 	}
 
 	function _getStyleValue(elmnt, style) {
 		if (window.getComputedStyle) {
-	        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+	        return window.getComputedStyle(elmnt, null).getPropertyValue(style);
 	    } else {
 	        return elmnt.currentStyle[style];
 	    }
@@ -98,20 +127,42 @@ define([
 	}
 
 	function _dragmove(e) {
-		if (this.dragging) {
-			document.getElementById("shield").style.display = "block";        
-			var detailMenuHeight = $('.ui.top.attached.menu').height();
+        if (this.dragging) {
+            if (this.viewMode === 'row') {
+                _horizontalDragMove.bind(this)(e);
+            } else {
+                _verticalDragMove.bind(this)(e);
+            }
+        }
+	}
 
-			var percentage = ((e.pageY - detailMenuHeight) / (window.innerHeight - detailMenuHeight)) * 100;
-			if (percentage > 5 && percentage < 90) {
-				
-				var mainPercentage = 100 - percentage;
+	function _verticalDragMove(e) {
+		document.getElementById("shield").style.display = "block";
+		var detailMenuHeight = $('.ui.top.attached.menu').height();
+        var containerMargin = Number(_getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 
-				this.$eleA.setSize('100%', percentage + "%") ;
-                this.$eleB.height(mainPercentage + "%");
-				this.fixDragBtn();
-			}
-		}
+        var mainSpaceHeight = Number((_getStyleValue(document.getElementById("main-space"), "height").replace("px", "")));
+
+        var $eleAHeight = e.pageY - detailMenuHeight - containerMargin;
+        var $eleBHeight = mainSpaceHeight - $eleAHeight;
+
+        this.$eleA.setSize('100%', $eleAHeight + 'px') ;
+        this.$eleB.height($eleBHeight + "px");
+        this.fixDragBtn();
+	}
+
+	function _horizontalDragMove(e) {
+        document.getElementById("shield").style.display = "block";
+        var containerPadding = Number(_getStyleValue(document.getElementById("main-space"), "padding-left").replace("px", ""));
+
+        var mainSpaceWidth = Number((_getStyleValue(document.getElementById("main-space"), "width").replace("px", "")));
+
+        var $eleAWidth = e.pageX - containerPadding;
+        var $eleBWidth = mainSpaceWidth - $eleAWidth;
+
+        this.$eleA.setSize($eleAWidth, '100%') ;
+        this.$eleB.width($eleBWidth + "px");
+        this.fixDragBtn();
 	}
 
 	function _dragend() {

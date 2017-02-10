@@ -6,7 +6,8 @@ define([
         events: {
             'click #fun-item-operations .try-it': 'runFunItem',
             'click #fun-item-operations .update': 'updateFunItem',
-			'click #fun-item-operations .delete': 'openConfirmModal'
+			'click #fun-item-operations .delete': 'openConfirmModal',
+            'click #fun-item-operations .view-mode': 'changeViewMode'
         },
 
         render: function () {
@@ -24,6 +25,10 @@ define([
 		openConfirmModal: function() {
             Backbone.trigger('openConfirmModalEvent');
 		},
+
+        changeViewMode: function() {
+            Backbone.trigger('changeViewModeEvent');
+        },
 
         dispose: function() {
             this._dispose();
