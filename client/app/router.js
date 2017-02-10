@@ -46,6 +46,9 @@ define([
 
         router.on('route:detail', function(folder, name) {
             Backbone.off('createFunItemEvent');
+            Backbone.off('updateFunItemEvent');
+            Backbone.off('runFunItemEvent');
+            Backbone.off('deleteFunItemEvent');
             Backbone.off('filterFunItemEvent');
 
             require(['utils/resizer'], function(Resizer) {
