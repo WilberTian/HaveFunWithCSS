@@ -13,6 +13,7 @@ define([
 
         initialize: function () {
             var self = this;
+            self.defaultViewMode = 'raw';
 
             self.listenTo(self.model, 'sync', self.render);
             
@@ -56,16 +57,17 @@ define([
             });
 
             Backbone.on('changeViewModeEvent', function() {
-                if($('#main-space').css('flex-direction') === 'column') {
+                if(self.defaultViewMode === 'column') {
                     $('#main-space').css('flex-direction', 'row');
                     $('#viewer').css('height', '100%').css('width', '50%');
                     self.editor.setSize("50%", "100%");
+                    self.defaultViewMode = 'raw';
 
                 } else {
                     $('#main-space').css('flex-direction', 'column');
                     $('#viewer').css('height', '50%').css('width', '100%');
                     self.editor.setSize("100%", "50%");
-
+                    self.defaultViewMode = 'column';
                 }
 
                 Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'), $('#main-space').css('flex-direction'));
@@ -75,18 +77,21 @@ define([
 
         render: function () {
             var self = this;
+
             $(self.el).html(funItemDetailTemplate);
+
+            $('#main-space').css('flex-direction', self.defaultViewMode);
 
             self.editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
                 lineNumbers: true,
                 mode: "htmlmixed",
                 theme: "twilight"
             });
-            self.editor.setSize("100%", "50%");
-            self.editor.setValue(self.model.toJSON().funContent);
-
+            self.editor.setSize("50%", "100%");
+            
             Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'), $('#main-space').css('flex-direction'));
 
+            self.editor.setValue(self.model.toJSON().funContent);
             Backbone.trigger('runFunItemEvent');
         }
 
