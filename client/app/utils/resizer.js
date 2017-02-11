@@ -29,7 +29,7 @@ define([
 			self.$dragBarEle.mousedown(function(e){self.dragstart(e);});
 			$(window).mousemove(function(e){self.dragmove(e);});
 			$(window).mouseup(function(){self.dragend();});
-			$(window).resize(function(){self.fixDragBtn();});
+			$(window).resize(function(e){_renderEditor.bind(self)(e);});
 		} else {
 			self.$dragBarEle.hide();
 			console.log('your browser did not support resize');
@@ -128,41 +128,37 @@ define([
 
 	function _dragmove(e) {
         if (this.dragging) {
-            if (this.viewMode === 'row') {
-                _horizontalDragMove.bind(this)(e);
-            } else {
-                _verticalDragMove.bind(this)(e);
-            }
+            _renderEditor.bind(this)(e);	
         }
 	}
 
-	function _verticalDragMove(e) {
+	function _renderEditor(e) {
 		document.getElementById("shield").style.display = "block";
-		var detailMenuHeight = $('.ui.top.attached.menu').height();
-        var containerMargin = Number(_getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 
-        var mainSpaceHeight = Number((_getStyleValue(document.getElementById("main-space"), "height").replace("px", "")));
+		if (this.viewMode === 'row') {
+			var containerPadding = Number(_getStyleValue(document.getElementById("main-space"), "padding-left").replace("px", ""));
 
-        var $eleAHeight = e.pageY - detailMenuHeight - containerMargin;
-        var $eleBHeight = mainSpaceHeight - $eleAHeight;
+			var mainSpaceWidth = Number((_getStyleValue(document.getElementById("main-space"), "width").replace("px", "")));
 
-        this.$eleA.setSize('100%', $eleAHeight + 'px') ;
-        this.$eleB.height($eleBHeight + "px");
-        this.fixDragBtn();
-	}
+			var $eleAWidth = e.pageX - containerPadding;
+			var $eleBWidth = mainSpaceWidth - $eleAWidth;
 
-	function _horizontalDragMove(e) {
-        document.getElementById("shield").style.display = "block";
-        var containerPadding = Number(_getStyleValue(document.getElementById("main-space"), "padding-left").replace("px", ""));
+			this.$eleA.setSize($eleAWidth, '100%') ;
+			this.$eleB.width($eleBWidth + "px");
+		} else {
+			var detailMenuHeight = $('.ui.top.attached.menu').height();
+			var containerMargin = Number(_getStyleValue(document.getElementById("main-space"), "margin-top").replace("px", ""));
 
-        var mainSpaceWidth = Number((_getStyleValue(document.getElementById("main-space"), "width").replace("px", "")));
+			var mainSpaceHeight = Number((_getStyleValue(document.getElementById("main-space"), "height").replace("px", "")));
 
-        var $eleAWidth = e.pageX - containerPadding;
-        var $eleBWidth = mainSpaceWidth - $eleAWidth;
+			var $eleAHeight = e.pageY - detailMenuHeight - containerMargin;
+			var $eleBHeight = mainSpaceHeight - $eleAHeight;
 
-        this.$eleA.setSize($eleAWidth, '100%') ;
-        this.$eleB.width($eleBWidth + "px");
-        this.fixDragBtn();
+			this.$eleA.setSize('100%', $eleAHeight + 'px') ;
+			this.$eleB.height($eleBHeight + "px");
+		}
+
+		this.fixDragBtn();
 	}
 
 	function _dragend() {
