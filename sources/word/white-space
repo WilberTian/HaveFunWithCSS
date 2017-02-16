@@ -9,6 +9,22 @@
       	margin: 20px;
     }
     
+    .parent-box {
+    	background: #ddd;
+        margin: 20px;
+      	padding: 20px;
+      	top: 500px;
+      	left: 400px;
+      	position: absolute;
+      
+      	white-space: nowrap;
+    }
+    
+    .child-box {
+	    background: #999;
+      	display: inline-block;
+    }
+    
     .normal {
     }
     
@@ -62,6 +78,15 @@
   
   <div class="box one-line">
    this is a block element with a long text
+  </div>
+  
+  <div class="parent-box">
+    <div class="child-box">
+      this is a block element with a long text
+    </div>
+    <div class="child-box">
+      this is a block element with a long text
+    </div>
   </div>
   
 </body>
