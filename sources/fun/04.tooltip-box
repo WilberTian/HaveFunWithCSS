@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      	padding: 200px 100px;
+    }
+    
+    .tooltip-box {
+      	position: absolute;
+    }
+    
+    .tooltip-box .inner-content {
+    	border-radius: 5px;
+      	border: 1px solid #999;
+      	background: #f7f7f7;
+      	width: 200px;
+      	height: 120px;
+    }
+    
+    .tooltip-box:before {
+      	position: absolute;
+        content: ' ';
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid #999;
+    }
+    
+    .tooltip-box:after {
+      	position: absolute;
+        content: ' ';
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #f7f7f7;
+    }
+    
+    .tooltip-box[arrow-pos='1']:before {
+      	bottom: -6px;
+      	left: 15px;
+    }
+    
+    .tooltip-box[arrow-pos='1']:after {
+      	bottom: -5px;
+      	left: 16px;
+    }
+    
+    .tooltip-box[arrow-pos='2']:before {
+      	bottom: -6px;
+      	left: 50%;
+      	margin-left: -6px;
+    }
+    
+    .tooltip-box[arrow-pos='2']:after {
+      	bottom: -5px;
+      	left: 50%;
+     	margin-left: -5px;
+    }
+    
+    .tooltip-box[arrow-pos='3']:before {
+      	bottom: -6px;
+      	right: 15px;
+    }
+    
+    .tooltip-box[arrow-pos='3']:after {
+      	bottom: -5px;
+      	right: 16px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="tooltip-box" arrow-pos="1">
+    <div class="inner-content">
+    </div>
+  </div>
+
+</body>
+</html>
