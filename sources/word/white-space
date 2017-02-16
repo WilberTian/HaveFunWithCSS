@@ -80,6 +80,10 @@
    this is a block element with a long text
   </div>
   
+  <div class="box one-line-status">
+   
+  </div>
+  
   <div class="parent-box">
     <div class="child-box">
       this is a block element with a long text
@@ -89,5 +93,13 @@
     </div>
   </div>
   
+  <script>
+    var scrollWidth = document.getElementsByClassName('one-line')[0].scrollWidth
+	var offsetWidth = document.getElementsByClassName('one-line')[0].offsetWidth;
+    
+    var resultEl = document.getElementsByClassName('one-line-status')[0];
+    resultEl.innerHTML = 'scrollWidth: ' + scrollWidth;
+    resultEl.innerHTML += '<br>offsetWidth: ' + offsetWidth;
+  </script>
 </body>
 </html>
