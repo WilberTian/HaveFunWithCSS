@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 40px;
+    }
+    
+    .radio-icon {
+    	margin: 20px;
+    }
+    
+    .radio-1 .radio-icon {
+      height: 14px;
+      width: 14px;
+      border: 1px solid #999;
+    }
+    
+    .radio-1 .radio-icon.checked i {
+      display: block;
+      height: 6px;
+      width: 6px;
+      margin: 4px;
+      background: black;
+    }
+    
+    .radio-2 .radio-icon {
+      height: 14px;
+      width: 14px;
+      border: 1px solid #999;
+      border-radius: 50%;
+    }
+    
+    .radio-2 .radio-icon.checked i {
+      display: block;
+      height: 6px;
+      width: 6px;
+      margin: 4px;
+      background: black;
+    }
+    
+  </style>
+</head>
+<body>
+	<div class="box radio-1">
+      	<div class="radio-icon">
+          	<i></i>
+        </div>
+      	<div class="radio-icon checked">
+          	<i></i>
+        </div>
+    </div>
+    <div class="box radio-2">
+      	<div class="radio-icon">
+          	<i></i>
+        </div>
+      	<div class="radio-icon checked">
+          	<i></i>
+        </div>
+    </div>
+
+</body>
+</html>
