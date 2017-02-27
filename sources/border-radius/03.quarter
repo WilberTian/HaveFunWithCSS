@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .box1 {
+      	margin: 40px;
+		width: 50px;
+      	height: 50px;
+      	border-radius: 50px 0px 0px 0px;
+      	border: 1px solid #999;
+    }
+    
+    .box2 {
+      	margin: 40px;
+		width: 50px;
+      	height: 50px;
+      	border-radius: 0px 50px 0px 0px;
+      	border: 1px solid #999;
+    }
+    
+    .box3 {
+      	margin: 40px;
+		width: 50px;
+      	height: 50px;
+      	border-radius: 0px 0px 50px 0px;
+      	border: 1px solid #999;
+    }
+    
+    .box4 {
+      	margin: 40px;
+		width: 50px;
+      	height: 50px;
+      	border-radius: 0px 0px 0px 50px;
+      	border: 1px solid #999;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="box1"></div>
+  
+  <div class="box2"></div>
+  
+  <div class="box3"></div>
+  
+  <div class="box4"></div>
+  
+</body>
+</html>
