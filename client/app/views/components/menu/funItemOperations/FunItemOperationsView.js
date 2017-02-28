@@ -3,6 +3,8 @@ define([
     'text!views/components/menu/funItemOperations/funItemOperations.html'
 ], function(Backbone, funItemOperationsTemplate){
     var FunItemOperationsView =  Backbone.View.extend({
+        template: _.template(funItemOperationsTemplate),
+        
         events: {
             'click #fun-item-operations .try-it': 'runFunItem',
             'click #fun-item-operations .update': 'updateFunItem',
@@ -11,7 +13,8 @@ define([
         },
 
         render: function () {
-            $(this.el).html(funItemOperationsTemplate);
+             var funItemOperationsEle = this.template(this.model.toJSON());
+            $(this.el).html(funItemOperationsEle);
         },
 
         runFunItem: function() {

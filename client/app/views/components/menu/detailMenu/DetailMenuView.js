@@ -26,7 +26,7 @@ define([
 			    }
 		    });
 
-            var funItemOperationsView = Vm.create('funItemOperationsView', FunItemOperationsView, {}, true);
+            var funItemOperationsView = Vm.create('funItemOperationsView', FunItemOperationsView, {model: this.model}, true);
             funItemOperationsView.setElement(this.$('#fun-item-operations-menu')).render();
             
             return this;
