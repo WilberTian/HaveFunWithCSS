@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+      margin: 0;
+    }
+    html, body {
+      height: 100%;
+    }
+    .page-wrap {
+      min-height: 100%;
+      /* equal to footer height */
+      margin-bottom: -142px; 
+    }
+    .page-wrap:after {
+      content: "";
+      display: block;
+    }
+    .site-footer, .page-wrap:after {
+      height: 142px; 
+    }
+    .site-footer {
+      background: orange;
+    }
+    
+  </style>
+</head>
+<body>
+	<div class="page-wrap">
+  
+      <h1>Sticky Footer</h1>
+      <h2>with Fixed Footer Height</h2>
+
+      <button id="add">Add Content</button>  
+
+    </div>
+
+    <footer class="site-footer">
+      I'm the Sticky Footer.
+    </footer>
+
+</body>
+</html>
