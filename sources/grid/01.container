@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: 40px 50px auto 50px 40px;
+      grid-template-rows: 25% 100px auto;
+      
+      border: 1px solid black;
+      width: 600px;
+      height: 400px;
+    }
+    
+    .item {
+      grid-column-start: 3; 
+      grid-column-end: 4; 
+      grid-row-start: 1; 
+      grid-row-end: 2; 
+	  background: #999;
+    }
+  </style>
+</head>
+<body>
+	<div class="container">
+  	  <div class="item">
+      </div>
+    </div>
+  
+</body>
+</html>
