@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	ul {
+      list-style: none;
+      position: absolute;
+      top: -120px;
+    }
+    
+    .item {
+      position: relative;
+      height: 120px;
+      padding-top: 120px;
+      border-left: 2px solid #ccc;
+    }
+    
+    .item.first {
+      border-left-color: transparent;
+    }
+    
+    .item .text {
+      /*
+      see how to make the text align middle
+      */
+      line-height: 230px;
+      margin-left: 20px;
+    }
+    
+    .item .icon-dot {
+      position: absolute;
+      z-index: 1;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      border: 3px solid #fff;
+      left: -9px;
+      top: 230px;
+    }
+    
+    .item.on .icon-dot {
+      background-color: #f63;
+    }
+  </style>
+</head>
+<body>
+  
+  <ul class="steps">
+    <li class="item first on">
+      <div class="icon-dot"></div>
+      <div class="text">第1步 ...</div>
+    </li>
+    <li class="item">
+      <div class="icon-dot"></div>
+      <div class="text">第2步 ...</div>
+    </li>
+    <li class="item">
+      <div class="icon-dot"></div>
+      <div class="text">第3步 ...</div>
+    </li>
+  </ul>
+</body>
+</html>
