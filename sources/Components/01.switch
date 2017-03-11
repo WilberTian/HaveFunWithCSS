@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	body span {
+      margin: 20px;
+    }
+    
+    .switch {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 30px;
+      border: 2px solid #dfdfdf;
+      border-radius: 20px;
+      background-color: #fff;
+    }
+    
+    .switch span {
+      position: absolute;
+      display: block;	
+      margin: 0px;
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      top: 0px;
+      border-radius: 100%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4)
+    }
+    
+    .switch-on {
+      background-color: #4cd964;
+      border-color: #4cd964;
+    }
+    
+    .switch-off {
+    
+    }
+    
+    .switch-off span {
+      left: 20px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <span class="switch switch-on">
+    <span></span>
+  </span>
+  
+  <span class="switch switch-off">
+    <span></span>
+  </span>
+  
+</body>
+</html>
