@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      padding: 100px;
+    }
+    
+    .steps-position {
+      position: relative;
+    }
+    .steps-position .bar {
+      display: inline-block;
+      height: 4px;
+      width: 600px;
+      background-color: orange;
+    }
+    
+    .steps-position .item {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: orange;
+      top: 2px;
+    }
+    .steps-position .item:nth-child(1) {
+      left: 0px;
+    }
+    
+    .steps-position .item:nth-child(2) {
+      left: 190px;
+    }
+    
+    .steps-position .item:nth-child(3) {
+      left: 390px;
+    }
+    
+    .steps-position .item:nth-child(4) {
+      left: 590px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="steps-position">
+    <div class="bar"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+</body>
+</html>
