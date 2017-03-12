@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    
+    .half-wrapper {
+        margin: 200px;
+        position: relative;
+    	width: 100px;
+        height: 200px; 
+    }
+    .half {
+      	position: absolute;
+	    right: 0px;
+		width: 160px;
+      	height: 160px;
+      	border-radius: 50%;
+      	border: 20px solid #fff;
+	    -webkit-transform: rotate(45deg);
+    }
+    
+    .right-cicle {
+    	border-top: 20px solid #999;
+        border-right: 20px solid #999;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="half-wrapper">
+  	<div class="half right-cicle"/>
+  </div>
+  
+</body>
+</html>
