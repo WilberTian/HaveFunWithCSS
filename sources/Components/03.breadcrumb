@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .breadcrumb,
+        .breadcrumb a {
+            height: 33px;
+            display: inline-block;
+        }
+        
+        .breadcrumb {
+            margin: 0;
+            padding: 0;
+            border-radius: 3px;
+            border-width: 1px;
+            border-style: solid;
+            overflow: hidden;
+        }
+        
+        .breadcrumb a {
+            line-height: 33px;
+            font-size: 12px;
+            font-weight: 300;
+            text-decoration: none;
+            padding: 0 10px 0 20px;
+            position: relative;
+        }
+        
+        .breadcrumb a:first-child {
+            padding-left: 16px;
+        }
+        
+        .breadcrumb a:last-child {
+            padding-right: 16px;
+        }
+        
+        .breadcrumb a:after,
+        .breadcrumb a:before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 17px solid transparent;
+            border-bottom: 17px solid transparent;
+            border-left: 17px solid transparent;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 100%;
+            z-index: 2;
+        }
+        
+        .breadcrumb a:before {
+            margin-left: 1px;
+            z-index: 1;
+        }
+        
+      
+        /* DARK COLORS */
+        
+        .dark .breadcrumb {
+            border-color: #2E3031;
+          	background-color: #595B5B;
+        }
+        
+        .dark .breadcrumb a {
+            color: #c6c6c6;
+        }
+        
+        .dark .breadcrumb a:after {
+            border-left-color: #595B5B;
+        }
+        
+        .dark .breadcrumb a:before {
+            border-left-color: #2E3031;
+        }
+        
+        .dark .breadcrumb a:hover {
+            background: #646666;
+        }
+        
+        .dark .breadcrumb a:hover:after {
+            border-left-color: #646666;
+        }
+        
+        .dark .breadcrumb a:active:before {
+            border-left-color: #404141;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="dark">
+        <div class="breadcrumb">
+            <a href="#">One</a>
+            <a href="#">Two</a>
+          	<a href="#">Three</a>
+          	<a href="#">Four</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
