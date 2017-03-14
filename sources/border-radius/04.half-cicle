@@ -6,15 +6,13 @@
     .half-wrapper {
         margin: 200px;
         position: relative;
-    	width: 100px;
-        height: 200px; 
     }
     .half {
       	position: absolute;
 	    right: 0px;
 		width: 160px;
       	height: 160px;
-      	border-radius: 50%;
+      	border-radius: 100%;
       	border: 20px solid #fff;
 	    -webkit-transform: rotate(45deg);
     }
