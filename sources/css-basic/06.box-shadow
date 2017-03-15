@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	.box {
+      margin: 60px;
+      width: 60px;
+      height: 60px;
+    }
+    
+    .item-1 {
+      background-color: #999;
+      box-shadow: 4px 4px 10px 0px #f63;
+    }
+    
+    .item-2 {
+      background-color: #999;
+      box-shadow: 0px 0px 10px 4px #f63;
+    }
+    </style>
+</head>
+<body>
+  	<pre>
+    	box-shadow:投影方式 X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色
+    </pre>
+	<div class="box item-1"></div>
+  	<div class="box item-2"></div>
+</body>
+</html>
