@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	.tabs {
+      display: table;
+      table-layout: fixed;
+      width: 600px;
+      height: 60px;
+      background-color: #e1e1e1;
+    }
+    
+    .tab {
+      display: table-cell;
+      line-height: 60px;
+      text-align: center;
+      border-right: 1px solid #999;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+  	<span class="tab">
+    	first
+    </span>
+    <span class="tab">
+    	second
+    </span>
+    <span class="tab">
+    	third
+    </span>
+    <span class="tab">
+    	fourth
+    </span>
+    <span class="tab">
+    	fifth
+    </span>
+  </div>
+  
+  <pre>
+table-layout默认值为auto，即通过表格中的内容自动适应宽度；
+当设置table-layout为fixed的时候，表示每个表格等宽。
+  </pre>
+</body>
+</html>
