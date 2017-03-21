@@ -25,15 +25,40 @@ body {
   overflow: auto;
 }
 
-#fun-group-list{
-  display: flex;
-  flex-direction: row;
-  margin: 0px;
+.fun-group-grid {
+  padding: 20px;
 }
 
-#fun-group-list .card {
-    background: aliceblue;
-    margin: 12px;
+.fun-group-grid-item {
+  width: 280px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background-color: #f9f9f9;
+}
+
+.fun-group-grid-item .content .header {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px;
+  color: #4183C4;
+}
+
+.fun-group-grid-item .content .fun-item-list {
+  padding: 0px 8px;
+}
+
+.fun-group-grid-item #open-modal-btn {
+  height: 24px;
+  line-height: 24px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 1px solid #e1e1e1;
+  margin-top: 8px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #65c07a;
+  color: #fff;
 }
 
 .fun-group-item {
@@ -41,6 +66,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #747474;
 }
 
 #side-bar {
@@ -105,3 +131,4 @@ body {
   height: 100%;
   z-index: 190;
 }
+

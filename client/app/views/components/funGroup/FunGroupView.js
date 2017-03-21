@@ -36,7 +36,7 @@ define([
 
             self.model.funItems.forEach(function(funItem) {
 				var funItemView = Vm.create('funItemView' + funItem.cid, FunItemView, {model: funItem}, true);
-				$(self.el).find('.description').append(funItemView.render().el);
+				$(self.el).find('.fun-item-list').append(funItemView.render().el);
 			});
 
             return self;
@@ -44,7 +44,7 @@ define([
 
         createFunItem: function(funItem) {
 			var funItemView = new FunItemView({model: funItem});
-			$(this.el).find('.description').append(funItemView.render().el);
+			$(this.el).find('.fun-item-list').append(funItemView.render().el);
 		}
     });
 

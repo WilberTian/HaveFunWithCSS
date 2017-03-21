@@ -5,6 +5,7 @@ require.config({
         backbone: '/vendor/backbone/backbone.min',
         semantic: '/vendor/semantic-ui/semantic.min',
         codemirror: '/vendor/codemirror/js',
+        masonry: '/vendor/masonry/masonry.pkgd.min',
 
         text: '/vendor/require/text'
     },

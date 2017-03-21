@@ -1,10 +1,11 @@
 define([
     'backbone',
     'underscore',
+    'masonry',
     'vm',
     'text!views/pages/funGroupList/funGroupList.html',
     'views/components/funGroup/FunGroupView'
-], function(Backbone, _, Vm, funGroupListTemplate, FunGroupView, NotificationView){
+], function(Backbone, _, Masonry, Vm, funGroupListTemplate, FunGroupView, NotificationView){
     var FunGroupListView =  Backbone.View.extend({
 
         initialize: function() {
@@ -48,6 +49,12 @@ define([
                 var funGroupView = Vm.create('funGroupView' + funGroupModel.cid, FunGroupView, {model: funGroupModel}, true);
                 $(self.el).find('#fun-group-list').append(funGroupView.render().el);
             });
+
+             new Masonry('.fun-group-grid', {
+                itemSelector: '.fun-group-grid-item',
+                columnWidth: 280,
+                gutter: 24
+            })
 
         }
 
