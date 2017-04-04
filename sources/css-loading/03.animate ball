@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .ball {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  
+  .red-ball {
+    background-color: red;
+  }
+  
+  .green-ball {
+    background-color: green;
+  }
+  
+  .blue-ball {
+    background-color: blue;
+  }
+  
+  .red-ball {
+    position: relative;
+    -webkit-animation-name: leftToRight; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite;
+    animation-name: leftToRight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes leftToRight {
+    0%   {left:0px; top:0px;}
+    50%  {left:74px; top:0px;}
+    100% {left:0px; top:0px;}
+  }
+
+  /* Standard syntax */
+  @keyframes leftToRight {
+    0%   {left:0px; top:0px;}
+    50%  {left:74px; top:0px;}
+    100% {left:0px; top:0px;}
+  }
+  
+  .blue-ball {
+    position: relative;
+    -webkit-animation-name: rightToLeft; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 2s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: infinite;
+    animation-name: rightToLeft;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes rightToLeft {
+    0%   {right:0px; top:0px;}
+    50%  {right:74px; top:0px;}
+    100% {right:0px; top:0px;}
+  }
+
+  /* Standard syntax */
+  @keyframes rightToLeft {
+    0%   {right:0px; top:0px;}
+    50%  {right:74px; top:0px;}
+    100% {right:0px; top:0px;}
+  }
+</style>
+</head>
+<body>
+
+	<div class="ball red-ball"></div>
+	<div class="ball green-ball"></div>
+	<div class="ball blue-ball"></div>
+
+</body>
+</html>
+
