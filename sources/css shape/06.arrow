@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	div {
+      margin: 40px;
+    }
+    .arrow-right-1 {
+      	position: relative;
+      	height: 2px;
+      	width: 80px;
+      	background-color: #999;
+    }
+    
+    .arrow-right-1::before {
+      	content: ' ';
+      	position: absolute;
+      	right: -8px;
+      	bottom: -7px;
+      	height: 0px;
+      	width: 0px;
+      	border-top: 8px solid transparent;
+        border-left: 8px solid #999;
+        border-bottom: 8px solid transparent;
+    }
+    
+    .arrow-right-2 {
+      	position: relative;
+      	height: 2px;
+      	width: 80px;
+      	background-color: #999;
+    }
+    
+    .arrow-right-2::before {
+      	content: ' ';
+      	position: absolute;
+      	right: -4px;
+      	bottom: -7px;
+      	height: 0px;
+      	width: 0px;
+      	border-top: 8px solid transparent;
+        border-left: 16px solid #999;
+        border-bottom: 8px solid transparent;
+    }
+    
+    .arrow-right-3 {
+      	position: relative;
+      	height: 2px;
+      	width: 80px;
+      	background-color: #999;
+    }
+    
+    .arrow-right-3::before {
+      	content: ' ';
+      	position: absolute;
+      	right: -4px;
+      	bottom: -7px;
+      	height: 0px;
+      	width: 0px;
+      	border-top: 8px solid transparent;
+        border-left: 16px solid #999;
+        border-bottom: 8px solid transparent;
+      	z-index: -2;
+    }
+    
+    .arrow-right-3::after {
+      	content: ' ';
+      	position: absolute;
+      	right: 0px;
+      	bottom: -5px;
+      	height: 0px;
+      	width: 0px;
+      	border-top: 6px solid transparent;
+        border-left: 12px solid #FFF;
+        border-bottom: 6px solid transparent;
+        z-index: -1;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="arrow-right-1"></div>
+  
+  <div class="arrow-right-2"></div>
+  
+  <div class="arrow-right-3"></div>
+  
+</body>
+</html>
