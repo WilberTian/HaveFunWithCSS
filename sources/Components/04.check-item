@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	body {
+      margin: 20px;
+    }
+    
+    .check-item {
+      position: relative;
+      display: inline-block;
+      width: 80px;
+      height 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid #e1e1e1;
+    }
+    
+    .check-item.checked {
+      border-color: #f63;
+    }
+    .check-item.checked::before {
+      content: ' ';
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      border-bottom: 10px solid #f63;
+      border-left: 10px solid transparent;
+    }
+      
+    
+  </style>
+</head>
+<body>
+
+  <div class="check-item">
+    Bike
+  </div>
+  
+  <div class="check-item checked">
+    Bus
+  </div>
+  
+  <div class="check-item">
+    Train
+  </div>
+  
+</body>
+</html>
