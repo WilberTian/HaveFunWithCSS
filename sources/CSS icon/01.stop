@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	div {
+      margin: 60px;
+    }
+    
+    .stop-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 4px solid red;
+    }
+    
+    .stop-icon::after {
+      content: ' ';
+      position: absolute;
+      top: 18px;
+      left: -4px;
+      width: 48px;
+      height: 4px;
+      background-color: red;
+      -ms-transform: rotate(45deg); /* IE 9 */
+      -webkit-transform: rotate(45deg); /* Safari */
+      transform: rotate(45deg); /* Standard syntax */
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="stop-icon"></div>
+  
+</body>
+</html>
