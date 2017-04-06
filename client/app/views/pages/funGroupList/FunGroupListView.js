@@ -4,14 +4,16 @@ define([
     'masonry',
     'vm',
     'text!views/pages/funGroupList/funGroupList.html',
-    'views/components/funGroup/FunGroupView'
-], function(Backbone, _, Masonry, Vm, funGroupListTemplate, FunGroupView, NotificationView){
+    'views/components/funGroup/FunGroupView',
+    'models/FunGroupModel'
+], function(Backbone, _, Masonry, Vm, funGroupListTemplate, FunGroupView, FunGroupModel){
     var FunGroupListView =  Backbone.View.extend({
 
         initialize: function() {
             var self = this;
 
 			self.listenTo(self.model, 'sync', self.render);
+            self.listenTo(self.model, 'add', self.render);
 
             Backbone.on('createFunItemEvent', function(folder, name, modal) {
                 
@@ -19,10 +21,8 @@ define([
 
                 // create fun group if not exist
                 if(funGroupModel === undefined) {
-                    require(['models/FunGroupModel'], function(FunGroupModel) {
-                        funGroupModel = new FunGroupModel({count: 1, folder: folder, funItems:[]});
-                        self.model.add(funGroupModel);
-                    });
+                    funGroupModel = new FunGroupModel({count: 1, folder: folder, funItems:[]});
+                    self.model.add(funGroupModel);
                 }
 
                 funGroupModel.funItems.create({folder: folder, name: name }, {
@@ -53,7 +53,7 @@ define([
              new Masonry('.fun-group-grid', {
                 itemSelector: '.fun-group-grid-item',
                 columnWidth: 280,
-                gutter: 24
+                gutter: 40
             })
 
         }
