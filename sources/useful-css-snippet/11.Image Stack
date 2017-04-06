@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div {
+      margin: 60px;
+    }
+    
+    .image-box {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background-color: #ddd;
+      border: 6px solid #fff;
+    }
+    
+    .image-box::before {
+      position: absolute;
+      z-index: -1;
+      top: 0px;
+      left: -10px;
+      content: "";
+      width: 80px;
+      height: 80px;
+      border: 6px solid #fff;
+      background-color: #e1e1e1;
+      -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+	  -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+	  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      
+      -webkit-transform: rotate(-5deg);
+      -moz-transform: rotate(-5deg);
+      -o-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+      transform: rotate(-5deg);
+    }
+    
+    .image-box::after {
+      position: absolute;
+      z-index: -1;
+      top: 5px;
+      left: 0px;
+      content: "";
+      width: 80px;
+      height: 80px;
+      border: 6px solid #fff;
+      background-color: #e1e1e1;
+      -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+	  -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+	  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      
+      -webkit-transform: rotate(4deg);
+      -moz-transform: rotate(4deg);
+      -o-transform: rotate(4deg);
+      -ms-transform: rotate(4deg);
+      transform: rotate(4deg);
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="image-box"></div>
+</body>
+</html>
