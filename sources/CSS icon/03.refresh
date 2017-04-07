@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	div {
+      margin: 60px;
+    }
+    
+    .refresh-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 4px solid red;
+    }
+    
+    .refresh-icon::before {
+      content: ' ';
+      position: absolute;
+      top: 14px;
+      right: -12px;
+      width: 20px;
+      height: 14px;
+      background-color: #fff;
+    }
+    
+    .refresh-icon::after {
+      content: ' ';
+      position: absolute;
+      top: 14px;
+      right: -12px;
+      width: 0px;
+      height: 0px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid red;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="refresh-icon"></div>
+  
+</body>
+</html>
