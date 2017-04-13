@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box {
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      
+      position: absolute;
+      clip: rect(10px, 10px, 10px, 10px);
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="box"></div>
+  <pre>
+  当clip:rect(top,right,bottom,left)中的top>=bottom，或者left>=right时，
+  可实现元素的隐藏效果，效果类似于visibility:hidden;
+  </pre>
+</body>
+</html>

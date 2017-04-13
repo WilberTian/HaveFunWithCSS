@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	@keyframes loop{
+        0%{
+            clip:rect(0,0px,100px,0);
+        }
+        100%{
+            clip:rect(0,520px,100px,0);
+        }
+    }
+    
+    .con-test{
+        width: 520px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 30px;
+        position:absolute;
+        background-color: lightgreen;
+
+    }
+    
+    .show, .con{
+        width: 520px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 30px;
+        position:absolute;
+        top: 300px;
+        background-color: lightgreen;
+
+    }
+    .con, .con-test{
+        animation: loop 6s linear infinite;
+        -webkit-background-clip: text;
+        color: red;
+    }    
+        
+  </style>
+</head>
+<body>
+  	<div class="con-test">我曾经跨过山和大海，也穿过人山人海</div>	
+  
+	<div class="show">我曾经跨过山和大海，也穿过人山人海</div>
+	<div class="con">我曾经跨过山和大海，也穿过人山人海</div>
+
+</body>
+</html>
