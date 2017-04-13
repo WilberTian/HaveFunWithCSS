@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	div {
+      	margin: 60px;
+    }
+    
+    .icon-music{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border-radius: 3px 3px 0 0;
+        border-top:7px solid #333;
+        border-left:3px solid #333;
+        border-right:3px solid #333;
+        position: absolute;
+        top:6px;
+        left:11px;
+        -webkit-transform: skewY(-15deg);
+    }
+    .icon-music:before,.icon-music:after{
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 7px;
+        background: #333;
+        border-radius: 10px/7px;
+        position: absolute;
+        -webkit-transform: rotate(15deg);
+    }
+    .icon-music:before{
+        top:14px;
+        left:-10px;
+    }
+    .icon-music:after{
+        top:14px;
+        left:11px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="icon-music"></div>
+  
+</body>
+</html>
