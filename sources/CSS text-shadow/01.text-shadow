@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    
+    .s-text-1 {
+      text-shadow: 2px 4px 4px #999;
+    }
+    
+    .s-text-2 {
+      text-shadow: 0 0 5px red;
+    }
+     
+  </style>
+</head>
+<body>
+  <pre>
+  	text-shadow: h-shadow v-shadow blur color;
+  </pre>
+  
+  <span class="s-text-1">This is text</span>
+  
+  <br/>
+  <br/>
+  
+  <span class="s-text-2">This is text</span>
+
+</body>
+
+</html>
