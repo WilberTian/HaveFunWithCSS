@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background: #e6e6e6;
+    }
+
+    .box { 
+      background: #f6f6f6;
+      height: 700px;
+      margin: 50px auto;
+      max-width: 600px;
+      position: relative;
+      width: 80%;
+      box-shadow: 0 1px 7px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Corner Effect */
+    .box:after,
+    .box:before {
+      background: #e6e6e6;
+      content: '';
+      height: 50px;
+      position: absolute;
+      top: -25px;
+      width: 100px;
+      box-shadow: 0 5px 10px -7px rgba(0, 0 ,0, 0.5);
+    }
+    .box:after {
+      left: -50px;
+      transform: rotate(-45deg);
+    }
+    .box:before {
+      right: -50px;
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+
+</body>
+</html>
