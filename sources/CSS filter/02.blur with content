@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background-color: yellow;
+      margin: 60px;
+    }
+ 	.box {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+    
+    .box::after {
+      background-color: #999;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      z-index: -1;
+      margin: -30px;
+      opacity: 0.7;
+      -webkit-filter: blur(20px); /* Chrome, Opera */
+       -moz-filter: blur(20px);
+        -ms-filter: blur(20px);    
+            filter: blur(20px);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="box">
+    <h2>this is header</h2>
+    <p>this is the content text, which should not blur</p>
+  </div>
+
+</body>
+</html>
