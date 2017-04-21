@@ -1,0 +1,23 @@
+<!--?xml version="1.0" standalone="no"?-->
+<svg width="800" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <!--set间隔3s向下走到cy为160地点-->
+    <circle cx="80" cy="50" r="40" stroke="green" fill="#C3413D" stroke-width="5">
+        <set attributeName="cy" attributeType="XML" to="160" begin="3s"></set>
+    </circle><--animate设置动画并循环-->
+    <circle cx="200" cy="50" r="40" stroke="#FFC302" fill="#635147" stroke-width="5">
+        <animate attributeName="cy" from="160" to="60" begin="0s" dur="2s" repeatCount="indefinite"></animate>
+    </circle><--animateTransform设置放大1.6倍并循环-->
+    <circle cx="320" cy="50" r="40" stroke="#C3413D" fill="#FFF2C8" stroke-width="5">
+        <animateTransform attributeName="transform" begin="0s" dur="3s" type="scale" from="1" to="1.6" repeatCount="indefinite"></animateTransform>
+    </circle>
+  
+  <!--animateMotion设置路径动画-->
+  <g transform="translate(500,60)">
+    <path d="M10,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 10,110" stroke="#9B7B56" stroke-width="2" fill="none" id="theMotionPath" ></path>
+    <circle  r="5" fill="#FFC302">
+        <animateMotion dur="6s" repeatCount="indefinite">
+            <mpath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#theMotionPath"></mpath>
+        </animateMotion>
+    </circle>
+  </g>
+</svg>
