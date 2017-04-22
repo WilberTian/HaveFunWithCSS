@@ -41,6 +41,25 @@
       background: black;
     }
     
+    .radio-3 .radio-icon {
+      height: 14px;
+      width: 14px;
+      border: 1px solid #999;
+    }
+    
+    .radio-3 .radio-icon.checked i {
+      display: block;
+      border: 2px solid black;
+      border-top: none;
+      border-right: none;
+      height: 4px;
+      width: 8px;
+      margin: 2px;
+      -ms-transform: rotate(-52deg); /* IE 9 */
+   	  -webkit-transform: rotate(-52deg); /* Safari */
+      transform: rotate(-52deg); /* Standard syntax */
+    }
+    
   </style>
 </head>
 <body>
@@ -53,6 +72,15 @@
         </div>
     </div>
     <div class="box radio-2">
+      	<div class="radio-icon">
+          	<i></i>
+        </div>
+      	<div class="radio-icon checked">
+          	<i></i>
+        </div>
+    </div>
+  
+    <div class="box radio-3">
       	<div class="radio-icon">
           	<i></i>
         </div>
