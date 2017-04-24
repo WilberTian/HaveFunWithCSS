@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .container{
+        width: 100%;    
+    }
+    
+    .rect-2 {
+    	stroke-dasharray: 0 600px;
+    }
+    
+    .rect-3 {
+    	stroke-dasharray: 100px 600px;
+    }
+    
+    .rect-4 {
+    	stroke-dasharray: 240px 600px;
+    }
+    
+    .rect-5 {
+    	stroke-dasharray: 600px 600px;
+    }
+    
+    .rect-6 {
+    	stroke-dasharray: 300px 600px;
+    }
+    
+    .rect-6:hover {
+    	stroke-dasharray: 360px 600px;
+    }
+    
+    .rect-7 {
+    	stroke-dasharray: 10px 20px;
+    }
+    
+    .rect-8 {
+    	stroke-dasharray: 10px 20px 30px;
+    }
+    
+  </style>
+</head>
+<body>
+  <pre>
+  stroke-dasharray：值是一组数组，没数量上限，每个数字交替表示划线与间隔的宽度
+  </pre>
+  <div class="container">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" width="300" height="500" viewbox="0 0 600 800">
+		<rect class="rect-1" x="60" y="70" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+      	<rect class="rect-2" x="60" y="140" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+      	<rect class="rect-3" x="60" y="210" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+		<rect class="rect-4" x="60" y="280" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+		<rect class="rect-5" x="60" y="350" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+        <rect class="rect-6" x="60" y="420" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+        <rect class="rect-7" x="60" y="490" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+        <rect class="rect-8" x="60" y="560" width="240" height="60" stroke="#999" fill="transparent" stroke-width="6"/>
+    </svg>
+  </div>
+
+
+</body>
+</html>
