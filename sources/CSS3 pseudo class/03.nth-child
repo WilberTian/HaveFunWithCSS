@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    ul {
+      list-style: none;
+    }
+    
+    li {
+      padding: 2px;
+      float: left;
+      margin-right:4px;
+    }
+    li a {
+      float: left;
+      display: block;
+      height: 20px;
+      line-height: 20px;
+      width: 20px;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      text-align: center;
+      background: #f36;
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    li:nth-child(3n) {border: 1px dotted blue;}
+  </style>
+</head>
+<body>
+    <pre>
+      :nth-child(length);		/*参数是具体数字*/
+      :nth-child(n);			/*参数是n,n从0开始计算*/
+      :nth-child(n*length)		/*n的倍数选择，n从0开始算*/
+      :nth-child(n+length);		/*选择大于length后面的元素*/
+      :nth-child(-n+length)		/*选择小于length前面的元素*/
+      :nth-child(n*length+1);	/*表示隔几选一*/
+    </pre>
+  
+    <ul>
+      <li><a href="">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li><a href="">5</a></li>
+      <li><a href="">6</a></li>
+      <li><a href="">7</a></li>
+      <li><a href="">8</a></li>
+      <li><a href="">9</a></li>
+      <li><a href="">10</a></li>
+    </ul>
+</body>
+</html>

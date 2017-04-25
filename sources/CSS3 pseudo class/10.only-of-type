@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .post:nth-child(n) {background: lime;}
+    .post div:only-of-type {background: red;}
+  </style>
+</head>
+<body>
+  <div class="post">
+    <p>Lorem ipsum dolor sit amet, consectetur</p>
+    <p>Lorem ipsum dolor sit amet, consectetur</p>
+    <div>Lorem ipsum dolor sit amet, consectetur</div>
+  </div>  
+
+</body>
+</html>
