@@ -10,7 +10,7 @@ var funItemPath = './sources';
 module.exports = {
 	getFunList: function() {
 	  	return rxfs.walkDirAsObservable(funItemPath, 1)
-				.filter(fsObj => fsObj.location !== funItemPath)
+				.filter(fsObj => fsObj.location !== funItemPath && !fsObj.stats.isDirectory())
 				.map(fsObj => ({name: path.basename(fsObj.name), folder: path.basename(fsObj.location)}))
 				.map(fsObj => _.extend(fsObj, { path: fsObj.folder + '/' + fsObj.name }))
 				.reduce((fsObjs, fsObj) => fsObjs.concat(fsObj), [])

@@ -92,7 +92,7 @@ h2{
 		<div class="show-body" id="sb">
 			<!-- 添加结构单元 -->
 			<div>
-				<img id="oShow" src="icon.jpg" alt="测试" width="20" height="20">
+				<img id="oShow" src="/sources/line-height and vertical-align/static/icon.jpg" alt="测试" width="20" height="20">
 				<span>文字</span>
 			</div>	
 			<!-- 添加结构单元结束 -->
