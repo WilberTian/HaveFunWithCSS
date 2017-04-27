@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        CM
+    </title>
+    <script src="/client/vendor/jquery/jquery.min.js">
+    </script>
+    <style>
+        .container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .background {
+            width: 600px;
+        }
+
+        .creative-element {
+            position: absolute;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .inner-container {
+            position: absolute;
+            top: 64px;
+            left: 125px;
+            width: 340px;
+            height: 160px;
+            border: 2px solid
+                    red;
+            box-shadow: 0 0 0 4px #fff;
+            background: #fff;
+            background-color: rgba(255,
+                    255, 255, 0.8)
+        }
+
+        .inner-container-1 {
+            position: absolute;
+            top: 105px;
+            width: 400px;
+            background-color: #e40f4c;
+            left: -30px;
+            height: 40px;
+        }
+
+        .text-1, .text-2 {
+            color: #adafb8;
+        }
+
+        .text-1 {
+            top: 14px;
+            left: 20px;
+        }
+
+        .text-2 {
+            top: 14px;
+            left: 240px;
+        }
+
+        .text-3 {
+            font-size: 40px;
+            font-weight: bold;
+            left: 30px;
+            top: 45px;
+        }
+
+        .text-4 {
+            color: white;
+            position: absolute;
+            top: 0px;
+            left: 10px;
+            font-size: 26px
+        }
+
+        .text-5 {
+            color: white;
+            position: absolute;
+            top: 0px;
+            left: 75px;
+            font-size: 26px
+        }
+
+        .selected-effect {
+            transform: scale(1.1, 1.1);
+            -ms-transform: scale(1.1, 1.1);     /* IE 9 */
+            -moz-transform: scale(1.1, 1.1);    /* Firefox */
+            -webkit-transform: scale(1.1, 1.1); /* Safari 和 Chrome */
+            -o-transform: scale(1.1, 1.1);  /* Opera */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="background" src="/sources/Mouse event/static/hotel.jpeg" />
+        <div id="div1" class="inner-container creative-element">
+            <div class="text-1 creative-element">
+                武汉大学店
+            </div>
+            <div class="text-2 creative-element">
+                原广埠屯店
+            </div>
+            <div class="text-3 creative-element">
+                天鹅恋情侣酒店
+            </div>
+            <div class="inner-container-1 creative-element">
+                <div class="text-4 creative-element">
+                    独享
+                </div>
+                <div class="text-5 creative-element">
+                    酒吧酒水券 + 施华蔻旅行装
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('.creative-element').on('mousedown', function(e) {
+                e.stopPropagation();
+                var $el = $(e.currentTarget);
+
+                var x, y;
+                x = e.clientX - $el.position().left;
+                y = e.clientY - $el.position().top
+
+                $(document).on('mousemove', function(e) {
+                    var left = e.clientX - x;
+                    var top = e.clientY - y;
+
+                    $el.css('left', left + 'px');
+                    $el.css('top', top + 'px');
+                });
+
+            })
+
+            
+            $('.creative-element').on('mouseover', function(e){
+                e.stopPropagation();
+
+                var $el = $(e.currentTarget);
+                $el.addClass('selected-effect');
+            }).on('mouseout',function(e){
+                e.stopPropagation();
+
+                var $el = $(e.currentTarget);
+                $el.removeClass('selected-effect');
+            });
+            
+
+            $(document).on('mouseup', function(e) {
+                $(document).off('mousemove');
+            });
+
+        })
+    </script>
+</body>
+</html>

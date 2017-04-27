@@ -1,13 +1,13 @@
 require.config({
     paths: {
-        jquery: '/vendor/jquery/jquery.min',
-        underscore: '/vendor/underscore/underscore.min',
-        backbone: '/vendor/backbone/backbone.min',
-        semantic: '/vendor/semantic-ui/semantic.min',
-        codemirror: '/vendor/codemirror/js',
-        masonry: '/vendor/masonry/masonry.pkgd.min',
+        jquery: '/client/vendor/jquery/jquery.min',
+        underscore: '/client/vendor/underscore/underscore.min',
+        backbone: '/client/vendor/backbone/backbone.min',
+        semantic: '/client/vendor/semantic-ui/semantic.min',
+        codemirror: '/client/vendor/codemirror/js',
+        masonry: '/client/vendor/masonry/masonry.pkgd.min',
 
-        text: '/vendor/require/text'
+        text: '/client/vendor/require/text'
     },
 
     shim: {
