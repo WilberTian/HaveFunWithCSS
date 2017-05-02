@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>drag & drop</title>
+
+	<style>
+		.drag-list {
+			float: left;
+		}
+
+		.drag-item {
+			width: 200px;
+			height: 30px;
+			line-height: 30px;
+			background-color: #f7f7f7;
+			margin: 10px;
+			padding: 0 10px;
+			border: 1px dashed #999;
+		}
+
+		.drag-box {
+			float: left;
+			width: 240px;
+			height: 400px;
+			margin: 10px;
+			background: #d7d7d7;
+		}
+	</style>
+</head>
+<body>
+	<div class="drag-box">
+	</div>
+
+	<div class="drag-list">
+		<div class="drag-item" draggable="true">
+			drag item 1
+		</div>
+		<div class="drag-item" draggable="true">
+			drag item 2
+		</div>
+		<div class="drag-item" draggable="true">
+			drag item 3
+		</div>
+		<div class="drag-item" draggable="true">
+			drag item 4
+		</div>
+		<div class="drag-item" draggable="true">
+			drag item 5
+		</div>
+		<div class="drag-item" draggable="true">
+			drag item 6
+		</div>
+	</div>
+
+
+	<script src="/client/vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var dragEl = null;
+			var img = document.createElement('img');
+			img.src = 'plus.png';
+
+			$('.drag-item').each(function(){
+				var documentEl = $(this).get(0);
+
+				documentEl.addEventListener('dragstart', function(e){
+					e.dataTransfer.effectAllowed = "move";
+			        e.dataTransfer.setData("text", e.target.innerHTML);
+			        // e.dataTransfer.setDragImage(img, 0, 0);
+			        dragEl = e.target;
+			        return true;
+				});
+
+				documentEl.addEventListener('dragend', function(e){
+					e.dataTransfer.clearData("text");
+			        dragEl = null;
+			        return false
+				});
+			});
+
+
+
+			$('.drag-list')[0].addEventListener('dragover', function(e){
+				e.preventDefault();
+				$(dragEl).css('background-color', '#999');
+
+				if(dragEl && $(e.target).hasClass('drag-item') && e.target !== dragEl) {
+					var $target = $(e.target);
+					var midBase = $target.position().top + $target.height();
+
+					if(e.pageY <= midBase) {
+						$(dragEl).insertBefore($(e.target));
+					} else {
+						$(dragEl).insertAfter($(e.target));
+					}
+				}
+
+				e.dataTransfer.dropEffect = "move";
+				return true;
+			});
+
+			$('.drag-list')[0].addEventListener('dragenter', function(e){
+				return true;
+			});
+
+			$('.drag-list')[0].addEventListener('dragleave', function(e){
+				if(dragEl) {
+					$(dragEl).css('background-color', '#f7f7f7');
+				}
+				return true;
+			});
+
+			$('.drag-list')[0].addEventListener('drop', function(e){
+				if(dragEl) {
+					$(dragEl).css('background-color', '#f7f7f7');
+				}
+				return false;
+			});
+
+
+
+			$('.drag-box')[0].addEventListener('dragover', function(e){
+				e.preventDefault();
+				e.dataTransfer.dropEffect = "move";
+				return true;
+			});
+
+			$('.drag-box')[0].addEventListener('dragenter', function(e){
+				$('.drag-box').css('background-color', '#f7f7f7');
+				return true;
+			});
+
+			$('.drag-box')[0].addEventListener('dragleave', function(e){
+				$('.drag-box').css('background-color', '#d7d7d7');
+				return true;
+			});
+
+			$('.drag-box')[0].addEventListener('drop', function(e){
+				$('.drag-box').css('background-color', '#d7d7d7');
+				if(dragEl) {
+					console.log(e.dataTransfer.getData("text") + ' was moved to drop box');
+					$('.drag-box').append($(dragEl).clone().attr('draggable', 'false'));
+					$(dragEl).remove();
+				}
+				return false;
+			});
+
+		})
+	</script>
+</body>
+</html>
