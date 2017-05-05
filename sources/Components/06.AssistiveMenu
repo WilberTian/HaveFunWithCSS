@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	body {
+      margin: 200px;
+    }
+    
+    
+    
+    .box {
+      position: relative;
+      width: 200px;
+      height: 100px;
+      border-radius: 100px 100px 0 0;
+      overflow: hidden;
+    }
+    
+    .heart {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+      border-radius: 50%;
+      background-color: #d7d7d7;
+      box-shadow: 0 0 0 16px #fff;
+    }
+    
+    .sector {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      transform-origin: 100px 100px;
+      transform: rotate(150deg) skew(60deg);
+      background-color: #f63;     
+      transition: transform 1s;
+      box-shadow: 0 0 0 4px #fff;
+    }
+    
+    .sector-content {
+      position: absolute;
+      bottom: 15px;
+      right: 40px;
+      transform: skew(-60deg) rotate(-165deg);
+    
+    }
+    
+    .menu-item-2 {
+      transform: rotate(120deg) skew(60deg);
+    }
+    .menu-item-3 {
+      transform: rotate(90deg) skew(60deg);
+    }
+    .menu-item-4 {
+      transform: rotate(60deg) skew(60deg);
+    }
+    .menu-item-5 {
+      transform: rotate(30deg) skew(60deg);
+    }
+    .menu-item-6 {
+      transform: rotate(0deg) skew(60deg);
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="heart"></div>
+    <div class="sector">
+      <span class="sector-content">1</span>
+    </div>
+    <div class="sector">
+      <span class="sector-content">2</span>
+    </div>
+    <div class="sector">
+      <span class="sector-content">3</span>
+    </div>
+    <div class="sector">
+      <span class="sector-content">4</span>
+    </div>
+    <div class="sector">
+      <span class="sector-content">5</span>
+    </div>
+    <div class="sector">
+      <span class="sector-content">6</span>
+    </div>
+  </div>
+  
+  <script src="/client/vendor/jquery/jquery.min.js"></script>
+  <script>
+    $(function(){
+    	$('.heart').on('mouseover', function(){
+        	$('.sector').each(function(index){
+            	$(this).addClass('menu-item-' + (index + 1));
+            });
+        });
+      
+        $('.heart').on('mouseout', function(){
+        	$('.sector').each(function(index){
+            	$(this).removeClass('menu-item-' + (index + 1));
+            });
+        });
+    });
+  </script>
+</body>
+</html>
