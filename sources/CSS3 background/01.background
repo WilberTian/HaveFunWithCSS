@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 200px;
+      background-color: #999;
+    }
+    
+	.box {
+      width: 300px;
+      height: 200px;
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));
+      background-position: top, bottom;
+      background-size: 100% 80px;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 20px;
+      background-color: #999;
+    }
+    
+	.box {
+      margin: 20px;
+      width: 300px;
+      height: 200px;
+      background: url(https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png);
+    }
+    
+    .pos1{
+      background-position: -100px -100px;
+    }
+    
+    .pos2{
+      background-position: -50% -50%;
+    }
+    
+    .pos3{
+      background-position: right bottom;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box pos1"></div>
+  <div class="box pos2"></div>
+  <div class="box pos3"></div>
+</body>
+</html>
