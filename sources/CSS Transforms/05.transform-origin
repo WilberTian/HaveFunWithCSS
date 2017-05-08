@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+	  .wrapper {
+        width: 300px;
+        height: 300px;
+        float: left;
+        margin: 100px;
+        border: 2px dotted red;
+        line-height: 300px;
+        text-align: center;
+      }
+      .wrapper div {
+        background: orange;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      .transform-origin div {
+        -webkit-transform-origin: left top;
+        transform-origin: left top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>原点在默认位置处</div>
+    </div>
+    <div class="wrapper transform-origin">
+      <div>原点重置到左上角</div>
+    </div>
+  </body>
+</html>
