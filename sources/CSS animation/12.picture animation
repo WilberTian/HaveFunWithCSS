@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <style>
+    .source {
+    	height: 100px;
+    }
+    
+    @keyframes play{
+      0% { 
+        background-position: 0px;
+      }
+      100% { 
+        background-position: -2000px;
+      }
+    }
+    
+    .zombie {
+      width: 100px;
+      height: 156px;
+      background-image: url("sources/CSS animation/static/zombie.png");
+      background-size: cover;
+      animation: play 1.8s steps(10) infinite;
+    }
+  </style>
+</head>
+<body>
+  <img class="source" src="sources/CSS animation/static/zombie.png"></img>
+  <div class="zombie">
+  </div>
+</body>
+</html>
