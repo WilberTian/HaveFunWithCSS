@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <style>
+    @keyframes shuffle{
+      0% { 
+      	transform: translateY(100px);
+      }
+	  100% { 
+      	transform: translateY(-252px);
+      }
+     
+    }
+    
+    .container {
+      background-color: #e1e1e1;
+      width: 600px;
+      height: 100px;
+      overflow: hidden;
+    }
+    .box {
+      animation: shuffle 10s linear infinite;
+      -webkit-animation: shuffle 10s linear infinite;	
+    }
+  </style>
+</head>
+<body>
+  <pre>
+  this demo is using CSS3, we can also use window.requestAnimationFrame() 
+  </pre>
+  <div class="container">
+    <div class="box">
+      this is the first line<br/>
+      this is the content<br/>
+      ----------<br/>
+      Here<br/>
+      is<br/>
+      text<br/>
+      shuffle<br/>
+      effect<br/>
+      ----------<br/>
+      Here<br/>
+      is<br/>
+      text<br/>
+      shuffle<br/>
+      effect<br/>
+    </div>
+  </div>
+  <script>
+    var box = document.querySelector('.box');
+    box.getBoundingClientRect().height;
+  </script>
+</body>
+</html>
