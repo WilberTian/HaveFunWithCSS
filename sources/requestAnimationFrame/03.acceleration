@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  
+  <button id="btn">开始运动</button>
+  <button id="reset">还原</button>
+  <div id="test" style="height: 100px;width: 100px;background-color: pink;position:absolute;left:0;"></div>
+  <div style="background-color:red;width:1px;height:100px;position:absolute;left:500px;"></div>
+  <script>
+  window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  function getCSS(obj,style){
+      if(window.getComputedStyle){
+          return getComputedStyle(obj)[style];
+      }
+      return obj.currentStyle[style];
+  }  
+  reset.onclick = function(){
+      document.getElementById('test').style.left = 0 + 'px';
+  }
+  btn.onclick = function(){
+      var index = -1;
+      //声明步长值step
+      var step;
+      //声明当前值cur
+      var cur;
+      //声明目标值
+      var target = parseFloat('500px');
+      
+      var accelerate = function(){
+		  index++;
+          //更新步长值
+          step = 0.04*(2*index+1);
+          //更新当前值
+          cur = parseFloat(getCSS(test,'left'));
+          //若步长设置值使得元素超过目标点时，将步长设置值更改为目标点值 - 当前值
+          if(cur+step-target>0){
+              step = target - cur;
+          }
+          //更新left值
+          test.style.left = cur + step + 'px';
+
+          if(step < target - cur){
+              requestAnimationFrame(accelerate);
+          }    
+      };
+    
+      requestAnimationFrame(accelerate);
+  }
+  </script>
+</body>
+</html>
