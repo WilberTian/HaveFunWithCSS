@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        resize
+    </title>
+</head>
+
+<body>
+    <div id="test" style="height: 100px;width: 100px;background-color: pink;position:absolute;top:100px;left:200px;">测试文字</div>
+    <script>
+    function addEvent(target,type,handler){
+        if(target.addEventListener){
+            target.addEventListener(type,handler,false);
+        }else{
+            target.attachEvent('on'+type,function(event){
+                return handler.call(target,event);
+            });
+        }
+    }
+    (function(){
+        var x0,y0,x1,y1,EW,EH,isChanging;
+        var ele = document.getElementById('test');
+        var mousedownHandler = function(e){
+            e = e || event;
+            //获取元素距离定位父级的x轴及y轴距离
+            x0 = ele.offsetLeft;
+            y0 = ele.offsetTop;
+            //获取此时鼠标距离视口左上角的x轴及y轴距离
+            x1 = e.clientX;
+            y1 = e.clientY;
+            //获取此时元素的宽高
+            EW = ele.offsetWidth;
+            EH = ele.offsetHeight;        
+            //按下鼠标时，表示正在改变尺寸
+            isChanging = true;
+        }
+        var mousemoveHandler = function(e){
+            e = e || event;
+            //元素边界确定
+            var L0 = ele.offsetLeft;
+            var R0 = ele.offsetLeft + ele.offsetWidth;
+            var T0 = ele.offsetTop;
+            var B0 = ele.offsetTop + ele.offsetHeight;
+            //范围边界确定
+            var L = L0 + 10;
+            var R = R0 - 10;
+            var T = T0 + 10;
+            var B = B0 - 10;
+            //范围确定
+            var areaL = e.clientX < L;
+            var areaR = e.clientX > R;
+            var areaT = e.clientY < T;
+            var areaB = e.clientY > B;
+            //左侧范围
+            if(areaL){ele.style.cursor = 'w-resize';}
+            //右侧范围
+            if(areaR){ele.style.cursor = 'e-resize';}
+            //上侧范围
+            if(areaT){ele.style.cursor = 'n-resize';}    
+            //下侧范围
+            if(areaB){ele.style.cursor = 's-resize';}    
+            //左上范围
+            if(areaL && areaT){ele.style.cursor = 'nw-resize';}
+            //右上范围
+            if(areaR && areaT){ele.style.cursor = 'ne-resize';}
+            //左下范围
+            if(areaL && areaB){ele.style.cursor = 'sw-resize';}
+            //右下范围
+            if(areaR && areaB){ele.style.cursor = 'se-resize';}
+            //中间范围    
+            if(!areaL && !areaR && !areaT && !areaB){ele.style.cursor = 'default';}
+
+            //获取此时鼠标距离视口左上角的x轴及y轴距离
+            var x2 = e.clientX;
+            var y2 = e.clientY;   
+            //如果改变元素尺寸功能开启
+            if(isChanging){
+                //处于左侧范围
+                if(areaL){
+                    var eleL = x0 + (x2 - x1)  + 'px';
+                    var eleW = EW + (x1 - x2) + 'px'; 
+                }
+                //处于右侧范围
+                if(areaR){var eleW = EW + (x2 - x1)+ 'px';}
+                //处于上侧范围
+                if(areaT){
+                    var eleT = y0 + (y2 - y1) + 'px';
+                    var eleH = EH + (y1 - y2) + 'px';
+                }
+                //处于下侧范围
+                if(areaB){var eleH = EH + (y2 - y1) + 'px'; }  
+                //范围限定
+                if(parseInt(eleW) < 60){eleW = '60px';}    
+                if(parseInt(eleH) < 60){eleH = '60px';}
+                //赋值
+                if(eleW != undefined){ele.style.width = eleW;}
+                if(eleH != undefined){ele.style.height = eleH;}
+                if(eleT != undefined){ele.style.top = eleT;}
+                if(eleL != undefined){ele.style.left = eleL;}              
+            } 
+        }
+        var mouseupHandler = function(e){
+            //鼠标抬起时，表示停止运动
+            isChanging = false;
+         if(ele.releaseCapture){
+           ele.releaseCapture();
+         }
+        }
+        var preventDefaultHandler = function(e){
+            e = e || event;
+            if(e.preventDefault){
+                e.preventDefault();
+            }else{
+                e.returnValue = false;
+            }
+            //IE8-浏览器阻止默认行为
+            if(ele.setCapture){
+                ele.setCapture();
+            }
+        }    
+        addEvent(ele,'mousedown',mousedownHandler);
+        addEvent(ele,'mousedown',preventDefaultHandler);
+        addEvent(document,'mousemove',mousemoveHandler);
+        addEvent(document,'mouseup',mouseupHandler);
+
+    })();
+    </script>
+</body>
+</html>
