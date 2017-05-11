@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <style>
+    @keyframes rotate1{
+        100%{transform:rotate(360deg);}
+    }
+    @keyframes rotate2{
+        100%{transform:rotate(-360deg);}
+    }
+    #backup{
+      height: 298px;
+      width:298px;
+      border:1px solid black;
+      border-radius:50%;
+      position:absolute;
+      top:50px;
+      left:50px;
+    }
+    #test{
+      height: 40px;
+      width: 40px;
+      background-color:pink;
+      position:relative;
+      left:130px;
+      top:280px;
+      border-radius:50%
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">顺时针旋转</button>
+  <button id="btn2">逆时针旋转</button>
+  <button id="btn3">暂停</button>
+  <button id="reset">还原</button>
+  <div id="result"></div>
+  <div id="backup">
+      <div id="test"></div>
+  </div>
+  <script>
+  reset.onclick = function(){
+      history.go();
+  }
+  btn1.onclick = function(){
+      backup.style.animation= 'rotate1 4s infinite linear';
+  }
+  btn2.onclick = function(){
+      backup.style.animation= 'rotate2 4s infinite linear';
+  }
+  btn3.onclick = function(){
+      backup.style.animationPlayState = 'paused';
+  }
+  </script>
+</body>
+</html>
