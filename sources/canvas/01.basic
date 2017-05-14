@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	
+        
+  </style>
+</head>
+<body>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+
+  <script>
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    
+    // rect
+    ctx.fillStyle="#FF0000";
+    ctx.fillRect(10,10,50,35);
+    
+    // line
+    ctx.moveTo(10,70);
+    ctx.lineTo(120,100);
+    ctx.stroke();
+    
+    // arc(x,y,r,start,stop)
+    ctx.beginPath();
+    ctx.arc(95,50,20,0,2*Math.PI);
+    ctx.strokeStyle="#f63";
+    ctx.stroke();
+    
+    // text
+    ctx.font="30px Arial";
+	ctx.fillText("Hello World",200,50);
+    
+    ctx.strokeText("Hello World",200,100);
+    
+    // LinearGradient
+    // 创建渐变
+    var grd=ctx.createLinearGradient(0,0,200,0);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+
+    // 填充渐变
+    ctx.fillStyle=grd;
+    ctx.fillRect(10,120,100,60);
+    
+    // RadialGradient
+    // 创建渐变
+    var grd=ctx.createRadialGradient(75,180,5,90,200,100);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+
+    // 填充渐变
+    ctx.fillStyle=grd;
+    ctx.fillRect(10,200,100,60);
+	
+    // drawImage(image,x,y)
+  </script>
+</body>
+</html>

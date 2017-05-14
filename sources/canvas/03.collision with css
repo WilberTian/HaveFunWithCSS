@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="test" style="height: 100px;width: 100px;background:lightblue;position:absolute;top:60px;left:20px;border-radius:50%;"></div>
+
+<button id="btn1">开始运动</button>
+<button id="btn2">停止运动</button>
+<span>游戏说明：当小球开始运动后，点击小球一次得一分</span>
+<div id="result"></div>
+<script>
+var timer,i=0;
+//声明得分
+var key = 0;
+var arr = ['orange','lightgreen','lightcoyal','pink','lightcyan','lightgray','lightseagreen','lightsteelblue'];
+
+function changeColor(){
+    i++;
+    if(i == arr.length){
+        i = 0;
+    }
+    test.style.background = arr[i];    
+}
+document.onmousemove = function(){
+    return false;
+}
+test.onclick = function(){
+    //当小球开始运动后，开始记分
+    if(test.timer){
+        result.innerHTML = '当前得分为:' + ++key + '分'
+    }
+    changeColor();
+}
+btn1.onclick = function(){
+    result.innerHTML = ''
+    //将分数清零
+    key = 0;
+    collisionMove({
+        obj:test
+    })
+    clearInterval(timer);
+    timer = setInterval(function(){
+        changeColor();
+    },500);
+}
+btn2.onclick = function(){
+    clearInterval(timer);
+    clearInterval(test.timer);
+    test.timer = 0;
+    result.innerHTML = '你得到:' + key + '分，再接再厉！'
+}
+function getCSS(obj,style){
+    if(window.getComputedStyle){
+        return getComputedStyle(obj)[style];
+    }
+    return obj.currentStyle[style];
+}  
+function collisionMove(json){
+    var obj = json.obj;
+    var fn = json.fn;
+    //声明x、y轴的当前值
+    var curX = parseFloat(getCSS(obj,'left'));
+    var curY = parseFloat(getCSS(obj,'top'));
+    //声明x、y轴的步长值
+    var stepX = json.stepX;
+    var stepY = json.stepY;
+    //步长值默认值为[-25,-20,-15,-10,-5,0,5,10,15,20]中的一个随机数
+    stepX = Number(stepX) || 5*Math.floor(Math.random() * 10 - 5);
+    stepY = Number(stepY) || 5*Math.floor(Math.random() * 10 - 5);
+    //声明x、y轴方向
+    var dirX = json.dirX;
+    var dirY = json.dirY;
+    dirX = stepX > 0 ? '+' : '-';
+    dirY = stepY > 0 ? '+' : '-';
+    //声明offset宽高
+    var offsetWidth = obj.offsetWidth;
+    var offsetHeight = obj.offsetHeight;
+    //声明元素活动区域宽高
+    var activeWidth = json.activeWidth;
+    var activeHeight = json.activeHeight;
+    //元素获取区域宽高默认值为可视区域宽高
+    activeWidth = Number(activeWidth) || document.documentElement.clientWidth;
+    activeHeight = Number(activeHeight) || document.documentElement.clientHeight;
+    //声明left、top样式值
+    var left;
+    var top;
+    //清除定时器
+    if(obj.timer){return;}
+     //开启定时器
+    obj.timer = setInterval(function(){
+        //获取x、y轴的当前值
+        curX = parseFloat(getCSS(obj,'left'));
+        curY = parseFloat(getCSS(obj,'top'));
+        //更新left、top值
+        left = curX + stepX;
+        top = curY + stepY;
+        //右侧碰壁前一刻，步长大于剩余距离，且元素向右运动时
+        if((left > activeWidth - offsetWidth) && (dirX == '+')){
+            left = activeWidth - offsetWidth;
+        }
+        //左侧碰壁前一刻，步长大于剩余距离，且元素向左运动时
+        if((Math.abs(stepX) > curX) && (dirX == '-')){
+            left = curX;
+        }
+        //下侧碰壁前一刻，步长大于剩余距离，且元素向下运动时
+        if((top > activeHeight - offsetHeight) && (dirY == '+')){
+            top = activeHeight - offsetHeight;
+        }
+        //上侧碰壁前一刻，步长大于剩余距离，且元素向上运动时
+        if((Math.abs(stepY) > curY) && (dirY == '-')){
+            top = curY;
+        }
+        obj.style.left= left + 'px';
+        obj.style.top = top + 'px';
+        //左侧或右侧碰撞瞬间
+        if(left == activeWidth - offsetWidth || left == curX){
+            stepX = -stepX;
+        }
+        //上侧或下侧碰撞瞬间
+        if(top == activeHeight - offsetHeight || top == curY){
+            stepY = -stepY;
+        }
+        //更新运动方向
+        dirX = stepX > 0 ? '+' : '-';
+        dirY = stepY > 0 ? '+' : '-';
+    },20);            
+}
+</script>    
+</body>
+</html>
