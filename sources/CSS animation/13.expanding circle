@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <style>
+    body {
+      margin: 100px;
+    }
+    
+    @keyframes expanding{
+      0% { 
+      	transform: scale(0.5);
+      }
+	  100% { 
+      	transform: scale(2);
+      }
+     
+    }
+    
+	
+    .box {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #f63;
+      box-shadow: 0 0 12px #f63 inset;
+      animation: expanding 3s linear infinite;
+      -webkit-animation: expanding 3s linear infinite;	
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+  </div>
+</body>
+</html>
