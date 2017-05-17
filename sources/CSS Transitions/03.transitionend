@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+    transition: width 2s, height 2s, transform 2s;
+  }
+
+  div:hover {
+    width: 300px;
+    height: 300px;
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+	<pre>
+    transitionend fires for each property transitioned;
+    that's why in this example the transitioned event will be fired three times;
+    </pre>
+	<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+  	<div id="myDIV"></div>
+
+	<p>Hover over the div element above, to see the transition effect.</p>
+	<script>
+        var transitionFlag = true;
+      
+        var myFunction = function(e) {
+        	 if(e.target === e.currentTarget && transitionFlag) {
+                transitionFlag = false;
+                alert('transition ended');
+            }
+        }
+  		// Safari 3.1 到 6.0 代码
+		document.getElementById("myDIV").addEventListener("webkitTransitionEnd", myFunction);
+
+		// 标准语法
+		document.getElementById("myDIV").addEventListener("transitionend", myFunction);
+    </script>
+  
+</body>
+</html>
+
