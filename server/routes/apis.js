@@ -19,11 +19,7 @@ router.post('/funlist', function(req, res, next) {
 
 router.get('/:funFolder', function(req, res, next) {
 	funOperator.getFunItemsByFolder(req.params.funFolder)
-		.then(function(data){
-			res.send(data);
-		}, function(err){
-			res.status(400).send(err.message);
-		})
+		.subscribe(data => res.send(data), e => res.status(400).send(e.message));
 });
 
 router.get('/:funFolder/:funName', function(req, res, next) {

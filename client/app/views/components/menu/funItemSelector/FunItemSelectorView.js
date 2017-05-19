@@ -22,7 +22,7 @@ define([
         },
 
         changeFunItem: function(e) {
-            Backbone.trigger('selectFunItemEvent', e.target.value);
+            Backbone.trigger('changeFunItemEvent', e.target.value);
         },
 
         dispose: function() {

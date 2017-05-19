@@ -12,6 +12,15 @@ define([
         
         funItemModalTemplate: _.template(funItemModalTemplate),
 
+        initialize: function() {
+            Backbone.on('openFunItemModalEvent', function(folder) {
+                require(['views/components/funItemModal/FunItemModalView', 'views/components/funItemModal/FunItemModalModel'], function(FunItemModalView, FunItemModalModel) {
+                    var funItemModalView = Vm.create('funItemModalView', FunItemModalView, {model: new FunItemModalModel}, true).setElement($('#fun-item-modal'));
+                    funItemModalView.model.set({funFolder: folder});
+                });
+            });
+        },
+
         render: function() {
             $(this.el).html(layoutTemplate);
 
@@ -31,13 +40,10 @@ define([
         },
 
         openFunItemModal: function(e) {
-            require(['views/components/funItemModal/FunItemModalView', 'views/components/funItemModal/FunItemModalModel'], function(FunItemModalView, FunItemModalModel) {
-                var funItemModalView = Vm.create('funItemModalView', FunItemModalView, {model: new FunItemModalModel}, true).setElement($('#fun-item-modal'));
-                funItemModalView.model.set({funFolder: $(e.currentTarget).data('funfolder')});
-            });
+            var folder = $(e.currentTarget).data('funfolder');
+            Backbone.trigger('openFunItemModalEvent', folder);
 		}
 
-        
     });
 
     return AppView;

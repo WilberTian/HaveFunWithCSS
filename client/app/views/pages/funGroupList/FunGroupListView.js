@@ -12,11 +12,11 @@ define([
         initialize: function() {
             var self = this;
 
-			self.listenTo(self.model, 'sync', self.render);
-            self.listenTo(self.model, 'add', self.render);
+			//self.listenTo(self.model, 'sync', self.render);
+            self.listenTo(self.model, 'update', self.render);
 
             Backbone.on('createFunItemEvent', function(folder, name, modal) {
-                
+                console.log(folder)
                 var funGroupModel = self.model.where({folder: folder})[0];
 
                 // create fun group if not exist
@@ -50,12 +50,11 @@ define([
                 $(self.el).find('#fun-group-list').append(funGroupView.render().el);
             });
 
-             new Masonry('.fun-group-grid', {
+            new Masonry('.fun-group-grid', {
                 itemSelector: '.fun-group-grid-item',
                 columnWidth: 280,
                 gutter: 40
-            })
-
+            });
         }
 
     });

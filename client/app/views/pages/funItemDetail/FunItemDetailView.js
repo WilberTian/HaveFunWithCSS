@@ -26,6 +26,19 @@ define([
                 iframeDocument.close();
             });
 
+            Backbone.on('createFunItemEvent', function(folder, name, modal) {
+                $.post("/apis/funlist/", {
+                    folder: folder,
+                    name: name
+                }).done(function(data, textStatus, jqXHR){
+                    modal.close()
+                    Backbone.trigger('notificationEvent', 'Fun item created successfully');
+                    Backbone.trigger('selectFunItemEvent', data.path);
+                }).fail(function(jqXHR, textStatus, errorThrown){
+                    modal.showErrMsg(jqXHR.responseText);
+                });
+            });
+
             Backbone.on('updateFunItemEvent', function() {
                 self.model.set({'funContent': self.editor.getValue() })
                 self.model.save(null, {

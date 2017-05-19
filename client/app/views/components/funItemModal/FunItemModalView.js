@@ -25,14 +25,29 @@ define([
         },
 
         open: function() {
-			$(this.el).find('.ui.modal')
-				.modal({ detachable: false })
+            var self = this;
+			$(self.el).find('.ui.modal')
+				.modal({ 
+                    detachable: false,
+                    autofocus: false,
+                    onVisible: function(){
+                        setTimeout(function() {
+                            if(self.model.toJSON().funFolder) {
+                                $(self.el).find('#fun-name-in-modal').focus();
+                            } else {
+                                $(self.el).find('#fun-folder-in-modal').focus();
+                            }
+                            
+                        }, 0);                        
+                    }
+                 })
 				.modal('setting', 'closable', false)
 				.modal('show');
 		}, 
 
 		close: function() {
-			$(this.el).find('.ui.modal').modal('hide');
+            $(this.el).find('.ui.modal').modal('hide');
+			this.undelegateEvents();
 		},
 
         showErrMsg: function(error) {

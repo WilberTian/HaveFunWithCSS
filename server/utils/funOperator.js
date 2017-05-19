@@ -83,25 +83,10 @@ module.exports = {
 	getFunItemsByFolder: function(folder) {
 		var funItemFolderPath = path.join(funItemPath, folder);
 
-		var deferred = Q.defer();
-	  	fs.readdir(funItemFolderPath, function(err, itemList) {
-		  	if(!err) {
-		  		var funItemsByFolder = [];
-		  		
-		  		itemList.forEach(function(item) {
-					funItemsByFolder.push({
-						name: item,
-						path: path.join(folder, item)
-					});
-		  		})
-
-		  		deferred.resolve(funItemsByFolder);
-		  	} else {
-		  		deferred.reject(new Error('Fail to get fun list'));
-		  	}
-	  	})
-
-	  	return deferred.promise
+		return rxfs.walkDirAsObservable(funItemFolderPath, 1)
+				.filter(fsObj => fsObj.location !== funItemPath && !fsObj.stats.isDirectory())
+				.map(fsObj => ({name: path.basename(fsObj.name), path: path.join(path.basename(fsObj.location), fsObj.name)}))
+				.reduce((fsObjs, fsObj) => fsObjs.concat(fsObj), []);
 	},
 
 	getFunItem: function(folder, name) {

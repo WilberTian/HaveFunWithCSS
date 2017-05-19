@@ -84,6 +84,19 @@ define([
             });	 	
         });
 
+        Backbone.on('changeFunItemEvent', function(funItemPath) {
+            console.log(funItemPath)
+            var funItemDetailView = Vm.create('funItemDetailView', null, null, true);
+            funItemDetailView.model.set({path: funItemPath, funContent: ''}).fetch({
+                success: function(model, response) {
+                    Backbone.trigger('notificationEvent', 'Fun item loaded successfully');
+                },
+                error: function(error) {
+
+                }
+            });
+        });
+
         Backbone.on('navigateEvent', function(url) {
             router.navigate(url, {  
                 trigger: true  

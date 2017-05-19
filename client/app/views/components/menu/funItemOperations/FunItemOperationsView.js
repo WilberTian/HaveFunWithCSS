@@ -7,6 +7,7 @@ define([
         
         events: {
             'click #fun-item-operations .try-it': 'runFunItem',
+            'click #fun-item-operations .add': 'openFunItemModal',
             'click #fun-item-operations .update': 'updateFunItem',
 			'click #fun-item-operations .delete': 'openConfirmModal',
             'click #fun-item-operations .view-mode': 'changeViewMode'
@@ -20,6 +21,10 @@ define([
         runFunItem: function() {
 		    Backbone.trigger('runFunItemEvent');
 		},
+
+        openFunItemModal: function() {
+            Backbone.trigger('openFunItemModalEvent', this.model.toJSON().folder);
+        }, 
 
         updateFunItem: function() {
             Backbone.trigger('updateFunItemEvent');
