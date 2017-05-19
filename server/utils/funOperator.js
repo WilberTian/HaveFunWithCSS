@@ -83,7 +83,7 @@ module.exports = {
 	getFunItemsByFolder: function(folder) {
 		var funItemFolderPath = path.join(funItemPath, folder);
 
-		return rxfs.walkDirAsObservable(funItemFolderPath, 1)
+		return rxfs.walkDirAsObservable(funItemFolderPath, 0)
 				.filter(fsObj => fsObj.location !== funItemPath && !fsObj.stats.isDirectory())
 				.map(fsObj => ({name: path.basename(fsObj.name), path: path.join(path.basename(fsObj.location), fsObj.name)}))
 				.reduce((fsObjs, fsObj) => fsObjs.concat(fsObj), []);

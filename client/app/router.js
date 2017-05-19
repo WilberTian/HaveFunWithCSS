@@ -61,7 +61,7 @@ define([
             });
 
             require(['views/pages/funItemDetail/FunItemDetailView', 'models/FunItemModel'], function (FunItemDetailView, FunItemModel) {
-                var funItemDetailView = Vm.create('funItemDetailView', FunItemDetailView, {model: new FunItemModel}, true).setElement($('#app-content'));
+                var funItemDetailView = Vm.create('funItemDetailView', FunItemDetailView, {model: new FunItemModel}, false).setElement($('#app-content'));
                 funItemDetailView.model.set({path: folder + '/' + name, funContent: ''}).fetch({
                     success: function(model, response) {
                         Backbone.trigger('notificationEvent', 'Fun item loaded successfully');
@@ -85,7 +85,10 @@ define([
         });
 
         Backbone.on('changeFunItemEvent', function(funItemPath) {
-            console.log(funItemPath)
+
+            var url = window.encodeURI('detail/' + funItemPath.replace('\\', '/'));
+            router.navigate(url); 
+
             var funItemDetailView = Vm.create('funItemDetailView', null, null, true);
             funItemDetailView.model.set({path: funItemPath, funContent: ''}).fetch({
                 success: function(model, response) {
