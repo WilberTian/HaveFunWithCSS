@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>context menu</title>
+	<style>
+		#work-space {
+			position: relative;
+			width: 500px;
+			height: 240px;
+			border: 1px solid #999;
+		}
+
+		#customized-menu {
+			display: none;
+			position: absolute;
+			border: 1px solid #e1e1e1;
+			border-radius: 4px;
+			padding: 8px;
+			background-color: #FFF;
+			z-index: 1;
+		}
+
+		#customized-menu span {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="work-space">
+	</div>
+
+	<div id="customized-menu">
+        <span>剪切</span>
+        <span>复制</span>
+        <span>粘贴</span>
+    </div>
+
+	<script>
+		var workSpace = document.getElementById('work-space');
+		var costomizedMenu = document.getElementById('customized-menu');
+
+		var workSpaceMenuHandler = function(e) {
+			costomizedMenu.style.display = 'block';
+
+			costomizedMenu.style.top = e.clientY + 'px';
+			costomizedMenu.style.left = e.clientX + 'px';
+			e.preventDefault();
+			return false;
+		};
+		var workSpaceClickHandler = function(e) {
+			costomizedMenu.style.display = 'none';
+
+			e.stopPropagation();
+			return false;
+		};
+
+
+		workSpace.addEventListener('contextmenu', workSpaceMenuHandler);
+		workSpace.addEventListener('click', workSpaceClickHandler);
+		
+
+		costomizedMenu.addEventListener('contextmenu', function(e){
+			e.preventDefault();
+			return false;
+		});
+		costomizedMenu.addEventListener('click', function(e){
+			console.log('menu click');
+
+			e.stopPropagation();
+			return false;
+		});
+	</script>
+</body>
+</html>
