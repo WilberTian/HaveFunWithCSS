@@ -15,7 +15,7 @@ define([
         initialize: function() {
             Backbone.on('openFunItemModalEvent', function(folder) {
                 require(['views/components/funItemModal/FunItemModalView', 'views/components/funItemModal/FunItemModalModel'], function(FunItemModalView, FunItemModalModel) {
-                    var funItemModalView = Vm.create('funItemModalView', FunItemModalView, {model: new FunItemModalModel}, true).setElement($('#fun-item-modal'));
+                    var funItemModalView = Vm.create('funItemModalView', FunItemModalView, {model: new FunItemModalModel}, false).setElement($('#fun-item-modal'));
                     funItemModalView.model.set({funFolder: folder});
                 });
             });
