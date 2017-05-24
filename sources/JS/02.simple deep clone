@@ -1,0 +1,9 @@
+<script>
+  var sourceArr = [1,2,3,[4,5,6]];
+  document.writeln(sourceArr);
+  var destArr = JSON.parse(JSON.stringify(sourceArr));
+  destArr[0] = 0 - destArr[0];
+  
+  destArr[3] = destArr[3].reverse();
+  document.writeln(destArr);
+</script>
