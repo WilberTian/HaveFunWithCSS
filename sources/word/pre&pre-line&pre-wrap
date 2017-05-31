@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	
+    .box {
+      	width: 160px;
+      	background: #999;
+      	margin: 20px;
+    }
+    
+    .pre {
+      white-space: pre;
+    }
+    
+    .pre-line {
+      white-space: pre-line;
+    }
+    
+    .pre-wrap {
+      white-space: pre-wrap;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box pre">
+   this is a      block element 
+   with a long text
+  </div>
+  
+  <div class="box pre-line">
+   this is a      block element 
+   with a long text
+  </div>
+  
+  <div class="box pre-wrap">
+   this is a      block element 
+   with a long text
+  </div>
+</body>
+</html>
