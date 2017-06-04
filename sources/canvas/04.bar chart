@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	
+        
+  </style>
+</head>
+<body>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var height = canvas.height;
+    var width = canvas.width;
+    var padding = 50;
+    
+    var ySteps = 6;
+    var yRatio = -1;
+    
+    
+    var data = [
+        {name:'2012', value:1141},
+        {name:'2013', value:1499},
+        {name:'2014', value:2260},
+        {name:'2015', value:1170},
+        {name:'2016', value:970},
+        {name:'2017', value:1450}
+    ];
+    
+    
+    function drawAxis() {
+    	ctx.beginPath();
+        ctx.lineWidth = 1;
+	    ctx.strokeStyle="#f63";
+      
+      	// x axis
+        ctx.moveTo(padding, height - padding);
+        ctx.lineTo(width - padding + 10, height - padding);
+        ctx.stroke();
+      
+      	// y axis
+        ctx.moveTo(padding, height - padding);
+        ctx.lineTo(padding, padding - 10);
+        ctx.stroke()
+    }
+    
+    function _calcYaxisUnit() {
+      	var yValues = data.map(function(item){
+			return item.value;
+        });
+      
+        var yMax = Math.max.apply(null, yValues);
+      
+      	var yUnit = Math.ceil(yMax / ySteps);
+      	var pow = yUnit.toString().length - 1;
+        pow = pow > 2 ? 2 : pow;
+        yUnit = Math.ceil(yUnit / Math.pow(10, pow)) * Math.pow(10, pow);
+
+      	yRatio = (height - 2 * padding) / (ySteps * yUnit);
+      
+        return yUnit;
+    }
+    
+    function drawAxisPoint() {
+      	var xStep = Math.floor((width - padding * 2) / data.length);
+       	var yStep = Math.floor((height - padding * 2) / ySteps); 
+      
+        ctx.beginPath();
+        ctx.lineWidth = 1;
+	    ctx.strokeStyle="#f63";
+        ctx.textAlign = 'center';
+      
+      	for (var i = 0; i < data.length; i++) {
+            var xLabel = data[i].name;
+            var xOffset = xStep * (i + 1);
+            ctx.moveTo(padding + xOffset, height - padding);
+            ctx.lineTo(padding + xOffset, height - padding + 5);
+            ctx.stroke();                                     
+            ctx.fillText(xLabel, padding + xOffset - xStep / 2, height - padding + 15);  
+        }
+      	
+        ctx.textAlign = 'right';
+      	var yUnit = _calcYaxisUnit();
+      	for (var i = 0; i < ySteps; i++) {
+            var yLabel = yUnit * (i + 1);
+            var yOffset = yStep * (i + 1);
+            ctx.moveTo(padding, height - padding - yOffset);
+            ctx.lineTo(padding - 5, height - padding - yOffset);
+            ctx.stroke();     
+            ctx.fillText(yLabel, padding - 10, height - padding - yOffset + 5);  
+        }
+    }
+    
+    function drawBarChart() {
+      	var xStep = Math.floor((width - padding * 2) / data.length);
+      
+      	ctx.beginPath();
+      	ctx.fillStyle="#999";
+      	
+      	for (var i = 0; i < data.length; i++) {
+            var xOffset = xStep * (i + 1);
+
+            var barHeight = data[i].value * yRatio;
+	    	ctx.fillRect(xOffset, height - barHeight - padding, 20, barHeight);
+        }
+    }
+    
+    drawAxis();
+    drawAxisPoint();
+    drawBarChart();
+  </script>
+</body>
+</html>
