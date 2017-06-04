@@ -30,6 +30,17 @@
     ctx.strokeStyle="#f63";
     ctx.stroke();
     
+    ctx.beginPath();
+    ctx.arc(420,60,50,0,1.2*Math.PI);
+    ctx.fillStyle="#f63";
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.moveTo(420, 200);
+    ctx.arc(420,200,50,0,1.2*Math.PI);
+    ctx.fillStyle="#f63";
+    ctx.fill();
+    
     // text
     ctx.font="30px Arial";
 	ctx.fillText("Hello World",200,50);
