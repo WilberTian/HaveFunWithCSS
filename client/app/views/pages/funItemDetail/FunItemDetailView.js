@@ -91,19 +91,21 @@ define([
         render: function () {
             var self = this;
 
-            $(self.el).html(funItemDetailTemplate);
+            if(!self.editor) {
+                $(self.el).html(funItemDetailTemplate);
 
-            $('#main-space').css('flex-direction', self.defaultViewMode);
+                $('#main-space').css('flex-direction', self.defaultViewMode);
 
-            self.editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-                lineNumbers: true,
-                mode: "htmlmixed",
-                theme: "twilight"
-            });
-            self.editor.setSize("50%", "100%");
+                self.editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+                    lineNumbers: true,
+                    mode: "htmlmixed",
+                    theme: "twilight"
+                });
+                self.editor.setSize("50%", "100%");
+                
+                Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'), $('#main-space').css('flex-direction'));
+            }
             
-            Resizer.initResizer($('#dragbar'), self.editor, $('#viewer'), $('#main-space').css('flex-direction'));
-
             self.editor.setValue(self.model.toJSON().funContent);
             Backbone.trigger('runFunItemEvent');
         }
