@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	#box {
+      overflow: hidden;
+    }
+    
+    #box .item {
+   	  width: 200px;
+      height: 30px;
+      line-height: 30px;
+      background-color: #e1e1e1;
+      padding: 8px;
+      margin: 2px;
+    }
+    
+    #show-more, #hide-more {
+      display: inline-block;
+	  background-color: skyblue;
+      color: #fff;
+      padding: 4px;
+      cursor: pointer;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="box">
+  	<div class="item">
+      this is the first item
+    </div>
+    <div class="item">
+      this is the second item
+    </div>
+    <div class="item">
+      this is the third item
+    </div>
+    <div class="item">
+      this is the fourth item
+    </div>
+    <div class="item">
+      this is the fifth item
+    </div>
+  </div>
+  <span id="show-more">More</span>
+  <span id="hide-more">Hide</span>
+  
+  
+  <script>
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    
+    var itemEl = document.querySelector('.item');
+    var itemHeight = itemEl.getBoundingClientRect().height;
+    var boxEl = document.querySelector('#box');
+    var fromHeight = (itemHeight + 1) * 2;
+    var toHeight = (itemHeight + 1) * 5;
+    boxEl.style.height = fromHeight + 'px';
+    
+    
+    var toggleHeight = function(from, to) {
+      	var duration = 1000;
+        var startTime = new Date().getTime();
+        var endTime = startTime + duration;
+      
+      	var animate = function() {
+            requestAnimationFrame(function() {
+                var now = new Date().getTime();
+                if (now < endTime) {
+                    var delta = ((to - from) / duration) * (now - startTime);
+                    boxEl.style.height = (from + delta) + 'px'
+                    animate();
+                } else {
+                    boxEl.style.height = to + 'px'
+                }
+            });
+        };
+      
+    	animate();
+    }
+    
+    var showMoreEl = document.querySelector('#show-more');
+    showMoreEl.addEventListener('click', function () {
+    	toggleHeight(fromHeight, toHeight);
+    });
+    
+    var hideMoreEl = document.querySelector('#hide-more');
+    hideMoreEl.addEventListener('click', function () {
+    	toggleHeight(toHeight, fromHeight);
+    });
+    
+  </script>
+</body>
+</html>
