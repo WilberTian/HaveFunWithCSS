@@ -92,12 +92,16 @@ define([
             var funItemDetailView = Vm.create('funItemDetailView', null, null, true);
             funItemDetailView.model.set({path: funItemPath, funContent: ''}).fetch({
                 success: function(model, response) {
+                    var detailMenuView = Vm.create('detailMenuView', null, null, true);
+                    detailMenuView.model.set({folder: model.toJSON().folder, name: model.toJSON().name});
+
                     Backbone.trigger('notificationEvent', 'Fun item loaded successfully');
                 },
                 error: function(error) {
 
                 }
             });
+
         });
 
         Backbone.on('navigateEvent', function(url) {
