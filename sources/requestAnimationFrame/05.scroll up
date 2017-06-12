@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	#box {
+      width:10px;
+      height:2000px;
+      background: -webkit-linear-gradient(red, white);
+    }
+    
+    #up {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      background-color: #f63;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="box"></div>
+  <div id="up">^</div>
+  
+  <script>
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    var scrollHeight = document.documentElement.scrollHeight;
+    
+    function autoScrollUp() {
+    	var duration = 2000;
+        var startTime = new Date().getTime();
+        var endTime = startTime + duration;
+        var totalScrollDistance = document.documentElement.scrollTop;
+      
+      	var animate = function() {
+        	requestAnimationFrame(function() {
+              	var scrollTop = document.documentElement.scrollTop;
+            	var now = new Date().getTime();
+                if (now < endTime) {
+                    var delta = (totalScrollDistance / duration) * (now - startTime);
+                	scrollTop -= delta;
+                  	document.documentElement.scrollTop = scrollTop < 0 ? 0 : scrollTop;
+                  	animate();
+                } else {
+                	document.documentElement.scrollTop = 0;
+                }
+            });
+        };
+      
+      	animate();
+    }
+    
+    document.querySelector('#up').addEventListener('click', function(){
+		
+      	autoScrollUp();
+    });
+  </script>
+</body>
+</html>
