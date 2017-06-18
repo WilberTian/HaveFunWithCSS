@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .wrapper {
+    }
+    
+    .shaped-el {  
+      float: left;
+      shape-outside: circle(50%);
+      width: 200px;
+      height: 200px;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="wrapper">
+    <div class="shaped-el"></div>
+    this is the text content! this is the text content! this is the text content! this is the text content! this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! this is the text content! 
+    this is the text content! this is the text content! this is the text content! 
+  </div>
+
+</body>
+</html>
