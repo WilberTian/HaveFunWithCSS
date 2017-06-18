@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .circle {
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      clip-path: circle(20px at 100px 100px);
+    }
+    
+    .rect {
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      clip-path: inset(30px 100px 100px 20px);
+    }
+    
+    .r-rect {
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      clip-path: inset(10% round 10% 50% 10% 50%);
+    }
+    
+    .triangle {
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      clip-path: polygon(50% 0, 0 100%, 100% 0);
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="circle"></div>
+  
+  <div class="rect"></div>
+  
+  <div class="r-rect"></div>
+  
+  <div class="triangle"></div>
+
+</body>
+</html>
