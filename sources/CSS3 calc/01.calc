@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    *{
+      margin: 0px; 
+      padding: 0px;
+    }
+    
+    
+    
+	.wrapper {
+      margin: 40px;
+      width: 600px;
+      height: 400px;
+      background-color: #f1f1f1;
+    }
+    
+    .box {
+      float: left;
+      width: calc(100% / 4 - 16px - 2px);
+      height: 40px;
+      margin-right: calc(16px * 4 / 3);
+      margin-bottom: calc(16px * 4 / 3);
+      border: 1px solid #f63;
+    }
+    
+    .box:nth-child(4) { 
+      margin-right: 0px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</body>
+</html>
