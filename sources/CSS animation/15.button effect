@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <style>
+    body {
+      margin: 100px;
+    }
+    
+    @keyframes button-effect1{
+      0% { 
+      	box-shadow: 0 0 0px 0px #f63;
+      }
+	  100% { 
+      	box-shadow: 0 0 10px 1px #f63;
+      }
+     
+    }
+    
+    @keyframes button-effect2{
+      0% { 
+      	border: none;
+      }
+	  100% { 
+      	border: 6px solid #f63;
+        opacity: 0;
+        top: -6px;
+        left: -6px;
+        bottom: -6px;
+        right: -6px;
+      }
+     
+    }
+    
+    .btn {
+      position: relative;
+      width: 80px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      border: 2px solid #f63;
+      color: #f63;
+      margin: 20px;
+    }
+    
+    .btn-clicked1 {
+      animation: button-effect1 .2s ease;
+      -webkit-animation: button-effect1 .2s ease;	
+    }
+    
+    .btn-clicked2::after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      height: 100%;
+      width: 100%;
+      animation: button-effect2 .4s linear;
+      -webkit-animation: button-effect2 .4s linear;	
+    }
+  </style>
+</head>
+<body>
+  <div class="btn" id="btn1">
+    button
+  </div>
+  
+  <div class="btn" id="btn2">
+    button
+  </div>
+  
+  <script>
+    var btnEl1 = document.querySelector('#btn1');
+    btnEl1.addEventListener('click', function(){
+    	btnEl1.className += ' btn-clicked1';
+    });
+    
+    btnEl1.addEventListener("webkitAnimationEnd", function() {
+        btnEl1.className = "btn";
+    })
+    
+    var btnEl2 = document.querySelector('#btn2');
+    btnEl2.addEventListener('click', function(){
+    	btnEl2.className += ' btn-clicked2';
+    });
+    
+    btnEl2.addEventListener("webkitAnimationEnd", function() {
+        btnEl2.className = "btn";
+    })
+  </script>
+</body>
+</html>
