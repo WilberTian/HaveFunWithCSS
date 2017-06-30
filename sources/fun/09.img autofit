@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box {
+      width: 400px;
+      height: 200px;
+      margin: 40px;
+      background-color: #999;
+    }
+    
+    .box img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: auto;
+    }
+    
+    
+  </style>
+</head>
+<body>
+	<div class="box">
+      	<img src="sources/image-slider/static/images/1.jpg" />
+    </div>
+</body>
+</html>
