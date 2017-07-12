@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .box-x {
+      margin: 60px;
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      transition: all .6s;
+    }
+    
+    .box-x:hover{
+      transform:rotateX(90deg);
+    }
+    
+    .box-y {
+      margin: 60px;
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      transition: all .6s;
+    }
+    
+    .box-y:hover{
+      transform:rotateY(90deg);
+    }
+    
+    .box-z {
+      margin: 60px;
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      transition: all .6s;
+    }
+    
+    .box-z:hover{
+      transform:rotateZ(90deg);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box-x"></div>
+  <div class="box-y"></div>
+  <div class="box-z"></div>
+
+</body>
+</html>
+

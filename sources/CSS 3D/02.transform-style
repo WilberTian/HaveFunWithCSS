@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    .box-3d {
+      margin: 60px;
+      width: 200px;
+      height: 200px;
+      background-color: #e1e1e1;
+      transform-style: preserve-3d;
+    }
+    
+    .box-3d:hover{
+      animation:spin 5s linear infinite;
+    }
+    
+    .box {
+      margin: 60px;
+      width: 200px;
+      height: 200px;
+      background-color: #e1e1e1;
+    }
+    
+    .box:hover{
+      animation:spin 5s linear infinite;
+    }
+    
+    @keyframes spin{
+      0%{ transform:rotateY(0deg) }
+      100%{ transform:rotateY(360deg) }
+    }
+    
+    .inner {
+      width: 200px;
+      height: 200px;
+      background-color: #999;
+      border: 1px solid green; 
+      transform: rotateX(15deg) rotateY(20deg) translateZ(90px); 
+      transform-origin: 0 0 40px;
+    }
+    
+  </style>
+</head>
+<body>
+	
+  <div class="box-3d">
+    <div class="inner"></div>
+  </div>
+  <div class="box">
+    <div class="inner"></div>
+  </div>
+
+</body>
+</html>
+
