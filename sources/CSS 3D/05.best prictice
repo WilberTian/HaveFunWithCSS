@@ -1,0 +1,16 @@
+<!-- 最外层容器，控制图形的位置及在整个页面上的布局 -->
+<div class="container">
+    <!-- 舞台层，设置 preserve-3d 和 perspective 视距  -->
+    <div class="stage">
+        <!-- 控制层，动画的控制层，通过这一层可以添加旋转动画或者触摸动画 -->
+        <div class="control">
+            <!-- 图片层，装入我们要拼接的图片 -->
+            <div class="imgWrap">
+                <div class="img img1"></div>
+                <div class="img img2"></div>
+                <div class="img img3"></div>
+                <div class="img img4"></div>
+            </div>
+        </div>
+    </div>
+</div>
