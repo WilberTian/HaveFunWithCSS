@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      margin: 100px;
+      width: 200px;
+      height: 100px;
+      perspective: 500px;
+    }
+    
+	.stage {
+      position:relative;
+      width: 200px;
+      height: 100px;
+      transition: all 1s;
+      transform-style: preserve-3d;
+    }
+    
+    .banner {
+      position:absolute;
+      width: 200px;
+      height: 100px;
+    }
+    
+    .banner-front {
+      background-color: #f63;
+      transform: translateZ(50px);
+    }
+    
+    .banner-bottom {
+      background-color: #21BA45;
+      transform: rotateX(-90deg) translateZ(50px);
+    }
+    
+    .stage:hover {
+      transform: rotateX(90deg);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="stage">
+      <div class="banner banner-front">
+          banner-front
+      </div>
+	  <div class="banner banner-bottom">
+          banner-bottom
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
