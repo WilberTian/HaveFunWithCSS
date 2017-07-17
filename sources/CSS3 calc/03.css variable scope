@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    :root{
+      --bgColor:#f63;
+    }
+    
+    .box{
+      width: 100px;
+      height: 100px;
+      margin: 100px;
+      --bgColor: aliceblue; 
+      background:var(--bgColor);
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  
+</body>
+</html>
