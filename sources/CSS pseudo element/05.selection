@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    ::selection{
+    	color: #fff;
+        background-color: #f63;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+	this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. 
+    this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. 
+    this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. 
+    this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. this is the text content, select the text to see the effect. 
+  </p>
+</body>
+
+</html>
