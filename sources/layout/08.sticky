@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	.box {
+      margin: 40px;
+      width: 400px;
+      height: 400px;
+      background-color: #f63;
+    }
+    
+    .sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box">
+  	<div class="sticky">
+    </div>
+  </div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</body>
+</html>
