@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div::after {
+      content: attr(title);
+    }
+    
+  </style>
+</head>
+<body>
+	<div title="在支持content属性的浏览器中能看到我被显示了"></div>
+  
+</body>
+</html>
