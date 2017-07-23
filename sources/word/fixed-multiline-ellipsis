@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+	body {
+      padding: 30px;
+    }
+    
+    .box {
+	  width: 240px;
+      height: 54px;
+      line-height: 18px;
+      background: #e1e1e1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+  </style>
+</head>
+<body>
+	<div class="box multiline-ellipsis">
+      this is a very long text! this is a very long text! this is a very long text!
+      this is a very long text! this is a very long text! this is a very long text!
+      this is a very long text! this is a very long text! this is a very long text!
+      this is a very long text! this is a very long text! this is a very long text!
+    </div>
+</body>
+</html>
