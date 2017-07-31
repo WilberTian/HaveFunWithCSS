@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .wrapper {
+      font-size: 48px;
+      border: 1px solid #999;
+      margin: 20px;
+    }
+	.inner {
+      font-size: 24px;
+    }
+    
+    .lh {
+      line-height: 1.5;
+    }
+    
+    .lh-percent {
+      line-height: 150%;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper lh">
+    <div class="inner">
+      font size is 24px
+    </div>
+  </div>
+  
+  <div class="wrapper lh-percent">
+    <div class="inner">
+      font size is 24px
+    </div>
+  </div>
+</body>
+</html>
+
