@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @font-face {
+      font-family: youyuan;
+      src: url('sources/CSS3 func/static/youyuan.ttf');
+    }
+
+    .container {
+      font-family: youyuan
+    }
+  </style>
+</head>
+<body>
+	<span class="container">
+      这些文字的样式是幼圆
+    </span>
+  	<br />
+    <span>
+      这些文字的样式是默认样式
+    </span>
+  
+</body>
+</html>
