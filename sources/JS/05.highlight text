@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .highlight {
+    	color: red;
+    }
+  </style>
+</head>
+<body>
+  <span class="text-content">
+    this is the text content and the text word will be highlighted.
+  </span>
+  
+  <script>
+    var el = document.querySelector('.text-content');
+    
+    el.innerHTML = highlight(el.innerHTML, ['text']);
+    
+    function highlight(text, words, tag) {
+
+      // Default tag if no tag is provided
+      tag = tag || 'span';
+
+      var i, len = words.length, re;
+      for (i = 0; i < len; i++) {
+        // Global regex to highlight all matches
+        re = new RegExp(words[i], 'g');
+        if (re.test(text)) {
+          text = text.replace(re, '<'+ tag +' class="highlight">$&</'+ tag +'>');
+        }
+      }
+
+      return text;
+    }
+    
+    function unhighlight(text, tag) {
+      // Default tag if no tag is provided
+      tag = tag || 'span';
+      var re = new RegExp('(<'+ tag +'.+?>|<\/'+ tag +'>)', 'g');
+      return text.replace(re, '');
+    }
+  </script>
+</body>  
+</html>
