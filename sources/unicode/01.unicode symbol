@@ -1,0 +1,351 @@
+<pre>
+这些字符属于unicode字符集，所以，你的文档需要声明为UTF-8；
+下面符号列表的后面有两列编号，它们并不太一样，第一列是用于HTML的，你需要在前面加上&#符号；
+第二列可以用于CSS文件中，但是需要用反斜杠\转义；
+第二列也可以用于JavaScript，和CSS用法一样，不过要用\u来转义。
+</pre>
+
+<h3>各种箭头</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">⇠</strong> <em>8672</em> <em>21E0</em></li>
+<li><strong style="display:inline-block;width:2em">⇢</strong> <em>8674</em> <em>21E2</em></li>
+<li><strong style="display:inline-block;width:2em">⇡</strong> <em>8673</em> <em>21E1</em></li>
+<li><strong style="display:inline-block;width:2em">⇣</strong> <em>8675</em> <em>21E3</em></li>
+<li><strong style="display:inline-block;width:2em">↞</strong> <em>8606</em> <em>219E</em></li>
+<li><strong style="display:inline-block;width:2em">↠</strong> <em>8608</em> <em>21A0</em></li>
+<li><strong style="display:inline-block;width:2em">↟</strong> <em>8607</em> <em>219F</em></li>
+<li><strong style="display:inline-block;width:2em">↡</strong> <em>8609</em> <em>21A1</em></li>
+<li><strong style="display:inline-block;width:2em">←</strong> <em>8592</em> <em>2190</em></li>
+<li><strong style="display:inline-block;width:2em">→</strong> <em>8594</em> <em>2192</em></li>
+<li><strong style="display:inline-block;width:2em">↑</strong> <em>8593</em> <em>2191</em></li>
+<li><strong style="display:inline-block;width:2em">↓</strong> <em>8595</em> <em>2193</em></li>
+<li><strong style="display:inline-block;width:2em">↔</strong> <em>8596</em> <em>2194</em></li>
+<li><strong style="display:inline-block;width:2em">↕</strong> <em>8597</em> <em>2195</em></li>
+<li><strong style="display:inline-block;width:2em">⇄</strong> <em>8644</em> <em>21C4</em></li>
+<li><strong style="display:inline-block;width:2em">⇅</strong> <em>8645</em> <em>21C5</em></li>
+<li><strong style="display:inline-block;width:2em">↢</strong> <em>8610</em> <em>21A2</em></li>
+<li><strong style="display:inline-block;width:2em">↣</strong> <em>8611</em> <em>21A3</em></li>
+<li><strong style="display:inline-block;width:2em">⇞</strong> <em>8670</em> <em>21DE</em></li>
+<li><strong style="display:inline-block;width:2em">⇟</strong> <em>8671</em> <em>21DF</em></li>
+<li><strong style="display:inline-block;width:2em">↫</strong> <em>8619</em> <em>21AB</em></li>
+<li><strong style="display:inline-block;width:2em">↬</strong> <em>8620</em> <em>21AC</em></li>
+<li><strong style="display:inline-block;width:2em">⇜</strong> <em>8668</em> <em>21DC</em></li>
+<li><strong style="display:inline-block;width:2em">⇝</strong> <em>8669</em> <em>21DD</em></li>
+<li><strong style="display:inline-block;width:2em">↚</strong> <em>8602</em> <em>219A</em></li>
+<li><strong style="display:inline-block;width:2em">↛</strong> <em>8603</em> <em>219B</em></li>
+<li><strong style="display:inline-block;width:2em">↮</strong> <em>8622</em> <em>21AE</em></li>
+<li><strong style="display:inline-block;width:2em">↭</strong> <em>8621</em> <em>21AD</em></li>
+</ul>
+<h3>形状</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">⇦</strong> <em>8678</em> <em>21E6</em></li>
+<li><strong style="display:inline-block;width:2em">⇨</strong> <em>8680</em> <em>21E8</em></li>
+<li><strong style="display:inline-block;width:2em">⇧</strong> <em>8679</em> <em>21E7</em></li>
+<li><strong style="display:inline-block;width:2em">⇩</strong> <em>8681</em> <em>21E9</em></li>
+<li><strong style="display:inline-block;width:2em">↷</strong> <em>8631</em> <em>21B7</em></li>
+<li><strong style="display:inline-block;width:2em">↶</strong> <em>8630</em> <em>21B6</em></li>
+<li><strong style="display:inline-block;width:2em">↻</strong> <em>8635</em> <em>21BB</em></li>
+<li><strong style="display:inline-block;width:2em">↺</strong> <em>8634</em> <em>21BA</em></li>
+<li><strong style="display:inline-block;width:2em">⟳</strong> <em>10227</em> <em>27F3</em></li>
+<li><strong style="display:inline-block;width:2em">⟲</strong> <em>10226</em> <em>27F2</em></li>
+<li><strong style="display:inline-block;width:2em">⟰</strong> <em>10224</em> <em>27F0</em></li>
+<li><strong style="display:inline-block;width:2em">⟱</strong> <em>10225</em> <em>27F1</em></li>
+<li><strong style="display:inline-block;width:2em">↵</strong> <em>8629</em> <em>21B5</em></li>
+<li><strong style="display:inline-block;width:2em">↯</strong> <em>8623</em> <em>21AF</em></li>
+<li><strong style="display:inline-block;width:2em">⇵</strong> <em>8693</em> <em>21F5</em></li>
+</ul>
+<h3>向右的箭头</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">➔</strong> <em>10132</em> <em>2794</em></li>
+<li><strong style="display:inline-block;width:2em">➙</strong> <em>10137</em> <em>2799</em></li>
+<li><strong style="display:inline-block;width:2em">➨</strong> <em>10152</em> <em>27A8</em></li>
+<li><strong style="display:inline-block;width:2em">➲</strong> <em>10162</em> <em>27B2</em></li>
+<li><strong style="display:inline-block;width:2em">➜</strong> <em>10140</em> <em>279C</em></li>
+<li><strong style="display:inline-block;width:2em">➞</strong> <em>10142</em> <em>279E</em></li>
+<li><strong style="display:inline-block;width:2em">➟</strong> <em>10143</em> <em>279F</em></li>
+<li><strong style="display:inline-block;width:2em">➠</strong> <em>10144</em> <em>27A0</em></li>
+<li><strong style="display:inline-block;width:2em">➤</strong> <em>10148</em> <em>27A4</em></li>
+<li><strong style="display:inline-block;width:2em">➥</strong> <em>10149</em> <em>27A5</em></li>
+<li><strong style="display:inline-block;width:2em">➦</strong> <em>10150</em> <em>27A6</em></li>
+<li><strong style="display:inline-block;width:2em">➧</strong> <em>10151</em> <em>27A7</em></li>
+<li><strong style="display:inline-block;width:2em">➵</strong> <em>10165</em> <em>27B5</em></li>
+<li><strong style="display:inline-block;width:2em">➸</strong> <em>10168</em> <em>27B8</em></li>
+<li><strong style="display:inline-block;width:2em">➼</strong> <em>10172</em> <em>27BC</em></li>
+<li><strong style="display:inline-block;width:2em">➽</strong> <em>10173</em> <em>27BD</em></li>
+<li><strong style="display:inline-block;width:2em">➺</strong> <em>10170</em> <em>27BA</em></li>
+<li><strong style="display:inline-block;width:2em">➳</strong> <em>10163</em> <em>27B3</em></li>
+<li><strong style="display:inline-block;width:2em">➾</strong> <em>10174</em> <em>27BE</em></li>
+</ul>
+<h3>基本形状</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">▲</strong> <em>9650</em> <em>25B2</em></li>
+<li><strong style="display:inline-block;width:2em">►</strong> <em>9658</em> <em>25BA</em></li>
+<li><strong style="display:inline-block;width:2em">▼</strong> <em>9660</em> <em>25BC</em></li>
+<li><strong style="display:inline-block;width:2em">◄</strong> <em>9668</em> <em>25C4</em></li>
+<li><strong style="display:inline-block;width:2em">❤</strong> <em>10084</em> <em>2764</em></li>
+<li><strong style="display:inline-block;width:2em">✈</strong> <em>9992</em> <em>2708</em></li>
+<li><strong style="display:inline-block;width:2em">★</strong> <em>9733</em> <em>2605</em></li>
+<li><strong style="display:inline-block;width:2em">✦</strong> <em>10022</em> <em>2726</em></li>
+<li><strong style="display:inline-block;width:2em">☀</strong> <em>9728</em> <em>2600</em></li>
+<li><strong style="display:inline-block;width:2em">◆</strong> <em>9670</em> <em>25C6</em></li>
+<li><strong style="display:inline-block;width:2em">◈</strong> <em>9672</em> <em>25C8</em></li>
+<li><strong style="display:inline-block;width:2em">▣</strong> <em>9635</em> <em>25A3</em></li>
+</ul>
+<h3>标点</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">«</strong> <em>171</em> <em>00AB</em></li>
+<li><strong style="display:inline-block;width:2em">»</strong> <em>187</em> <em>00BB</em></li>
+<li><strong style="display:inline-block;width:2em">‹</strong> <em>139</em> <em>008B</em></li>
+<li><strong style="display:inline-block;width:2em">›</strong> <em>155</em> <em>009B</em></li>
+<li><strong style="display:inline-block;width:2em">&#8220;</strong> <em>8220</em> <em>201C</em></li>
+<li><strong style="display:inline-block;width:2em">&#8220;</strong> <em>8221</em> <em>201D</em></li>
+<li><strong style="display:inline-block;width:2em">&#8216;</strong> <em>8216</em> <em>2018</em></li>
+<li><strong style="display:inline-block;width:2em">&#8216;</strong> <em>8217</em> <em>2019</em></li>
+<li><strong style="display:inline-block;width:2em">•</strong> <em>8226</em> <em>2022</em></li>
+<li><strong style="display:inline-block;width:2em">◦</strong> <em>9702</em> <em>25E6</em></li>
+<li><strong style="display:inline-block;width:2em">¡</strong> <em>161</em> <em>00A1</em></li>
+<li><strong style="display:inline-block;width:2em">¿</strong> <em>191</em> <em>00BF</em></li>
+<li><strong style="display:inline-block;width:2em">℅</strong> <em>8453</em> <em>2105</em></li>
+<li><strong style="display:inline-block;width:2em">№</strong> <em>8470</em> <em>2116</em></li>
+<li><strong style="display:inline-block;width:2em">&amp;</strong> <em>38</em> <em>0026</em></li>
+<li><strong style="display:inline-block;width:2em">@</strong> <em>64</em> <em>0040</em></li>
+<li><strong style="display:inline-block;width:2em">℞</strong> <em>8478</em> <em>211E</em></li>
+<li><strong style="display:inline-block;width:2em">℃</strong> <em>8451</em> <em>2103</em></li>
+<li><strong style="display:inline-block;width:2em">℉</strong> <em>8457</em> <em>2109</em></li>
+<li><strong style="display:inline-block;width:2em">°</strong> <em>176</em> <em>00B0</em></li>
+<li><strong style="display:inline-block;width:2em">|</strong> <em>124</em> <em>007C</em></li>
+<li><strong style="display:inline-block;width:2em">¦</strong> <em>166</em> <em>00A6</em></li>
+<li><strong style="display:inline-block;width:2em">–</strong> <em>8211</em> <em>2013</em></li>
+<li><strong style="display:inline-block;width:2em">—</strong> <em>8212</em> <em>2014</em></li>
+<li><strong style="display:inline-block;width:2em">…</strong> <em>8230</em> <em>2026</em></li>
+<li><strong style="display:inline-block;width:2em">¶</strong> <em>182</em> <em>00B6</em></li>
+<li><strong style="display:inline-block;width:2em">∼</strong> <em>8764</em> <em>223C</em></li>
+<li><strong style="display:inline-block;width:2em">≠</strong> <em>8800</em> <em>2260</em></li>
+</ul>
+<h3>法律符号</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">®</strong> <em>174</em> <em>00AE</em></li>
+<li><strong style="display:inline-block;width:2em">©</strong> <em>169</em> <em>00A9</em></li>
+<li><strong style="display:inline-block;width:2em">℗</strong> <em>8471</em> <em>2117</em></li>
+<li><strong style="display:inline-block;width:2em">™</strong> <em>153</em> <em>0099</em></li>
+<li><strong style="display:inline-block;width:2em">℠</strong> <em>8480</em> <em>2120</em></li>
+</ul>
+<h3>货币</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">$</strong> <em>36</em> <em>0024</em></li>
+<li><strong style="display:inline-block;width:2em">¢</strong> <em>162</em> <em>00A2</em></li>
+<li><strong style="display:inline-block;width:2em">£</strong> <em>163</em> <em>00A3</em></li>
+<li><strong style="display:inline-block;width:2em">¤</strong> <em>164</em> <em>00A4</em></li>
+<li><strong style="display:inline-block;width:2em">€</strong> <em>8364</em> <em>20AC</em></li>
+<li><strong style="display:inline-block;width:2em">¥</strong> <em>165</em> <em>00A5</em></li>
+<li><strong style="display:inline-block;width:2em">₱</strong> <em>8369</em> <em>20B1</em></li>
+<li><strong style="display:inline-block;width:2em">₹</strong> <em>8377</em> <em>20B9</em></li>
+</ul>
+<h3>数学</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">½</strong> <em>189</em> <em>00BD</em></li>
+<li><strong style="display:inline-block;width:2em">¼</strong> <em>188</em> <em>00BC</em></li>
+<li><strong style="display:inline-block;width:2em">¾</strong> <em>190</em> <em>00BE</em></li>
+<li><strong style="display:inline-block;width:2em">⅓</strong> <em>8531</em> <em>2153</em></li>
+<li><strong style="display:inline-block;width:2em">⅔</strong> <em>8532</em> <em>2154</em></li>
+<li><strong style="display:inline-block;width:2em">⅛</strong> <em>8539</em> <em>215B</em></li>
+<li><strong style="display:inline-block;width:2em">⅜</strong> <em>8540</em> <em>215C</em></li>
+<li><strong style="display:inline-block;width:2em">⅝</strong> <em>8541</em> <em>215D</em></li>
+<li><strong style="display:inline-block;width:2em">‰</strong> <em>8240</em> <em>2030</em></li>
+<li><strong style="display:inline-block;width:2em">%</strong> <em>37</em> <em>0025</em></li>
+<li><strong style="display:inline-block;width:2em">&lt;</strong> <em>60</em> <em>003C</em></li>
+<li><strong style="display:inline-block;width:2em">&gt;</strong> <em>62</em> <em>003E</em></li>
+</ul>
+<h3>音乐符号</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">♩</strong> <em>9833</em> <em>2669</em></li>
+<li><strong style="display:inline-block;width:2em">♪</strong> <em>9834</em> <em>266A</em></li>
+<li><strong style="display:inline-block;width:2em">♫</strong> <em>9835</em> <em>266B</em></li>
+<li><strong style="display:inline-block;width:2em">♬</strong> <em>9836</em> <em>266C</em></li>
+<li><strong style="display:inline-block;width:2em">♭</strong> <em>9837</em> <em>266D</em></li>
+<li><strong style="display:inline-block;width:2em">♯</strong> <em>9839</em> <em>266F</em></li>
+</ul>
+<h3>对号、错号</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em"> </strong> <em>160</em> <em>00A0</em></li>
+<li><strong style="display:inline-block;width:2em">☐</strong> <em>9744</em> <em>2610</em></li>
+<li><strong style="display:inline-block;width:2em">☑</strong> <em>9745</em> <em>2611</em></li>
+<li><strong style="display:inline-block;width:2em">☒</strong> <em>9746</em> <em>2612</em></li>
+<li><strong style="display:inline-block;width:2em">✓</strong> <em>10003</em> <em>2713</em></li>
+<li><strong style="display:inline-block;width:2em">✔</strong> <em>10004</em> <em>2714</em></li>
+<li><strong style="display:inline-block;width:2em">✕</strong> <em>10005</em> <em>10005</em></li>
+<li><strong style="display:inline-block;width:2em">✖</strong> <em>10006</em> <em>2716</em></li>
+<li><strong style="display:inline-block;width:2em">✗</strong> <em>10007</em> <em>2717</em></li>
+<li><strong style="display:inline-block;width:2em">✘</strong> <em>10008</em> <em>2718</em></li>
+</ul>
+<h3>十字</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">☨</strong> <em>9768</em> <em>2628</em></li>
+<li><strong style="display:inline-block;width:2em">☩</strong> <em>9769</em> <em>2629</em></li>
+<li><strong style="display:inline-block;width:2em">✝</strong> <em>10013</em> <em>271D</em></li>
+<li><strong style="display:inline-block;width:2em">✞</strong> <em>10014</em> <em>271E</em></li>
+<li><strong style="display:inline-block;width:2em">✟</strong> <em>10015</em> <em>271F</em></li>
+<li><strong style="display:inline-block;width:2em">✠</strong> <em>10016</em> <em>2720</em></li>
+<li><strong style="display:inline-block;width:2em">✚</strong> <em>10010</em> <em>271A</em></li>
+<li><strong style="display:inline-block;width:2em">†</strong> <em>8224</em> <em>2020</em></li>
+<li><strong style="display:inline-block;width:2em">✢</strong> <em>10018</em> <em>2722</em></li>
+<li><strong style="display:inline-block;width:2em">✤</strong> <em>10020</em> <em>2724</em></li>
+<li><strong style="display:inline-block;width:2em">✣</strong> <em>10019</em> <em>2723</em></li>
+<li><strong style="display:inline-block;width:2em">✥</strong> <em>10021</em> <em>2725</em></li>
+</ul>
+<h3>星星、星号、雪花</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">★</strong> <em>9733</em> <em>2605</em></li>
+<li><strong style="display:inline-block;width:2em">✭</strong> <em>10029</em> <em>272D</em></li>
+<li><strong style="display:inline-block;width:2em">✮</strong> <em>10030</em> <em>272E</em></li>
+<li><strong style="display:inline-block;width:2em">☆</strong> <em>9734</em> <em>2606</em></li>
+<li><strong style="display:inline-block;width:2em">✪</strong> <em>10026</em> <em>272A</em></li>
+<li><strong style="display:inline-block;width:2em">✡</strong> <em>10017</em> <em>2721</em></li>
+<li><strong style="display:inline-block;width:2em">✯</strong> <em>10031</em> <em>272F</em></li>
+<li><strong style="display:inline-block;width:2em">✵</strong> <em>10037</em> <em>2735</em></li>
+<li><strong style="display:inline-block;width:2em">✶</strong> <em>10038</em> <em>2736</em></li>
+<li><strong style="display:inline-block;width:2em">✸</strong> <em>10040</em> <em>2738</em></li>
+<li><strong style="display:inline-block;width:2em">✹</strong> <em>10041</em> <em>2739</em></li>
+<li><strong style="display:inline-block;width:2em">✺</strong> <em>10042</em> <em>273A</em></li>
+<li><strong style="display:inline-block;width:2em">✱</strong> <em>10033</em> <em>2731</em></li>
+<li><strong style="display:inline-block;width:2em">✲</strong> <em>10034</em> <em>2732</em></li>
+<li><strong style="display:inline-block;width:2em">✴</strong> <em>10036</em> <em>2734</em></li>
+<li><strong style="display:inline-block;width:2em">✳</strong> <em>10035</em> <em>2733</em></li>
+<li><strong style="display:inline-block;width:2em">✻</strong> <em>10043</em> <em>273B</em></li>
+<li><strong style="display:inline-block;width:2em">✽</strong> <em>10045</em> <em>273D</em></li>
+<li><strong style="display:inline-block;width:2em">❋</strong> <em>10059</em> <em>274B</em></li>
+<li><strong style="display:inline-block;width:2em">❆</strong> <em>10054</em> <em>2746</em></li>
+<li><strong style="display:inline-block;width:2em">❄</strong> <em>10052</em> <em>2744</em></li>
+<li><strong style="display:inline-block;width:2em">❅</strong> <em>10053</em> <em>2745</em></li>
+</ul>
+<h3>杂项</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">☻</strong> <em>9787</em> <em>263B</em></li>
+<li><strong style="display:inline-block;width:2em">☺</strong> <em>9786</em> <em>263A</em></li>
+<li><strong style="display:inline-block;width:2em">☹</strong> <em>9785</em> <em>2639</em></li>
+<li><strong style="display:inline-block;width:2em">✉</strong> <em>9993</em> <em>2709</em></li>
+<li><strong style="display:inline-block;width:2em">☎</strong> <em>9742</em> <em>260E</em></li>
+<li><strong style="display:inline-block;width:2em">☏</strong> <em>9743</em> <em>260F</em></li>
+<li><strong style="display:inline-block;width:2em">✆</strong> <em>9990</em> <em>2706</em></li>
+<li><strong style="display:inline-block;width:2em">�</strong> <em>65533</em> <em>FFFD</em></li>
+<li><strong style="display:inline-block;width:2em">☁</strong> <em>9729</em> <em>2601</em></li>
+<li><strong style="display:inline-block;width:2em">☂</strong> <em>9730</em> <em>2602</em></li>
+<li><strong style="display:inline-block;width:2em">❄</strong> <em>10052</em> <em>2744</em></li>
+<li><strong style="display:inline-block;width:2em">☃</strong> <em>9731</em> <em>2603</em></li>
+<li><strong style="display:inline-block;width:2em">❈</strong> <em>10056</em> <em>2748</em></li>
+<li><strong style="display:inline-block;width:2em">✿</strong> <em>10047</em> <em>273F</em></li>
+<li><strong style="display:inline-block;width:2em">❀</strong> <em>10048</em> <em>2740</em></li>
+<li><strong style="display:inline-block;width:2em">❁</strong> <em>10049</em> <em>2741</em></li>
+<li><strong style="display:inline-block;width:2em">☘</strong> <em>9752</em> <em>2618</em></li>
+<li><strong style="display:inline-block;width:2em">❦</strong> <em>10086</em> <em>2766</em></li>
+<li><strong style="display:inline-block;width:2em">☕</strong> <em>9749</em> <em>9749</em></li>
+<li><strong style="display:inline-block;width:2em">❂</strong> <em>10050</em> <em>2742</em></li>
+<li><strong style="display:inline-block;width:2em">☥</strong> <em>9765</em> <em>2625</em></li>
+<li><strong style="display:inline-block;width:2em">☮</strong> <em>9774</em> <em>262E</em></li>
+<li><strong style="display:inline-block;width:2em">☯</strong> <em>9775</em> <em>262F</em></li>
+<li><strong style="display:inline-block;width:2em">☪</strong> <em>9770</em> <em>262A</em></li>
+<li><strong style="display:inline-block;width:2em">☤</strong> <em>9764</em> <em>2624</em></li>
+<li><strong style="display:inline-block;width:2em">✄</strong> <em>9988</em> <em>2704</em></li>
+<li><strong style="display:inline-block;width:2em">✂</strong> <em>9986</em> <em>2702</em></li>
+<li><strong style="display:inline-block;width:2em">☸</strong> <em>9784</em> <em>2638</em></li>
+<li><strong style="display:inline-block;width:2em">⚓</strong> <em>9875</em> <em>2693</em></li>
+<li><strong style="display:inline-block;width:2em">☣</strong> <em>9763</em> <em>2623</em></li>
+<li><strong style="display:inline-block;width:2em">⚠</strong> <em>9888</em> <em>26A0</em></li>
+<li><strong style="display:inline-block;width:2em">⚡</strong> <em>9889</em> <em>26A1</em></li>
+<li><strong style="display:inline-block;width:2em">☢</strong> <em>9762</em> <em>2622</em></li>
+<li><strong style="display:inline-block;width:2em">♻</strong> <em>9851</em> <em>267B</em></li>
+<li><strong style="display:inline-block;width:2em">♿</strong> <em>9855</em> <em>267F</em></li>
+<li><strong style="display:inline-block;width:2em">☠</strong> <em>9760</em> <em>2620</em></li>
+</ul>
+<h3>手型、铅笔、笔</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">☜</strong> <em>9756</em> <em>261C</em></li>
+<li><strong style="display:inline-block;width:2em">☞</strong> <em>9758</em> <em>261E</em></li>
+<li><strong style="display:inline-block;width:2em">☝</strong> <em>9757</em> <em>261D</em></li>
+<li><strong style="display:inline-block;width:2em">☟</strong> <em>9759</em> <em>261F</em></li>
+<li><strong style="display:inline-block;width:2em">✌</strong> <em>9996</em> <em>270C</em></li>
+<li><strong style="display:inline-block;width:2em">✍</strong> <em>9997</em> <em>270D</em></li>
+<li><strong style="display:inline-block;width:2em">✎</strong> <em>9998</em> <em>270E</em></li>
+<li><strong style="display:inline-block;width:2em">✐</strong> <em>10000</em> <em>2710</em></li>
+<li><strong style="display:inline-block;width:2em">✏</strong> <em>9999</em> <em>270F</em></li>
+<li><strong style="display:inline-block;width:2em">✑</strong> <em>10001</em> <em>2711</em></li>
+<li><strong style="display:inline-block;width:2em">✒</strong> <em>10002</em> <em>2712</em></li>
+</ul>
+<h3>天空、植物</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">☽</strong> <em>9789</em> <em>263D</em></li>
+<li><strong style="display:inline-block;width:2em">☾</strong> <em>9790</em> <em>263E</em></li>
+<li><strong style="display:inline-block;width:2em">♂</strong> <em>9794</em> <em>2642</em></li>
+<li><strong style="display:inline-block;width:2em">♀</strong> <em>9792</em> <em>2640</em></li>
+<li><strong style="display:inline-block;width:2em">☿</strong> <em>9791</em> <em>263F</em></li>
+<li><strong style="display:inline-block;width:2em">♁</strong> <em>9793</em> <em>2641</em></li>
+<li><strong style="display:inline-block;width:2em">♃</strong> <em>9795</em> <em>2643</em></li>
+<li><strong style="display:inline-block;width:2em">♄</strong> <em>9796</em> <em>2644</em></li>
+<li><strong style="display:inline-block;width:2em">♅</strong> <em>9797</em> <em>2645</em></li>
+<li><strong style="display:inline-block;width:2em">♆</strong> <em>9798</em> <em>2646</em></li>
+<li><strong style="display:inline-block;width:2em">♇</strong> <em>9799</em> <em>2647</em></li>
+</ul>
+<h3>星座</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">♈</strong> <em>9800</em> <em>2648</em></li>
+<li><strong style="display:inline-block;width:2em">♉</strong> <em>9801</em> <em>2649</em></li>
+<li><strong style="display:inline-block;width:2em">♊</strong> <em>9802</em> <em>264A</em></li>
+<li><strong style="display:inline-block;width:2em">♋</strong> <em>9803</em> <em>264B</em></li>
+<li><strong style="display:inline-block;width:2em">♌</strong> <em>9804</em> <em>264C</em></li>
+<li><strong style="display:inline-block;width:2em">♍</strong> <em>9805</em> <em>264D</em></li>
+<li><strong style="display:inline-block;width:2em">♎</strong> <em>9806</em> <em>264E</em></li>
+<li><strong style="display:inline-block;width:2em">♏</strong> <em>9807</em> <em>264F</em></li>
+<li><strong style="display:inline-block;width:2em">♑</strong> <em>9809</em> <em>2651</em></li>
+<li><strong style="display:inline-block;width:2em">♒</strong> <em>9810</em> <em>2652</em></li>
+<li><strong style="display:inline-block;width:2em">♓</strong> <em>9811</em> <em>2653</em></li>
+</ul>
+<h3>象棋，扑克牌</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">♚</strong> <em>9818</em> <em>265A</em></li>
+<li><strong style="display:inline-block;width:2em">♛</strong> <em>9819</em> <em>265B</em></li>
+<li><strong style="display:inline-block;width:2em">♜</strong> <em>9820</em> <em>265C</em></li>
+<li><strong style="display:inline-block;width:2em">♝</strong> <em>9821</em> <em>265D</em></li>
+<li><strong style="display:inline-block;width:2em">♞</strong> <em>9822</em> <em>265E</em></li>
+<li><strong style="display:inline-block;width:2em">♟</strong> <em>9823</em> <em>265F</em></li>
+<li><strong style="display:inline-block;width:2em">♔</strong> <em>9812</em> <em>2654</em></li>
+<li><strong style="display:inline-block;width:2em">♕</strong> <em>9813</em> <em>2655</em></li>
+<li><strong style="display:inline-block;width:2em">♖</strong> <em>9814</em> <em>2656</em></li>
+<li><strong style="display:inline-block;width:2em">♗</strong> <em>9815</em> <em>2657</em></li>
+<li><strong style="display:inline-block;width:2em">♘</strong> <em>9816</em> <em>2658</em></li>
+<li><strong style="display:inline-block;width:2em">♙</strong> <em>9817</em> <em>2659</em></li>
+<li><strong style="display:inline-block;width:2em">♠</strong> <em>9824</em> <em>2660</em></li>
+<li><strong style="display:inline-block;width:2em">♣</strong> <em>9827</em> <em>2663</em></li>
+<li><strong style="display:inline-block;width:2em">♥</strong> <em>9829</em> <em>2665</em></li>
+<li><strong style="display:inline-block;width:2em">♦</strong> <em>9830</em> <em>2666</em></li>
+<li><strong style="display:inline-block;width:2em">♤</strong> <em>9828</em> <em>2664</em></li>
+<li><strong style="display:inline-block;width:2em">♧</strong> <em>9831</em> <em>2667</em></li>
+<li><strong style="display:inline-block;width:2em">♡</strong> <em>9825</em> <em>2661</em></li>
+<li><strong style="display:inline-block;width:2em">♢</strong> <em>9826</em> <em>2662</em></li>
+</ul>
+<h3>希腊字母</h3>
+<ul>
+<li><strong style="display:inline-block;width:2em">Α</strong> <em>913</em> <em>0391</em></li>
+<li><strong style="display:inline-block;width:2em">Β</strong> <em>914</em> <em>0392</em></li>
+<li><strong style="display:inline-block;width:2em">Γ</strong> <em>915</em> <em>0393</em></li>
+<li><strong style="display:inline-block;width:2em">Δ</strong> <em>916</em> <em>0394</em></li>
+<li><strong style="display:inline-block;width:2em">Ε</strong> <em>917</em> <em>0395</em></li>
+<li><strong style="display:inline-block;width:2em">Ζ</strong> <em>918</em> <em>0396</em></li>
+<li><strong style="display:inline-block;width:2em">Η</strong> <em>919</em> <em>0397</em></li>
+<li><strong style="display:inline-block;width:2em">Θ</strong> <em>920</em> <em>0398</em></li>
+<li><strong style="display:inline-block;width:2em">Ι</strong> <em>921</em> <em>0399</em></li>
+<li><strong style="display:inline-block;width:2em">Κ</strong> <em>922</em> <em>039A</em></li>
+<li><strong style="display:inline-block;width:2em">Λ</strong> <em>923</em> <em>039B</em></li>
+<li><strong style="display:inline-block;width:2em">Μ</strong> <em>924</em> <em>039C</em></li>
+<li><strong style="display:inline-block;width:2em">Ν</strong> <em>925</em> <em>039D</em></li>
+<li><strong style="display:inline-block;width:2em">Ξ</strong> <em>926</em> <em>039E</em></li>
+<li><strong style="display:inline-block;width:2em">Ο</strong> <em>927</em> <em>039F</em></li>
+<li><strong style="display:inline-block;width:2em">Π</strong> <em>928</em> <em>03A0</em></li>
+<li><strong style="display:inline-block;width:2em">Ρ</strong> <em>929</em> <em>03A1</em></li>
+<li><strong style="display:inline-block;width:2em">Σ</strong> <em>931</em> <em>03A3</em></li>
+<li><strong style="display:inline-block;width:2em">Τ</strong> <em>932</em> <em>03A4</em></li>
+<li><strong style="display:inline-block;width:2em">Υ</strong> <em>933</em> <em>03A5</em></li>
+<li><strong style="display:inline-block;width:2em">Φ</strong> <em>934</em> <em>03A6</em></li>
+<li><strong style="display:inline-block;width:2em">Χ</strong> <em>935</em> <em>03A7</em></li>
+<li><strong style="display:inline-block;width:2em">Ψ</strong> <em>936</em> <em>03A8</em></li>
+<li><strong style="display:inline-block;width:2em">Ω</strong> <em>937</em> <em>03A9</em></li>
+</ul>
