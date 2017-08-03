@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	ul li{
+      list-style:none; 
+      float:left; 
+      font-size:30px; 
+      margin:5px; 
+      color:#ccc; 
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  
+  <ul>
+    <li>&#9733;</li>
+    <li>&#9733;</li>
+    <li>&#9733;</li>
+    <li>&#9733;</li>
+    <li>&#9733;</li>
+  </ul>
+
+</body>
+</html>
