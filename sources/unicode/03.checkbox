@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 40px;
+    }
+    
+    .radio-icon {
+    	margin: 20px;
+    }
+    
+    .radio-group .radio-icon {
+      height: 14px;
+      width: 14px;
+      border: 1px solid #999;
+    }
+    
+    .radio-group .radio-icon.checked::before {
+      content: '\2714';
+      font-size: 14px;
+      width: 100%;
+      height: 100%;
+      line-height: 100%;
+      display: block;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+    <span>&#10004;</span>
+  
+	<div class="box radio-group">
+      	<div class="radio-icon">
+        </div>
+      	<div class="radio-icon checked">
+        </div>
+    </div>
+</body>
+</html>
