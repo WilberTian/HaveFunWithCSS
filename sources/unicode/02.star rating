@@ -10,6 +10,8 @@
       color:#ccc; 
       cursor:pointer;
     }
+    
+    .hs,.cs{color:#f00;}
   </style>
 </head>
 <body>
@@ -21,6 +23,24 @@
     <li>&#9733;</li>
     <li>&#9733;</li>
   </ul>
+	
+  <script src="sources/image-slider/static/vendor/jquery.min.js"></script>
+  <script>
+    $(function () {
+        $("ul li").hover(function(){
+            $(this).addClass('hs');
+            $(this).prevAll().addClass('hs');
+        },function(){
+            $(this).removeClass('hs');
+            $(this).prevAll().removeClass('hs');
+        })
 
+        $("ul li").click(function () {
+            $(this).addClass('cs');
+            $(this).prevAll().addClass('cs');
+            $(this).nextAll().removeClass('cs');
+        })
+    })
+  </script>
 </body>
 </html>
