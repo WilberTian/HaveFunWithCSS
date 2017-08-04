@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	ul li{
+      list-style:none; 
+      float:left; 
+      font-size:30px; 
+      margin:5px; 
+      color:#ccc; 
+      cursor:pointer;
+      position: relative;
+    }
+    
+    .partial::before {
+      content: "\2605";
+      color: #f63;
+      position: absolute;
+      width: 50%;
+      display: inline-block;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  
+  <ul>
+    <li>&#9733;</li>
+    <li>&#9733;</li>
+    <li>&#9733;</li>
+    <li class="partial">&#9733;</li>
+    <li>&#9733;</li>
+  </ul>
+	
+</body>
+</html>
