@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+    
+  <script>
+    window.open('', 'anotherWindow');
+    
+    setTimeout(function(){
+      	// if window of the same name already exist,
+        // will use the existed window directly
+    	window.open('https://www.baidu.com', 'anotherWindow');
+    }, 2000);
+  </script>
+  </body>
+</html>
