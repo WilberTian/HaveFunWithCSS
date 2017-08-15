@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      window.onbeforeunload = function() {
+        return "There are unsaved changes. Leave now?";
+      };
+    </script>
+    
+    <a href="https://www.baidu.com">Go to baidu.com</a>
+  </body>
+</html>
