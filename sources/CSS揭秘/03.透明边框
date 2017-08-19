@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background: #999;
+    }
+    
+	.box-1 {
+      border: 10px solid hsla(0,0%,100%,.5);
+	  background: white;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+    }
+    
+    .box-2 {
+      border: 10px solid hsla(0,0%,100%,.5);
+	  background: white;
+      background-clip: padding-box;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+
+</body>
+</html>

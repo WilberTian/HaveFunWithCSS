@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background: #999;
+    }
+    
+    div {
+      width: 100px;
+      height: 100px;
+      margin: 40px;
+    }
+    
+	.box-1 {
+      background: yellowgreen;
+      box-shadow: 0 0 0 10px #655,
+       0 0 0 15px deeppink,
+       0 2px 5px 15px rgba(0,0,0,.6);
+    }
+    
+    .box-2 {
+      background: yellowgreen;
+      border: 10px solid #655;
+      outline: 5px solid deeppink;
+    }
+    
+    .box-3 {
+      background: yellowgreen;
+      border: 14px solid #655;
+      outline: 4px solid deeppink;
+      outline-offset: -10px;
+    }
+    
+    .box-4 {
+      background: #655;
+      border: 14px solid #655;
+      outline: 1px dotted deeppink;
+      outline-offset: -10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+  <div class="box-3"></div>
+  
+  <div class="box-4"></div>
+</body>
+</html>
