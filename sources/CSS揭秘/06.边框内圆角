@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box {
+      width: 160px;
+      heigth: 60px;
+      
+      background: tan;
+      border-radius: .8em;
+      padding: 1em;
+      box-shadow: 0 0 0 .6em #655;
+      outline: .6em solid #655;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+
+</body>
+</html>

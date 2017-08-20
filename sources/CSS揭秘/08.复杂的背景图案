@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div {
+      width: 160px;
+      height: 80px;
+      margin: 20px;
+      border: 1px solid #999;
+    }
+    
+    .box-1 {
+     background: white;
+     background-image: linear-gradient(90deg,
+      rgba(200,0,0,.5) 50%, transparent 0),
+      linear-gradient(
+      rgba(200,0,0,.5) 50%, transparent 0);
+     background-size: 30px 30px;
+    }
+    
+    .box-2 {
+     background: #58a;
+     background-image:
+      linear-gradient(white 1px, transparent 0),
+      linear-gradient(90deg, white 1px, transparent 0);
+     background-size: 30px 30px;
+    }
+    
+    .box-3 {
+     background: #58a;
+     background-image:
+      linear-gradient(white 2px, transparent 0),
+      linear-gradient(90deg, white 2px, transparent 0),
+      linear-gradient(hsla(0,0%,100%,.3) 1px,
+      transparent 0),
+      linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,
+      transparent 0);
+     background-size: 75px 75px, 75px 75px,
+      15px 15px, 15px 15px;
+    }
+    
+    .box-4 {
+     background: #655;
+     background-image: radial-gradient(tan 30%, transparent 0);
+     background-size: 30px 30px;
+    }
+    
+    .box-5 {
+      background: #655;
+      background-image: radial-gradient(tan 30%, transparent 0),
+       radial-gradient(tan 30%, transparent 0);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+    
+    .box-6 {
+      background: #eee;
+      background-image:
+       linear-gradient(45deg, #bbb 25%, transparent 0),
+       linear-gradient(45deg, transparent 75%, #bbb 0),
+       linear-gradient(45deg, #bbb 25%, transparent 0),
+       linear-gradient(45deg, transparent 75%, #bbb 0);
+      background-position: 0 0, 15px 15px,
+       15px 15px, 30px 30px;
+      background-size: 30px 30px;
+    }
+    
+    .box-7 {
+      background: repeating-conic-gradient(#bbb 0, #bbb 25%, #eee 0, #eee 50%);
+	  background-size: 30px 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+  <div class="box-3"></div>
+  <div class="box-4"></div>
+  <div class="box-5"></div>
+  <div class="box-6"></div>
+  <div class="box-7"></div>
+
+</body>
+</html>

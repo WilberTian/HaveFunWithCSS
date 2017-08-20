@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div {
+      width: 160px;
+      height: 80px;
+      margin: 20px;
+      border: 1px solid #999;
+    }
+    
+    .box-1 {
+      background: linear-gradient(#fb3, #58a);
+    }
+    
+    .box-2 {
+      background: linear-gradient(#fb3 20%, #58a 80%);
+    }
+    
+    .box-3 {
+      background: linear-gradient(#fb3 50%, #58a 50%);
+    }
+    
+    .box-4 {
+      background: linear-gradient(#fb3 50%, #58a 50%);
+      background-size: 100% 30px;
+    }
+    
+    .box-5 {
+      background: linear-gradient(#fb3 30%, #58a 30%);
+      background-size: 100% 30px;
+    }
+    
+    .box-6 {
+      background: linear-gradient(to right, #fb3 30%, #58a 0);
+      background-size: 30px 100%;
+    }
+    
+    .box-7 {
+      background: linear-gradient(45deg, #fb3 50%, #58a 0);
+      background-size: 30px 30px;
+    }
+    
+    .box-8 {
+      background: linear-gradient(45deg,
+       #fb3 25%, #58a 0, #58a 50%,
+       #fb3 0, #fb3 75%, #58a 0);
+      background-size: 30px 30px;
+    }
+    
+    .box-9 {
+      background: linear-gradient(45deg,
+       #fb3 25%, #58a 0, #58a 50%,
+       #fb3 0, #fb3 75%, #58a 0);
+      background-size: 42px 42px;
+    }
+    
+    .box-10 {
+      background: repeating-linear-gradient(60deg,
+ 		#fb3, #fb3 15px, #58a 0, #58a 30px);
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+  <div class="box-3"></div>
+  <div class="box-4"></div>
+  <div class="box-5"></div>
+  <div class="box-6"></div>
+  <div class="box-7"></div>
+  <div class="box-8"></div>
+  <div class="box-9"></div>
+  <div class="box-10"></div>
+
+</body>
+</html>

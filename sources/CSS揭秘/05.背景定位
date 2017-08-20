@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box-1 {
+      width: 300px;
+      height: 200px;
+      border: 2px solid #999;
+      
+      background: url('/client/app/images/resize.png') no-repeat;
+	  background-position: right 20px bottom 10px;
+    }
+    
+    .box-2 {
+      width: 300px;
+      height: 200px;
+      border: 2px solid #999;
+      
+      padding: 20px;
+      
+      background: url('/client/app/images/resize.png') no-repeat;
+	  background-position: top left;
+    }
+    
+    .box-3 {
+      width: 300px;
+      height: 200px;
+      border: 2px solid #999;
+      
+      padding: 20px;
+      
+      background: url('/client/app/images/resize.png') no-repeat;
+	  background-position: top left;
+      background-origin: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+  <div class="box-3"></div>
+
+</body>
+</html>
