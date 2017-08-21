@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box-1 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: lightgreen;
+      
+      background-image: linear-gradient(to right, transparent 50%, #999 0);
+    }
+    
+    .box-2 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: lightgreen;
+      
+      background-image: linear-gradient(to right, transparent 50%, #999 0);
+    }
+    
+    .box-2::before {
+      content: '';
+      display: block;
+      margin-left: 50%;
+      height: 100%;
+      border-radius: 0 100% 100% 0 / 50%;
+      background-color: inherit;
+      transform-origin: left;
+      transform: rotate(.1turn); 
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+ 
+</body>
+</html>

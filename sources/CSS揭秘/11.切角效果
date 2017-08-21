@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div {
+      width: 160px;
+      height: 80px;
+      margin: 20px;
+    }
+    
+    .box-1 {
+      background: #58a;
+      background:
+       linear-gradient(-45deg, transparent 15px, #58a 0);
+    }
+    
+    .box-2 {
+      background: #58a;
+      background:
+       linear-gradient(-45deg, transparent 15px, #58a 0)
+       right,
+       linear-gradient(45deg, transparent 15px, #655 0)
+       left;
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+    }
+    
+    .box-3 {
+      background: #58a;
+      background:
+       linear-gradient(135deg, transparent 15px, #58a 0)
+       top left,
+       linear-gradient(-135deg, transparent 15px, #58a 0)
+       top right,
+       linear-gradient(-45deg, transparent 15px, #58a 0)
+       bottom right,
+       linear-gradient(45deg, transparent 15px, #58a 0)
+       bottom left;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+    }
+    
+    .box-4 {
+      background: #58a;
+      background:
+       radial-gradient(circle at top left,
+       transparent 15px, #58a 0) top left,
+       radial-gradient(circle at top right,
+       transparent 15px, #58a 0) top right,
+       radial-gradient(circle at bottom right,
+       transparent 15px, #58a 0) bottom right,
+       radial-gradient(circle at bottom left,
+       transparent 15px, #58a 0) bottom left;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+    }
+    
+    .box-5 {
+      background: #58a;
+      clip-path: polygon(
+       20px 0, calc(100% - 20px) 0, 100% 20px,
+       100% calc(100% - 20px), calc(100% - 20px) 100%,
+       20px 100%, 0 calc(100% - 20px), 0 20px
+      );
+    }
+  </style>
+</head>
+<body>
+  <div class="box-1"></div>
+  <div class="box-2"></div>
+  <div class="box-3"></div>
+  <div class="box-4"></div>
+  <div class="box-5"></div>
+ 
+</body>
+</html>

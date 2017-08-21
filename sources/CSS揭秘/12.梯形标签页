@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .tab-1 {
+      position: relative;
+      display: inline-block;
+      padding: .5em 1em .35em;
+      color: white;
+      padding: .3em 1em 0;
+      
+      margin: 60px;
+      text-align: center;
+    }
+    .tab-1::before {
+      content: ''; 
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      background: #58a;
+      border-radius: .5em .5em 0 0;
+      transform: perspective(.5em) rotateX(5deg);
+      transform-origin: bottom;
+    }
+    
+    .tab-2 {
+      position: relative;
+      display: inline-block;
+      padding: .5em 1em .35em;
+      color: white;
+      padding: .3em 1em 0;
+      
+      margin: 60px;
+      text-align: center;
+    }
+    .tab-2::before {
+      content: ''; 
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      background: #58a;
+      border-radius: .5em .5em 0 0;
+      transform: perspective(.5em) rotateX(5deg);
+      transform-origin: bottom left;
+    }
+    
+    .tab-3 {
+      position: relative;
+      display: inline-block;
+      padding: .5em 1em .35em;
+      color: white;
+      padding: .3em 1em 0;
+      
+      margin: 60px;
+      width: 60px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+    }
+    .tab-3::before {
+      content: ''; 
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      background: #58a;
+      border-radius: .5em .5em 0 0;
+      transform: perspective(.5em) rotateX(5deg);
+      transform-origin: bottom right;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="tab-1">tab 1</div>
+  <div class="tab-2">tab 1</div>
+  <div class="tab-3">tab 1</div>
+ 
+</body>
+</html>
