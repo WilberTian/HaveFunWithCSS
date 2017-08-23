@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    pre {
+      display: block;
+      width: 440px;
+      height: 400px;
+      margin: 20px;
+      
+      tab-size: 4; 
+    }
+    
+    .box-1 {
+      padding: .5em;
+      line-height: 1.5;
+      background: beige;
+      background-origin: content-box;
+      background-image: linear-gradient(
+       rgba(0,0,0,.2) 50%, transparent 0);
+      background-size: auto 3em;
+    }
+  
+  </style>
+</head>
+<body>
+  <pre class="box-1">
+  	var a = 5, 
+    	b = parseInt(Math.random()*10);
+        
+    if (a < b) {
+    	console.log('random number is: ' + b);
+    }
+  </pre>
+ 
+ 
+</body>
+</html>

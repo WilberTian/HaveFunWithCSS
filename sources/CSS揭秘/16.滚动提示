@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    div {
+      width: 440px;
+      height: 400px;
+      margin: 20px;
+      overflow: auto; 
+      padding: 16px;
+    }
+    
+    .box-1 {
+      background: linear-gradient(white, white),
+       radial-gradient(at top, rgba(0,0,0,.2),
+       transparent 70%);
+      background-repeat: no-repeat;
+      background-size: 100% 15px;
+      background-attachment: local, scroll;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="box-1">
+  	this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+    this is content text <br/>
+  </div>
+ 
+ 
+</body>
+</html>
