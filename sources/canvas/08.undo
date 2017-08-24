@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	
+        
+  </style>
+</head>
+<body>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+
+  <button id="undo-btn">undo</button>
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    var ctop = canvas.getBoundingClientRect().top;
+    var cleft = canvas.getBoundingClientRect().left;
+    
+    var imgHistory = [];
+   
+    canvas.onmousedown = function(ev){
+        var currentImg = ctx.getImageData(0,  0,  canvas.width,  canvas.height);
+        imgHistory.push(currentImg);
+      
+      
+        var ev = ev || event;
+        ctx.beginPath();
+        ctx.moveTo(ev.clientX - cleft,ev.clientY - ctop);
+        
+        document.onmousemove = function(ev){
+            var ev = ev || event;
+            ctx.lineTo(ev.clientX - cleft,ev.clientY - ctop);
+            ctx.stroke();    
+        }
+        
+        document.onmouseup = function(ev){
+            document.onmousemove = document.onmouseup = null;
+            ctx.closePath();
+        }
+    }
+   
+    
+    var undoBtn = document.getElementById('undo-btn');
+    var undoFunc = function() {
+        if (imgHistory.length > 0) {
+    	    var previousImg = imgHistory.pop();
+            ctx.putImageData(previousImg,  0,  0);
+        }
+    }
+    undoBtn.addEventListener('click', undoFunc);
+  </script>
+</body>
+</html>
