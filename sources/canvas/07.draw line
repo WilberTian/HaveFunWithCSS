@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	
+        
+  </style>
+</head>
+<body>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    var ctop = canvas.getBoundingClientRect().top;
+    var cleft = canvas.getBoundingClientRect().left;
+   
+    canvas.onmousedown = function(ev){
+        var ev = ev || event;
+        ctx.beginPath();
+        ctx.moveTo(ev.clientX - cleft, ev.clientY - ctop);
+        
+        document.onmousemove = function(ev){
+            var ev = ev || event;
+            ctx.lineTo(ev.clientX - cleft, ev.clientY - ctop);
+            ctx.stroke();    
+        }
+        
+        document.onmouseup = function(ev){
+            document.onmousemove = document.onmouseup = null;
+            ctx.closePath();
+        }
+
+    }
+   
+  </script>
+</body>
+</html>
