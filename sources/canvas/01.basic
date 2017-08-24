@@ -19,6 +19,9 @@
     ctx.fillStyle="#FF0000";
     ctx.fillRect(10,10,50,35);
     
+    ctx.lineWidth = 6;
+    ctx.strokeRect(80,10,12,35);
+    
     // line
     ctx.moveTo(10,70);
     ctx.lineTo(120,100);
