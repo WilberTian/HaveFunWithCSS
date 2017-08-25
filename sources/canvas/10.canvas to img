@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    
+    .editor-wrapper {
+      position: relative;
+    }
+    
+ 	.temp-rect{
+      position: absolute;
+      border: 6px solid;
+      box-sizing: border-box;
+    }
+       
+  </style>
+</head>
+<body>
+  <div class="editor-wrapper">
+    <div class="temp-rect">
+    </div>
+  
+    <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+    </canvas>
+  </div>
+  
+  <button id="canvas-to-image-btn">To image</button>
+  <div class="demo"></div>
+  
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    var rectDiv = document.querySelector('.temp-rect');
+    var wrapperDiv = document.querySelector('.editor-wrapper');
+    
+    // the 1 here is the border of canvas
+    var wtop = wrapperDiv.getBoundingClientRect().top + 1;
+    var wleft = wrapperDiv.getBoundingClientRect().left + 1;
+   
+    canvas.onmousedown = function(ev){
+        var ev = ev || event;
+        ctx.beginPath();
+        
+        var startX = ev.clientX - wleft;
+        var startY = ev.clientY - wtop;
+        
+        rectDiv.style.left = startX + 'px';
+        rectDiv.style.top = startY + 'px';
+        
+        document.onmousemove = function(ev){
+            var ev = ev || event;
+            var width = ev.clientX - startX - wleft;
+            var height = ev.clientY - startY - wtop;
+          
+            if(width < 0) {
+              	width = Math.abs(width);
+                if((startX - width) < 0) {
+                	width = startX;
+                }
+            	rectDiv.style.left = startX - width + 'px';
+            } else {
+                rectDiv.style.left = startX + 'px';
+                if((width + startX) > 600) {
+                	width = 600 - startX;
+                }
+            }
+          
+            if(height < 0){
+              	height = Math.abs(height);
+                if((startY - height) < 0) {
+                	height = startY;
+                }
+            	rectDiv.style.top = startY - height + 'px';
+            } else {
+              	rectDiv.style.top = startY + 'px';
+                if((height + startY) > 300) {
+                	height = 300 - startY;
+                }
+            }
+          
+          	rectDiv.style.width = width + 'px';
+            rectDiv.style.height = height + 'px';
+        }
+        
+        document.onmouseup = function(ev){
+            
+            ctx.lineWidth = 6;
+          
+            var rectDivData = rectDiv.getBoundingClientRect();
+            ctx.strokeRect(rectDivData.left - wleft + 3, rectDivData.top - wtop + 3, rectDivData.width - 6, rectDivData.height - 6);
+            
+            rectDiv.style = '';
+          
+            document.onmousemove = document.onmouseup = null;
+            ctx.closePath();
+        }
+
+    }
+    
+    document.getElementById('canvas-to-image-btn').addEventListener("click", function() {
+        canvas.toBlob && canvas.toBlob(function(blob) {
+            var newImg = document.createElement("img"),
+                url = URL.createObjectURL(blob);
+                
+            newImg.onload = function() {
+                // 移除
+                URL.revokeObjectURL(url);
+            };
+            newImg.src = url;
+            document.querySelector(".demo").appendChild(newImg);
+        });    
+    });
+   
+  </script>
+</body>
+</html>
