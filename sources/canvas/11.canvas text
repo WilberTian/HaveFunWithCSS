@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    
+    .editor-wrapper {
+      position: relative;
+    }
+    
+ 	.temp-input{
+      position: absolute;
+      z-index: 99999;
+      display: none;
+      font-size: 24px;
+      padding: 0px;
+      margin: 0px;
+      font-family: sans-serif;
+      line-height: 24px;
+      color: #f63;
+    }
+        
+    #myCanvas{
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-wrapper">
+    <textarea class="temp-input" rows="1"></textarea>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+    </canvas>
+  </div>
+  
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    var textInput = document.querySelector('.temp-input');
+    var wrapperDiv = document.querySelector('.editor-wrapper');
+    
+    // the 1 here is the border of canvas
+    var wtop = wrapperDiv.getBoundingClientRect().top + 1;
+    var wleft = wrapperDiv.getBoundingClientRect().left + 1;
+   
+    var editMode = false;
+    var textX = 0, textY = 0;
+    
+    canvas.onmousedown = function(ev){
+        var ev = ev || event;
+        var startX = ev.clientX - wleft;
+        var startY = ev.clientY - wtop;
+      
+      	if(!editMode){
+            textInput.style.display = "block";
+            textInput.style.left = startX + 'px';
+            textInput.style.top = startY + 'px';
+            var timer = setTimeout(function(){
+            	textInput.focus();
+                clearTimeout(timer);
+            }, 0);
+
+            editMode = true;
+          
+            textX = startX;
+            textY = startY + 24 - 4;
+        } else {
+            
+          	var arrayOfLines = textInput.value.split("\n");
+            if(arrayOfLines.length > 0) {
+              
+              ctx.beginPath();
+              ctx.fillStyle="#f63";
+              ctx.font = "24px sans-serif";
+              arrayOfLines.forEach(function(data){
+                  ctx.fillText(data, textX, textY);
+                  textY += 24;
+              });
+			
+              ctx.closePath();
+
+              editMode = false;
+              textInput.style.display = "none";
+              textInput.value = '';
+            }
+        }
+        
+    }
+   
+  </script>
+</body>
+</html>
