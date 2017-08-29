@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<canvas id="drawing"></canvas>
+<script>
+var drawing = document.getElementById('drawing');
+if(drawing.getContext){
+    var cxt = drawing.getContext('2d');
+    var W = drawing.width = 200;
+    var H = drawing.height = 200;
+    var R = W / 2;
+    var cw = cxt.lineWidth = 0.1*R;
+    function drawStatics(){
+        cxt.save();
+        cxt.translate(R,R);
+        cxt.beginPath();
+        cxt.lineWidth = 0.1*R;
+        cxt.arc(0,0,R-cw/2,0,2*Math.PI,false);
+        cxt.stroke(); 
+                      
+        cxt.beginPath();   
+        cxt.font = 0.2 * R + 'px 宋体';
+        cxt.textAlign = 'center';
+        cxt.textBaseline = 'middle';  
+        var r1 = 0.8*R  - cw/2;   
+        for(var i = 12; i > 0; i--){
+            var radius = 2*Math.PI/12 * i + 1.5*Math.PI;
+            var x = Math.cos(radius) * r1;
+            var y = Math.sin(radius) * r1;
+            cxt.fillText(i,x,y);
+        }
+
+        cxt.beginPath();
+        var r2 = 0.9*R - cw/2;
+        for(var i = 0; i < 60; i++){
+            var radius = 2*Math.PI/60*i + 1.5*Math.PI;
+            var x = Math.cos(radius) * r2;
+            var y = Math.sin(radius) * r2;
+            cxt.beginPath();
+            if(i%5 === 0){
+              cxt.arc(x,y,cw/5,0,2*Math.PI,false);
+            }else{
+              cxt.arc(x,y,cw/8,0,2*Math.PI,false);
+            }
+            cxt.fill();
+        }
+        cxt.restore();
+    }
+    function drawDot(){
+        cxt.save();
+        cxt.translate(R,R);        
+        cxt.beginPath();
+        cxt.arc(0,0,cw/3,0,2*Math.PI,false);
+        cxt.fillStyle = '#fff';
+        cxt.fill();
+        cxt.restore();
+    }
+    function drawSecond(second){
+        cxt.save();
+        cxt.translate(R,R);
+        cxt.beginPath();
+        var radius = 2*Math.PI/60 * second;
+        cxt.rotate(radius);
+        cxt.lineWidth = 2;
+        cxt.moveTo(0,cw*2);
+        cxt.lineTo(0,-0.8*R);
+        cxt.strokeStyle = 'red';
+        cxt.stroke();
+        cxt.restore();
+    }
+    function drawMinute(minute,second){
+        cxt.save();
+        cxt.translate(R,R);
+        cxt.beginPath();
+        var radius = 2*Math.PI/60 * minute;
+        var sRaiuds = 2*Math.PI/60/60 * second;
+        cxt.rotate(radius + sRaiuds);
+        cxt.lineWidth = 4;
+        cxt.lineCap = 'round';
+        cxt.moveTo(0,cw);
+        cxt.lineTo(0,-(0.8*R - cw/2));
+        cxt.stroke();
+        cxt.restore();
+    }
+    function drawHour(hour,minute){
+        cxt.save();
+        cxt.translate(R,R);
+        cxt.beginPath();
+        var radius = 2*Math.PI/12 * hour;
+        var mRaiuds = 2*Math.PI/12/60 * minute;
+        cxt.rotate(radius + mRaiuds);
+        cxt.lineWidth = 6;
+        cxt.lineCap = 'round';
+        cxt.moveTo(0,cw/2);
+        cxt.lineTo(0,-(0.8*R - cw*2));
+        cxt.stroke();
+        cxt.restore();
+    }    
+    function draw(){
+        cxt.clearRect(0,0,W,H);
+        drawStatics();
+        var now = new Date();
+        drawHour(now.getHours(),now.getMinutes());
+        drawMinute(now.getMinutes(),now.getSeconds());   
+        drawSecond(now.getSeconds());
+        drawDot();    
+    }
+    draw();
+    setInterval(draw,500);
+}
+</script>  
+</body>
+</html>
