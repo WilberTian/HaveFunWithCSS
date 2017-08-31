@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    
+    .editor-wrapper {
+      position: relative;
+    }
+    
+ 	.temp-input{
+      position: absolute;
+      z-index: 99999;
+      display: none;
+      font-size: 24px;
+      padding: 0px;
+      margin: 0px;
+      font-family: sans-serif;
+      line-height: 24px;
+      color: #f63;
+      white-space: pre;
+      resize: none;
+      overflow:hidden;
+      outline: none;
+      padding: 0px;
+      margin: 0px;
+      text-align: left;
+    }
+        
+    #myCanvas{
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-wrapper">
+    <textarea class="temp-input" rows="1" onkeyup="textAreaAdjust(this)"></textarea>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+    </canvas>
+  </div>
+  
+  <script>
+    function textAreaAdjust(o) {
+  		o.style.height = (o.scrollHeight) + 'px';
+        o.style.width = (o.scrollWidth) + 'px';
+    }
+
+    
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    
+    var textInput = document.querySelector('.temp-input');
+    var wrapperDiv = document.querySelector('.editor-wrapper');
+    
+    // the 1 here is the border of canvas
+    var wtop = wrapperDiv.getBoundingClientRect().top + 1;
+    var wleft = wrapperDiv.getBoundingClientRect().left + 1;
+   
+    var editMode = false;
+    var textX = 0, textY = 0;
+    var offsetX = 0, offsetY = 0;
+    
+     textItems = [];
+    var hitTextItem = null;
+    var activeTextItem = null;
+    var isDown = false;
+    
+    function checkHitItems(x, y, items) {
+      	var idx = 0;
+      	x += wleft;
+        y += wtop;
+      
+        for(i = 0; i < items.length; i++) {
+            var item = items[i];
+        	if(x > item.x && x < (item.x + item.width) 
+               && y > item.y && y < (item.y + item.height))
+            {
+              return item;
+            }
+        }
+      
+        return null;
+    }
+    
+    function drawText() {
+      ctx.fillStyle="#f63";
+      ctx.font = "24px sans-serif";
+
+      textItems.forEach(function(textItem){
+        var textX = textItem.x - wleft + 1;
+        var textY = textItem.y - wtop + 24 - 2;
+
+        ctx.fillStyle="#f63";
+        ctx.font = "24px sans-serif";
+        var arrayOfLines = textItem.value.split("\n");
+        arrayOfLines.forEach(function(data){
+          ctx.fillText(data, textX, textY);
+          textY += 24;
+        });
+      });
+    }
+    
+    canvas.onmousedown = function(ev){
+	    ev.preventDefault();
+        var ev = ev || event;
+        var startX = ev.clientX - wleft;
+        var startY = ev.clientY - wtop;
+      
+      	isDown = true;
+      
+        hitTextItem =  checkHitItems(startX, startY, textItems);
+      
+        if(hitTextItem) {
+          if(hitTextItem !== activeTextItem) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawText();
+            ctx.strokeRect(hitTextItem.x - wleft - 12, hitTextItem.y - wtop - 12, hitTextItem.width + 24, hitTextItem.height + 24);
+            activeTextItem = hitTextItem;
+          }
+          
+          offsetX = ev.clientX - hitTextItem.x;
+            offsetY = ev.clientY - hitTextItem.y;
+        } else {
+      	
+          hitTextItem = null;
+
+          if(!editMode){
+              textInput.style.display = "block";
+              textInput.style.left = startX + 'px';
+              textInput.style.top = startY + 'px';
+              textInput.style.width = '10px';
+              textInput.style.height = 'auto';
+              var timer = setTimeout(function(){
+                  textInput.focus();
+                  clearTimeout(timer);
+              }, 0);
+
+              editMode = true;
+          } else {
+			  if (textInput.value === ""){
+                  editMode = false;
+                  textInput.style.display = "none";
+                  textInput.value = '';
+              } else {
+                
+                var arrayOfLines = textInput.value.split("\n");
+                if(arrayOfLines.length > 0) {
+
+                  textX = textInput.getBoundingClientRect().left - wleft + 1;
+                  textY = textInput.getBoundingClientRect().top - wtop + 24 - 2;
+
+                  ctx.beginPath();
+                  ctx.fillStyle="#f63";
+                  ctx.font = "24px sans-serif";
+                  arrayOfLines.forEach(function(data){
+                      ctx.fillText(data, textX, textY);
+                      textY += 24;
+                  });
+
+                  ctx.closePath();
+
+                  textItems.push({
+                      x: textInput.getBoundingClientRect().left + 1,
+                      y: textInput.getBoundingClientRect().top + 1,
+                      width: textInput.getBoundingClientRect().width - 2,
+                      height: textInput.getBoundingClientRect().height - 2,
+                      value: textInput.value
+                  });
+
+                  editMode = false;
+                  textInput.style.display = "none";
+                  textInput.value = '';
+
+                }
+              }
+          }
+        }
+    }
+    
+    canvas.onmousemove = function(ev){
+      ev.preventDefault();
+      if(activeTextItem && isDown) {
+        var ev = ev || event;
+        var moveX = ev.clientX  - offsetX;
+        var moveY = ev.clientY  - offsetY;
+        console.log(moveX, moveY);
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        activeTextItem.x = moveX;
+        activeTextItem.y = moveY;
+
+        ctx.strokeRect(activeTextItem.x - wleft - 12, activeTextItem.y - wtop - 12, activeTextItem.width + 24, activeTextItem.height + 24);
+
+        drawText();
+      }   
+    }
+
+    canvas.onmouseup = function(ev){
+      ev.preventDefault();
+      isDown = false;      
+    }
+    
+    
+   
+  </script>
+</body>
+</html>
