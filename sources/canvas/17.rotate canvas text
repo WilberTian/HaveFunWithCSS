@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	
+        
+  </style>
+</head>
+<body>
+  
+  <canvas id="myCanvas" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+
+  <script>
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+   	
+    var str = "rotate text";
+    var size = ctx.measureText(str);
+    ctx.font="30px Arial";
+    ctx.save();
+    ctx.translate(100,10);
+    ctx.rotate(Math.PI / 4);
+	ctx.fillText(str,100,100);
+    ctx.restore();
+    
+    
+    ctx.strokeText("Hello World",200,100);
+    
+
+  </script>
+</body>
+</html>
