@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	
+        
+  </style>
+</head>
+<body>
+  
+  <canvas id="myCanvas1" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+  
+  <button id="canvas-copy-btn">copy</button>
+  
+  <canvas id="myCanvas2" width="600px" height="300px" style="border:1px solid #000000;">
+  </canvas>
+  <script>
+    var c1=document.getElementById("myCanvas1");
+    var ctx1=c1.getContext("2d");
+    
+    // rect
+    ctx1.fillStyle="#FF0000";
+    ctx1.fillRect(10,10,50,35);
+    
+    ctx1.lineWidth = 6;
+    ctx1.strokeRect(80,10,12,35);
+    
+    // line
+    ctx1.moveTo(10,70);
+    ctx1.lineTo(120,100);
+    ctx1.stroke();
+    
+    // arc(x,y,r,start,stop)
+    ctx1.beginPath();
+    ctx1.arc(95,50,20,0,2*Math.PI);
+    ctx1.strokeStyle="#f63";
+    ctx1.stroke();
+    
+    var c2=document.getElementById("myCanvas2");
+    var ctx2=c2.getContext("2d");
+    
+    var canvasCopyBtn = document.getElementById("canvas-copy-btn");
+    canvasCopyBtn.addEventListener("click", function() {
+      	ctx2.drawImage(c1, 0, 0);
+    });
+  </script>
+</body>
+</html>
