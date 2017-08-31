@@ -23,14 +23,14 @@
         ctx.beginPath();
         ctx.moveTo(ev.clientX - cleft, ev.clientY - ctop);
         
-        document.onmousemove = function(ev){
+        canvas.onmousemove = function(ev){
             var ev = ev || event;
             ctx.lineTo(ev.clientX - cleft, ev.clientY - ctop);
             ctx.stroke();    
         }
         
-        document.onmouseup = function(ev){
-            document.onmousemove = document.onmouseup = null;
+        canvas.onmouseup = function(ev){
+            canvas.onmousemove = canvas.onmouseup = null;
             ctx.closePath();
         }
 
