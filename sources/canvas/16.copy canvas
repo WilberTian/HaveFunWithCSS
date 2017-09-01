@@ -40,6 +40,12 @@
     var c2=document.getElementById("myCanvas2");
     var ctx2=c2.getContext("2d");
     
+    // arc(x,y,r,start,stop)
+    ctx2.beginPath();
+    ctx2.arc(295,150,20,0,2*Math.PI);
+    ctx2.strokeStyle="#f63";
+    ctx2.stroke();
+    
     var canvasCopyBtn = document.getElementById("canvas-copy-btn");
     canvasCopyBtn.addEventListener("click", function() {
       	ctx2.drawImage(c1, 0, 0);
