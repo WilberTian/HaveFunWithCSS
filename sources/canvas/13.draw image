@@ -8,21 +8,47 @@
 </head>
 <body>
   
-  <canvas id="myCanvas" style="border:1px solid #000000;">
+  <canvas id="myCanvas1" style="border:1px solid #000000;">
+  </canvas>
+  
+  <canvas id="myCanvas2" style="border:1px solid #000000;">
   </canvas>
 
   <script>
-    var c=document.getElementById("myCanvas");
-    var ctx=c.getContext("2d");
+    var c1=document.getElementById("myCanvas1");
+    var ctx1=c1.getContext("2d");
+    
+    var c2=document.getElementById("myCanvas2");
+    var ctx2=c2.getContext("2d");
     
     var image = new Image();
     
     image.src = '/sources/image-slider/static/images/1.jpg';
     image.onload = function(){
-      	c.width = 600;
-      	c.height = 300; 
-        ctx.drawImage(image, 0, 0, c.width, c.height);
-      
+      	c1.width = 600;
+      	c1.height = 300; 
+        ctx1.drawImage(image, 0, 0, c1.width, c1.height);
+      	
+        var offset = 50;
+      	c2.width = image.width/2 - offset;
+      	c2.height = image.height/2; 
+        
+        ctx2.drawImage(image, 0, 0, image.width/2, image.height/2);
+
+      	var start = 0;
+        var animateBgImage = function () {
+        	ctx2.clearRect(0, 0, c2.width, c2.height);
+            start -= 1;
+            if (image.width/2 === -start) {
+            	start = 0;
+            }
+          	// another way is to user translate
+            // ctx2.translate(start, 0);
+            ctx2.drawImage(image, start, 0, image.width/2, image.height/2);
+            ctx2.drawImage(image, start + image.width/2, 0, image.width/2, image.height/2);
+            requestAnimationFrame(animateBgImage);
+        }
+        animateBgImage();
          
     }
   </script>
