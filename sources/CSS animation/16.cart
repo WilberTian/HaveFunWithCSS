@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <style>
+    body {
+      margin: 100px;
+    }
+    
+    .container {
+      width: 400px;
+      height: 300px;
+      border: 1px solid #f63;
+      position: relative;
+    }
+    
+    .add-to-cart-btn {
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      bottom: 0;
+      border: 1px solid #999;
+      padding: 4px 8px;
+      background: aliceblue;
+    }
+    
+    .cart-icon-wrapper {
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      top: 0;
+    }
+    
+    .cart-icon-wrapper.on {
+      animation: cart-updated .3s ease;
+    }
+    
+    @keyframes cart-updated{
+	  50% { 
+      	transform: scale(1.2);
+      }
+    }
+    
+    .to-cart-icon {
+      position: absolute;
+      display: inline-block;
+      right: 20px;
+      top: 20px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: none;
+      
+      animation: to-cart .3s ease-out;
+    }
+    
+    @keyframes to-cart{
+	  0% { 
+        right: 360px;
+        top: 260px;
+      	transform: scale(4);
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="add-to-cart-btn">
+    	add to cart
+    </div>
+    <div class="cart-icon-wrapper">
+		<img class="cart-icon" src="sources/CSS animation/static/cart.png" />
+    </div>
+    
+    <img class="to-cart-icon" src="sources/CSS animation/static/cart.png" /
+  </div>
+  
+  <script>
+    var addToCartBtn = document.querySelector('.add-to-cart-btn');
+    var cartIconWrapper = document.querySelector('.cart-icon-wrapper');
+    var toCartIcon = document.querySelector('.to-cart-icon');
+    
+    addToCartBtn.addEventListener('click', function(){
+    	cartIconWrapper.className += ' on';
+      	toCartIcon.style.display = 'inline-block';
+      
+      	setTimeout(function(){
+          cartIconWrapper.className = 'cart-icon-wrapper';
+          toCartIcon.style.display = 'none';
+        }, 300)
+    });
+  </script>
+</body>
+</html>
