@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+      	.container {
+          border: 1px solid #999;
+          padding: 20px;
+          margin: 20px;
+        }
+      
+      	.container div {
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          background-color: #e1e1e1;
+          border: 1px solid #f63;
+          text-align: center;
+        }
+      
+		.flex {display: flex;}    
+		.inline-flex {display: inline-flex;}  
+    </style>
+</head>
+<body>
+  	<div class="container flex">    
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+  
+  	<div class="container inline-flex">    
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>
