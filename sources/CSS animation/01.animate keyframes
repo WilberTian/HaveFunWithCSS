@@ -26,6 +26,9 @@ div {
 </style>
 </head>
 <body>
+<pre>
+animation: name duration timing-function delay iteration-count direction;
+</pre>
 
 <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
 

@@ -19,12 +19,7 @@ div:hover {
 <body>
 
 <pre>
-Property					
-  transition
-  transition-delay
-  transition-duration	
-  transition-property	
-  transition-timing-function
+transition: property duration timing-function delay;
 </pre>
   
 <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
