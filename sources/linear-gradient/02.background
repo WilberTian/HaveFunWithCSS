@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(gray 50%, black 50%);
+    }
+    
+    .box2 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(gray 50%, black 50%);
+      background-size: 100% 40px;
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <div class="box1"></div>
+  
+  <br/>
+  
+  <div class="box2"></div>
+    
+</body>
+</html>

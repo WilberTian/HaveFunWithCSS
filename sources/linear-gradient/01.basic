@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(red, yellow);
+    }
+    
+    .box2 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(to top, red, yellow);
+    }
+    
+    .box3 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(0deg, red, yellow);
+    }
+    
+    .box4 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(to top right, red, yellow);
+    }
+    
+    .box5 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(to right, red, yellow, red, yellow);
+    }
+    
+    .box6 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(to right, red 10px, yellow 30px, red 50px, yellow);
+    }
+    
+    .box7 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(to right, red 0%, red 25%, yellow 25%, yellow 50%, red 50%, red 75%, yellow 75%);
+    }
+        
+  </style>
+</head>
+<body>
+  <pre>
+    linear-gradient([&lt;angle> | to &lt;side-or-corner>]? , &lt;color-stop-list>)
+    
+    这个函数（特性）接受的第一个参数是渐变的角度，他可以接受一个表示角度的值（可用的单位deg、rad、grad或turn）
+    或者是表示方向的关键词（top、right、bottom、left、left top、top right、bottom right或者left bottom）。
+    
+    第二个参数是接受一系列颜色节点（终止点的颜色）。
+  </pre>
+  
+  <span>默认是to bottom，也就是180deg<span>
+  <div class="box1"></div>
+    
+  <span>使用to top<span>
+  <div class="box2"></div>
+    
+  <span>使用0deg，效果和to top一样<span>
+  <div class="box3"></div>
+    
+  <span>使用to top right<span>
+  <div class="box4"></div>
+    
+  <span>多渐变色<span>
+  <div class="box5"></div>
+
+  <span>渐变宽度<span>
+  <div class="box6"></div>
+    
+  <span>渐变宽度<span>
+  <div class="box7"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+       width: 300px;
+      height: 160px;
+      background: linear-gradient(45deg, gray 50%, black 50%);
+      background-size: 40px 40px;
+    }
+    
+    .box2 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(45deg, gray 25%, black 25%, black 50%, gray 50%, gray 75%, black 75%);
+    }
+    
+    .box3 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(45deg, gray 25%, black 25%, black 50%, gray 50%, gray 75%, black 75%);
+      background-size: 20px 20px;
+    }
+    
+    .box4 {
+      width: 300px;
+      height: 160px;
+      background: linear-gradient(45deg, gray 25%, black 25%, black 50%, gray 50%, gray 75%, black 75%);
+      background-size: 40px 40px;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  
+  <div class="box1"></div>
+  
+  <br/>
+  
+  <div class="box2"></div>
+  <br/>
+  
+  <div class="box3"></div>
+  
+  <br/>
+  
+  <div class="box4"></div>
+    
+</body>
+</html>
