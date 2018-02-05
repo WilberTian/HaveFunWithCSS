@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box1 {
+      width: 500px;
+      height: 200px;
+      border: 1px solid;
+      overflow-y: auto;
+      background: linear-gradient(#fff 50%, #d7d7d7 50%);
+      background-size: 100% 40px;
+      line-height: 20px;
+      
+      background-attachment: local;
+    }
+    
+  </style>
+</head>
+<body>
+  
+  <div class="box1">
+    use background-attachment to scroll the local background <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+    a <br/>
+  </div>
+    
+</body>
+</html>
