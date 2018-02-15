@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+	.box1 {
+      width: 400px;
+      height: 300px;
+      border: 5px solid black;
+      background-image: url('sources/CSS3 background/static/success.png');
+      background-repeat: no-repeat;
+      padding: 10px;
+      margin: 10px;
+      background-origin: padding-box;
+    }
+    
+    .box2 {
+      width: 400px;
+      height: 300px;
+      border: 5px solid black;
+      background-image: url('sources/CSS3 background/static/success.png');
+      background-repeat: no-repeat;
+      padding: 10px;
+      margin: 10px;
+      background-origin: border-box;
+    }
+    
+    .box3 {
+      width: 400px;
+      height: 300px;
+      border: 5px solid black;
+      background-image: url('sources/CSS3 background/static/success.png');
+      background-repeat: no-repeat;
+      padding: 10px;
+      margin: 10px;
+      background-origin: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+ 
+  
+</body>
+</html>

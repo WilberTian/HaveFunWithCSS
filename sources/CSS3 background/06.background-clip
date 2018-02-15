@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style> 
+      .box1 {
+        width:100px;
+        height:100px;
+        padding:50px;
+        background-color:yellow;
+        background-clip:padding-box;
+        border:10px dotted #92b901;
+      }
+      
+      .box2 {
+        width:100px;
+        height:100px;
+        padding:50px;
+        background-color:yellow;
+        background-clip:border-box;
+        border:10px dotted #92b901;
+      }
+      
+      .box3 {
+        width:100px;
+        height:100px;
+        padding:50px;
+        background-color:yellow;
+        background-clip:content-box;
+        border:10px dotted #92b901;
+      }
+    </style>
+  </head>
+<body>
+
+  <div class="box1">this is box1</div>
+  <div class="box2">this is box2</div>
+  <div class="box3">this is box3</div>
+
+</body>
+</html>
