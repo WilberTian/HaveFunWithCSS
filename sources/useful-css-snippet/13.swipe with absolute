@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .box{
+        position: relative;
+        width: 300px;
+        height: 200px;
+        border: 2px solid lightgray;
+        text-align: center;
+        font: 40px/200px '宋体';
+        color: white;
+        overflow: hidden;
+    }
+    .list{
+        position: absolute;
+        width: 400%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        transition: left 1s;
+    }
+    .in{
+        float: left;
+        width: 25%;
+        background-color: lightgreen;
+    }
+    .l,.r{
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+    .l{
+        left: 0;
+        right: 50%;
+    }
+    .r{
+        left: 50%;
+        right: 0;
+    }
+    .l:hover,.r:hover{
+        opacity: 1;
+        transition: 1s;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+      <ul class="list" id="list">
+          <li class="in">第1个</li>
+          <li class="in">第2个</li>
+          <li class="in">第3个</li>
+          <li class="in">第4个</li>
+      </ul>
+      <div class="l" id="l">&lt;</div>
+      <div class="r" id="r">&gt;</div>
+  </div>
+  <script>
+    var index = 0;
+    var children = list.children;
+    l.onclick = function(){
+        if(index > 0){
+            index --;
+            move(index);
+        }
+    }
+    r.onclick = function(){
+        if(index < children.length -1){
+            index++;
+            move(index);
+        }
+    }
+    function move(index){
+        list.style.left = '-' + index*100 + '%';
+    }
+  </script>
+</body>
+</html>
