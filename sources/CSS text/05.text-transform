@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .box1 {
+      margin: 10px;
+      width: 200px;
+      height: 100px;
+      border: 1px solid #f63;
+      
+      text-transform: uppercase;
+    }
+    
+    .box2 {
+      margin: 10px;
+      width: 200px;
+      height: 100px;
+      border: 1px solid #f63;
+      
+      text-transform: lowercase;
+    }
+    
+    .box3 {
+      margin: 10px;
+      width: 200px;
+      height: 100px;
+      border: 1px solid #f63;
+      
+      text-transform: capitalize;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box1">
+    This is the content in the box, you can see the effect of text-indent.
+  </div>
+  
+  <div class="box2">
+    This is the content in the box, you can see the effect of text-indent.
+  </div>
+  
+  <div class="box3">
+    This is the content in the box, you can see the effect of text-indent.
+  </div>
+</body>
+</html>
+

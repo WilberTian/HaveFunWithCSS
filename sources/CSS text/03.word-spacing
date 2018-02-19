@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .box1 {
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #f63;
+      
+      word-spacing: 20px;
+    }
+    
+    .box2 {
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #f63;
+      
+      word-spacing: -2px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box1">
+    this is the content in the box.
+  </div>
+  
+  <div class="box2">
+    this is the content in the box.
+  </div>
+</body>
+</html>
+
