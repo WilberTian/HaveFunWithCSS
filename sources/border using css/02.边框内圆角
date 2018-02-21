@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      
+      border-radius:10px;
+      background: tan;
+    }
+    
+    .box2 {
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      
+      border-radius:10px;
+      background: tan;
+      outline:10px solid #655;
+      box-shadow:0 0 0 5px #655;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="box1">
+  	this is a box
+  </div>
+  
+  <div class="box2">
+  	this is a box
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      
+      padding:1em;
+  	  border: 1em solid transparent;
+      background: linear-gradient(white,white) padding-box, 
+        repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 0, transparent 25%, #58a 0, #58a 37.5%, transparent 0, transparent 50%) 0/5em 5em; 
+    }
+    
+    .box2 {
+      width: 200px;
+      height: 100px;
+      margin: 20px;
+      
+      padding:1em;
+  	  border: 1em solid transparent;
+  	  border-image:repeating-linear-gradient(-45deg, red 0, red 1em, transparent 0, transparent 2em, #58a 0, #58a 3em, transparent 0, transparent 4em)  16;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="box1">
+  	this is a box
+  </div>
+  
+  <div class="box2">
+  	this is a box
+  </div>
+
+</body>
+</html>
