@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+      width: 300px;
+      height: 160px;
+      margin: 20px;
+      
+      background: repeating-linear-gradient(45deg, gray, gray 15px, black 0, black 30px);
+    }
+    
+    .box2 {
+      width: 300px;
+      height: 160px;
+      margin: 20px;
+      
+      background: repeating-linear-gradient(60deg, gray, gray 15px, black 0, black 30px);
+    }
+
+    
+  </style>
+</head>
+<body>
+  
+  <div class="box1"></div>
+  
+  <div class="box2"></div>  
+    
+</body>
+</html>
