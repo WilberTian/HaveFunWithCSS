@@ -38,6 +38,10 @@ define([
                 })
 
             });
+
+            Backbone.on('updateLayoutEvent', function() {
+                self.masonryInstance.layout();
+            });
         },
 
         render: function () {
@@ -50,7 +54,7 @@ define([
                 $(self.el).find('#fun-group-list').append(funGroupView.render().el);
             });
 
-            new Masonry('.fun-group-grid', {
+            masonryInstance = self.masonryInstance = new Masonry('.fun-group-grid', {
                 itemSelector: '.fun-group-grid-item',
                 columnWidth: 280,
                 gutter: 40

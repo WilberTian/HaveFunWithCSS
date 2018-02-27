@@ -21,6 +21,7 @@ define([
             Backbone.off('updateFunItemEvent');
             Backbone.off('deleteFunItemEvent');
             Backbone.off('openConfirmModalEvent');
+            Backbone.off('updateLayoutEvent');
 
             require(['views/components/menu/indexMenu/IndexMenuView'], function (IndexMenuView) {
                 var indexMenuView = Vm.create('indexMenuView', IndexMenuView, {}, true);
