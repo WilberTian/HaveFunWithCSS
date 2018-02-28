@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+	.ua-fade-enter,
+    .ua-fade-appear {
+      opacity: 0;
+      animation-duration: .2s;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+      animation-play-state: paused;
+    }
+    .ua-fade-leave {
+      animation-duration: .2s;
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+      animation-play-state: paused;
+    }
+    .ua-fade-enter.ua-fade-enter-active,
+    .ua-fade-appear.ua-fade-appear-active {
+      animation-name: fadeIn;
+      animation-play-state: running;
+    }
+    .ua-fade-leave.ua-fade-leave-active {
+      animation-name: fadeOut;
+      animation-play-state: running;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    
+    
+    .wrapper {
+      margin: 20px;
+      width: 400px;
+      height: 600px;
+      border: 1px solid;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .inner{
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 380px;
+      background: #f63;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <button id="ua-btn">toggle</button>
+    <div class="inner ua-fade-enter">
+    </div>
+  </div>
+  
+  <script>
+    var btnEl = document.querySelector('#ua-btn');
+    var innerEl = document.querySelector('.inner');
+    var visable = false;
+    
+    btnEl.addEventListener('click', function() {
+		if (visable) {
+        	innerEl.className = 'inner ua-fade-leave ua-fade-leave-active';
+        } else {
+        	innerEl.className = 'inner ua-fade-enter ua-fade-enter-active';
+        }
+        visable = !visable;
+    });
+  </script>
+</body>
+</html>
+
