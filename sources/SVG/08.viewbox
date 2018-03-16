@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+      
+      svg {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <svg style="width:150px; height:300px">
+        <circle cx="200" cy="200" r="200" fill="#fdd" stroke="none"></circle>
+    </svg>
+    <svg style="width:150px; height:300px" viewBox="0 0 400 400">
+        <circle cx="200" cy="200" r="200" fill="#fdd" stroke="none"></circle>
+    </svg>
+  </body>
+</html>
