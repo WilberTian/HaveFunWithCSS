@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+ 	.box1 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(yellow, red);
+    }
+    
+    .box2 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(circle, yellow, red);
+    }
+    
+    .box3 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(100px circle, yellow, red);
+    }
+    
+    .box4 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(circle at 50px 50px, yellow, red);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <div class="box4"></div>
+
+</body>
+</html>

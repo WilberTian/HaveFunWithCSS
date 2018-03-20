@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box1 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(closest-side circle at 50px 50px, yellow, red);
+    }
+    
+    .box2 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(closest-corner circle at 50px 50px, yellow, red);
+    }
+    
+    .box3 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(farthest-side circle at 50px 50px, yellow, red);
+    }
+    
+    .box4 {
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(farthest-corner circle at 50px 50px, yellow, red);
+    }
+  </style>
+</head>
+<body>
+  <pre>
+  default value is 'farthest-corner'
+  </pre>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <div class="box4"></div>
+
+</body>
+</html>
