@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(50px 100px ellipse, transparent 40px, yellow 41px, red);
+    }
+    
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(50px 100px ellipse, transparent 40px, yellow 41px, red 49px, transparent 50px),
+                  radial-gradient(30px circle, red, red 29px, transparent 30px);
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="box1"></div>
+  <div class="box2"></div>
+
+</body>
+</html>
