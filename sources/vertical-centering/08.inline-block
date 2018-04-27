@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+    .ex-1 #parent { 
+      position: fixed;
+      border: 1px solid black;
+      height: 400px;
+      width: 600px;
+      
+      text-align: center;
+      white-space: nowrap;
+    }
+    
+    .ex-1 #parent:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        width: 0;
+    }
+
+    .ex-1 #child {
+      border: 1px solid black;
+      padding: 20px;
+      
+      display: inline-block;
+      vertical-align: middle;
+    }
+        
+  </style>
+</head>
+<body>
+  
+  <div class="ex-1">
+    <h4>ex-1</h4>
+
+    <div id="parent">
+      <div id="child">Content here</div>
+    </div>
+  </div>
+
+</body>
+</html>
